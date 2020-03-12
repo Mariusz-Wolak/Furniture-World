@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Actions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Actions</shortDescription>
+        <value>Actions</value>
+    </labels>
+    <labels>
+        <fullName>Address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>Blank_Value</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Blank Value</shortDescription>
+        <value>Value doesn&apos;t exist</value>
+    </labels>
+    <labels>
+        <fullName>CSV</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CSV</shortDescription>
+        <value>CSV</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>City</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>Clear</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Confirmation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirmation</shortDescription>
+        <value>Are you sure?</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Dismiss_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract Dismiss Error</shortDescription>
+        <value>This contract is from the past - it can&apos;t be dismissed.</value>
+    </labels>
+    <labels>
+        <fullName>Contract_number</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract number</shortDescription>
+        <value>Contract Number</value>
+    </labels>
+    <labels>
+        <fullName>Contract_overlapping_msg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract overlapping msg</shortDescription>
+        <value>Another contract with this doctor is active in this period of time.</value>
+    </labels>
+    <labels>
+        <fullName>Contracts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contracts</shortDescription>
+        <value>Contracts</value>
+    </labels>
+    <labels>
+        <fullName>Copy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Copy</shortDescription>
+        <value>Copy</value>
+    </labels>
+    <labels>
+        <fullName>Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>Dashboard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dashboard</shortDescription>
+        <value>Dashboard</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Photo_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Photo Button</shortDescription>
+        <value>Delete Photo</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>Dismiss</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dismiss</shortDescription>
+        <value>Dismiss</value>
+    </labels>
+    <labels>
+        <fullName>Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor</shortDescription>
+        <value>Doctor</value>
+    </labels>
+    <labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Doctor</shortDescription>
+        <value>Edit Doctor</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Hospital</shortDescription>
+        <value>Edit Hospital</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Link</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit_Link</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>First_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>Full_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Full Name</shortDescription>
+        <value>Full Name</value>
+    </labels>
+    <labels>
+        <fullName>Hire</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hire</shortDescription>
+        <value>Hire</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Delete_Photo_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Delete Photo Title</shortDescription>
+        <value>Delete photo.</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Image_Upload_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Image Upload Error</shortDescription>
+        <value>Error occured during image upload.</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_CSV_File_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import CSV File Error</shortDescription>
+        <value>An error has occured while importing data. Please make sure input CSV file is correct.</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Deselect_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Deselect All</shortDescription>
+        <value>Deselect All</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Fail_Importing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Fail Importing</shortDescription>
+        <value>Fail:</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Import_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Import Button</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Process_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Process Button</shortDescription>
+        <value>Process</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Reverse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Reverse</shortDescription>
+        <value>Reverse</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Select_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Select All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Success_Importing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Success Importing</shortDescription>
+        <value>Success:</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Import_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Import Title</shortDescription>
+        <value>Choose CSV file to import</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_No_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor No Button</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Photo_Dialog_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Photo Dialog Title</shortDescription>
+        <value>Upload new photo.</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Doctor_Yes_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Doctor Yes Button</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Hire_Doctor_Dialog_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Hire Doctor Dialog Title</shortDescription>
+        <value>Hire doctor to</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Hospital_Hire_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Hospital Hire Button</shortDescription>
+        <value>Hire</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Invalid_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Invalid Photo</shortDescription>
+        <value>Maximum file size is 1 MB. Only JPEG, PNG allowed.</value>
+    </labels>
+    <labels>
+        <fullName>Hos_Select_Doctor_To_Hire</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hos Select Doctor To Hire</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital</shortDescription>
+        <value>Hospital</value>
+    </labels>
+    <labels>
+        <fullName>Hospital_NamE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>Input</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Input</shortDescription>
+        <value>Input</value>
+    </labels>
+    <labels>
+        <fullName>JSON</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>JSON</shortDescription>
+        <value>JSON</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>Link</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Link</shortDescription>
+        <value>Link</value>
+    </labels>
+    <labels>
+        <fullName>Map</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Map</shortDescription>
+        <value>Map</value>
+    </labels>
+    <labels>
+        <fullName>Mateusz_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mateusz&apos;s Doctors</shortDescription>
+        <value>Mateusz&apos;s Doctors</value>
+    </labels>
+    <labels>
+        <fullName>Mateusz_Hospitals</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mateusz&apos;s Hospitals</shortDescription>
+        <value>Mateusz&apos;s Hospitals</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>New_Contract</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Contract</shortDescription>
+        <value>New Contract</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>Next_Page</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next Page</shortDescription>
+        <value>Next Page</value>
+    </labels>
+    <labels>
+        <fullName>No</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>Not_Specified</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Specified</shortDescription>
+        <value>Not Specified</value>
+    </labels>
+    <labels>
+        <fullName>OK</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OK</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>Other</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Other</shortDescription>
+        <value>Other</value>
+    </labels>
+    <labels>
+        <fullName>Previous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Previous_Page</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous Page</shortDescription>
+        <value>Previous Page</value>
+    </labels>
+    <labels>
+        <fullName>Random_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Random Doctors</shortDescription>
+        <value>Random Doctors</value>
+    </labels>
+    <labels>
+        <fullName>Record_Already_Exists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record Already Exists</shortDescription>
+        <value>Record already exists.</value>
+    </labels>
+    <labels>
+        <fullName>Related</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Related</shortDescription>
+        <value>Related</value>
+    </labels>
+    <labels>
+        <fullName>Remove</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Request_Log_Fail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request_Log_Fail</shortDescription>
+        <value>Request Log Failed</value>
+    </labels>
+    <labels>
+        <fullName>Required_Field_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required Field Error</shortDescription>
+        <value>Please fill in required values.</value>
+    </labels>
+    <labels>
+        <fullName>Required_Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required Last Name</shortDescription>
+        <value>Please enter last name.</value>
+    </labels>
+    <labels>
+        <fullName>Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Search_For_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search For Doctor</shortDescription>
+        <value>Search For Doctor</value>
+    </labels>
+    <labels>
+        <fullName>Search_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Form</shortDescription>
+        <value>Search Form</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Send</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>Send_Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send Email</shortDescription>
+        <value>Send Email</value>
+    </labels>
+    <labels>
+        <fullName>Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Street</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Street</value>
+    </labels>
+    <labels>
+        <fullName>Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>Success_Adding_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Adding Doctor</shortDescription>
+        <value>Doctor has been added successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Adding_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Adding Hospital</shortDescription>
+        <value>Hospital has been added successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Deleting_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Deleting Doctor</shortDescription>
+        <value>Doctor has been deleted successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Deleting_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Deleting Hospital</shortDescription>
+        <value>Hospital has been deleted successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Deleting_Record</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Deleting Record</shortDescription>
+        <value>Record has been deleted successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Updating_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Updating Doctor</shortDescription>
+        <value>Doctor has been updated successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Updating_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Adding Hospital</shortDescription>
+        <value>Hospital has been updated successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Template</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Template</shortDescription>
+        <value>Template</value>
+    </labels>
+    <labels>
+        <fullName>To</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To</shortDescription>
+        <value>To</value>
+    </labels>
+    <labels>
+        <fullName>Trigger_Exception</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Trigger_Exception</shortDescription>
+        <value>Error: no handler has been found.</value>
+    </labels>
+    <labels>
+        <fullName>Update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update</shortDescription>
+        <value>Update</value>
+    </labels>
+    <labels>
+        <fullName>Upload</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload</shortDescription>
+        <value>Upload</value>
+    </labels>
+    <labels>
+        <fullName>Upload_Photo_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload Photo Button</shortDescription>
+        <value>Upload Photo</value>
+    </labels>
+    <labels>
+        <fullName>Value</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Value</shortDescription>
+        <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>View_Link</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View_Link</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>XLS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>XLS</shortDescription>
+        <value>XLS</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+</CustomLabels>
