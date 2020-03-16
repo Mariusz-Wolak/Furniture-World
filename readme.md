@@ -1,1 +1,1 @@
-FurnitureWorld Project
+Online shop for furniture made in Salesforce Lightning.
