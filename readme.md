@@ -1,1 +1,2 @@
-Online shop for furniture made in Salesforce Lightning.
+Online shop for furniture. 
+Project made in Salesforce Lightning.
