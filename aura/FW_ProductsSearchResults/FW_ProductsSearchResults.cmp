@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsSearchResults" implements="flexipage:availableForAllPageTypes">
+<aura:component description="FW_ProductsSearchResults" implements="forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="results" type="Product2[]" access="public"/>
 

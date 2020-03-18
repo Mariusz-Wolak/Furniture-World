@@ -1,9 +1,10 @@
-<aura:component description="FW_ProductsSearchBar" implements="flexipage:availableForAllPageTypes">
+<aura:component description="FW_ProductsSearchBar" controller="FW_ProductsController"
+                implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="searchItemName" type="String" access="public"/>
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
 
-    <lightning:input value="{!v.searchItemName}" label="{!Label.c.Name}" required="true"/>
+    <lightning:input value="{!v.searchItemName}" label="{!$Label.c.Name}" required="true"/>
     <lightning:button label="{!$Label.c.Search}" onclick="{!c.search}"/>
 
     <c:FW_CustomToast aura:id="customToast"/>
