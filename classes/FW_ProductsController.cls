@@ -16,4 +16,15 @@ public with sharing class FW_ProductsController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static List<Product2> returnAllProducts(){
+        String query = 'SELECT Id, DisplayUrl, Description, Name FROM Product2';
+
+        try {
+            return Database.query(query);
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

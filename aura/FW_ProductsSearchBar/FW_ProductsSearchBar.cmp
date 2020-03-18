@@ -4,8 +4,14 @@
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
 
-    <lightning:input value="{!v.searchItemName}" label="{!$Label.c.Name}" required="true"/>
-    <lightning:button label="{!$Label.c.Search}" onclick="{!c.search}"/>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_10-of-12">
+            <lightning:input value="{!v.searchItemName}" label="{!$Label.c.Name}" required="true"/>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+            <lightning:button label="{!$Label.c.Search}" onclick="{!c.search}" class="searchButton"/>
+        </div>
+    </div>
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

@@ -1,10 +1,10 @@
-<aura:component description="FW_ProductTile">
+<aura:component description="FW_ProductTile" implements="flexipage:availableForAllPageTypes,
+ forceCommunity:availableForAllPageTypes" extensible="true">
 
-    <aura:attribute name="item" type="Product2" access="public"/>
+    <aura:attribute name="item" type="Object" access="global" default="null"/>
 
-    <h1>Product name: {!item.Name}</h1>
-    <h1>Product Description: {!item.Description}</h1>
-    <h1>Product image url: {!item.DisplayUrl}</h1>
-    <h1>Product image:</h1>
-    <img src="{!item.DisplayUrl}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <h1>{!v.item.Name}</h1>
+    <h1>{!v.item.Description}</h1>
+    <img src="{!v.item.DisplayUrl}"/>
 </aura:component>

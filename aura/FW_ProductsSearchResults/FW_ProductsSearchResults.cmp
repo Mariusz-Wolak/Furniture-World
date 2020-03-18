@@ -1,11 +1,13 @@
-<aura:component description="FW_ProductsSearchResults" implements="forceCommunity:availableForAllPageTypes">
+<aura:component description="FW_ProductsSearchResults" controller="FW_ProductsController" implements="flexipage:availableForAllPageTypes,
+ forceCommunity:availableForAllPageTypes" extensible="true">
 
-    <aura:attribute name="results" type="Product2[]" access="public"/>
+    <aura:attribute name="results" type="Object[]" access="global"/>
 
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <div class="slds-grid slds-wrap">
-        <aura:iteration var="item" items="{!v.results}" indexVar="index">
+        <aura:iteration items="{!v.results}" var="item">
             <div class="slds-col slds-size_3-of-12">
                 <c:FW_ProductTile item="{!item}"/>
             </div>
