@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="FW_SendProductsToProductsList">
+    <aura:attribute name="results" type="Product2[]" access="public"/>
+</aura:event>
