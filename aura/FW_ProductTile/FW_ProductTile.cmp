@@ -4,7 +4,8 @@
     <aura:attribute name="item" type="Object" access="global" default="null"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <img src="{!v.item.DisplayUrl}"/>
     <h1>{!v.item.Name}</h1>
     <h1>{!v.item.Description}</h1>
-    <img src="{!v.item.DisplayUrl}"/>
 </aura:component>
