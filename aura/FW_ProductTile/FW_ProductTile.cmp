@@ -1,4 +1,10 @@
 <aura:component description="FW_ProductTile">
 
     <aura:attribute name="item" type="Product2" access="public"/>
+
+    <h1>Product name: {!item.Name}</h1>
+    <h1>Product Description: {!item.Description}</h1>
+    <h1>Product image url: {!item.DisplayUrl}</h1>
+    <h1>Product image:</h1>
+    <img src="{!item.DisplayUrl}"/>
 </aura:component>
