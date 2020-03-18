@@ -1,3 +1,4 @@
 <aura:component description="FW_ProductTile">
 
+    <aura:attribute name="item" type="Product2" access="public"/>
 </aura:component>
