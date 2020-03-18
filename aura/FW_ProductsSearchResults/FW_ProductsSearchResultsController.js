@@ -1,6 +1,5 @@
 ({
     onInit: function(component, event, helper){
-        console.log('doInit zdjecia');
         let meta = document.createElement("meta");
         meta.setAttribute("name", "format-detection");
         meta.setAttribute("http-equiv", "Content-Security-Policy")
@@ -12,6 +11,5 @@
     receiveSearchResults: function(component, event, helper){
         let resultsFromEvent = event.getParam("results");
         component.set("v.results", resultsFromEvent);
-        console.log('results in receiveSearchResults:'+JSON.stringify(component.get('v.results')));
     }
 })
