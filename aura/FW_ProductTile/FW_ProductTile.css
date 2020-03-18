@@ -9,6 +9,7 @@
 .THIS .itemTitle:hover{
     text-decoration: underline;
     color: blue;
+    cursor: pointer;
 }
 
 .THIS .itemPrice{
