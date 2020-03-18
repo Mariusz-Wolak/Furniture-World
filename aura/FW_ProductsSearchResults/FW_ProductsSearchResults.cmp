@@ -1,0 +1,14 @@
+<aura:component description="FW_ProductsSearchResults" implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="results" type="Product2[]" access="public"/>
+
+    <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
+
+    <div class="slds-grid slds-wrap">
+        <aura:iteration var="item" items="{!v.results}" indexVar="index">
+            <div class="slds-col slds-size_3-of-12">
+                <c:FW_ProductTile item="{!item}"/>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>
