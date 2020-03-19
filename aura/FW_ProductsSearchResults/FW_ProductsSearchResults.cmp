@@ -14,5 +14,9 @@
         </aura:iteration>
     </div>
 
+    ------------------------------------------------------------------
+
+    <c:FW_ProductView/>
+
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

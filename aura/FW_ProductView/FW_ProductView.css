@@ -1,0 +1,15 @@
+.THIS .productName{
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.THIS .productPrice{
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.THIS .productDescription{
+    font-size: 16px;
+}
