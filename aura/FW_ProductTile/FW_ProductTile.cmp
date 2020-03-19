@@ -6,6 +6,6 @@
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <img src="{!v.item.DisplayUrl}"/>
-    <h1 class="itemTitle" style="padding-bottom: 10px; font-size: 16px; font-weight: bold; text-decoration: underline;">{!v.item.Name}</h1>
-    <h1 class="itemPrice" style="font-size: 18px; font-weight: bold;">€{!v.item.Price__c}</h1>
+    <h1 class="itemTitle">{!v.item.Name}</h1>
+    <h1 class="itemPrice">€{!v.item.Price__c}</h1>
 </aura:component>
