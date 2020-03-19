@@ -6,7 +6,6 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.results', response.getReturnValue());
-                console.log('getAllProducts: '+JSON.stringify(component.get('v.results')));
             }else{
                 let title = $A.get("$Label.c.Error");
                 let message = $A.get("$Label.c.Error");
