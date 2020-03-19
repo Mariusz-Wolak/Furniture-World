@@ -3,6 +3,8 @@
 
     <aura:attribute name="item" type="Object" access="global" default="null"/>
 
+    <aura:registerEvent name="selectedProduct" type="c:FW_SelectedProduct"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <img src="{!v.item.DisplayUrl}"/>
