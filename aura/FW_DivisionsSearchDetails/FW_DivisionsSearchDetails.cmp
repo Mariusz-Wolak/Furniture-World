@@ -12,7 +12,7 @@
     </aura:method>
 
     <aura:if isTrue="{!and(not(empty(v.record)), not(empty(v.resultsList)))}">
-        <lightning:card title="Details">
+        <lightning:card title="{!$Label.c.Details}">
             <lightning:recordViewForm recordId="{!v.record.Id}" objectApiName="Account">
                 <center>
                     <div class="slds-grid slds-gutters">
