@@ -1,0 +1,62 @@
+<aura:component description="FW_ProductView" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+
+    <aura:attribute name="product" type="Object" access="global"/>
+
+    <ltng:require styles="{!$Resource.font_awesome}"/>
+
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-12">
+            <div>
+                <img src="{!v.product.DisplayUrl}"
+                     alt=""/>
+            </div>
+            <div>
+                <img src="{!v.product.DisplayUrl}"
+                     alt=""/>
+            </div>
+        </div>
+
+        <div class="slds-col slds-size--6-of-12">
+            <img src="{!v.product.DisplayUrl}"
+                 alt=""/>
+        </div>
+
+        <div class="slds-col slds-size--5-of-12">
+            <div class="productName">{!v.product.Name}</div>
+
+            <div class="productFamily">{!v.product.Family}</div>
+
+            <div class="productPrice">€{!v.product.Price__c}</div>
+
+            <div class="rateProductText">Rate product:</div>
+            <div class="slds-align--absolute-center">
+                <fieldset class="rating">
+
+                    <input type="radio" id="star10" name="rating" value="10"/><label class="full" for="star10"
+                                                                                     title="10 stars"></label>
+                    <input type="radio" id="star9" name="rating" value="9"/><label class="full" for="star9"
+                                                                                   title="9 stars"></label>
+                    <input type="radio" id="star8" name="rating" value="8"/><label class="full" for="star8"
+                                                                                   title="8 stars"></label>
+                    <input type="radio" id="star7" name="rating" value="7"/><label class="full" for="star7"
+                                                                                   title="7 stars"></label>
+                    <input type="radio" id="star6" name="rating" value="6"/><label class="full" for="star6"
+                                                                                   title="6 stars"></label>
+                    <input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
+                                                                                   title="5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4"/><label class="full" for="star4"
+                                                                                   title="4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3"/><label class="full" for="star3"
+                                                                                   title="3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2"/><label class="full" for="star2"
+                                                                                   title="2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1"/><label class="full" for="star1"
+                                                                                   title="1 star"></label>
+                </fieldset>
+            </div>
+
+            <div class="productDescription">{!v.product.Description}</div>
+        </div>
+    </div>
+
+</aura:component>

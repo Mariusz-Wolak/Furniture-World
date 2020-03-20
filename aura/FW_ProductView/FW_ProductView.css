@@ -1,0 +1,68 @@
+/*rating*/
+
+.THIS fieldset, .THIS  label { margin: 0; padding: 0; }
+.THIS body{ margin: 20px; }
+.THIS h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.THIS .rating {
+
+}
+
+.THIS .rating > input { display: none; }
+.THIS .rating > label:before {
+  margin: 5px;
+  font-size: 1.5em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.THIS  .rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.THIS .rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.THIS .rating > input:checked ~ label, /* show gold star when clicked */
+.THIS .rating:not(:checked) > label:hover, /* hover current star */
+.THIS .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.THIS .rating > input:checked + label:hover, /* hover current star when changing rating */
+.THIS .rating > input:checked ~ label:hover,
+.THIS .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.THIS .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+/*END rating*/
+
+.THIS .productName{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.THIS .productFamily{
+    font-size: 16px;
+}
+
+.THIS .productPrice{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.THIS .productDescription{
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.THIS .rateProductText{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+}
