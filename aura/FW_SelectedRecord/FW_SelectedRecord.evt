@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_SelectedRecord">
-    <aura:attribute name="record" type="Account" access="public"/>
-</aura:event>
