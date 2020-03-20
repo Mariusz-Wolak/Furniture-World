@@ -22,7 +22,9 @@
     </aura:if>
 
     <aura:if isTrue="{!v.showProductView}">
-        <c:FW_ProductView product="{!v.selectedItem}"/>
+        <div class="productView">
+            <c:FW_ProductView product="{!v.selectedItem}"/>
+        </div>
     </aura:if>
 
     <c:FW_CustomToast aura:id="customToast"/>
