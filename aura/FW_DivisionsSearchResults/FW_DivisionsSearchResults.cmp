@@ -10,16 +10,16 @@
 
     <lightning:card title="Results">
         <aura:if isTrue="{!not(empty(v.resultsList))}">
-        <p class="slds-p-horizontal--small">
-        <div aura:id="main">
-            <aura:iteration items="{!v.resultsList}" var="result" indexVar="index">
-                <div class="slds-truncate"
-                     aura:id="resultItem" data-id="{!index}" onclick="{!c.setDivisionId}">
-                    <h1 class="result">{!result.Name} ({!result.ShippingCity}, {!result.ShippingCountry})</h1>
+            <p class="slds-p-horizontal--small">
+                <div aura:id="main">
+                    <aura:iteration items="{!v.resultsList}" var="result" indexVar="index">
+                        <div class="slds-truncate"
+                             aura:id="resultItem" data-id="{!index}" onclick="{!c.setDivisionId}">
+                            <h1 class="result">{!result.Name} ({!result.ShippingCity}, {!result.ShippingCountry})</h1>
+                        </div>
+                    </aura:iteration>
                 </div>
-            </aura:iteration>
-        </div>
-        </p>
+            </p>
         </aura:if>
     </lightning:card>
 </aura:component>
