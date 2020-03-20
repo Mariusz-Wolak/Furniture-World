@@ -20,7 +20,6 @@
     },
 
     showProduct: function(component, event, helper){
-        console.log('show product');
         let product = event.getParam('product');
         component.set('v.selectedItem', product);
 

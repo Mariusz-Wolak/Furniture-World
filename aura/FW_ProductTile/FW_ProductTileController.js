@@ -8,13 +8,11 @@
     },
 
     selectItem: function(component, event, helper){
-        console.log('selectItem');
         let selectedProductEvent = component.getEvent("selectedProduct");
         let product = component.get("v.item");
         selectedProductEvent.setParams({
             "product": product
         });
         selectedProductEvent.fire();
-        console.log('after fire selectedProductEvent');
     }
 })
