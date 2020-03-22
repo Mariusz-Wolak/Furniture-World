@@ -37,6 +37,20 @@
             </div>
 
             <div class="productDescription">{!v.product.Description}</div>
+
+            <div class="iconsDiv slds-grid slds-align--absolute-center">
+                <div class="slds-col slds-size--3-of-12"/>
+
+                <div class="observeDiv slds-col slds-size--4-of-12">
+                    <lightning:icon class="greyIcon observeIcon" iconName="action:preview" size="medium" alternativeText="Observe"
+                                    title="Observe"/>
+                </div>
+
+                <div class="basketDiv slds-col slds-size--4-of-12">
+                    <lightning:icon class="greyIcon basketIcon" iconName="custom:custom93" size="large" alternativeText="Add to Basket"
+                                     title="Add to Basket"/>
+                </div>
+            </div>
         </div>
     </div>
 
