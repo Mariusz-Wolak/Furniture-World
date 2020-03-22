@@ -42,13 +42,17 @@
                 <div class="slds-col slds-size--3-of-12"/>
 
                 <div class="observeDiv slds-col slds-size--4-of-12">
-                    <lightning:icon class="greyIcon observeIcon" iconName="action:preview" size="medium" alternativeText="Observe"
-                                    title="Observe"/>
+                    <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="medium"
+                                     alternativeText="Observe"
+                                    title="Observe"
+                                    onclick="{!c.toggleObserved}"/>
                 </div>
 
                 <div class="basketDiv slds-col slds-size--4-of-12">
-                    <lightning:icon class="greyIcon basketIcon" iconName="custom:custom93" size="large" alternativeText="Add to Basket"
-                                     title="Add to Basket"/>
+                    <lightning:icon aura:id="basketIcon" class="greyIcon basketIcon" iconName="custom:custom93" size="large"
+                                    alternativeText="Add to Basket"
+                                    title="Add to Basket"
+                                    onclick="{!c.toggleBasket}"/>
                 </div>
             </div>
         </div>
