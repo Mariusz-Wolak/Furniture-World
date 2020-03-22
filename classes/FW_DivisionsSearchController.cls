@@ -8,8 +8,10 @@ public with sharing class FW_DivisionsSearchController {
             query += String.isBlank(country) ? '' : ' AND ShippingCountry LIKE \'%' + country + '%\'';
             query += String.isBlank(city) ? '' : ' AND ShippingCity LIKE \'%' + city + '%\'';
             return query;
+        }else{
+            FW_CustomExceptionData data = new FW_CustomExceptionData('Error', 'Value cannot be blank.');
+            throw new AuraHandledException(JSON.serialize(data));
         }
-        return '';
     }
 
     @AuraEnabled

@@ -16,12 +16,12 @@
                 appEvent.setParams({"results": response.getReturnValue()});
                 appEvent.fire();
            } else{
-                let title = $A.get("$Label.c.Error");
-                let message = $A.get("$Label.c.Error");
-                let errors = response.getError();
-                if (errors && Array.isArray(errors) && errors.length > 0) {
-                    message = errors[0].message;
-                }
+               console.log('toast');
+                let errorData = JSON.parse(error.message);
+                console.log('asd');
+                console.error('errorData name: '+errorData.name);
+                let title = errorData.name;
+                let message = errorData.message;
                 let toastComponent = component.find('customToast');
                 toastComponent.ShowToast(title, message, 'error', 'sticky');
              }
