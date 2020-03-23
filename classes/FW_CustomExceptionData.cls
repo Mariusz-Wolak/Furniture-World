@@ -3,6 +3,10 @@ public class FW_CustomExceptionData {
     public String message;
     public Integer code;
 
+    public FW_CustomExceptionData(String message) {
+        this.message = message;
+    }
+
     public FW_CustomExceptionData(String name, String message) {
         this.name = name;
         this.message = message;

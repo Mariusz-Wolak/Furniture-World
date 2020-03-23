@@ -9,8 +9,7 @@ public with sharing class FW_DivisionsSearchController {
             query += String.isBlank(city) ? '' : ' AND ShippingCity LIKE \'%' + city + '%\'';
             return query;
         }else{
-            FW_CustomExceptionData customException = new FW_CustomExceptionData('Error', 'Value cannot be blank.');
-            throw new AuraHandledException(JSON.serialize(customException));
+            throw new FW_CustomException.OtherException((Label.Fill_Blank_Value_Error));
         }
     }
 
@@ -18,8 +17,9 @@ public with sharing class FW_DivisionsSearchController {
     public static List<Account> getSearchResults(String name, String city, String country) {
         try {
             return Database.query(getQuery(name, city, country));
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch (FW_CustomException e) {
+            FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
+            throw new AuraHandledException(JSON.serialize(customException));
         }
     }
 

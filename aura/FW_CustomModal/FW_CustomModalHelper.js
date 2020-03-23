@@ -9,7 +9,7 @@
                     let title = $A.get("$Label.c.Success");
                     let message = $A.get("$Label.c.Success_Deleting_Record");
                     let toastComponent = component.find('customToast');
-                    toastComponent.ShowToast(title, message, 'success', 'sticky');
+                    toastComponent.showToast(title, message, 'success', 'sticky');
                     component.set("v.deleteDivisionIsOpen", false);
 
                     let sendAccountEvent = component.getEvent('sendAccount');
@@ -37,7 +37,7 @@
                         message = errors[0].message;
                     }
                     let toastComponent = component.find('customToast');
-                    toastComponent.ShowToast(title, message, 'error', 'sticky');
+                    toastComponent.showToast(title, message, 'error', 'sticky');
                     component.set("v.deleteDivisionIsOpen", false);
             }
         });
