@@ -4,16 +4,18 @@ public with sharing class FW_ProductsController {
             String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 ' +
                             'WHERE Name LIKE \'%' + name + '%\' AND Type__c = \'Furniture\' ORDER BY Price__c ASC';
             return query;
+        }else{
+            throw new FW_CustomException.OtherException((Label.Fill_Blank_Value_Error));
         }
-        return '';
     }
 
     @AuraEnabled
     public static List<Product2> getSearchResults(String name){
         try {
             return Database.query(getQuery(name));
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch (FW_CustomException e) {
+            FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
+            throw new AuraHandledException(JSON.serialize(customException));
         }
     }
 
