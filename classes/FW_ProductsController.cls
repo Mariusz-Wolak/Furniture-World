@@ -42,11 +42,15 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static Boolean checkIfProductIsObserved(String productId){
-        List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c WHERE Name =: productId];
-        if(observedItems.size()>0){
-            return true;
-        }else{
-            return false;
+        try {
+            List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c WHERE Name = :productId];
+            if (observedItems.size() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
         }
     }
 }

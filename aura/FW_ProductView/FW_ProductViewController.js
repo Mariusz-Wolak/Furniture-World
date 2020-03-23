@@ -1,6 +1,5 @@
 ({
     doInit: function(component, event, helper){
-        console.log('doInit');
         let productId = component.get('v.product.Id');
         let observeIcon = component.find('observeIcon');
         let action = component.get('c.checkIfProductIsObserved');
@@ -11,12 +10,18 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 if(response.getReturnValue() == true){
-                    console.log('isOnObserved');
                     $A.util.removeClass(observeIcon, 'greyIcon');
                     $A.util.addClass(observeIcon, 'highlightedIcon');
-                }else{
-                    console.log('is not on observed');
                 }
+            }else{
+                let toastComponent = component.find('customToast');
+                toastTitle = $A.get("$Label.c.Error");
+                toastMsg = $A.get("$Label.c.Unknown_Error");
+                let errors = response.getError();
+                if (errors && Array.isArray(errors) && errors.length > 0) {
+                    toastMsg = errors[0].message;
+                }
+                toastComponent.ShowToast(toastTitle, toastMsg, 'error', 'sticky');
             }
         });
         $A.enqueueAction(action);
