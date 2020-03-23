@@ -1,7 +1,26 @@
 ({
     doInit: function(component, event, helper){
-
-    }
+        console.log('doInit');
+        let productId = component.get('v.product.Id');
+        let observeIcon = component.find('observeIcon');
+        let action = component.get('c.checkIfProductIsObserved');
+        action.setParams({
+           "productId": productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                if(response.getReturnValue() == true){
+                    console.log('isOnObserved');
+                    $A.util.removeClass(observeIcon, 'greyIcon');
+                    $A.util.addClass(observeIcon, 'highlightedIcon');
+                }else{
+                    console.log('is not on observed');
+                }
+            }
+        });
+        $A.enqueueAction(action);
+    },
 
     toggleObserved: function(component, event, helper){
         let observeIcon = component.find('observeIcon');
