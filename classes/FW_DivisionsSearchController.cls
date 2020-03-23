@@ -20,6 +20,8 @@ public with sharing class FW_DivisionsSearchController {
         } catch (FW_CustomException e) {
             FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
             throw new AuraHandledException(JSON.serialize(customException));
+        } catch (Exception e){
+            throw new AuraHandledException(e.getMessage());
         }
     }
 
