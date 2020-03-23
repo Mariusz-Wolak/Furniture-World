@@ -12,7 +12,6 @@
         <name>AssignmentRules</name>
     </types>
     <types>
-        <members>CustomToast</members>
         <members>FW_CustomToast</members>
         <members>FW_DivisionsSearchDetails</members>
         <members>FW_DivisionsSearchForm</members>
