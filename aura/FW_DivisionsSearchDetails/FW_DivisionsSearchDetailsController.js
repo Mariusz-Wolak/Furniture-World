@@ -13,15 +13,7 @@
     },
 
     openDeleteModal: function(component, event, helper) {
-        component.set("v.deleteIsOpen", true);
-    },
-
-    closeDeleteModal: function(component, event, helper) {
-        component.set("v.deleteIsOpen", false);
-    },
-
-    deleteRecord: function(component, event, helper){
-        helper.doDelete(component);
+        component.set("v.deleteDivisionIsOpen", true);
     },
 
     editRecord : function(component, event, helper) {
@@ -35,4 +27,11 @@
         appEvent.setParams({"results": []});
         appEvent.fire();
     },
+
+    getRecord: function(component, event, helper){
+        let record = event.getParam("record");
+        component.set("v.record", record);
+        component.set("v.deleteDivisionIsOpen", false);
+        console.log('powinno zamknac modala w detailsach');
+    }
 })

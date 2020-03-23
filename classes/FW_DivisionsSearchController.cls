@@ -24,7 +24,7 @@ public with sharing class FW_DivisionsSearchController {
     }
 
     @AuraEnabled
-    public static Boolean deleteDivision(String id) {
+    public static Boolean deleteSelectedDivision(String id) {
         try {
             Database.DeleteResult result = Database.delete(id);
             return result.isSuccess();
