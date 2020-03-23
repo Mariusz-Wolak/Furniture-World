@@ -1,5 +1,5 @@
 <aura:component description="FW_ProductsSearchBar" controller="FW_ProductsController"
-                implements="forceCommunity:availableForAllPageTypes">
+                implements="forceCommunity:searchInterface">
     <aura:attribute name="searchItemName" type="String" access="public"/>
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
