@@ -58,4 +58,5 @@
         </div>
     </div>
 
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
