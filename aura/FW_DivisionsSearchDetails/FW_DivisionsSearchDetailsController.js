@@ -31,7 +31,5 @@
     getRecord: function(component, event, helper){
         let record = event.getParam("record");
         component.set("v.record", record);
-        component.set("v.deleteDivisionIsOpen", false);
-        console.log('powinno zamknac modala w detailsach');
     }
 })

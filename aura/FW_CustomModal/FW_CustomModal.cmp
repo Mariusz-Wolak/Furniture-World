@@ -1,7 +1,8 @@
 <aura:component description="FW_CustomModal" controller="FW_DivisionsSearchController">
 
     <aura:attribute name="deleteDivisionIsOpen" type="Boolean" access="global"/>
-    <aura:attribute name="record" type="Account" access="public"/>
+    <aura:attribute name="divisionId" type="Integer" access="public"/>
+    <aura:attribute name="divisionsList" type="Account[]" access="global"/>
 
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
@@ -14,7 +15,7 @@
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <center>
-                        <lightning:button label="{!$Label.c.No}" onclick="{!c.closeDeleteModal}"/>
+                        <lightning:button label="{!$Label.c.No}" onclick="{!c.closeDeleteDivisionModal}"/>
                         <lightning:button label="{!$Label.c.Yes}" onclick="{!c.deleteDivision}"/>
                     </center>
                 </div>
