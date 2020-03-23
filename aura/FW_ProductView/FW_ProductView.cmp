@@ -1,9 +1,9 @@
-<aura:component description="FW_ProductView" implements="flexipage:availableForAllPageTypes,
+<aura:component description="FW_ProductView" controller="FW_ProductsController" implements="flexipage:availableForAllPageTypes,
  forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="product" type="Object" access="global"/>
 
-    <ltng:require styles="{!$Resource.font_awesome}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">
