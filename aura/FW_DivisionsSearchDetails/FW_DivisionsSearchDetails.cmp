@@ -3,16 +3,15 @@
 
     <aura:attribute name="record" type="Account" access="public"/>
     <aura:attribute name="resultsList" type="Account[]" access="public"/>
-    <aura:attribute name="deleteIsOpen" type="Boolean" access="public"/>
+    <aura:attribute name="deleteDivisionIsOpen" type="Boolean" access="public"/>
+
+    <aura:handler name="sendAccount" event="c:FW_SendAccount" action="{!c.getRecord}"/>
 
     <aura:handler event="c:FW_SelectedRecord" action="{!c.onInit}"/>
     <aura:handler event="c:FW_SendResultsToResultList" action="{!c.setResultsList}"/>
 
-    <aura:method name="asd" action="{!c.displayToast}">
-    </aura:method>
-
     <aura:if isTrue="{!and(not(empty(v.record)), not(empty(v.resultsList)))}">
-        <lightning:card title="Details">
+        <lightning:card title="{!$Label.c.Details}">
             <lightning:recordViewForm recordId="{!v.record.Id}" objectApiName="Account">
                 <center>
                     <div class="slds-grid slds-gutters">
@@ -40,23 +39,8 @@
         </lightning:card>
     </aura:if>
 
-    <aura:if isTrue="{!v.deleteIsOpen}">
-        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
-                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-                <header class="slds-modal__header">
-                    <p>{!$Label.c.Confirmation}</p>
-                </header>
-                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <center>
-                            <lightning:button label="{!$Label.c.No}" onclick="{!c.closeDeleteModal}"/>
-                            <lightning:button label="{!$Label.c.Yes}" onclick="{!c.deleteRecord}"/>
-                    </center>
-                </div>
-            </div>
-        </section>
-        <div class="slds-backdrop slds-backdrop_open"></div>
-    </aura:if>
 
+    <c:FW_CustomModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
+                      divisionsList="{!v.resultsList}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

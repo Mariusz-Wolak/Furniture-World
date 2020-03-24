@@ -21,7 +21,7 @@
                     message = errors[0].message;
                 }
                 let toastComponent = component.find('customToast');
-                toastComponent.ShowToast(title, message, 'error', 'sticky');
+                toastComponent.showToast(title, message, 'error', 'sticky');
             }
         });
         $A.enqueueAction(action);

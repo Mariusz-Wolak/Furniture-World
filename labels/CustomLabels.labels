@@ -1078,4 +1078,18 @@
         <shortDescription>Yes</shortDescription>
         <value>Yes</value>
     </labels>
+    <labels>
+        <fullName>Fill_Blank_Value_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fill_Blank_Value_Error</shortDescription>
+        <value>Value cannot be blank.</value>
+    </labels>
+    <labels>
+        <fullName>Unknown_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unknown_Error</shortDescription>
+        <value>Unknown error.</value>
+    </labels>
 </CustomLabels>
