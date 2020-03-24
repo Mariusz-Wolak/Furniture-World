@@ -1113,4 +1113,11 @@
         <shortDescription>Showing_Results_For</shortDescription>
         <value>Showing results for</value>
     </labels>
+    <labels>
+        <fullName>Observed_Items</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Observed_Items</shortDescription>
+        <value>Observed items:</value>
+    </labels>
 </CustomLabels>
