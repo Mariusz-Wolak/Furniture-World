@@ -5,4 +5,8 @@
         <aura:attribute name="myType" type="String" default="error" access="global"/>
         <aura:attribute name="mode" type="String" default="sticky" access="global"/>
     </aura:method>
+
+    <aura:method name="showErrorToast" action="{!c.displayErrorToast}" access="global">
+        <aura:attribute name="errors" type="Object[]" access="global"/>
+    </aura:method>
 </aura:component>
