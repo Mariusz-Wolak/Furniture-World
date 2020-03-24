@@ -7,7 +7,6 @@
 
     <aura:attribute name="showItems" type="Boolean" access="global"/>
     <aura:attribute name="showProductView" type="Boolean" access="global"/>
-    <aura:attribute name="showHeader" type="Boolean" access="global"/>
 
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
