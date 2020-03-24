@@ -10,7 +10,8 @@
             if(state === 'SUCCESS'){
                 let appEvent = $A.get("e.c:FW_SendProductsToProductsList");
                 appEvent.setParams({
-                    "results": response.getReturnValue()
+                    "results": response.getReturnValue(),
+                    "searchItemName": name
                 });
                 appEvent.fire();
             }else{

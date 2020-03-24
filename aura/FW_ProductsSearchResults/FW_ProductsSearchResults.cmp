@@ -1,17 +1,20 @@
-<aura:component description="FW_ProductsSearchResults" controller="FW_ProductsController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
+<aura:component description="FW_ProductsSearchResults" controller="FW_ProductsController"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
 
+    <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="selectedItem" type="Object" access="global"/>
 
     <aura:attribute name="showItems" type="Boolean" access="global"/>
     <aura:attribute name="showProductView" type="Boolean" access="global"/>
+    <aura:attribute name="showHeader" type="Boolean" access="global"/>
 
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="selectedProduct" event="c:FW_SelectedProduct" action="{!c.showProduct}"/>
 
-    <c:FW_ProductsResults results="{!v.results}" showItems="{!v.showItems}" showProductView="{!v.showProductView}"
+    <c:FW_ProductsResults header="{!v.header}" results="{!v.results}" showItems="{!v.showItems}" showProductView="{!v.showProductView}"
                           selectedItem="{!v.selectedItem}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

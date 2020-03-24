@@ -8,15 +8,20 @@
 
         helper.getAllProducts(component);
 
+        component.set('v.header', $A.get('$Label.c.Newest_Items'));
         component.set('v.showItems', true);
     },
 
     receiveSearchResults: function(component, event, helper){
+        let searchItemName = event.getParam("searchItemName");
         let resultsFromEvent = event.getParam("results");
+
         component.set("v.results", resultsFromEvent);
+        component.set("v.header", $A.get("$Label.c.Showing_Results_For") + ": " + searchItemName);
 
         component.set('v.showItems', true);
         component.set('v.showProductView', false);
+        component.set('v.showHeader', false);
     },
 
     showProduct: function(component, event, helper){
@@ -25,5 +30,6 @@
 
         component.set('v.showItems', false);
         component.set('v.showProductView', true);
+        component.set('v.showHeader', false);
     }
 })
