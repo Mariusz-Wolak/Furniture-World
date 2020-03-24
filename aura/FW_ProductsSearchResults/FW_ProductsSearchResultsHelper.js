@@ -1,6 +1,6 @@
 ({
     getAllProducts: function(component){
-        let action = component.get("c.returnAllProducts");
+        let action = component.get("c.getNewestProducts");
         let results = component.get("v.results");
         action.setCallback(this, function(response){
             let state = response.getState();
