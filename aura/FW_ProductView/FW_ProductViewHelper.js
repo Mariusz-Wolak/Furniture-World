@@ -29,8 +29,13 @@
             $A.util.addClass(observeIcon, 'highlightedIcon');
             $A.enqueueAction(action);
         }else{
+            let action = component.get('c.removeFromObserved');
+            action.setParams({
+                "productId": productId
+            });
             $A.util.removeClass(observeIcon, 'highlightedIcon');
             $A.util.addClass(observeIcon, 'greyIcon');
+            $A.enqueueAction(action);
         }
     },
 
