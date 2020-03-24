@@ -1,5 +1,5 @@
 ({
-    getAllProducts: function(component){
+    returnNewestProducts: function(component){
         let action = component.get("c.getNewestProducts");
         let results = component.get("v.results");
         action.setCallback(this, function(response){

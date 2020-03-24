@@ -6,7 +6,7 @@
         meta.setAttribute("content", "date=no;img-src 'self' data:");
         document.getElementsByTagName('head')[0].appendChild(meta);
 
-        helper.getAllProducts(component);
+        helper.returnNewestProducts(component);
 
         component.set('v.header', $A.get('$Label.c.Newest_Items'));
         component.set('v.showItems', true);
