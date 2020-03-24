@@ -22,9 +22,9 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<Product2> returnAllProducts() {
-        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 WHERE Type__c = ' +
-                '\'Furniture\' ORDER BY Price__c ASC';
+    public static List<Product2> getNewestProducts() {
+        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
+                '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
 
         try {
             return Database.query(query);
@@ -40,7 +40,7 @@ public with sharing class FW_ProductsController {
             observedItem.Name = productId;
             insert observedItem;
         }catch(Exception e){
-            throw new AuraHandledException('e.getMessage()');
+            throw new AuraHandledException(e.getMessage());
         }
     }
 
