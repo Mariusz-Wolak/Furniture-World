@@ -967,6 +967,13 @@
         <value>Hospital has been added successfully.</value>
     </labels>
     <labels>
+        <fullName>Success_Adding_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Adding Item</shortDescription>
+        <value>Item has been added successfully.</value>
+    </labels>
+    <labels>
         <fullName>Success_Deleting_Doctor</fullName>
         <language>en_US</language>
         <protected>true</protected>
