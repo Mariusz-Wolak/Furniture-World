@@ -7,21 +7,9 @@
            "productId": productId
         });
         action.setCallback(this, function(response){
-            let state = response.getState();
-            if(state === 'SUCCESS'){
-                if(response.getReturnValue() == true){
-                    $A.util.removeClass(observeIcon, 'greyIcon');
-                    $A.util.addClass(observeIcon, 'highlightedIcon');
-                }
-            }else{
-                let toastComponent = component.find('customToast');
-                toastTitle = $A.get("$Label.c.Error");
-                toastMsg = $A.get("$Label.c.Unknown_Error");
-                let errors = response.getError();
-                if (errors && Array.isArray(errors) && errors.length > 0) {
-                    toastMsg = errors[0].message;
-                }
-                toastComponent.ShowToast(toastTitle, toastMsg, 'error', 'sticky');
+            if(response.getReturnValue() == true){
+                $A.util.removeClass(observeIcon, 'greyIcon');
+                $A.util.addClass(observeIcon, 'highlightedIcon');
             }
         });
         $A.enqueueAction(action);
@@ -39,28 +27,13 @@
             action.setParams({
                 "productId": productId
             });
-            action.setCallback(this, function(response){
-                let state = response.getState();
-                if(state === 'SUCCESS'){
-                    $A.util.removeClass(observeIcon, 'greyIcon');
-                    $A.util.addClass(observeIcon, 'highlightedIcon');
-                    toastTitle = $A.get("$Label.c.Success");
-                    toastMsg = $A.get("$Label.c.Success_Adding_Item");
-                }else{
-                    toastTitle = $A.get("$Label.c.Error");
-                    toastMsg = $A.get("$Label.c.Unknown_Error");
-                    let errors = response.getError();
-                    if (errors && Array.isArray(errors) && errors.length > 0) {
-                        toastMsg = errors[0].message;
-                    }
-                }
-            });
+            $A.util.removeClass(observeIcon, 'greyIcon');
+            $A.util.addClass(observeIcon, 'highlightedIcon');
             $A.enqueueAction(action);
         }else{
             $A.util.removeClass(observeIcon, 'highlightedIcon');
             $A.util.addClass(observeIcon, 'greyIcon');
         }
-            toastComponent.ShowToast(toastTitle, toastMsg, 'success', 'sticky');
     },
 
     toggleBasket: function(component, event, helper){
