@@ -19,8 +19,6 @@
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.product.Id');
         let toastComponent = component.find('customToast');
-        let toastTitle;
-        let toastMsg;
 
         if($A.util.hasClass(observeIcon, 'greyIcon')){
             let action = component.get('c.insertToObserved');
