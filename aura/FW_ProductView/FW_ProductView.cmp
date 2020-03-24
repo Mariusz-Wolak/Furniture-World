@@ -2,6 +2,8 @@
  forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="product" type="Object" access="global"/>
+    <aura:attribute name="commentText" type="String" access="global"/>
+    <aura:attribute name="commentsList" type="Object[]" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
@@ -36,7 +38,7 @@
 
                 <div class="observeDiv slds-col slds-size--4-of-12">
                     <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="medium"
-                                     alternativeText="Observe"
+                                    alternativeText="Observe"
                                     title="Observe"
                                     onclick="{!c.toggleObserved}"/>
                 </div>
@@ -51,8 +53,17 @@
         </div>
     </div>
 
+    <div onkeypress="{!c.addComment}">
+        <lightning:input value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}"/>
+    </div>
+
+    Comments
     <div>
-        <lightning:inputRichText value="Write your opinion here..."/>
+        <aura:iteration items="{!v.commentsList}" var="comment">
+            <div>
+                    {!comment.Text__c}
+            </div>
+        </aura:iteration>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>

@@ -92,4 +92,28 @@ public with sharing class FW_ProductsController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static FW_Comment__c insertComment(String productId, String commentText){
+        try {
+            FW_Comment__c comment = new FW_Comment__c();
+            comment.Name = productId;
+            comment.Text__c = commentText;
+            insert comment;
+            return comment;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled
+    public static List<FW_Comment__c> getNewestComments(String productId) {
+        String query = 'SELECT Name, Text__c, CreatedDate FROM FW_Comment__c WHERE Name =: ' +
+                'productId ORDER BY CreatedDate DESC LIMIT 10';
+        try {
+            return Database.query(query);
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
