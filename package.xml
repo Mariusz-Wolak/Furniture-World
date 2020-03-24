@@ -99,10 +99,7 @@
     <types>
         <members>Custom%3A Sales Profile</members>
         <members>Custom%3A Support Profile</members>
-        <members>Customer Community Login User</members>
-        <members>Customer Community User</members>
-        <members>Furniture World Community Profile</members>
-        <members>Guest</members>
+        <members>Customer Community Plus User</members>
         <name>Profile</name>
     </types>
     <types>
