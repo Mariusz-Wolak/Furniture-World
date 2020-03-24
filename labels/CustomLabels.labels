@@ -1120,4 +1120,11 @@
         <shortDescription>Observed_Items</shortDescription>
         <value>Observed items:</value>
     </labels>
+    <labels>
+        <fullName>Write_Your_Opinion_Here</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Write_Your_Opinion_Here</shortDescription>
+        <value>Write your opinion here...</value>
+    </labels>
 </CustomLabels>
