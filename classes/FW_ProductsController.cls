@@ -59,7 +59,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public List<Product2> getObservedProducts() {
+    public static List<Product2> getObservedProducts() {
         try {
             List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c];
             Set<Id> observedProductsIds = new Set<Id>();
