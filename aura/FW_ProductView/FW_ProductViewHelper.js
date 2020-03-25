@@ -67,8 +67,7 @@
                 component.set('v.commentText', null);
                 $A.enqueueAction(component.get('c.refreshComments'));
             }else{
-                let toastComponent = component.find('customToast');
-                toastComponent.showErrorToast(response.getError());
+                component.find('customToast').showErrorToast(response.getError());
             }
         });
         $A.enqueueAction(action);

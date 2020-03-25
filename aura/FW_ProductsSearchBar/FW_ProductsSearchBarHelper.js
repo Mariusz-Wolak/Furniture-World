@@ -15,8 +15,7 @@
                 });
                 appEvent.fire();
             }else{
-                let toastComponent = component.find('customToast');
-                toastComponent.showErrorToast(response.getError());
+                component.find('customToast').showErrorToast(response.getError());
             }
         });
         $A.enqueueAction(action);

@@ -63,7 +63,8 @@
 
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
-            <div class="commentAuthor">{!comment.FullName__c}</div>
+            <div class="commentAuthor">{!comment.FullName__c} </div>
+            <ui:outputDate value="{!comment.CreatedDate}"></ui:outputDate>
             <div class="commentText">{!comment.Text__c}</div>
         </aura:iteration>
     </div>
