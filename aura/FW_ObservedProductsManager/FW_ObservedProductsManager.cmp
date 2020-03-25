@@ -1,0 +1,11 @@
+<aura:component description="FW_AddingToObserved" controller="FW_ProductsController" implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:registerEvent name="observedProductsManagerEvent" type="c:FW_ObservedProductsManagerResponse"/>
+
+    <aura:method name="toggle" action="{!c.toggleObserved}" access="global">
+        <aura:attribute name="adding" type="Boolean" access="global"></aura:attribute>
+        <aura:attribute name="productId" type="String" access="global"></aura:attribute>
+    </aura:method>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

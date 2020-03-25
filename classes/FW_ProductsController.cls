@@ -1,4 +1,7 @@
 public with sharing class FW_ProductsController {
+
+    public static String userId = UserInfo.getUserId();
+
     private static String getQuery(String name) {
         if (String.isNotBlank(name)) {
             String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 ' +
@@ -25,7 +28,6 @@ public with sharing class FW_ProductsController {
     public static List<Product2> getNewestProducts() {
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
                 '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
-
         try {
             return Database.query(query);
         } catch (Exception e) {
@@ -58,7 +60,8 @@ public with sharing class FW_ProductsController {
     @AuraEnabled
     public static Boolean checkIfProductIsObserved(String productId) {
         try {
-            List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c WHERE Name = :productId];
+            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE Name = :productId
+            AND CreatedById =: userId];
             if (observedItems.size() > 0) {
                 return true;
             } else {
@@ -70,9 +73,28 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
+    public static List<String> checkIfResultsAreObserved(String[] productsIds){
+        try {
+            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE Name IN
+                    :productsIds AND CreatedById =: userId];
+            if (observedItems.size() > 0) {
+                List<Id> observedProductsId = new List<Id>();
+                for(FW_ObservedItem__c item: observedItems){
+                    observedProductsId.add(item.Name);
+                }
+                return observedProductsId;
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled
     public static List<Product2> getObservedProducts() {
         try {
-            List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c];
+            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE CreatedById =: userId];
             Set<Id> observedProductsIds = new Set<Id>();
 
             if(observedItems.size()>0){
