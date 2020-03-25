@@ -16,27 +16,17 @@
     },
 
     doToggleObserved: function(component, event, helper){
+        let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.product.Id');
-        let toastComponent = component.find('customToast');
+        let isAddingToObserved;
 
         if($A.util.hasClass(observeIcon, 'greyIcon')){
-            let action = component.get('c.insertToObserved');
-            action.setParams({
-                "productId": productId
-            });
-            $A.util.removeClass(observeIcon, 'greyIcon');
-            $A.util.addClass(observeIcon, 'highlightedIcon');
-            $A.enqueueAction(action);
+            isAddingToObserved = true;
         }else{
-            let action = component.get('c.removeFromObserved');
-            action.setParams({
-                "productId": productId
-            });
-            $A.util.removeClass(observeIcon, 'highlightedIcon');
-            $A.util.addClass(observeIcon, 'greyIcon');
-            $A.enqueueAction(action);
+            isAddingToObserved = false;
         }
+        observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
     doToggleBasket: function(component, event, helper){
