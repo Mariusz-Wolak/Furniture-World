@@ -1,6 +1,5 @@
 ({
     doToggleObserved: function(component){
-        console.log('helper toggle');
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.item.Id');

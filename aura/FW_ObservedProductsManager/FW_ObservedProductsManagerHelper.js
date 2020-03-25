@@ -3,7 +3,6 @@
         let params = event.getParam('arguments');
         let adding = params.adding;
         let productId = params.productId;
-        console.log('params in manager: '+JSON.stringify(params));
         if(adding){
             let action = component.get('c.insertToObserved');
             action.setParams({
