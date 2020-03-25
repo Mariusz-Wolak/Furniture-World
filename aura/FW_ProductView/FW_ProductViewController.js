@@ -23,6 +23,6 @@
     },
 
     rateProduct: function(component, event, helper){
-
+        component.set('v.rating', event.getParam('rating'));
     }
 })

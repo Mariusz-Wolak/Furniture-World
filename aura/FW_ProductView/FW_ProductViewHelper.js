@@ -52,18 +52,20 @@
     },
 
     doAddComment: function(component, event){
+        let rate = component.get('v.rating');
+        console.log('rate in doAddComent: '+rate);
         let productId = component.get('v.product.Id');
         let commentText = component.get('v.commentText');
         let action = component.get('c.insertComment');
         action.setParams({
            "productId": productId,
-           "commentText": commentText
+           "commentText": commentText,
+           "rate": rate
         });
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let commentsList = component.get('v.commentsList');
-                component.set('v.commentsList', commentsList);
                 component.set('v.commentText', null);
                 $A.enqueueAction(component.get('c.refreshComments'));
             }else{
@@ -84,9 +86,9 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.commentsList', response.getReturnValue());
+                console.log('response success in return newest comments: '+JSON.stringify(response.getReturnValue()));
             }else{
-                let toastComponent = component.find('customToast');
-                toastComponent.showErrorToast(response.getError());
+                component.find('customToast').showErrorToast(response.getError());
             }
         });
         $A.enqueueAction(action);

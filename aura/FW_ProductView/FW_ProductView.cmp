@@ -4,12 +4,18 @@
     <aura:attribute name="product" type="Object" access="global"/>
     <aura:attribute name="commentText" type="String" access="global"/>
     <aura:attribute name="commentsList" type="Object[]" access="global"/>
+    <aura:attribute name="rating" type="Integer" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
+    <aura:handler name="change" event="c:RatingChangeEvent" action="{!c.addComment}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">
+            <img style="border: 1px solid black;" src="{!v.product.DisplayUrl}"
+                 alt=""/>
+
+            <img src="{!v.product.DisplayUrl}"
+                 alt=""/>
         </div>
 
         <div class="slds-col slds-size--6-of-12">
@@ -50,14 +56,12 @@
         Comments
     </div>
 
-
-
     <div class="rateProductText">Rate product:</div>
-    <div class="slds-grid">
-        <div class="slds-col slds-size--1-of-6">
-            <c:Rating change="{!c.rateProduct}"/>
-        </div>
+
+    <div class="slds-col slds-size--1-of-6">
+        <c:Rating change="{!c.rateProduct}"/>
     </div>
+
     <div class="slds-col slds-size--1-of-3 slds-sizeaddCommentDiv" onkeypress="{!c.addComment}">
         <lightning:input value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}"/>
     </div>
@@ -66,6 +70,7 @@
         <aura:iteration items="{!v.commentsList}" var="comment">
             <div class="commentAuthor">{!comment.FullName__c} </div>
             <ui:outputDate value="{!comment.CreatedDate}"></ui:outputDate>
+            <div class="commentText">Rated: {!comment.Rate__c}</div>
             <div class="commentText">{!comment.Text__c}</div>
         </aura:iteration>
     </div>

@@ -95,6 +95,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static void insertComment(String productId, String commentText, string rate){
+        System.debug('insertComment APEX');
         try {
             String userId = UserInfo.getUserId();
             List<FW_Rating__c> ratings = [SELECT Id, Name, CreatedById FROM FW_Rating__c WHERE CreatedById =: userId AND Name
@@ -105,7 +106,8 @@ public with sharing class FW_ProductsController {
             FW_Rating__c rateObject = new FW_Rating__c();
             rateObject.Name = productId;
             rateObject.Text__c = commentText;
-//            rateObject.Rate__c = Decimal.valueOf(rate);
+            rateObject.Rate__c = Decimal.valueOf(rate);
+            System.debug('before insert rateObject.Rate__c: '+rateObject.Rate__c);
             insert rateObject;
         } catch (FW_CustomException e) {
             FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
@@ -117,7 +119,8 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<FW_Rating__c> getNewestComments(String productId) {
-        String query = 'SELECT Name, Text__c, CreatedDate, FullName__c FROM FW_Rating__c WHERE Name =: ' +
+        System.debug('getNewestComments APEX');
+        String query = 'SELECT Name, Text__c, CreatedDate, FullName__c, Rate__c FROM FW_Rating__c WHERE Name =: ' +
                 'productId ORDER BY CreatedDate DESC LIMIT 10';
         try {
             return Database.query(query);
