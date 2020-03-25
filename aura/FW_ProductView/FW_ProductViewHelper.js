@@ -7,9 +7,14 @@
            "productId": productId
         });
         action.setCallback(this, function(response){
-            if(response.getReturnValue() == true){
-                $A.util.removeClass(observeIcon, 'greyIcon');
-                $A.util.addClass(observeIcon, 'highlightedIcon');
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                if(response.getReturnValue() == true){
+                    $A.util.removeClass(observeIcon, 'greyIcon');
+                    $A.util.addClass(observeIcon, 'highlightedIcon');
+                }
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
             }
         });
         $A.enqueueAction(action);
