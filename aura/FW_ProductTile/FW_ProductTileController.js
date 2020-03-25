@@ -14,5 +14,9 @@
             "product": product
         });
         selectedProductEvent.fire();
-    }
+    },
+
+    toggleObserved: function(component, event, helper){
+        helper.doToggleObserved(component);
+    },
 })
