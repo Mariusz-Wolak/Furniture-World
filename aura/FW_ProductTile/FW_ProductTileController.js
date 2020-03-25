@@ -19,6 +19,7 @@
     },
 
     toggleObserved: function(component, event, helper){
+        console.log('controller toggle');
         helper.doToggleObserved(component);
     },
 

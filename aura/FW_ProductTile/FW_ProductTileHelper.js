@@ -1,5 +1,6 @@
 ({
     doToggleObserved: function(component){
+        console.log('helper toggle');
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.item.Id');
@@ -10,7 +11,7 @@
         }else{
             isAddingToObserved = false;
         }
-        observedProductsManager.toggle(true, productId);
+        observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
     checkIfIsObserved: function(component, event, helper){
