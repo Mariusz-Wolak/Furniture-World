@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.THIS .highlightedIcon{
+    background-color: green;
+}
+
 .THIS .observeIcon:hover{
     background-color: green;
 }

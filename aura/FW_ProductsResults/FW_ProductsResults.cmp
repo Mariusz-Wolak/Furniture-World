@@ -24,6 +24,4 @@
             <c:FW_ProductView product="{!v.selectedItem}"/>
         </div>
     </aura:if>
-
-    <c:FW_ObservedProductsManager aura:id="observedProductsManager"/>
 </aura:component>

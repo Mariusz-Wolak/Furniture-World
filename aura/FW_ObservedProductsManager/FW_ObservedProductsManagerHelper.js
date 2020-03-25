@@ -1,28 +1,45 @@
 ({
     doToggleObserved: function(component, event, helper){
-        console.log('dziala manager helper, tu powinien byc strzal do bazy!');
-        console.log('before event get param');
         let params = event.getParam('arguments');
-        console.log('params: '+params);
-        if(params){
-            let productId = params.productId;
-            console.log('productId in manager: '+productId);
+        let adding = params.adding;
+        let productId = params.productId;
 
-
-
-//            let title = params.title;
-//            let message = params.message;
-//            let type = params.myType;
-//            let mode = params.mode;
-//
-//            let toastEvent = $A.get("e.force:showToast");
-//            toastEvent.setParams({
-//                "title": title,
-//                "message": message,
-//                "type": type,
-//                "mode": mode
-//            });
-//            toastEvent.fire();
+        if(adding){
+            let action = component.get('c.insertToObserved');
+            action.setParams({
+                "productId": productId
+            });
+            action.setCallback(this, function(response){
+                let state = response.getState();
+                if(state === 'SUCCESS'){
+                    let cmpEvent = component.getEvent('observedProductsManagerEvent');
+                    cmpEvent.setParams({
+                       response: 'successAdding'
+                    });
+                    cmpEvent.fire();
+                }else{
+                    component.find('customToast').showErrorToast(response.getError());
+                }
+            });
+            $A.enqueueAction(action);
+        }else{
+            let action = component.get('c.removeFromObserved');
+            action.setParams({
+                "productId": productId
+            });
+            action.setCallback(this, function(response){
+                let state = response.getState();
+                if(state === 'SUCCESS'){
+                    let cmpEvent = component.getEvent('observedProductsManagerEvent');
+                    cmpEvent.setParams({
+                       response: 'successRemoving'
+                    });
+                    cmpEvent.fire();
+                }else{
+                     component.find('customToast').showErrorToast(response.getError());
+                 }
+             });
+            $A.enqueueAction(action);
         }
     }
 })
