@@ -9,13 +9,13 @@
     <img src="{!v.item.DisplayUrl}"/>
     <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.Name}</h1>
     <div class="slds-grid">
-        <div class="slds-col slds-size_1-of-3">
+        <div class="slds-col slds-size_4-of-12">
             <h1 class="itemPrice">€{!v.item.Price__c}</h1>
         </div>
 
-        <div class="slds-col slds-size_1-of-3"/>
+        <div class="slds-col slds-size_5-of-12"/>
 
-        <div class="slds-col slds-size_1-of-3">
+        <div class="slds-col slds-size_3-of-12">
             <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="xx-small"
                             alternativeText="Observe"
                             title="Observe"
