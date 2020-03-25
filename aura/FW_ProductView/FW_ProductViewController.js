@@ -16,5 +16,9 @@
         if(event.which == 13){
             helper.doAddComment(component);
         }
+    },
+
+    refreshComments: function(component, event, helper){
+        helper.returnNewestComments(component)
     }
 })

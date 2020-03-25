@@ -63,9 +63,8 @@
 
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
-            <div>
-                    {!comment.Text__c}
-            </div>
+            <div class="commentAuthor">{!comment.FullName__c}</div>
+            <div class="commentText">{!comment.Text__c}</div>
         </aura:iteration>
     </div>
 

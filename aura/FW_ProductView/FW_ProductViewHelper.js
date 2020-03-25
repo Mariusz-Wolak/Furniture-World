@@ -63,10 +63,9 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let commentsList = component.get('v.commentsList');
-                let addedComment = response.getReturnValue();
-                commentsList.unshift(addedComment);
                 component.set('v.commentsList', commentsList);
                 component.set('v.commentText', null);
+                $A.enqueueAction(component.get('c.refreshComments'));
             }else{
                 let toastComponent = component.find('customToast');
                 toastComponent.showErrorToast(response.getError());

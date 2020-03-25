@@ -55,3 +55,14 @@
 .THIS .addCommentDiv{
     padding-top: 10px;
 }
+
+.THIS .commentAuthor{
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.THIS .commentText{
+    padding-top: 5px;
+    font-size: 18px;
+}
