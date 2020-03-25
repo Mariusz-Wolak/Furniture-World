@@ -22,4 +22,6 @@
                             onclick="{!c.toggleObserved}"/>
         </div>
     </div>
+
+    <c:FW_ObservedProductsManager aura:id="observedProductsManager"/>
 </aura:component>
