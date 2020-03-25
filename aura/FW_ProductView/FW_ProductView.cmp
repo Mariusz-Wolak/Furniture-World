@@ -27,7 +27,7 @@
             <div class="rateProductText">Rate product:</div>
             <div class="slds-grid slds-align--absolute-center">
                 <div class="slds-col slds-size--1-of-3">
-                    <c:Rating/>
+                    <c:Rating change="{!c.rateProduct}"/>
                 </div>
             </div>
 

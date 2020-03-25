@@ -20,5 +20,9 @@
 
     refreshComments: function(component, event, helper){
         helper.returnNewestComments(component)
+    },
+
+    rateProduct: function(component, event, helper){
+
     }
 })
