@@ -1,6 +1,6 @@
 <aura:component description="FW_AddingToObserved" implements="flexipage:availableForAllPageTypes" access="global">
 
-    <aura:method name="addToObservedList" action="{!c.addToObserved}" access="global">
+    <aura:method name="addToObservedList" action="{!c.toggleObserved}" access="global">
         <aura:attribute name="productId" type="String"></aura:attribute>
     </aura:method>
 </aura:component>
