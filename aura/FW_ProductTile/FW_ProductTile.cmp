@@ -2,6 +2,7 @@
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
 
     <aura:attribute name="item" type="Object" access="global" default="null"/>
+    <aura:attribute name="observedIds" type="String[]" access="global"/>
 
     <aura:registerEvent name="selectedProduct" type="c:FW_SelectedProduct"/>
 

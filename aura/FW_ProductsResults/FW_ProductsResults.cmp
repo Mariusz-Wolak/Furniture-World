@@ -1,11 +1,14 @@
-<aura:component description="FW_ProductsResults">
+<aura:component description="FW_ProductsResults" controller="FW_ProductsController">
 
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="selectedItem" type="Object" access="global"/>
+    <aura:attribute name="observedIds" type="String[]" access="global"/>
 
     <aura:attribute name="showItems" type="Boolean" access="global"/>
     <aura:attribute name="showProductView" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <aura:if isTrue="{!v.showItems}">
         <div class="resultsHeader">{!v.header}</div>
@@ -13,7 +16,7 @@
         <div class="slds-grid slds-wrap">
             <aura:iteration items="{!v.results}" var="item">
                 <div class="productTile slds-col slds-size_3-of-12">
-                    <c:FW_ProductTile item="{!item}"/>
+                    <c:FW_ProductTile item="{!item}" observedIds="{!v.observedIds}"/>
                 </div>
             </aura:iteration>
         </div>
@@ -24,4 +27,6 @@
             <c:FW_ProductView product="{!v.selectedItem}"/>
         </div>
     </aura:if>
+
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

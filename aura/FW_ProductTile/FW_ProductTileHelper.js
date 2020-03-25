@@ -11,5 +11,27 @@
             isAddingToObserved = false;
         }
         observedProductsManager.toggle(true, productId);
+    },
+
+    checkIfIsObserved: function(component, event, helper){
+        let productId = component.get('v.item.Id');
+        let observeIcon = component.find('observeIcon');
+        let action = component.get('c.checkIfProductIsObserved');
+        action.setParams({
+           "productId": productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                if(response.getReturnValue() == true){
+                    $A.util.removeClass(observeIcon, 'greyIcon');
+                    $A.util.addClass(observeIcon, 'highlightedIcon');
+                }
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+
+        });
+        $A.enqueueAction(action);
     }
 })
