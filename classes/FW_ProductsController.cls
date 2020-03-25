@@ -25,7 +25,6 @@ public with sharing class FW_ProductsController {
     public static List<Product2> getNewestProducts() {
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
                 '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
-
         try {
             return Database.query(query);
         } catch (Exception e) {
@@ -65,6 +64,24 @@ public with sharing class FW_ProductsController {
                 return false;
             }
         } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled
+    public static List<String> checkIfResultsAreObserved(String[] productsIds){
+        try {
+            List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c WHERE Name IN :productsIds];
+            if (observedItems.size() > 0) {
+                List<Id> observedProductsId = new List<Id>();
+                for(FW_ObservedItem__c item: observedItems){
+                    observedProductsId.add(item.Name);
+                }
+                return observedProductsId;
+            }else{
+                return null;
+            }
+        }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
         }
     }
