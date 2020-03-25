@@ -27,6 +27,8 @@
             let errors = params.errors;
             if (errors && Array.isArray(errors) && errors.length > 0) {
                 message = errors[0].message;
+            }else{
+                message = errors;
             }
         }
         let toastEvent = $A.get("e.force:showToast");

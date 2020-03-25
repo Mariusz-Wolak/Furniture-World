@@ -7,7 +7,7 @@
     <aura:attribute name="rating" type="Integer" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="change" event="c:RatingChangeEvent" action="{!c.addComment}"/>
+    <aura:handler name="sendRating" event="c:RatingChangeEvent" action="{!c.rateProduct}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">
@@ -53,26 +53,39 @@
     </div>
 
     <div class="commentsHeader">
-        Comments
-    </div>
-
-    <div class="rateProductText">Rate product:</div>
-
-    <div class="slds-col slds-size--1-of-6">
-        <c:Rating change="{!c.rateProduct}"/>
-    </div>
-
-    <div class="slds-col slds-size--1-of-3 slds-sizeaddCommentDiv" onkeypress="{!c.addComment}">
-        <lightning:input value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}"/>
+        {!$Label.c.Comments}
     </div>
 
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
-            <div class="commentAuthor">{!comment.FullName__c} </div>
-            <ui:outputDate value="{!comment.CreatedDate}"></ui:outputDate>
-            <div class="commentText">Rated: {!comment.Rate__c}</div>
-            <div class="commentText">{!comment.Text__c}</div>
+            <div class="singleComment">
+                <div class="commentAuthor">{!comment.FullName__c}</div>
+                <ui:outputDate value="{!comment.CreatedDate}"/>
+                <div class="commentHeader">{!$Label.c.Rated}: {!comment.Rate__c} / 5</div>
+                <div class="commentText">{!comment.Text__c}</div>
+            </div>
         </aura:iteration>
+    </div>
+
+    <div class="rateProductText slds-align_absolute-center">{!$Label.c.Your_Rate}:</div>
+    <div class="slds-align_absolute-center">
+        <div class="slds-col slds-size--1-of-4">
+            <c:Rating sendRating="{!c.rateProduct}"/>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-6"/>
+
+        <div class="textAreaDiv slds-col slds-size_4-of-6">
+            <lightning:textarea value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}" minLength="10"
+                                maxlength="255"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-6"/>
+    </div>
+
+    <div class="buttonSendComment slds-align_absolute-center">
+        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>

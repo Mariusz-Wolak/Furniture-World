@@ -95,19 +95,17 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static void insertComment(String productId, String commentText, string rate){
-        System.debug('insertComment APEX');
         try {
             String userId = UserInfo.getUserId();
             List<FW_Rating__c> ratings = [SELECT Id, Name, CreatedById FROM FW_Rating__c WHERE CreatedById =: userId AND Name
                     =: productId];
             if(ratings.size()>0){
-                throw new FW_CustomException.OtherException('You already rated this product');
+                throw new FW_CustomException.OtherException(Label.You_Already_Rated_This_Item);
             }
             FW_Rating__c rateObject = new FW_Rating__c();
             rateObject.Name = productId;
             rateObject.Text__c = commentText;
             rateObject.Rate__c = Decimal.valueOf(rate);
-            System.debug('before insert rateObject.Rate__c: '+rateObject.Rate__c);
             insert rateObject;
         } catch (FW_CustomException e) {
             FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
@@ -119,7 +117,6 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<FW_Rating__c> getNewestComments(String productId) {
-        System.debug('getNewestComments APEX');
         String query = 'SELECT Name, Text__c, CreatedDate, FullName__c, Rate__c FROM FW_Rating__c WHERE Name =: ' +
                 'productId ORDER BY CreatedDate DESC LIMIT 10';
         try {

@@ -53,26 +53,31 @@
 
     doAddComment: function(component, event){
         let rate = component.get('v.rating');
-        console.log('rate in doAddComent: '+rate);
-        let productId = component.get('v.product.Id');
         let commentText = component.get('v.commentText');
-        let action = component.get('c.insertComment');
-        action.setParams({
-           "productId": productId,
-           "commentText": commentText,
-           "rate": rate
-        });
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if(state === 'SUCCESS'){
-                let commentsList = component.get('v.commentsList');
-                component.set('v.commentText', null);
-                $A.enqueueAction(component.get('c.refreshComments'));
-            }else{
-                component.find('customToast').showErrorToast(response.getError());
-            }
-        });
-        $A.enqueueAction(action);
+        if(rate == undefined){
+            component.find('customToast').showErrorToast($A.get('$Label.c.Please_Rate_The_Item_First'));
+        }else if(commentText == undefined || commentText.length < 10){
+            component.find('customToast').showErrorToast('10 '+$A.get('$Label.c.Characters_Required'));
+        }else{
+            let productId = component.get('v.product.Id');
+            let action = component.get('c.insertComment');
+            action.setParams({
+               "productId": productId,
+               "commentText": commentText,
+               "rate": rate
+            });
+            action.setCallback(this, function(response){
+                let state = response.getState();
+                if(state === 'SUCCESS'){
+                    let commentsList = component.get('v.commentsList');
+                    component.set('v.commentText', null);
+                    $A.enqueueAction(component.get('c.refreshComments'));
+                }else{
+                    component.find('customToast').showErrorToast(response.getError());
+                }
+            });
+            $A.enqueueAction(action);
+        }
     },
 
     returnNewestComments: function(component){
@@ -86,7 +91,6 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.commentsList', response.getReturnValue());
-                console.log('response success in return newest comments: '+JSON.stringify(response.getReturnValue()));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

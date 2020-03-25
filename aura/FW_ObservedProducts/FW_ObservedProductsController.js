@@ -7,7 +7,7 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
 
         helper.returnObservedProducts(component);
-        component.set('v.header', $A.get('$Label.c.Observed_Products'));
+        component.set('v.header', $A.get('$Label.c.Observed_Items'));
         component.set('v.showItems', true);
     },
 

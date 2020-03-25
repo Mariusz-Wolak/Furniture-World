@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-.THIS.itemPrice{
+.THIS .itemPrice{
     font-size: 18px;
     font-weight: bold;
 }

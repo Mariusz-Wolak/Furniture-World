@@ -1127,4 +1127,53 @@
         <shortDescription>Write_Your_Opinion_Here</shortDescription>
         <value>Write your opinion here...</value>
     </labels>
+    <labels>
+        <fullName>You_Already_Rated_This_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You_Already_Rated_This_Item</shortDescription>
+        <value>You already rated this item</value>
+    </labels>
+    <labels>
+        <fullName>Rated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rated</shortDescription>
+        <value>Rated</value>
+    </labels>
+    <labels>
+        <fullName>On</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>On</shortDescription>
+        <value>on</value>
+    </labels>
+    <labels>
+        <fullName>Your_Rate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Rate</shortDescription>
+        <value>Your rate</value>
+    </labels>
+    <labels>
+        <fullName>Please_Rate_The_Item_First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please_Rate_The_Item_First</shortDescription>
+        <value>Please rate the item first.</value>
+    </labels>
+    <labels>
+        <fullName>Characters_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Characters_Required</shortDescription>
+        <value>characters required</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
 </CustomLabels>

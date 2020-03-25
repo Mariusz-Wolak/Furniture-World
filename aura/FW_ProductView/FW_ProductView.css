@@ -19,7 +19,7 @@
 
 .THIS.rateProductText{
     padding-top: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .THIS .iconsDiv{
@@ -51,16 +51,31 @@
     font-weight: bold;
 }
 
-.THIS .addCommentDiv{
-    padding-top: 10px;
-}
-
 .THIS .commentAuthor{
-    padding-top: 20px;
     font-size: 20px;
     font-weight: bold;
 }
 
 .THIS .commentText{
     font-size: 18px;
+    font-style: italic;
+}
+
+.THIS .commentHeader{
+    font-size: 18px;
+}
+
+.THIS .singleComment{
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #F0F0F0;
+}
+
+.THIS .textAreaDiv{
+    font-size: 20px;
+}
+
+.THIS.buttonSendComment{
+    font-size: 24px;
 }

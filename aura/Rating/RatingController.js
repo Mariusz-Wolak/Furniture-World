@@ -15,7 +15,7 @@
 			el = el.nextElementSibling;    		        
         }
         component.set("v.rating", rating);
-        var myEvent = component.getEvent("change");
+        var myEvent = component.getEvent("sendRating");
         myEvent.setParams({"rating": rating});
         myEvent.fire();
 

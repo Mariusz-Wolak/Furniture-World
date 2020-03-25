@@ -13,9 +13,7 @@
     },
 
     addComment: function(component, event, helper){
-        if(event.which == 13){
-            helper.doAddComment(component);
-        }
+        helper.doAddComment(component);
     },
 
     refreshComments: function(component, event, helper){

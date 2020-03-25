@@ -6,7 +6,7 @@
     <aura:attribute name="strokeWidth" type="integer" default="0"/>
     <aura:attribute name="stroke" type="String" default="none"/>
     
-    <aura:registerEvent name="change" type="c:RatingChangeEvent"/>
+    <aura:registerEvent name="sendRating" type="c:RatingChangeEvent"/>
     
     <div aura:id="svg_content" onclick="{!c.starClick}">
 		<![CDATA[
