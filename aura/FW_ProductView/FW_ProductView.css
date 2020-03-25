@@ -46,3 +46,12 @@
 .THIS .basketIcon:hover{
     background-color: green;
 }
+
+.THIS.commentsHeader{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.THIS .addCommentDiv{
+    padding-top: 10px;
+}

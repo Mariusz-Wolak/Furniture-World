@@ -53,11 +53,14 @@
         </div>
     </div>
 
-    <div onkeypress="{!c.addComment}">
+    <div class="commentsHeader">
+        Comments
+    </div>
+
+    <div class="addCommentDiv" onkeypress="{!c.addComment}">
         <lightning:input value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}"/>
     </div>
 
-    Comments
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
             <div>
