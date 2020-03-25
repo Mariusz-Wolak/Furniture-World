@@ -24,13 +24,6 @@
 
             <div class="productPrice">€{!v.product.Price__c}</div>
 
-            <div class="rateProductText">Rate product:</div>
-            <div class="slds-grid slds-align--absolute-center">
-                <div class="slds-col slds-size--1-of-3">
-                    <c:Rating change="{!c.rateProduct}"/>
-                </div>
-            </div>
-
             <div class="productDescription">{!v.product.Description}</div>
 
             <div class="iconsDiv slds-grid slds-align--absolute-center">
@@ -57,7 +50,15 @@
         Comments
     </div>
 
-    <div class="addCommentDiv" onkeypress="{!c.addComment}">
+
+
+    <div class="rateProductText">Rate product:</div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size--1-of-6">
+            <c:Rating change="{!c.rateProduct}"/>
+        </div>
+    </div>
+    <div class="slds-col slds-size--1-of-3 slds-sizeaddCommentDiv" onkeypress="{!c.addComment}">
         <lightning:input value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}"/>
     </div>
 
