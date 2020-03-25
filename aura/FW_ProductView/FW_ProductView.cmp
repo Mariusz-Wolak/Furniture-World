@@ -2,12 +2,20 @@
  forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="product" type="Object" access="global"/>
+    <aura:attribute name="commentText" type="String" access="global"/>
+    <aura:attribute name="commentsList" type="Object[]" access="global"/>
+    <aura:attribute name="rating" type="Integer" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
+    <aura:handler name="sendRating" event="c:RatingChangeEvent" action="{!c.rateProduct}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">
+            <img style="border: 1px solid black;" src="{!v.product.DisplayUrl}"
+                 alt=""/>
+
+            <img src="{!v.product.DisplayUrl}"
+                 alt=""/>
         </div>
 
         <div class="slds-col slds-size--6-of-12">
@@ -22,13 +30,6 @@
 
             <div class="productPrice">€{!v.product.Price__c}</div>
 
-            <div class="rateProductText">Rate product:</div>
-            <div class="slds-grid slds-align--absolute-center">
-                <div class="slds-col slds-size--1-of-3">
-                    <c:Rating/>
-                </div>
-            </div>
-
             <div class="productDescription">{!v.product.Description}</div>
 
             <div class="iconsDiv slds-grid slds-align--absolute-center">
@@ -36,7 +37,7 @@
 
                 <div class="observeDiv slds-col slds-size--4-of-12">
                     <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="medium"
-                                     alternativeText="Observe"
+                                    alternativeText="Observe"
                                     title="Observe"
                                     onclick="{!c.toggleObserved}"/>
                 </div>
@@ -49,6 +50,42 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="commentsHeader">
+        {!$Label.c.Comments}
+    </div>
+
+    <div>
+        <aura:iteration items="{!v.commentsList}" var="comment">
+            <div class="singleComment">
+                <div class="commentAuthor">{!comment.FullName__c}</div>
+                <ui:outputDate value="{!comment.CreatedDate}"/>
+                <div class="commentHeader">{!$Label.c.Rated}: {!comment.Rate__c} / 5</div>
+                <div class="commentText">{!comment.Text__c}</div>
+            </div>
+        </aura:iteration>
+    </div>
+
+    <div class="rateProductText slds-align_absolute-center">{!$Label.c.Your_Rate}:</div>
+    <div class="slds-align_absolute-center">
+        <div class="slds-col slds-size--1-of-4">
+            <c:Rating sendRating="{!c.rateProduct}"/>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-6"/>
+
+        <div class="textAreaDiv slds-col slds-size_4-of-6">
+            <lightning:textarea value="{!v.commentText}" placeholder="{!$Label.c.Write_Your_Opinion_Here}" minLength="10"
+                                maxlength="255"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-6"/>
+    </div>
+
+    <div class="buttonSendComment slds-align_absolute-center">
+        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>
