@@ -1,6 +1,5 @@
 .THIS .productName{
     font-size: 24px;
-    color: #6495ED;
     font-style: italic;
     font-weight: bold;
 }
@@ -11,7 +10,6 @@
 
 .THIS .productPrice{
     font-size: 32px;
-    color: #6495ED;
     font-style: italic;
     font-weight: bold;
 }
@@ -23,7 +21,6 @@
 
 .THIS.rateProductText{
     padding-top: 10px;
-    color: #6495ED;
     font-size: 24px;
     font-weight: bold
 }
@@ -54,7 +51,6 @@
 
 .THIS.commentsHeader{
     font-size: 24px;
-    color: #6495ED;
     font-style: italic;
     font-weight: bold;
 }
@@ -89,5 +85,5 @@
 }
 
 .THIS .selectedMiniature{
-    border: 2px solid #6495ED;
+    border: 2px solid black;
 }

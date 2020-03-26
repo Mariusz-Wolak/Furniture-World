@@ -71,7 +71,7 @@
     <div class="rateProductText slds-align_absolute-center">{!$Label.c.Your_Rate}:</div>
     <div class="slds-align_absolute-center">
         <div class="slds-col slds-size--1-of-4">
-            <c:Rating colorOn="#00A1E0" stroke="#000000" strokeWidth="3" sendRating="{!c.rateProduct}"/>
+            <c:Rating sendRating="{!c.rateProduct}"/>
         </div>
     </div>
     <div class="slds-grid">
@@ -86,7 +86,7 @@
     </div>
 
     <div class="buttonSendComment slds-align_absolute-center">
-        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+        <lightning:button variant="brand-outline" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
     </div>
 
     <c:FW_ProductsObservedManager aura:id="observedProductsManager"/>
