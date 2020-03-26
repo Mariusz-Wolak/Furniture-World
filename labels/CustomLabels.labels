@@ -1183,4 +1183,32 @@
         <shortDescription>Rating</shortDescription>
         <value>Rating</value>
     </labels>
+    <labels>
+        <fullName>Operation_Ended_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Operation_Ended_Successfully</shortDescription>
+        <value>Operation ended successfully</value>
+    </labels>
+    <labels>
+        <fullName>Item_Has_Been_Added_To_Observed_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Added_To_Observed_List</shortDescription>
+        <value>Item has been added to observed list.</value>
+    </labels>
+    <labels>
+        <fullName>Item_Has_Been_Removed_From_Observed_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Removed_From_Observed_List</shortDescription>
+        <value>Item has been removed from observed list.</value>
+    </labels>
+    <labels>
+        <fullName>Your_Comment_Has_Been_Added_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Comment_Has_Been_Added_Successfully</shortDescription>
+        <value>Your comment has been added successfully, thank you.</value>
+    </labels>
 </CustomLabels>

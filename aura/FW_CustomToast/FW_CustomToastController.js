@@ -39,5 +39,23 @@
             "mode": 'sticky'
         });
         toastEvent.fire();
+    },
+
+    displaySuccessToast: function(component, event, helper){
+        let title = $A.get("$Label.c.Success");
+        let message = $A.get("$Label.c.Operation_Ended_Successfully");
+
+        let params = event.getParam('arguments');
+        if(params){
+            message = params.message;
+        }
+        let toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({
+            "title": title,
+            "message": message,
+            "type": 'success',
+            "mode": 'sticky'
+        });
+        toastEvent.fire();
     }
 })
