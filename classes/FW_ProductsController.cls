@@ -62,7 +62,7 @@ public with sharing class FW_ProductsController {
         try {
             List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE Name = :productId
             AND CreatedById =: userId];
-            if (observedItems.size() > 0) {
+            if (!observedItems.isEmpty()) {
                 return true;
             } else {
                 return false;
@@ -77,7 +77,7 @@ public with sharing class FW_ProductsController {
         try {
             List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE Name IN
                     :productsIds AND CreatedById =: userId];
-            if (observedItems.size() > 0) {
+            if (!observedItems.isEmpty()) {
                 List<Id> observedProductsId = new List<Id>();
                 for(FW_ObservedItem__c item: observedItems){
                     observedProductsId.add(item.Name);
@@ -97,7 +97,7 @@ public with sharing class FW_ProductsController {
             List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE CreatedById =: userId];
             Set<Id> observedProductsIds = new Set<Id>();
 
-            if(observedItems.size()>0){
+            if(!observedItems.isEmpty()){
                 for(FW_ObservedItem__c item: observedItems){
                     observedProductsIds.add(item.Name);
                 }
@@ -121,7 +121,7 @@ public with sharing class FW_ProductsController {
             String userId = UserInfo.getUserId();
             List<FW_Rating__c> ratings = [SELECT Id, Name, CreatedById FROM FW_Rating__c WHERE CreatedById =: userId AND Name
                     =: productId];
-            if(ratings.size()>0){
+            if(!ratings.isEmpty()){
                 throw new FW_CustomException.OtherException(Label.You_Already_Rated_This_Item);
             }
             FW_Rating__c rateObject = new FW_Rating__c();
