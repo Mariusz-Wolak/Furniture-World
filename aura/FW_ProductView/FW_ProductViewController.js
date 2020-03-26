@@ -1,7 +1,9 @@
 ({
     doInit: function(component, event, helper){
+        component.set('v.header', $A.get('$Label.c.Similar_Items'));
         helper.checkIfIsObserved(component);
         helper.returnNewestComments(component);
+        helper.returnSimilarProducts(component);
     },
 
     toggleObserved: function(component, event, helper){

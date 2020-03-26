@@ -1218,4 +1218,11 @@
         <shortDescription>What_Others_Think_About_This_Item</shortDescription>
         <value>What others think about this item?</value>
     </labels>
+    <labels>
+        <fullName>Similar_Items</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Similar_Items</shortDescription>
+        <value>Similar items</value>
+    </labels>
 </CustomLabels>
