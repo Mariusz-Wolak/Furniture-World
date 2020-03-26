@@ -14,8 +14,6 @@
         $A.util.removeClass(observeIcon, 'isHidden');
 
         let productTileDiv = component.find('productTileDiv');
-        console.log('observeIcon: '+observeIcon);
-        console.log('productTileDiv: '+productTileDiv);
         $A.util.addClass(productTileDiv, 'withBorder');
         $A.util.addClass(productTileDiv, 'isHidden');
     },
@@ -29,12 +27,14 @@
     },
 
     selectItem: function(component, event, helper){
-        let selectedProductEvent = component.getEvent("selectedProduct");
         let product = component.get("v.item");
+        let selectedProductEvent = component.getEvent("selectedProduct");
         selectedProductEvent.setParams({
             "product": product
         });
         selectedProductEvent.fire();
+
+        helper.returnSimilarProducts(component);
     },
 
     toggleObserved: function(component, event, helper){

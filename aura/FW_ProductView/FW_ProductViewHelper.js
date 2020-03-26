@@ -93,5 +93,24 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    returnSimilarProducts: function(component){
+        let productFamily = component.get('v.product.Family');
+        let productId = component.get('v.product.Id');
+        let action = component.get('c.getSimilarProducts');
+        action.setParams({
+            "productFamily": productFamily,
+            "productId": productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.set('v.results', response.getReturnValue());
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     }
 })
