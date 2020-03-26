@@ -9,6 +9,25 @@
         helper.checkIfIsObserved(component);
     },
 
+    highlightTile: function(component, event, helper){
+        let observeIcon = component.find('observeIcon');
+        $A.util.removeClass(observeIcon, 'isHidden');
+
+        let productTileDiv = component.find('productTileDiv');
+        console.log('observeIcon: '+observeIcon);
+        console.log('productTileDiv: '+productTileDiv);
+        $A.util.addClass(productTileDiv, 'withBorder');
+        $A.util.addClass(productTileDiv, 'isHidden');
+    },
+
+    removeHighlightTile: function(component, event, helper){
+        let observeIcon = component.find('observeIcon');
+        $A.util.addClass(observeIcon, 'isHidden');
+
+        let productTileDiv = component.find('productTileDiv');
+        $A.util.removeClass(productTileDiv, 'withBorder');
+    },
+
     selectItem: function(component, event, helper){
         let selectedProductEvent = component.getEvent("selectedProduct");
         let product = component.get("v.item");

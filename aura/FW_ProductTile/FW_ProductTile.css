@@ -1,11 +1,15 @@
-.THIS.itemTitle{
+.THIS.productTileDiv{
+    padding: 5px;
+}
+
+.THIS .itemTitle{
     padding-bottom: 10px;
     font-size: 16px;
     font-weight: bold;
     text-decoration: underline;
 }
 
-.THIS.itemTitle:hover{
+.THIS .itemTitle:hover{
     text-decoration: underline;
     color: blue;
     cursor: pointer;
@@ -22,6 +26,18 @@
 
 .THIS .observeIcon{
     cursor: pointer;
+}
+
+.THIS .isHidden{
+    display: none;
+}
+
+.THIS .isShown{
+    display: block;
+}
+
+.THIS.withBorder{
+    border: 1px solid black;
 }
 
 .THIS .highlightedIcon{
