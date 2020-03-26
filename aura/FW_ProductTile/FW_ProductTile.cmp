@@ -1,13 +1,13 @@
-<aura:component description="FW_ProductTile" controller="FW_ProductsController"
+<aura:component controller="FW_ProductsController"
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
 
     <aura:attribute name="item" type="Object" access="global" default="null"/>
     <aura:attribute name="observedIds" type="String[]" access="global"/>
 
-    <aura:registerEvent name="selectedProduct" type="c:FW_SelectedProduct"/>
+    <aura:registerEvent name="selectedProduct" type="c:FW_ProductSelected"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler name="observedProductsManagerEvent" event="c:FW_ObservedProductsManagerResponse" action="{!c.toggleObserveIcon}"/>
+    <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse" action="{!c.toggleObserveIcon}"/>
 
     <img src="{!v.item.DisplayUrl}"/>
     <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.Name}</h1>
@@ -26,6 +26,6 @@
         </div>
     </div>
 
-    <c:FW_ObservedProductsManager aura:id="observedProductsManager"/>
+    <c:FW_ProductsObservedManager aura:id="observedProductsManager"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

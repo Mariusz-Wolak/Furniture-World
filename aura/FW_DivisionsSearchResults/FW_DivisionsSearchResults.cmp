@@ -4,7 +4,7 @@
     <aura:attribute name="divisionId" type="Id" access="public"/>
     <aura:attribute name="index" type="Integer" access="public"/>
 
-    <aura:registerEvent name="SelectedRecord" type="c:FW_SelectedRecord"/>
+    <aura:registerEvent name="SelectedRecord" type="c:FW_RecordSelected"/>
 
     <aura:handler event="c:FW_SendResultsToResultList" action="{!c.onInit}"/>
 

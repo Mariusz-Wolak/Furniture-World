@@ -22,8 +22,8 @@
         <members>FW_ProductsSearchBar</members>
         <members>FW_ProductsSearchResults</members>
         <members>FW_RecordId</members>
-        <members>FW_SelectedProduct</members>
-        <members>FW_SelectedRecord</members>
+        <members>FW_ProductSelected</members>
+        <members>FW_RecordSelected</members>
         <members>FW_SendProductsToProductsList</members>
         <members>FW_SendResultsToResultList</members>
         <name>AuraDefinitionBundle</name>

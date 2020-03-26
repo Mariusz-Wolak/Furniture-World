@@ -17,7 +17,7 @@
                 $A.util.addClass(arr[i], "selectedRow");
             }
         }
-        let appEvent = $A.get("e.c:FW_SelectedRecord");
+        let appEvent = $A.get("e.c:FW_RecordSelected");
         appEvent.setParams({"record": resultsList[divisionId]});
         appEvent.fire();
     }

@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsSearchResults" controller="FW_ProductsController"
+<aura:component controller="FW_ProductsController"
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
 
     <aura:attribute name="header" type="String" access="global"/>
@@ -11,7 +11,7 @@
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler name="selectedProduct" event="c:FW_SelectedProduct" action="{!c.showProduct}"/>
+    <aura:handler name="selectedProduct" event="c:FW_ProductSelected" action="{!c.showProduct}"/>
 
     <c:FW_ProductsResults header="{!v.header}" results="{!v.results}" showItems="{!v.showItems}" showProductView="{!v.showProductView}"
                           selectedItem="{!v.selectedItem}"/>

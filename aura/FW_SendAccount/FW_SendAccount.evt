@@ -1,3 +1,3 @@
 <aura:event type="COMPONENT" description="FW_SendAccount">
-    <aura:attribute name="record" type="Account"/>
+    <aura:attribute name="record" type="Object"/>
 </aura:event>
