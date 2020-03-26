@@ -64,8 +64,10 @@
             action.setCallback(this, function(response){
                 let state = response.getState();
                 if(state === 'SUCCESS'){
+                    component.find('customToast').showSuccessToast($A.get('$Label.c.Your_Comment_Has_Been_Added_Successfully'));
                     let commentsList = component.get('v.commentsList');
                     component.set('v.commentText', null);
+                    component.find('customToast').showSuccessToast($A.get('$Label.c.'));
                     $A.enqueueAction(component.get('c.refreshComments'));
                 }else{
                     component.find('customToast').showErrorToast(response.getError());

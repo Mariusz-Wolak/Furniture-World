@@ -11,6 +11,7 @@
             action.setCallback(this, function(response){
                 let state = response.getState();
                 if(state === 'SUCCESS'){
+                    component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Added_To_Observed_List'));
                     let cmpEvent = component.getEvent('observedProductsManagerEvent');
                     cmpEvent.setParams({
                        response: 'successAdding'
@@ -29,6 +30,7 @@
             action.setCallback(this, function(response){
                 let state = response.getState();
                 if(state === 'SUCCESS'){
+                    component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Removed_From_Observed_List'));
                     let cmpEvent = component.getEvent('observedProductsManagerEvent');
                     cmpEvent.setParams({
                        response: 'successRemoving'

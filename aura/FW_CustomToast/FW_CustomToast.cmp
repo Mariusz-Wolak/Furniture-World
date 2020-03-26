@@ -6,6 +6,10 @@
         <aura:attribute name="mode" type="String" default="sticky" access="global"/>
     </aura:method>
 
+    <aura:method name="showSuccessToast" action="{!c.displaySuccessToast}" access="global">
+        <aura:attribute name="message" type="String" access="global"/>
+    </aura:method>
+
     <aura:method name="showErrorToast" action="{!c.displayErrorToast}" access="global">
         <aura:attribute name="errors" type="Object[]" access="global"/>
     </aura:method>
