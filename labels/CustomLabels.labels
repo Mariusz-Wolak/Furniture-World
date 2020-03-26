@@ -1211,4 +1211,11 @@
         <shortDescription>Your_Comment_Has_Been_Added_Successfully</shortDescription>
         <value>Your comment has been added successfully, thank you.</value>
     </labels>
+    <labels>
+        <fullName>What_Others_Think_About_This_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>What_Others_Think_About_This_Item</shortDescription>
+        <value>What others think about this item?</value>
+    </labels>
 </CustomLabels>

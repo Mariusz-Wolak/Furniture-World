@@ -54,7 +54,7 @@
     </div>
 
     <div class="commentsHeader">
-        {!$Label.c.Rating}
+        {!$Label.c.What_Others_Think_About_This_Item}
     </div>
 
     <div>
@@ -71,7 +71,7 @@
     <div class="rateProductText slds-align_absolute-center">{!$Label.c.Your_Rate}:</div>
     <div class="slds-align_absolute-center">
         <div class="slds-col slds-size--1-of-4">
-            <c:Rating sendRating="{!c.rateProduct}"/>
+            <c:Rating colorOn="#00A1E0" stroke="#000000" strokeWidth="3" sendRating="{!c.rateProduct}"/>
         </div>
     </div>
     <div class="slds-grid">
