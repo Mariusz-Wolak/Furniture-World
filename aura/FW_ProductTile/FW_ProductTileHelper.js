@@ -33,5 +33,28 @@
 
         });
         $A.enqueueAction(action);
+    },
+
+     returnSimilarProducts: function(component){
+        let productFamily = component.get('v.item.Family');
+        let productId = component.get('v.item.Id');
+        let action = component.get('c.getSimilarProducts');
+        action.setParams({
+            "productFamily": productFamily,
+            "productId": productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                let appEvent = $A.get("e.c:FW_SendSimilarProducts");
+                appEvent.setParams({
+                    "products": response.getReturnValue()
+                });
+                appEvent.fire();
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

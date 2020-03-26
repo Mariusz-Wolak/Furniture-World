@@ -13,6 +13,7 @@
     <aura:handler name="sendRating" event="c:RatingChangeEvent" action="{!c.rateProduct}"/>
     <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse"
                   action="{!c.toggleObserveIcon}"/>
+    <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">

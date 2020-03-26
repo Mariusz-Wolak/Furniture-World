@@ -38,5 +38,9 @@
             $A.util.removeClass(observeIcon, 'highlightedIcon');
             $A.util.addClass(observeIcon, 'greyIcon');
         }
+    },
+
+    setSimilarProducts: function(component, event, helper){
+        component.set('v.results', event.getParam('products'));
     }
 })
