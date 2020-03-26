@@ -1,5 +1,7 @@
 .THIS .productName{
     font-size: 24px;
+    color: #6495ED;
+    font-style: italic;
     font-weight: bold;
 }
 
@@ -9,6 +11,8 @@
 
 .THIS .productPrice{
     font-size: 32px;
+    color: #6495ED;
+    font-style: italic;
     font-weight: bold;
 }
 
@@ -82,4 +86,8 @@
 
 .THIS.buttonSendComment{
     font-size: 24px;
+}
+
+.THIS .selectedMiniature{
+    border: 2px solid #6495ED;
 }
