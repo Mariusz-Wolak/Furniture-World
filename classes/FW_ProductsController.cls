@@ -49,7 +49,8 @@ public with sharing class FW_ProductsController {
     @AuraEnabled
     public static Boolean removeFromObserved(String productId) {
         try {
-            List<FW_ObservedItem__c> observedItems = [SELECT Name FROM FW_ObservedItem__c WHERE Name = :productId LIMIT 1];
+            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE Name = :productId
+            AND CreatedById =: userId LIMIT 1];
             Database.DeleteResult result = Database.delete(observedItems[0].Id);
             return result.isSuccess();
         } catch (Exception e) {
