@@ -1176,4 +1176,11 @@
         <shortDescription>Comments</shortDescription>
         <value>Comments</value>
     </labels>
+    <labels>
+        <fullName>Rating</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rating</shortDescription>
+        <value>Rating</value>
+    </labels>
 </CustomLabels>

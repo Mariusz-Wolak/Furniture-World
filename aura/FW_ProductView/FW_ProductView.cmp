@@ -54,7 +54,7 @@
     </div>
 
     <div class="commentsHeader">
-        {!$Label.c.Comments}
+        {!$Label.c.Rating}
     </div>
 
     <div>
