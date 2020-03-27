@@ -1239,4 +1239,11 @@
         <shortDescription>Proceed</shortDescription>
         <value>Proceed</value>
     </labels>
+    <labels>
+        <fullName>Total_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total_Price</shortDescription>
+        <value>Total price</value>
+    </labels>
 </CustomLabels>
