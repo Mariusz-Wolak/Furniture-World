@@ -164,4 +164,9 @@ public with sharing class FW_ProductsController {
     public static void insertToBasket(String productId) {
         FW_BasketController.insertToBasket(productId);
     }
+
+    @AuraEnabled
+    public static List<FW_ProductWrapped> getProductsFromBasket(){
+        return FW_BasketController.getProductsFromBasket();
+    }
 }

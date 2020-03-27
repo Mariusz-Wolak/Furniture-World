@@ -23,4 +23,24 @@ public with sharing class FW_BasketController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    public static List<FW_ProductWrapped> getProductsFromBasket(){
+        try {
+            Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
+            Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
+            List<FW_ProductWrapped> productsWrapped = new List<FW_ProductWrapped>();
+
+            if(productsCachedMap != null) {
+                for(String productId: productsCachedMap.keySet()){
+                    FW_ProductWrapped product = new FW_ProductWrapped();
+
+                }
+
+            }
+
+            return productsWrapped;
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
