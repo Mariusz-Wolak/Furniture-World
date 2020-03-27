@@ -10,8 +10,8 @@
         helper.doToggleObserved(component);
     },
 
-    toggleBasket: function(component, event, helper){
-        helper.doToggleBasket(component);
+    addToBasket: function(component, event, helper){
+        helper.doAddToBasket(component);
     },
 
     addComment: function(component, event, helper){

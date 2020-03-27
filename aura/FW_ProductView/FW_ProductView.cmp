@@ -5,6 +5,7 @@
     <aura:attribute name="commentText" type="String" access="global"/>
     <aura:attribute name="commentsList" type="Object[]" access="global"/>
     <aura:attribute name="rating" type="Integer" access="global"/>
+    <aura:attribute name="returnedCache" type="String" access="global"/>
 
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
@@ -48,7 +49,7 @@
 
                 <div class="basketDiv slds-col slds-size--4-of-12">
                     <lightning:icon aura:id="basketIcon" class="greyIcon basketIcon" iconName="custom:custom93" size="large"
-                                    onclick="{!c.toggleBasket}"/>
+                                    onclick="{!c.addToBasket}"/>
                 </div>
             </div>
         </div>

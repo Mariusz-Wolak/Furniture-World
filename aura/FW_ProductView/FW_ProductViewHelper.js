@@ -34,16 +34,30 @@
         observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
-    doToggleBasket: function(component, event){
+    doAddToBasket: function(component, event){
         let basketIcon = component.find('basketIcon');
+        let productId = component.get('v.product.Id');
 
-        if($A.util.hasClass(basketIcon, 'greyIcon')){
-            $A.util.removeClass(basketIcon, 'greyIcon');
-            $A.util.addClass(basketIcon, 'highlightedIcon');
-        }else{
-            $A.util.removeClass(basketIcon, 'highlightedIcon');
-            $A.util.addClass(basketIcon, 'greyIcon');
-        }
+        let action = component.get('c.insertToBasket');
+        action.setParams({
+           "productId":  productId
+        });
+
+        console.log('before set callback');
+        action.setCallback(this, function(response){
+            console.log('action set callback');
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                console.log('state success');
+                component.find('customToast').showSuccessToast('success return from inserting to basket');
+                console.log('add cache response: '+response.getReturnValue());
+            }else{
+                console.log('error toast');
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+        console.log('adding to basket end');
     },
 
     doAddComment: function(component, event){
