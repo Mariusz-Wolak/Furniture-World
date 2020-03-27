@@ -1,4 +1,4 @@
-public with sharing class FW_CartController {
+public with sharing class FW_BasketController {
 
     public static void insertToBasket(String productId) {
         try{
