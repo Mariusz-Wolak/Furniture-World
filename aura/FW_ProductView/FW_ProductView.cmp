@@ -62,6 +62,12 @@
             {!$Label.c.What_Others_Think_About_This_Item}
     </div>
 
+    <aura:if isTrue="{!empty(v.commentsList)}">
+        <div class="singleComment">
+                <div class="commentText">{!$Label.c.No_One_Rated_This_Item_Yet_Be_First}</div>
+        </div>
+    </aura:if>
+
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
             <div class="singleComment">
