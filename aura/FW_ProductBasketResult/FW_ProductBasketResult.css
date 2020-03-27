@@ -1,0 +1,13 @@
+.THIS .productInfo {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.THIS .deleteIcon{
+    background-color: grey;
+}
+
+.THIS .deleteIcon:hover{
+    background-color: red;
+}

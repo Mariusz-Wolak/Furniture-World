@@ -2,24 +2,26 @@
     <aura:attribute name="product" type="Object" access="global"/>
 
     <div class="singleProduct slds-grid">
-        <div class="slds-col slds-size_1-of-12">
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <img src="{!v.product.DisplayUrl}"/>
         </div>
 
-        <div class="productName slds-col slds-size_2-of-6">
+        <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
                 {!v.product.Name}
         </div>
 
-        <div class="slds-col slds-size_1-of-6">
-            <lightning:input type="number"></lightning:input>
+        <div class="slds-col slds-size_1-of-12">
+            <lightning:input type="number" step="1"></lightning:input>
         </div>
 
-        <div class="slds-col slds-size_1-of-6">
-            $$
+        <div class="productInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+            $59.99
         </div>
 
-        <div class="slds-col slds-size_1-of-6">
-            DEL
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete"
+                            size="xx-small"
+                            onclick="{!c.deleteFromBasket}"/>
         </div>
     </div>
 </aura:component>
