@@ -1,0 +1,25 @@
+<aura:component description="FW_ProductBasketResult">
+    <aura:attribute name="product" type="Object" access="global"/>
+
+    <div class="singleProduct slds-grid">
+        <div class="slds-col slds-size_1-of-12">
+            <img src="{!v.product.DisplayUrl}"/>
+        </div>
+
+        <div class="productName slds-col slds-size_2-of-6">
+                {!v.product.Name}
+        </div>
+
+        <div class="slds-col slds-size_1-of-6">
+            <lightning:input type="number"></lightning:input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-6">
+            $$
+        </div>
+
+        <div class="slds-col slds-size_1-of-6">
+            DEL
+        </div>
+    </div>
+</aura:component>

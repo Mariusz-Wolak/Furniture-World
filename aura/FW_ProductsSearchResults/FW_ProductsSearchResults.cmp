@@ -16,4 +16,7 @@
     <c:FW_ProductsResults header="{!v.header}" results="{!v.results}" showItems="{!v.showItems}" showProductView="{!v.showProductView}"
                           selectedItem="{!v.selectedItem}"/>
     <c:FW_CustomToast aura:id="customToast"/>
+
+
+    <c:FW_ProductsBasket results="{!v.results}"/>
 </aura:component>

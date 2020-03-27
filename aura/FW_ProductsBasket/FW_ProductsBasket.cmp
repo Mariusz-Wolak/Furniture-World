@@ -1,3 +1,18 @@
 <aura:component description="FW_ProductsBasket">
-    
+    <aura:attribute name="results" type="Object[]" access="global"/>
+
+    <div class="slds-grid">
+        <div class="slds-col slds-size_9-of-12">
+            <aura:iteration items="{!v.results}" var="product">
+                <div>
+                    <c:FW_ProductBasketResult product="{!product}"/>
+                </div>
+            </aura:iteration>
+        </div>
+
+        <div class="slds-col slds-size_3-of-12">
+            <lightning:input></lightning:input>
+        </div>
+    </div>
+
 </aura:component>
