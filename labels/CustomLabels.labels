@@ -1218,4 +1218,18 @@
         <shortDescription>What_Others_Think_About_This_Item</shortDescription>
         <value>What others think about this item?</value>
     </labels>
+    <labels>
+        <fullName>Similar_Items</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Similar_Items</shortDescription>
+        <value>Similar items</value>
+    </labels>
+    <labels>
+        <fullName>No_One_Rated_This_Item_Yet_Be_First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No_One_Rated_This_Item_Yet_Be_First</shortDescription>
+        <value>No one rated this item yet. Be First!</value>
+    </labels>
 </CustomLabels>

@@ -6,13 +6,18 @@
     <aura:attribute name="commentsList" type="Object[]" access="global"/>
     <aura:attribute name="rating" type="Integer" access="global"/>
 
+    <aura:attribute name="header" type="String" access="global"/>
+    <aura:attribute name="results" type="Object[]" access="global"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="sendRating" event="c:RatingChangeEvent" action="{!c.rateProduct}"/>
-    <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse" action="{!c.toggleObserveIcon}"/>
+    <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse"
+                  action="{!c.toggleObserveIcon}"/>
+    <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
 
     <div class="slds-grid">
         <div class="slds-col slds-size_1-of-12">
-            <img style="border: 1px solid black;" src="{!v.product.DisplayUrl}"
+            <img class="selectedMiniature selectedMiniature2" src="{!v.product.DisplayUrl}"
                  alt=""/>
 
             <img src="{!v.product.DisplayUrl}"
@@ -53,9 +58,15 @@
         </div>
     </div>
 
-    <div class="commentsHeader">
-        {!$Label.c.What_Others_Think_About_This_Item}
+    <div class="sectionHeader">
+            {!$Label.c.What_Others_Think_About_This_Item}
     </div>
+
+    <aura:if isTrue="{!empty(v.commentsList)}">
+        <div class="singleComment">
+                <div class="commentText">{!$Label.c.No_One_Rated_This_Item_Yet_Be_First}</div>
+        </div>
+    </aura:if>
 
     <div>
         <aura:iteration items="{!v.commentsList}" var="comment">
@@ -71,7 +82,7 @@
     <div class="rateProductText slds-align_absolute-center">{!$Label.c.Your_Rate}:</div>
     <div class="slds-align_absolute-center">
         <div class="slds-col slds-size--1-of-4">
-            <c:Rating colorOn="#00A1E0" stroke="#000000" strokeWidth="3" sendRating="{!c.rateProduct}"/>
+            <c:Rating sendRating="{!c.rateProduct}"/>
         </div>
     </div>
     <div class="slds-grid">
@@ -86,7 +97,19 @@
     </div>
 
     <div class="buttonSendComment slds-align_absolute-center">
-        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+        <lightning:button variant="brand-outline" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+    </div>
+
+    <div class="sectionHeader">
+        {!v.header}
+    </div>
+
+    <div class="slds-grid slds-wrap">
+        <aura:iteration items="{!v.results}" var="item">
+            <div class="productTile slds-col slds-size_3-of-12">
+                <c:FW_ProductTile item="{!item}"/>
+            </div>
+        </aura:iteration>
     </div>
 
     <c:FW_ProductsObservedManager aura:id="observedProductsManager"/>

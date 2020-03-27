@@ -67,7 +67,7 @@
                     component.find('customToast').showSuccessToast($A.get('$Label.c.Your_Comment_Has_Been_Added_Successfully'));
                     let commentsList = component.get('v.commentsList');
                     component.set('v.commentText', null);
-                    component.find('customToast').showSuccessToast($A.get('$Label.c.'));
+                    component.set('v.commentText', null);
                     $A.enqueueAction(component.get('c.refreshComments'));
                 }else{
                     component.find('customToast').showErrorToast(response.getError());
@@ -79,7 +79,6 @@
 
     returnNewestComments: function(component){
         let productId = component.get('v.product.Id');
-        let commentsList = component.get("v.commentsList");
         let action = component.get("c.getNewestComments");
         action.setParams({
            "productId": productId
@@ -88,6 +87,26 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.commentsList', response.getReturnValue());
+
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
+    returnSimilarProducts: function(component){
+        let productFamily = component.get('v.product.Family');
+        let productId = component.get('v.product.Id');
+        let action = component.get('c.getSimilarProducts');
+        action.setParams({
+            "productFamily": productFamily,
+            "productId": productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.set('v.results', response.getReturnValue());
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
