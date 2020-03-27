@@ -11,8 +11,12 @@
         </div>
 
         <div class="slds-col slds-size_3-of-12">
-            <lightning:input></lightning:input>
+            TOTAL PRICE
+            <div>
+            <lightning:button class="proceedButton slds-button_stretch slds-button_brand" label="{!$Label.c.Proceed}"></lightning:button>
+            </div>
         </div>
     </div>
 
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

@@ -1232,4 +1232,11 @@
         <shortDescription>No_One_Rated_This_Item_Yet_Be_First</shortDescription>
         <value>No one rated this item yet. Be First!</value>
     </labels>
+    <labels>
+        <fullName>Proceed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Proceed</shortDescription>
+        <value>Proceed</value>
+    </labels>
 </CustomLabels>
