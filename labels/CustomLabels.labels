@@ -1246,4 +1246,18 @@
         <shortDescription>Total_Price</shortDescription>
         <value>Total price</value>
     </labels>
+    <labels>
+        <fullName>Item_Has_Been_Added_To_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Added_To_Basket</shortDescription>
+        <value>Item has been added to basket.</value>
+    </labels>
+    <labels>
+        <fullName>Item_Has_Been_Removed_From_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Removed_From_Basket</shortDescription>
+        <value>Item has been removed from basket.</value>
+    </labels>
 </CustomLabels>

@@ -43,21 +43,15 @@
            "productId":  productId
         });
 
-        console.log('before set callback');
         action.setCallback(this, function(response){
-            console.log('action set callback');
             let state = response.getState();
             if(state === 'SUCCESS'){
-                console.log('state success');
-                component.find('customToast').showSuccessToast('success return from inserting to basket');
-                console.log('add cache response: '+response.getReturnValue());
+                component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Added_To_Basket'));
             }else{
-                console.log('error toast');
                 component.find('customToast').showErrorToast(response.getError());
             }
         });
         $A.enqueueAction(action);
-        console.log('adding to basket end');
     },
 
     doAddComment: function(component, event){
