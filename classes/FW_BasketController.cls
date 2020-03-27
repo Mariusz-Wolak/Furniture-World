@@ -28,17 +28,27 @@ public with sharing class FW_BasketController {
         try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
-            List<FW_ProductWrapped> productsWrapped = new List<FW_ProductWrapped>();
+            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
             if(productsCachedMap != null) {
-                for(String productId: productsCachedMap.keySet()){
-                    FW_ProductWrapped product = new FW_ProductWrapped();
+                Set<String> productsIds = productsCachedMap.keySet();
+                List<Product2> products = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, Quantity__c FROM Product2
+                        WHERE Id IN :productsIds AND Type__c = 'Furniture'];
+                for(Product2 prod: products){
+                    FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                    productWrapped.id = prod.Id;
+                    productWrapped.displayUrl = prod.DisplayUrl;
+                    productWrapped.description = prod.Description;
+                    productWrapped.name = prod.Name;
+                    productWrapped.type = prod.Type__c;
+                    productWrapped.family = prod.Family;
+                    productWrapped.price = prod.Price__c;
+                    productWrapped.quantity = productsCachedMap.get(prod.Id);
 
+                    productsWrappedList.add(productWrapped);
                 }
-
             }
-
-            return productsWrapped;
+            return productsWrappedList;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
         }

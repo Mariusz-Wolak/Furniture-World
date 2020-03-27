@@ -13,4 +13,6 @@ public with sharing class FW_ProductWrapped {
     public String family;
     @AuraEnabled
     public Decimal price;
+    @AuraEnabled
+    public Decimal quantity;
 }
