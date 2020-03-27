@@ -42,5 +42,6 @@
 
     setSimilarProducts: function(component, event, helper){
         component.set('v.results', event.getParam('products'));
+        helper.returnNewestComments(component);
     }
 })

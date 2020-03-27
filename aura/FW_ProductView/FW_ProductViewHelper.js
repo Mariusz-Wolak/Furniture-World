@@ -79,7 +79,6 @@
 
     returnNewestComments: function(component){
         let productId = component.get('v.product.Id');
-        let commentsList = component.get("v.commentsList");
         let action = component.get("c.getNewestComments");
         action.setParams({
            "productId": productId
@@ -88,6 +87,7 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.commentsList', response.getReturnValue());
+
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
