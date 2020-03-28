@@ -1,12 +1,12 @@
 public with sharing class FW_BasketController {
 
     public static void insertToBasket(String productId) {
-        try{
+        try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Integer quantity = 1;
-            Map<String, Integer> productsCachedMap =  (Map<String, Integer>) sessionPartition.get('productsCachedMap');
+            Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
 
-            if(productsCachedMap != null) {
+            if (productsCachedMap != null) {
                 sessionPartition.remove('productsCachedMap');
 
                 if (productsCachedMap.containsKey(productId)) {
@@ -14,27 +14,30 @@ public with sharing class FW_BasketController {
                 }
                 productsCachedMap.put(productId, quantity);
                 sessionPartition.put('productsCachedMap', productsCachedMap);
-            }else{
+            } else {
                 productsCachedMap = new Map<String, Integer>();
                 productsCachedMap.put(productId, quantity);
                 sessionPartition.put('productsCachedMap', productsCachedMap);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
 
-    public static List<FW_ProductWrapped> getProductsFromBasket(){
+    public static List<FW_ProductWrapped> getProductsFromBasket() {
         try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
-            if(productsCachedMap != null) {
+            if (productsCachedMap != null) {
                 Set<String> productsIds = productsCachedMap.keySet();
-                List<Product2> products = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, Quantity__c FROM Product2
-                        WHERE Id IN :productsIds AND Type__c = 'Furniture'];
-                for(Product2 prod: products){
+                List<Product2> products = [
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, Quantity__c
+                        FROM Product2
+                        WHERE Id IN :productsIds AND Type__c = 'Furniture'
+                ];
+                for (Product2 prod : products) {
                     FW_ProductWrapped productWrapped = new FW_ProductWrapped();
                     productWrapped.id = prod.Id;
                     productWrapped.displayUrl = prod.DisplayUrl;
@@ -49,7 +52,26 @@ public with sharing class FW_BasketController {
                 }
             }
             return productsWrappedList;
-        }catch(Exception e){
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    public static List<FW_ProductWrapped> removeFromBasket(String productId) {
+        try {
+            System.debug('productId: '+productId);
+            Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
+            Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
+            if (productsCachedMap != null) {
+                sessionPartition.remove('productsCachedMap');
+                System.debug('cached map before remove: ' + productsCachedMap);
+                productsCachedMap.remove(productId);
+                System.debug('cached map after remove: ' + productsCachedMap);
+                sessionPartition.put('productsCachedMap', productsCachedMap);
+            }
+
+            return getProductsFromBasket();
+        } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }

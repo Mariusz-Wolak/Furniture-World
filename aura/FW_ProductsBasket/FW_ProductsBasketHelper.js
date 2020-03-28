@@ -1,6 +1,5 @@
 ({
     returnProductsFromBasket: function(component){
-        console.log('returnProductsFromBasket in helper');
         let action = component.get("c.getProductsFromBasket");
         action.setCallback(this, function(response){
             let state = response.getState();
