@@ -3,14 +3,20 @@
 
     <aura:attribute name="results" type="Object[]" access="global"/>
 
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
     <div class="slds-grid">
-        <div class="slds-col slds-size_9-of-12">
+        <div class="slds-col slds-size_1-of-12"/>
+
+        <div class="slds-col slds-size_6-of-12">
             <aura:iteration items="{!v.results}" var="product">
                 <div>
-                    <c:FW_ProductBasketResult product="{!product}"/>
+                    <c:FW_ProductBasketResult product="{!product}" quantity="{!product.quantity}"/>
                 </div>
             </aura:iteration>
         </div>
+
+        <div class="slds-col slds-size_1-of-12"/>
 
         <div class="slds-col slds-size_3-of-12">
             <div class="totalPriceHeader">
