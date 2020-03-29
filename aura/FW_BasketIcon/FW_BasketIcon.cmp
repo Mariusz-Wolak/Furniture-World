@@ -1,0 +1,6 @@
+<aura:component description="FW_BasketIcon">
+    <div class="basketDiv sticky slds-col slds-size--4-of-12">
+        <lightning:icon aura:id="basketIcon" iconName="custom:custom93" size="large"
+                        />
+    </div>
+</aura:component>

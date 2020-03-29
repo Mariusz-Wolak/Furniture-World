@@ -34,5 +34,6 @@
         </aura:set>
     </aura:if>
 
+    <c:FW_BasketIcon/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
