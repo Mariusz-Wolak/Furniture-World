@@ -30,6 +30,7 @@
                     {!$Label.c.Total_Price}:
                     </div>
 
+                    <aura:if></aura:if>
                     <div class="totalPrice">
                         €{!v.totalPrice}
                     </div>

@@ -5,9 +5,10 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let results = response.getReturnValue();
-                component.set('v.results', results);
-                let totalPrice = results[0].totalPrice;
-                component.set('v.totalPrice', totalPrice);
+                if(results != undefined && results != null && results != ''){
+                    component.set('v.results', results);
+                    component.set('v.totalPrice', results[0].totalPrice);
+                }
             }else{
                 let toastComponent = component.find('customToast');
                 toastComponent.showErrorToast(response.getError());
