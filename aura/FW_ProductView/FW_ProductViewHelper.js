@@ -34,16 +34,29 @@
         observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
-    doToggleBasket: function(component, event){
+    doAddToBasket: function(component, event){
         let basketIcon = component.find('basketIcon');
+        let productId = component.get('v.product.Id');
 
-        if($A.util.hasClass(basketIcon, 'greyIcon')){
-            $A.util.removeClass(basketIcon, 'greyIcon');
-            $A.util.addClass(basketIcon, 'highlightedIcon');
-        }else{
-            $A.util.removeClass(basketIcon, 'highlightedIcon');
-            $A.util.addClass(basketIcon, 'greyIcon');
-        }
+        let action = component.get('c.insertToBasket');
+        action.setParams({
+           "productId":  productId
+        });
+
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Added_To_Basket'));
+                let sendTotalQuantity = component.getEvent('FW_SendTotalQuantity');
+                sendTotalQuantity.setParams({
+                   "totalQuantity": response.getReturnValue()[0].totalQuantity
+                });
+                sendTotalQuantity.fire();
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     },
 
     doAddComment: function(component, event){

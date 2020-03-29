@@ -159,4 +159,19 @@ public with sharing class FW_ProductsController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static List<FW_ProductWrapped> insertToBasket(String productId) {
+        return FW_BasketController.insertToBasket(productId);
+    }
+
+    @AuraEnabled
+    public static List<FW_ProductWrapped> getProductsFromBasket(){
+        return FW_BasketController.getProductsFromBasket();
+    }
+
+    @AuraEnabled
+    public static List<FW_ProductWrapped> removeFromBasket(String productId){
+        return FW_BasketController.removeFromBasket(productId);
+    }
 }

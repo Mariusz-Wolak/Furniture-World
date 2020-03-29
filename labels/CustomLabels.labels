@@ -1232,4 +1232,39 @@
         <shortDescription>No_One_Rated_This_Item_Yet_Be_First</shortDescription>
         <value>No one rated this item yet. Be First!</value>
     </labels>
+    <labels>
+        <fullName>Proceed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Proceed</shortDescription>
+        <value>Proceed</value>
+    </labels>
+    <labels>
+        <fullName>Total_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total_Price</shortDescription>
+        <value>Total price</value>
+    </labels>
+    <labels>
+        <fullName>Item_Has_Been_Added_To_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Added_To_Basket</shortDescription>
+        <value>Item has been added to basket.</value>
+    </labels>
+    <labels>
+        <fullName>Item_Has_Been_Removed_From_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item_Has_Been_Removed_From_Basket</shortDescription>
+        <value>Item has been removed from basket.</value>
+    </labels>
+    <labels>
+        <fullName>The_List_Is_Empty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The_List_Is_Empty</shortDescription>
+        <value>The list is empty.</value>
+    </labels>
 </CustomLabels>
