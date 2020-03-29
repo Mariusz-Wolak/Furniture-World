@@ -174,4 +174,9 @@ public with sharing class FW_ProductsController {
     public static List<FW_ProductWrapped> removeFromBasket(String productId){
         return FW_BasketController.removeFromBasket(productId);
     }
+
+    @AuraEnabled
+    public static Object getUserInfo(){
+        return FW_OrderController.getUserInfo();
+    }
 }

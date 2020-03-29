@@ -1267,4 +1267,18 @@
         <shortDescription>The_List_Is_Empty</shortDescription>
         <value>The list is empty.</value>
     </labels>
+    <labels>
+        <fullName>Order</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order</shortDescription>
+        <value>Order</value>
+    </labels>
+    <labels>
+        <fullName>Order_Summary</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order_Summary</shortDescription>
+        <value>Order summary</value>
+    </labels>
 </CustomLabels>

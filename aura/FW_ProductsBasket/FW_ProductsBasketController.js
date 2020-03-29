@@ -19,6 +19,7 @@
     },
 
     showProceedModal: function(component, event, helper){
-        component.set('v.showProceedBasketModal', true);
+        console.log('show proceed modal ctrl 2');
+        helper.doShowProceedModal(component, event);
     }
 })

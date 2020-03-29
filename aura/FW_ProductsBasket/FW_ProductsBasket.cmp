@@ -3,6 +3,7 @@
 
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="totalPrice" Type="Decimal" access="global"/>
+    <aura:attribute name="account" Type="Object" access="global"/>
 
     <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
 
@@ -47,6 +48,6 @@
     </aura:if>
 
     <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
-                      productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}"/>
+                      productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}" account="{!v.account}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

@@ -7,6 +7,7 @@
     <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
     <aura:attribute name="productsInBasket" type="Object[]" access="global"/>
     <aura:attribute name="totalPrice" type="Decimal" access="global"/>
+    <aura:attribute name="account" type="Object" access="global"/>
 
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
@@ -36,8 +37,24 @@
                     <p class="orderSummaryHeader">{!$Label.c.Order_Summary}</p>
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <div class="slds-grid">
+                        <div class="productInfo slds-col slds-size_3-of-12"/>
+
+                            <div class="slds-col slds-size_5-of-12 slds-gutters">
+                                    <lightning:input value="{!v.account.Name}" label="Name"/>
+                                    <lightning:input value="{!v.account.Address.street}" label="Street"/>
+                                    <lightning:input value="{!v.account.Address.city}" label="City"/>
+                                    <lightning:input value="{!v.account.Address.state}" label="State"/>
+                                    <lightning:input value="{!v.account.Address.postalCode}" label="Postal Code"/>
+                            </div>
+
+                        <div class="productInfo slds-col slds-size_3-of-12"/>
+                    </div>
+
+
                         <aura:iteration items="{!v.productsInBasket}" var="product">
-                            <div class="slds-grid">
+                            <div class="productsListDiv slds-grid">
                                 <div class="productInfo slds-col slds-size_3-of-12"/>
 
                                 <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
@@ -74,6 +91,24 @@
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
     </aura:if>
+
+<!--    <lightning:recordViewForm recordId="{!v.accountId}" objectApiName="Account">-->
+<!--        <center>-->
+<!--            <div class="slds-grid slds-gutters">-->
+<!--                <div class="slds-col slds-size&#45;&#45;1-of-2">-->
+<!--                    <lightning:outputField fieldName="Name"/>-->
+<!--                    <lightning:outputField fieldName="ShippingCountry"/>-->
+<!--                    <lightning:outputField fieldName="Website"/>-->
+<!--                </div>-->
+
+<!--                <div class="slds-col slds-size&#45;&#45;1-of-2">-->
+<!--                    <lightning:outputField fieldName="ShippingCity"/>-->
+<!--                    <lightning:outputField fieldName="ShippingStreet"/>-->
+<!--                    <lightning:outputField fieldName="ShippingPostalCode"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </center>-->
+<!--    </lightning:recordViewForm>-->
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
