@@ -1,5 +1,5 @@
 ({
-    returnProductsFromBasket: function(component){
+    returnProductsFromBasket: function(component, event){
         let action = component.get("c.getProductsFromBasket");
         action.setCallback(this, function(response){
             let state = response.getState();

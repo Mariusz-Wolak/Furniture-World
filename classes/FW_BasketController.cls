@@ -29,11 +29,12 @@ public with sharing class FW_BasketController {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            Decimal totalPrice = 0;
 
             if (productsCachedMap != null) {
                 Set<String> productsIds = productsCachedMap.keySet();
                 List<Product2> products = [
-                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, Quantity__c
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
                         FROM Product2
                         WHERE Id IN :productsIds AND Type__c = 'Furniture'
                 ];
@@ -47,9 +48,12 @@ public with sharing class FW_BasketController {
                     productWrapped.family = prod.Family;
                     productWrapped.price = prod.Price__c;
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
-
+                    totalPrice += productWrapped.quantity * productWrapped.price;
                     productsWrappedList.add(productWrapped);
                 }
+            }
+            for(FW_ProductWrapped pw: productsWrappedList){
+                pw.totalPrice = totalPrice;
             }
             return productsWrappedList;
         } catch (Exception e) {
@@ -59,14 +63,11 @@ public with sharing class FW_BasketController {
 
     public static List<FW_ProductWrapped> removeFromBasket(String productId) {
         try {
-            System.debug('productId: '+productId);
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
             if (productsCachedMap != null) {
                 sessionPartition.remove('productsCachedMap');
-                System.debug('cached map before remove: ' + productsCachedMap);
                 productsCachedMap.remove(productId);
-                System.debug('cached map after remove: ' + productsCachedMap);
                 sessionPartition.put('productsCachedMap', productsCachedMap);
             }
 

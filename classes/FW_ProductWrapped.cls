@@ -15,4 +15,6 @@ public with sharing class FW_ProductWrapped {
     public Decimal price;
     @AuraEnabled
     public Decimal quantity;
+    @AuraEnabled
+    public Decimal totalPrice;
 }
