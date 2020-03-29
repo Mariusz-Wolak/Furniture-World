@@ -46,6 +46,7 @@
         </aura:set>
     </aura:if>
 
-    <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}" productsInBasket="{!v.results}"/>
+    <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
+                      productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

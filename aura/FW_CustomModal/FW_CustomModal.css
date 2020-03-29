@@ -1,0 +1,16 @@
+.THIS .productInfo {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.THIS .totalOrderPrice{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.THIS .orderSummaryHeader{
+    font-style: italic;
+    font-size: 25px;
+    color: blue;
+}
