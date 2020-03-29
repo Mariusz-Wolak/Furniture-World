@@ -19,7 +19,6 @@
     },
 
     showProceedModal: function(component, event, helper){
-        console.log('show proceed modal ctrl 2');
         helper.doShowProceedModal(component, event);
     }
 })

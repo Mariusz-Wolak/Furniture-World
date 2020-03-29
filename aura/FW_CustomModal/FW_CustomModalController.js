@@ -12,6 +12,10 @@
     },
 
     order: function(component, event, helper){
-        console.log('order');
+        helper.doOrder(component, event);
+    },
+
+    closeOrderSummary: function(component, event, helper){
+        helper.clearBasket(component, event);
     }
 })

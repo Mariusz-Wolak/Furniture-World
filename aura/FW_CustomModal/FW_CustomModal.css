@@ -18,3 +18,8 @@
 .THIS .productsListDiv{
     padding-top: 20px;
 }
+
+.THIS .summaryDiv{
+    font-style: italic;
+    font-size: 20px;
+}

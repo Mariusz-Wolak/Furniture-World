@@ -1281,4 +1281,11 @@
         <shortDescription>Order_Summary</shortDescription>
         <value>Order summary</value>
     </labels>
+    <labels>
+        <fullName>Your_Order_Has_Been_Successfully_Processed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Order_Has_Been_Successfully_Processed</shortDescription>
+        <value>Your order has been succesesfully processed</value>
+    </labels>
 </CustomLabels>

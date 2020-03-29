@@ -18,13 +18,11 @@
     },
 
     doShowProceedModal: function(component, event){
-        console.log('helper call account');
         let action = component.get("c.getUserInfo");
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.account', response.getReturnValue());
-                console.log('user: '+JSON.stringify(response.getReturnValue()));
                 component.set('v.showProceedBasketModal', true);
             }else{
                 let toastComponent = component.find('customToast');
