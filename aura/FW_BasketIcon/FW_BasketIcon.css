@@ -2,8 +2,27 @@
 
 }
 
+.THIS .basketIcon:hover{
+    background-color: #800000;
+    cursor: pointer;
+}
+
 .THIS.sticky{
     position: fixed;
     top: 5%;
     left: 90%;
+}
+
+.THIS.stickyNumber{
+    position: fixed;
+    top: 10%;
+    left: 92%;
+}
+
+.THIS.numberOfProducts{
+    font-size: 15px;
+    padding: 0px 5px;
+    font-weight: bold;
+    background: red;
+    border-radius: 10px;
 }

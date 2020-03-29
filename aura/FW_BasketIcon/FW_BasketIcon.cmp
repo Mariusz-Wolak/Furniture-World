@@ -1,6 +1,10 @@
 <aura:component description="FW_BasketIcon">
-    <div class="basketDiv sticky slds-col slds-size--4-of-12">
-        <lightning:icon aura:id="basketIcon" iconName="custom:custom93" size="large"
-                        />
+
+    <aura:attribute name="numberOfProducts" type="Integer" access="global"/>
+
+    <div class="basketDiv sticky slds-col slds-size--4-of-12" onclick="">
+        <lightning:icon aura:id="basketIcon" class="basketIcon" iconName="custom:custom93" size="large"
+                        onclick="{!c.goToBasket}"/>
     </div>
+    <div class="numberOfProducts stickyNumber">x{!v.numberOfProducts}</div>
 </aura:component>
