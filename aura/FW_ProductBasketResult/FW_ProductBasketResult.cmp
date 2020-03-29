@@ -2,6 +2,11 @@
 
     <aura:attribute name="product" type="Object" access="global"/>
     <aura:attribute name="quantity" type="Integer" access="global"/>
+    <aura:attribute name="totalPrice" type="Decimal" access="global"/>
+
+    <aura:attribute name="showTotalPrice" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <aura:registerEvent name="FW_ProductsBasketRefreshedEvent" type="c:FW_ProductsBasketRefreshedEvent"/>
 
@@ -17,13 +22,20 @@
         <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
             <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
             <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
-                             value="{!v.quantity}"></lightning:input>
+                             value="{!v.quantity}" onchange="{!c.changeQuantity}"></lightning:input>
             <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
         </div>
 
-        <div class="productInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
-            €{!v.product.price}
-        </div>
+        <aura:if isTrue="{!v.showTotalPrice}">
+            <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
+                €{!v.totalPrice} &nbsp; <div class="singlePrice">({!v.quantity} x €{!v.product.price})</div>
+            </div>
+            <aura:set attribute="else">
+                <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
+                    €{!v.product.price}
+                </div>
+            </aura:set>
+        </aura:if>
 
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete"

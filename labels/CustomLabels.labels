@@ -1260,4 +1260,11 @@
         <shortDescription>Item_Has_Been_Removed_From_Basket</shortDescription>
         <value>Item has been removed from basket.</value>
     </labels>
+    <labels>
+        <fullName>The_List_Is_Empty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The_List_Is_Empty</shortDescription>
+        <value>The list is empty.</value>
+    </labels>
 </CustomLabels>
