@@ -4,6 +4,9 @@
     <aura:attribute name="divisionId" type="Integer" access="public"/>
     <aura:attribute name="divisionsList" type="Account[]" access="global"/>
 
+    <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
+    <aura:attribute name="productsInBasket" type="Object[]" access="global"/>
+
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
     <aura:if isTrue="{!v.deleteDivisionIsOpen}">
@@ -17,6 +20,30 @@
                     <center>
                         <lightning:button label="{!$Label.c.No}" onclick="{!c.closeDeleteDivisionModal}"/>
                         <lightning:button label="{!$Label.c.Yes}" onclick="{!c.deleteDivision}"/>
+                    </center>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showProceedBasketModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <p>Order</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <center>
+                                <aura:iteration items="{!v.productsInBasket}" var="product">
+                                    <div>
+                                        <c:FW_ProductBasketResult product="{!product}" quantity="{!product.quantity}"/>
+                                    </div>
+                                </aura:iteration>
+
+                        <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeProceedBasketModal}"/>
+                        <lightning:button label="{!$Label.c.Yes}" onclick="{!c.order}"/>
                     </center>
                 </div>
             </div>

@@ -19,6 +19,6 @@
     },
 
     showProceedModal: function(component, event, helper){
-
+        component.set('v.showProceedBasketModal', true);
     }
 })
