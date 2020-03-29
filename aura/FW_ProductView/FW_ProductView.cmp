@@ -10,6 +10,8 @@
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
 
+    <aura:registerEvent name="FW_SendTotalQuantity" type="c:FW_SendTotalQuantity"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="sendRating" event="c:RatingChangeEvent" action="{!c.rateProduct}"/>
     <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse"

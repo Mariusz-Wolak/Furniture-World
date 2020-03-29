@@ -47,6 +47,11 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Added_To_Basket'));
+                let sendTotalQuantity = component.getEvent('FW_SendTotalQuantity');
+                sendTotalQuantity.setParams({
+                   "totalQuantity": response.getReturnValue()[0].totalQuantity
+                });
+                sendTotalQuantity.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

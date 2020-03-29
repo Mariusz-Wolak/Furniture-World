@@ -1,6 +1,6 @@
 public with sharing class FW_BasketController {
 
-    public static void insertToBasket(String productId) {
+    public static List<FW_ProductWrapped> insertToBasket(String productId) {
         try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
             Integer quantity = 1;
@@ -19,6 +19,8 @@ public with sharing class FW_BasketController {
                 productsCachedMap.put(productId, quantity);
                 sessionPartition.put('productsCachedMap', productsCachedMap);
             }
+
+            return getProductsFromBasket();
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
@@ -30,6 +32,7 @@ public with sharing class FW_BasketController {
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
             Decimal totalPrice = 0;
+            Integer totalQuantity = 0;
 
             if (productsCachedMap != null) {
                 Set<String> productsIds = productsCachedMap.keySet();
@@ -48,12 +51,14 @@ public with sharing class FW_BasketController {
                     productWrapped.family = prod.Family;
                     productWrapped.price = prod.Price__c;
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
+                    totalQuantity += productWrapped.quantity;
                     totalPrice += productWrapped.quantity * productWrapped.price;
                     productsWrappedList.add(productWrapped);
                 }
             }
             for(FW_ProductWrapped pw: productsWrappedList){
                 pw.totalPrice = totalPrice;
+                pw.totalQuantity = totalQuantity;
             }
             return productsWrappedList;
         } catch (Exception e) {
