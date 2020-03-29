@@ -6,6 +6,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_ProductsBasketRefreshedEvent" action="{!c.refreshBasket}"/>
+    <aura:handler name="FW_SendPriceDifference" event="c:FW_SendPriceDifference" action="{!c.setTotalPrice}"/>
 
     <aura:if isTrue="{!empty(v.results)}">
         <div class="resultsHeader">{!$Label.c.The_List_Is_Empty}</div>
@@ -30,7 +31,7 @@
                     </div>
 
                     <div class="totalPrice">
-                        ${!v.results[0].totalPrice}
+                        €{!v.totalPrice}
                     </div>
 
                     <div>
