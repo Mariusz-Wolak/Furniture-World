@@ -1,13 +1,16 @@
 public with sharing class FW_OrderController {
 
     public static void insertOrder(User currentUser, Object[] productsInBasket, Decimal totalPrice){
-        System.debug(productsInBasket);
         String productsString = JSON.serialize(productsInBasket);
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
+        Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
+
         try {
             String orderId;
             Order newOrder = new Order();
+            newOrder.AccountId = '0015J000003ioeGQAQ';
+            newOrder.Pricebook2Id = pricebook.Id;
             newOrder.BillingStreet = currentUser.street;
             newOrder.BillingCity = currentUser.city;
             newOrder.BillingState = currentUser.state;
@@ -28,9 +31,10 @@ public with sharing class FW_OrderController {
                 item.UnitPrice = prod.price;
                 item.Quantity = prod.quantity;
                 item.Product2Id = prod.id;
+                item.PricebookEntryId = '01u5J000000wssQQAQ';
                 itemsToOrder.add(item);
             }
-            
+
             insert itemsToOrder;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
@@ -47,5 +51,10 @@ public with sharing class FW_OrderController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+    }
+
+    public static List<Order> getOrders(){
+        return [SELECT Id, Price__c, (SELECT Id, orderId, OrderItemNumber, Quantity, UnitPrice FROM OrderItems)
+                                FROM Order];
     }
 }

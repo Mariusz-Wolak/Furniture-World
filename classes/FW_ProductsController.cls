@@ -256,4 +256,9 @@ public with sharing class FW_ProductsController {
     public static void deleteBasket(){
         FW_OrderController.deleteBasket();
     }
+
+    @AuraEnabled
+    public static List<Order> getOrders(){
+        return FW_OrderController.getOrders();
+    }
 }

@@ -1,0 +1,17 @@
+<aura:component description="FW_Orders" controller="FW_ProductsController"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+
+    <aura:attribute name="results" type="Order" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+
+ORDERS
+    <aura:iteration items="{!v.results}" var="order">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-12">order</div>
+            <div class="slds-col slds-size_1-of-12">{!order.BillingCountry}</div>
+            <div class="slds-col slds-size_1-of-12">Total: {!order.Price__c}</div>
+        </div>
+    </aura:iteration>
+</aura:component>
