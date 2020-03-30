@@ -10,11 +10,11 @@ public with sharing class FW_OrderController {
         }
     }
 
-    public static void insertOrder(Object account, Object[] productsInBasket, Decimal totalPrice){
+    public static void insertOrder(User account, Object[] productsInBasket, Decimal totalPrice){
         Order newOrder = new Order();
         System.debug('account: '+account);
 //        System.debug('account.name: '+account[0].Name);
-//        System.debug('account.address.street: '+account.Address.street);
+        System.debug('account.address.country: '+account.Address);
 //        newOrder.BillingStreet = account.address.street;
 //        newOrder.BillingCity = account.Address.city;
 //        newOrder.BillingPostalCode = account.Address.postalCode;
