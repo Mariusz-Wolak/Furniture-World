@@ -40,3 +40,8 @@
     font-weight: normal;
 }
 
+.THIS .productName{
+    text-decoration: underline;
+    cursor: pointer;
+}
+

@@ -2,20 +2,33 @@ public with sharing class FW_ProductsController {
 
     public static String userId = UserInfo.getUserId();
 
-    private static String getQuery(String name) {
+    private static List<Object> getQuery(String name) {
         if (String.isNotBlank(name)) {
             String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 ' +
                     'WHERE Name LIKE \'%' + name + '%\' AND Type__c = \'Furniture\' ORDER BY Price__c ASC';
-            return query;
+            List<Product2> products = Database.query(query);
+            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            for(Product2 prod: products){
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                productWrapped.id = prod.Id;
+                productWrapped.displayUrl = prod.DisplayUrl;
+                productWrapped.description = prod.Description;
+                productWrapped.name = prod.Name;
+                productWrapped.type = prod.Type__c;
+                productWrapped.family = prod.Family;
+                productWrapped.price = prod.Price__c;
+                productsWrappedList.add(productWrapped);
+            }
+            return productsWrappedList;
         } else {
             throw new FW_CustomException.OtherException(Label.Fill_Blank_Value_Error);
         }
     }
 
     @AuraEnabled
-    public static List<Product2> getSearchResults(String name) {
+    public static List<Object> getSearchResults(String name) {
         try {
-            return Database.query(getQuery(name));
+            return getQuery(name);
         } catch (FW_CustomException e) {
             FW_CustomExceptionData customException = new FW_CustomExceptionData(e.getMessage());
             throw new AuraHandledException(JSON.serialize(customException));
@@ -25,11 +38,24 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<Product2> getNewestProducts() {
+    public static List<Object> getNewestProducts() {
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
                 '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
         try {
-            return Database.query(query);
+            List<Product2> products = Database.query(query);
+            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            for(Product2 prod: products){
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                productWrapped.id = prod.Id;
+                productWrapped.displayUrl = prod.DisplayUrl;
+                productWrapped.description = prod.Description;
+                productWrapped.name = prod.Name;
+                productWrapped.type = prod.Type__c;
+                productWrapped.family = prod.Family;
+                productWrapped.price = prod.Price__c;
+                productsWrappedList.add(productWrapped);
+            }
+            return productsWrappedList;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
@@ -93,7 +119,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<Product2> getObservedProducts() {
+    public static List<Object> getObservedProducts() {
         try {
             List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE CreatedById =: userId];
             Set<Id> observedProductsIds = new Set<Id>();
@@ -103,11 +129,23 @@ public with sharing class FW_ProductsController {
                     observedProductsIds.add(item.Name);
                 }
 
-                List<Product2> productsToReturn = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
-                FROM Product2
-                WHERE Id IN :observedProductsIds];
+                List<Product2> products = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+                                                    FROM Product2
+                                                    WHERE Id IN :observedProductsIds];
 
-                return productsToReturn;
+                List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+                for(Product2 prod: products){
+                    FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                    productWrapped.id = prod.Id;
+                    productWrapped.displayUrl = prod.DisplayUrl;
+                    productWrapped.description = prod.Description;
+                    productWrapped.name = prod.Name;
+                    productWrapped.type = prod.Type__c;
+                    productWrapped.family = prod.Family;
+                    productWrapped.price = prod.Price__c;
+                    productsWrappedList.add(productWrapped);
+                }
+                return productsWrappedList;
             }else{
                 return null;
             }
@@ -150,11 +188,24 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<Product2> getSimilarProducts(String productFamily, String productId){
+    public static List<Object> getSimilarProducts(String productFamily, String productId){
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
                 '\'Furniture\' AND Family LIKE \'%' + productFamily + '%\' AND (NOT Id = \'' + productId + '\') LIMIT 4';
         try {
-            return Database.query(query);
+            List<Product2> products = Database.query(query);
+            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            for(Product2 prod: products){
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                productWrapped.id = prod.Id;
+                productWrapped.displayUrl = prod.DisplayUrl;
+                productWrapped.description = prod.Description;
+                productWrapped.name = prod.Name;
+                productWrapped.type = prod.Type__c;
+                productWrapped.family = prod.Family;
+                productWrapped.price = prod.Price__c;
+                productsWrappedList.add(productWrapped);
+            }
+            return productsWrappedList;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }

@@ -13,11 +13,11 @@
 
     <div aura:id="productTileDiv" class="productTileDiv" onmouseover="{!c.highlightTile}"
          onmouseleave="{!c.removeHighlightTile}">
-        <img src="{!v.item.DisplayUrl}"/>
-        <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.Name}</h1>
+        <img src="{!v.item.displayUrl}"/>
+        <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.name}</h1>
         <div class="slds-grid">
             <div class="slds-col slds-size_4-of-12">
-                <h1 class="itemPrice">€{!v.item.Price__c}</h1>
+                <h1 class="itemPrice">€{!v.item.price}</h1>
             </div>
 
             <div class="slds-col slds-size_6-of-12"/>
