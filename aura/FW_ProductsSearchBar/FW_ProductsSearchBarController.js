@@ -1,12 +1,12 @@
 ({
     onInit: function(component, event, helper){
-//        let searchBar = document.getElementById("searchBar");
-////        searchBar.scrollIntoView();
-
-//        var target = component.find("searchBar");
-//        var element = target.getElement();
-//        var rect = element.getBoundingClientRect();
-//        scrollTo({top: element.top, behavior: "smooth"});
+        let scrollOptions = {
+            left: 0,
+            top: 1100,
+            behavior: 'smooth'
+        }
+        console.log('scroll options: '+JSON.stringify(scrollOptions));
+        setTimeout(function(){ window.scrollTo(scrollOptions); }, 1000);
     },
 
     search: function(component, event, helper){

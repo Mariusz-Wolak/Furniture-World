@@ -5,6 +5,12 @@
         meta.setAttribute("http-equiv", "Content-Security-Policy")
         meta.setAttribute("content", "date=no;img-src 'self' data:");
         document.getElementsByTagName('head')[0].appendChild(meta);
+        let scrollOptions = {
+            left: 0,
+            top: 1100,
+            behavior: 'smooth'
+        }
+        setTimeout(function(){ window.scrollTo(scrollOptions); }, 1000);
 
         helper.returnNewestProducts(component);
 
@@ -22,6 +28,8 @@
         component.set('v.showItems', true);
         component.set('v.showProductView', false);
         component.set('v.showHeader', false);
+        window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/', '_top');
+
     },
 
     showProduct: function(component, event, helper){
