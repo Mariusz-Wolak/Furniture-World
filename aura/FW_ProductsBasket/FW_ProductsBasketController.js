@@ -16,5 +16,9 @@
         let priceDifference = Number(event.getParam('priceDifference'));
         totalPrice += priceDifference;
         component.set('v.totalPrice', totalPrice.toFixed(2));
+    },
+
+    showProceedModal: function(component, event, helper){
+        helper.doShowProceedModal(component, event);
     }
 })

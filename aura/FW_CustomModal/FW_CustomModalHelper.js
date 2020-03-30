@@ -42,5 +42,45 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    doOrder: function(component, event, helper){
+        let account = component.get('v.account');
+        let productsInBasket = component.get('v.productsInBasket');
+        let totalPrice = component.get('v.totalPrice');
+        console.log('account: '+account);
+        console.log('account: '+JSON.stringify(account));
+
+        let action = component.get('c.insertOrder');
+        action.setParams({
+           "account": account,
+           "productsInBasket": productsInBasket,
+           "totalPrice": totalPrice
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.find('customToast').showSuccessToast($A.get("$Label.c.Your_Order_Has_Been_Successfully_Processed"));
+                component.set('v.showProceedBasketModal', false);
+                component.set('v.showOrderSummary', true);
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
+    clearBasket: function(component, event){
+        let action = component.get('c.deleteBasket');
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.set('v.showOrderSummary', false);
+                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/Search-Furniture', '_top');
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

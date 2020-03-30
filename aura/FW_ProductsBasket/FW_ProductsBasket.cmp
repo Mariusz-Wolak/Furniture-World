@@ -3,6 +3,9 @@
 
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="totalPrice" Type="Decimal" access="global"/>
+    <aura:attribute name="account" Type="Object" access="global"/>
+
+    <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_ProductsBasketRefreshedEvent" action="{!c.refreshBasket}"/>
@@ -37,12 +40,14 @@
 
                     <div>
                         <lightning:button class="proceedButton slds-button_stretch slds-button_brand"
-                                          label="{!$Label.c.Proceed}"></lightning:button>
+                                          label="{!$Label.c.Proceed}" onclick="{!c.showProceedModal}"></lightning:button>
                     </div>
                 </div>
             </div>
         </aura:set>
     </aura:if>
 
+    <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
+                      productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}" account="{!v.account}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

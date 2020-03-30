@@ -1267,4 +1267,32 @@
         <shortDescription>The_List_Is_Empty</shortDescription>
         <value>The list is empty.</value>
     </labels>
+    <labels>
+        <fullName>Order</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order</shortDescription>
+        <value>Order</value>
+    </labels>
+    <labels>
+        <fullName>Order_Summary</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order_Summary</shortDescription>
+        <value>Order summary</value>
+    </labels>
+    <labels>
+        <fullName>Your_Order_Has_Been_Successfully_Processed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Order_Has_Been_Successfully_Processed</shortDescription>
+        <value>Your order has been succesesfully processed</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Us</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact_Us</shortDescription>
+        <value>Contact us</value>
+    </labels>
 </CustomLabels>

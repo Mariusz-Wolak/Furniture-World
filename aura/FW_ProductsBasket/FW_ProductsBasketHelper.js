@@ -15,5 +15,20 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    doShowProceedModal: function(component, event){
+        let action = component.get("c.getUserInfo");
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.set('v.account', response.getReturnValue());
+                component.set('v.showProceedBasketModal', true);
+            }else{
+                let toastComponent = component.find('customToast');
+                toastComponent.showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

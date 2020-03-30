@@ -1,8 +1,14 @@
-<aura:component description="FW_CustomModal" controller="FW_DivisionsSearchController">
+<aura:component description="FW_CustomModal" controller="FW_ProductsController">
 
     <aura:attribute name="deleteDivisionIsOpen" type="Boolean" access="global"/>
     <aura:attribute name="divisionId" type="Integer" access="public"/>
     <aura:attribute name="divisionsList" type="Account[]" access="global"/>
+
+    <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
+    <aura:attribute name="productsInBasket" type="Object[]" access="global"/>
+    <aura:attribute name="totalPrice" type="Decimal" access="global"/>
+    <aura:attribute name="account" type="Object" access="global"/>
+    <aura:attribute name="showOrderSummary" type="Boolean" access="global"/>
 
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
@@ -18,6 +24,137 @@
                         <lightning:button label="{!$Label.c.No}" onclick="{!c.closeDeleteDivisionModal}"/>
                         <lightning:button label="{!$Label.c.Yes}" onclick="{!c.deleteDivision}"/>
                     </center>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showProceedBasketModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <p class="orderSummaryHeader">{!$Label.c.Order_Summary}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <div class="slds-grid">
+                        <div class="productInfo slds-col slds-size_3-of-12"/>
+
+                        <div class="slds-col slds-size_6-of-12 slds-gutters">
+                            <lightning:input value="{!v.account.Name}" label="Name"/>
+                            <lightning:input value="{!v.account.Address.street}" label="Street"/>
+                            <lightning:input value="{!v.account.Address.city}" label="City"/>
+                            <lightning:input value="{!v.account.Address.state}" label="State"/>
+                            <lightning:input value="{!v.account.Address.postalCode}" label="Postal Code"/>
+                            <lightning:input value="{!v.account.Address.country}" label="Country"/>
+                        </div>
+
+                        <div class="productInfo slds-col slds-size_3-of-12"/>
+                    </div>
+
+
+                    <aura:iteration items="{!v.productsInBasket}" var="product">
+                        <div class="productsListDiv slds-grid">
+                            <div class="productInfo slds-col slds-size_3-of-12"/>
+
+                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+                                <img src="{!product.displayUrl}"/>
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_4-of-12 slds-align_absolute-center">
+                                    {!product.name}
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+                                x{!product.quantity}
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_3-of-12"/>
+                        </div>
+                    </aura:iteration>
+
+                    <div class="slds-text-align_right">
+                        <div class="productInfo">
+                        {!$Label.c.Total_Price}:
+                        </div>
+                        <div class="totalOrderPrice">
+                            €{!v.totalPrice}
+                        </div>
+                    </div>
+
+                    <div class="slds-text-align_right">
+                        <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeProceedBasketModal}"/>
+                        <lightning:button label="{!$Label.c.Order}" onclick="{!c.order}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showOrderSummary}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <p class="orderSummaryHeader">{!$Label.c.Order_Summary}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <div class="summaryDiv slds-grid">
+                        <div class="productInfo slds-col slds-size_3-of-12"/>
+
+                        <div class="productInfo slds-col slds-size_4-of-12">
+                            <div>{!v.account.Name}</div>
+                            <div>{!v.account.Address.street}</div>
+                            <div>{!v.account.Address.city}</div>
+                        </div>
+
+                        <div class="productInfo slds-col slds-size_4-of-12">
+                            <div>{!v.account.Address.state}</div>
+                            <div>{!v.account.Address.postalCode}</div>
+                            <div>{!v.account.Address.country}</div>
+                        </div>
+
+
+                        <div class="productInfo slds-col slds-size_1-of-12"/>
+                    </div>
+
+
+                    <aura:iteration items="{!v.productsInBasket}" var="product">
+                        <div class="productsListDiv slds-grid">
+                            <div class="productInfo slds-col slds-size_3-of-12"/>
+
+                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+                                <img src="{!product.displayUrl}"/>
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_4-of-12 slds-align_absolute-center">
+                                    {!product.name}
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+                                x{!product.quantity}
+                            </div>
+
+                            <div class="productInfo slds-col slds-size_3-of-12"/>
+                        </div>
+                    </aura:iteration>
+
+                    <div class="slds-text-align_right">
+                        <div class="productInfo">
+                        {!$Label.c.Total_Price}:
+                        </div>
+                        <div class="totalOrderPrice">
+                            €{!v.totalPrice}
+                        </div>
+                    </div>
+
+                    <div class="slds-text-align_right">
+                        <lightning:button label="{!$Label.c.OK}" onclick="{!c.closeOrderSummary}"/>
+                    </div>
                 </div>
             </div>
         </section>

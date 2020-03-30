@@ -174,4 +174,19 @@ public with sharing class FW_ProductsController {
     public static List<FW_ProductWrapped> removeFromBasket(String productId){
         return FW_BasketController.removeFromBasket(productId);
     }
+
+    @AuraEnabled
+    public static Object getUserInfo(){
+        return FW_OrderController.getUserInfo();
+    }
+
+    @AuraEnabled
+    public static void insertOrder(Object account, Object[] productsInBasket, Decimal totalPrice){
+        FW_OrderController.insertOrder(account, productsInBasket, totalPrice);
+    }
+
+    @AuraEnabled
+    public static void deleteBasket(){
+        FW_OrderController.deleteBasket();
+    }
 }

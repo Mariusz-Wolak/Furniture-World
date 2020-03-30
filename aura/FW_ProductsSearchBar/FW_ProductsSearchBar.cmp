@@ -4,7 +4,9 @@
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
 
-    <div class="searchBar" onkeypress="{!c.search}">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div class="searchBar" id="searchBar" aura:id="searchBar" onkeypress="{!c.search}">
         <lightning:input type="search" value="{!v.searchItemName}" placeholder="{!$Label.c.Search}"/>
     </div>
 
