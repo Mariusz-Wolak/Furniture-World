@@ -4,6 +4,4 @@
         <div class="header">{!$Label.c.Contact_Us}</div>
         <div class="phrase">123-456-789</div>
     </div>
-
-
 </aura:component>
