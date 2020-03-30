@@ -14,3 +14,13 @@
     font-style: italic;
     font-size: 40px;
 }
+
+.THIS .chevronDown{
+    padding-top: 50px;
+    padding-left: 950px;
+    cursor: pointer;
+}
+
+.THIS .chevronDown svg{
+    fill: black;
+}

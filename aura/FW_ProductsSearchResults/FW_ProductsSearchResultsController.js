@@ -22,13 +22,13 @@
         let searchItemName = event.getParam("searchItemName");
         let resultsFromEvent = event.getParam("results");
 
+
         component.set("v.results", resultsFromEvent);
         component.set("v.header", $A.get("$Label.c.Showing_Results_For") + ": " + searchItemName);
 
         component.set('v.showItems', true);
         component.set('v.showProductView', false);
         component.set('v.showHeader', false);
-        window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/', '_top');
 
     },
 
