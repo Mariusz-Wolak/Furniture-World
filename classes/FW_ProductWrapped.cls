@@ -2,7 +2,7 @@ public with sharing class FW_ProductWrapped {
     @AuraEnabled
     public String id;
     @AuraEnabled
-    public string displayUrl;
+    public String displayUrl;
     @AuraEnabled
     public String description;
     @AuraEnabled

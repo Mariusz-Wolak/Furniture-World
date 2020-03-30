@@ -47,8 +47,8 @@
     doOrder: function(component, event, helper){
         let currentUser = component.get('v.currentUser');
         let productsInBasket = component.get('v.productsInBasket');
+        console.log(productsInBasket);
         let totalPrice = component.get('v.totalPrice');
-        console.log('currentUser: '+JSON.stringify(currentUser));
 
         let action = component.get('c.insertOrder');
         action.setParams({
