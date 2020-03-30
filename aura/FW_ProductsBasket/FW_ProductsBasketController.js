@@ -1,5 +1,6 @@
 ({
     onInit: function(component, event, helper){
+        component.set('v.showProductView', false);
         helper.returnProductsFromBasket(component);
 
         let scrollOptions = {
@@ -27,5 +28,12 @@
 
     showProceedModal: function(component, event, helper){
         helper.doShowProceedModal(component, event);
+    },
+
+    showProduct: function(component, event, helper){
+        let product = event.getParam('product');
+        console.log('showProduct in basket: '+JSON.stringify(product));
+        component.set('v.selectedItem', product);
+        component.set('v.showProductView', true);
     }
 })

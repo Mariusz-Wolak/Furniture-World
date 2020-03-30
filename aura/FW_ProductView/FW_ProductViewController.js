@@ -1,5 +1,6 @@
 ({
     doInit: function(component, event, helper){
+        console.log('do Init in product view product: '+JSON.stringify(component.get('v.product')));
         component.set('v.header', $A.get('$Label.c.Similar_Items'));
         helper.checkIfIsObserved(component);
         helper.returnNewestComments(component);
