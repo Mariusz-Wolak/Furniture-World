@@ -7,7 +7,7 @@
     <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
     <aura:attribute name="productsInBasket" type="Object[]" access="global"/>
     <aura:attribute name="totalPrice" type="Decimal" access="global"/>
-    <aura:attribute name="account" type="Object" access="global"/>
+    <aura:attribute name="currentUser" type="User" access="global"/>
     <aura:attribute name="showOrderSummary" type="Boolean" access="global"/>
 
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
@@ -43,12 +43,12 @@
                         <div class="productInfo slds-col slds-size_3-of-12"/>
 
                         <div class="slds-col slds-size_6-of-12 slds-gutters">
-                            <lightning:input value="{!v.account.Name}" label="Name"/>
-                            <lightning:input value="{!v.account.Address.street}" label="Street"/>
-                            <lightning:input value="{!v.account.Address.city}" label="City"/>
-                            <lightning:input value="{!v.account.Address.state}" label="State"/>
-                            <lightning:input value="{!v.account.Address.postalCode}" label="Postal Code"/>
-                            <lightning:input value="{!v.account.Address.country}" label="Country"/>
+                            <lightning:input value="{!v.currentUser.name}" label="Name"/>
+                            <lightning:input value="{!v.currentUser.street}" label="Street"/>
+                            <lightning:input value="{!v.currentUser.city}" label="City"/>
+                            <lightning:input value="{!v.currentUser.state}" label="State"/>
+                            <lightning:input value="{!v.currentUser.code}" label="Postal Code"/>
+                            <lightning:input value="{!v.currentUser.country}" label="Country"/>
                         </div>
 
                         <div class="productInfo slds-col slds-size_3-of-12"/>
@@ -107,15 +107,15 @@
                         <div class="productInfo slds-col slds-size_3-of-12"/>
 
                         <div class="productInfo slds-col slds-size_4-of-12">
-                            <div>{!v.account.Name}</div>
-                            <div>{!v.account.Address.street}</div>
-                            <div>{!v.account.Address.city}</div>
+                            <div>{!v.currentUser.name}</div>
+                            <div>{!v.currentUser.street}</div>
+                            <div>{!v.currentUser.city}</div>
                         </div>
 
                         <div class="productInfo slds-col slds-size_4-of-12">
-                            <div>{!v.account.Address.state}</div>
-                            <div>{!v.account.Address.postalCode}</div>
-                            <div>{!v.account.Address.country}</div>
+                            <div>{!v.currentUser.state}</div>
+                            <div>{!v.currentUser.code}</div>
+                            <div>{!v.currentUser.country}</div>
                         </div>
 
 

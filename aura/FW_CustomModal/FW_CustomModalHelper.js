@@ -45,15 +45,14 @@
     },
 
     doOrder: function(component, event, helper){
-        let account = component.get('v.account');
+        let currentUser = component.get('v.currentUser');
         let productsInBasket = component.get('v.productsInBasket');
         let totalPrice = component.get('v.totalPrice');
-        console.log('account: '+account);
-        console.log('account: '+JSON.stringify(account));
+        console.log('currentUser: '+JSON.stringify(currentUser));
 
         let action = component.get('c.insertOrder');
         action.setParams({
-           "account": account,
+           "currentUser": currentUser,
            "productsInBasket": productsInBasket,
            "totalPrice": totalPrice
         });

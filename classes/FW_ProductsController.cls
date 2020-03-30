@@ -227,13 +227,29 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static Object getUserInfo(){
-        return FW_OrderController.getUserInfo();
+    public static FW_UserWrapped getUserInfo(){
+        try {
+            List<User> users = [SELECT Id, Name, Address FROM User
+                                 WHERE Id = :UserInfo.getUserId()];
+            FW_UserWrapped userWrapped = new FW_UserWrapped();
+            userWrapped.id = users[0].Id;
+            userWrapped.name = users[0].Name;
+            Address addr = users[0].Address;
+            userWrapped.street = addr.street;
+            userWrapped.city = addr.city;
+            userWrapped.state = addr.state;
+            userWrapped.code = addr.postalCode;
+            userWrapped.country = addr.country;
+            return userWrapped;
+
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
     }
 
     @AuraEnabled
-    public static void insertOrder(Object account, Object[] productsInBasket, Decimal totalPrice){
-        FW_OrderController.insertOrder((User)account, productsInBasket, totalPrice);
+    public static void insertOrder(User currentUser, Object[] productsInBasket, Decimal totalPrice){
+        FW_OrderController.insertOrder(currentUser, productsInBasket, totalPrice);
     }
 
     @AuraEnabled
