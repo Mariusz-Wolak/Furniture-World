@@ -6,8 +6,17 @@ public with sharing class FW_ProductsController {
         if (String.isNotBlank(name)) {
             String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 ' +
                     'WHERE Name LIKE \'%' + name + '%\' AND Type__c = \'Furniture\' ORDER BY Price__c ASC';
+
+            Set<Id> productsIds = new Set<Id>();
             List<Product2> products = Database.query(query);
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+
+            for(Product2 prod: products){
+                productsIds.add(prod.Id);
+            }
+
+            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+
             for(Product2 prod: products){
                 FW_ProductWrapped productWrapped = new FW_ProductWrapped();
                 productWrapped.id = prod.Id;
@@ -17,6 +26,13 @@ public with sharing class FW_ProductsController {
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
+
+                for(PricebookEntry pbe: pricebookEntries){
+                    if(pbe.Product2Id == prod.Id){
+                        productWrapped.pricebookEntryId = pbe.Id;
+                    }
+                }
+
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -44,6 +60,14 @@ public with sharing class FW_ProductsController {
         try {
             List<Product2> products = Database.query(query);
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            Set<Id> productsIds = new Set<Id>();
+
+            for(Product2 prod: products){
+                productsIds.add(prod.Id);
+            }
+
+            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+
             for(Product2 prod: products){
                 FW_ProductWrapped productWrapped = new FW_ProductWrapped();
                 productWrapped.id = prod.Id;
@@ -53,6 +77,12 @@ public with sharing class FW_ProductsController {
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
+
+                for(PricebookEntry pbe: pricebookEntries){
+                    if(pbe.Product2Id == prod.Id){
+                        productWrapped.pricebookEntryId = pbe.Id;
+                    }
+                }
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -133,6 +163,14 @@ public with sharing class FW_ProductsController {
                                                     FROM Product2
                                                     WHERE Id IN :observedProductsIds];
 
+                Set<Id> productsIds = new Set<Id>();
+
+                for(Product2 prod: products){
+                    productsIds.add(prod.Id);
+                }
+
+                List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+
                 List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
                 for(Product2 prod: products){
                     FW_ProductWrapped productWrapped = new FW_ProductWrapped();
@@ -143,6 +181,13 @@ public with sharing class FW_ProductsController {
                     productWrapped.type = prod.Type__c;
                     productWrapped.family = prod.Family;
                     productWrapped.price = prod.Price__c;
+
+                    for(PricebookEntry pbe: pricebookEntries){
+                        if(pbe.Product2Id == prod.Id){
+                            productWrapped.pricebookEntryId = pbe.Id;
+                        }
+                    }
+
                     productsWrappedList.add(productWrapped);
                 }
                 return productsWrappedList;
@@ -194,6 +239,14 @@ public with sharing class FW_ProductsController {
         try {
             List<Product2> products = Database.query(query);
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+            Set<Id> productsIds = new Set<Id>();
+
+            for(Product2 prod: products){
+                productsIds.add(prod.Id);
+            }
+
+            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+
             for(Product2 prod: products){
                 FW_ProductWrapped productWrapped = new FW_ProductWrapped();
                 productWrapped.id = prod.Id;
@@ -204,6 +257,12 @@ public with sharing class FW_ProductsController {
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
                 productsWrappedList.add(productWrapped);
+
+                for(PricebookEntry pbe: pricebookEntries){
+                    if(pbe.Product2Id == prod.Id){
+                        productWrapped.pricebookEntryId = pbe.Id;
+                    }
+                }
             }
             return productsWrappedList;
         } catch (Exception e) {

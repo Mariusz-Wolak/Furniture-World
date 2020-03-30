@@ -41,6 +41,9 @@ public with sharing class FW_BasketController {
                         FROM Product2
                         WHERE Id IN :productsIds AND Type__c = 'Furniture'
                 ];
+
+                List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+
                 for (Product2 prod : products) {
                     FW_ProductWrapped productWrapped = new FW_ProductWrapped();
                     productWrapped.id = prod.Id;
@@ -53,6 +56,13 @@ public with sharing class FW_BasketController {
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
                     totalQuantity += productWrapped.quantity;
                     totalPrice += productWrapped.quantity * productWrapped.price;
+
+                    for(PricebookEntry pbe: pricebookEntries){
+                        if(pbe.Product2Id == prod.Id){
+                            productWrapped.pricebookEntryId = pbe.Id;
+                        }
+                    }
+
                     productsWrappedList.add(productWrapped);
                 }
             }

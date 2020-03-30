@@ -6,6 +6,7 @@ public with sharing class FW_OrderController {
                 List<FW_ProductWrapped>.class);
         Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
 
+
         try {
             String orderId;
             Order newOrder = new Order();

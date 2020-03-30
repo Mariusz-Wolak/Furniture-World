@@ -19,4 +19,6 @@ public with sharing class FW_ProductWrapped {
     public Decimal totalPrice;
     @AuraEnabled
     public Integer totalQuantity;
+    @AuraEnabled
+    public String pricebookEntryId;
 }
