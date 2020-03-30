@@ -21,4 +21,6 @@ public with sharing class FW_ProductWrapped {
     public Integer totalQuantity;
     @AuraEnabled
     public String pricebookEntryId;
+    @AuraEnabled
+    public String buyer;
 }

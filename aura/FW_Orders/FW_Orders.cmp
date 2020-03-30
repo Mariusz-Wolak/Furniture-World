@@ -5,13 +5,29 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
+    <div class="resultsHeader">{!$Label.c.Orders_History}</div>
 
-ORDERS
+    <div class="tableHeader slds-grid slds-align_absolute-center">
+        <div class="slds-col slds-size_2-of-12">Id</div>
+        <div class="slds-col slds-size_1-of-12">Status</div>
+        <div class="slds-col slds-size_1-of-12">Date</div>
+        <div class="slds-col slds-size_1-of-12">Total price</div>
+        <div class="slds-col slds-size_1-of-12">Details</div>
+        <div class="slds-col slds-size_1-of-12">Report</div>
+    </div>
+
     <aura:iteration items="{!v.results}" var="order">
-        <div class="slds-grid">
-            <div class="slds-col slds-size_1-of-12">order</div>
-            <div class="slds-col slds-size_1-of-12">{!order.BillingCountry}</div>
-            <div class="slds-col slds-size_1-of-12">Total: {!order.Price__c}</div>
+        <div class="iterationItems slds-grid slds-align_absolute-center">
+            <div class="slds-col slds-size_2-of-12">{!order.Id}</div>
+            <div class="slds-col slds-size_1-of-12">{!order.Status}</div>
+            <div class="slds-col slds-size_1-of-12"><ui:outputDate value="{!order.EffectiveDate}"/></div>
+            <div class="slds-col slds-size_1-of-12">€{!order.Price__c}</div>
+            <div class="slds-col slds-size_1-of-12">
+                <lightning:icon aura:id="moreIcon" class="moreIcon" iconName="action:more" size="xx-small"/>
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+                <lightning:icon aura:id="complaintIcon" class="complaintIcon" iconName="action:new_note" size="xx-small"/>
+            </div>
         </div>
     </aura:iteration>
 </aura:component>

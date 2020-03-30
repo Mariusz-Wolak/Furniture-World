@@ -5,21 +5,24 @@ public with sharing class FW_OrderController {
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
         Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
-
+        String userString = JSON.serialize(currentUser);
+        User currUser = (User) JSON.deserialize(userString, User.class);
 
         try {
             String orderId;
             Order newOrder = new Order();
             newOrder.AccountId = '0015J000003ioeGQAQ';
             newOrder.Pricebook2Id = pricebook.Id;
-            newOrder.BillingStreet = currentUser.street;
-            newOrder.BillingCity = currentUser.city;
-            newOrder.BillingState = currentUser.state;
-            newOrder.BillingCountry = currentUser.country;
+            newOrder.BillingStreet = currUser.street;
+            newOrder.BillingCity = currUser.city;
+            newOrder.BillingState = currUser.state;
+            newOrder.BillingCountry = currUser.country;
             newOrder.Status = 'Draft';
             newOrder.EndDate = Date.today().addDays(14);
             newOrder.EffectiveDate = Date.today();
             newOrder.Price__c = totalPrice;
+
+            System.debug('newOrder in insertOrder: '+newOrder);
 
             Database.SaveResult saveResult = Database.insert(newOrder);
             if (saveResult.isSuccess()) {
@@ -55,7 +58,23 @@ public with sharing class FW_OrderController {
     }
 
     public static List<Order> getOrders(){
-        return [SELECT Id, Price__c, (SELECT Id, orderId, OrderItemNumber, Quantity, UnitPrice FROM OrderItems)
-                                FROM Order];
+        List<Order> orders = [
+                SELECT Id, CreatedById, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c, BillingStreet,
+                        Status, TotalAmount, EffectiveDate, (
+                        SELECT Id,
+                                OrderId,
+                                OrderItemNumber,
+                                PricebookEntry.Product2.Name,
+                                PricebookEntry.Product2.id,
+                                Quantity,
+                                UnitPrice
+                        FROM OrderItems
+                )
+                FROM Order
+                WHERE CreatedById =: UserInfo.getUserId()
+        ];
+
+        System.debug(orders);
+        return orders;
     }
 }
