@@ -32,7 +32,7 @@ public with sharing class FW_OrderController {
                 item.UnitPrice = prod.price;
                 item.Quantity = prod.quantity;
                 item.Product2Id = prod.id;
-                item.PricebookEntryId = '01u5J000000wssQQAQ';
+                item.PricebookEntryId = prod.pricebookEntryId;
                 itemsToOrder.add(item);
             }
 

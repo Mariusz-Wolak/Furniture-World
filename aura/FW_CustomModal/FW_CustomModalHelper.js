@@ -75,7 +75,7 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.showOrderSummary', false);
-                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/Search-Furniture', '_top');
+                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders', '_top');
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
