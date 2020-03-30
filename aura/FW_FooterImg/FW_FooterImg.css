@@ -1,0 +1,21 @@
+
+.THIS.imgDiv{
+    height: 1080px;
+    width: 1900px;
+}
+
+.THIS .header{
+    padding-top: 800px;
+    padding-right: 100px;
+    text-align: right;
+    color: black;
+    font-size: 100px;
+}
+
+.THIS .phrase{
+    padding-right: 100px;
+    color: black;
+    text-align: right;
+    font-style: italic;
+    font-size: 80px;
+}

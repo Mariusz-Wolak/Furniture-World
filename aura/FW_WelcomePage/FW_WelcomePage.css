@@ -1,0 +1,16 @@
+
+.THIS.homeImg{
+    height: 1080px;
+    width: 1900px;
+}
+
+.THIS .header{
+    text-align: center;
+    font-size: 100px;
+}
+
+.THIS .phrase{
+    text-align: center;
+    font-style: italic;
+    font-size: 40px;
+}
