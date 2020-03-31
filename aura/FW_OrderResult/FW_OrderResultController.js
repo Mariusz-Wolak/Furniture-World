@@ -10,5 +10,9 @@
         console.log('order: '+JSON.stringify(order));
 
         component.set('v.showOrderDetails', true);
+    },
+
+    showComplaintsModal: function(component, event, helper){
+        component.set('v.showComplaintsModal', true);
     }
 })

@@ -1309,4 +1309,11 @@
         <shortDescription>Order_Details</shortDescription>
         <value>Order details</value>
     </labels>
+    <labels>
+        <fullName>Make_A_Complaint</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make_A_Complaint</shortDescription>
+        <value>Make a complaint</value>
+    </labels>
 </CustomLabels>

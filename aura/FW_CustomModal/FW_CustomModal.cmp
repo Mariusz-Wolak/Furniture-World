@@ -13,6 +13,8 @@
     <aura:attribute name="showOrderDetails" type="Boolean" access="global"/>
     <aura:attribute name="order" type="Order" access="global"/>
 
+    <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
+
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
     <aura:if isTrue="{!v.deleteDivisionIsOpen}">
@@ -228,6 +230,28 @@
 
                     <div class="slds-text-align_right">
                         <lightning:button label="{!$Label.c.OK}" onclick="{!c.closeOrderDetails}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showComplaintsModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <p class="orderSummaryHeader">{!$Label.c.Make_A_Complaint}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <center>
+                        <lightning:input label="Subject"/>
+                        <lightning:textarea label="Description"/>
+                    </center>
+
+                    <div class="slds-text-align_right">
+                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}"/>
                     </div>
                 </div>
             </div>
