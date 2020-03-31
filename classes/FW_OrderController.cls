@@ -59,7 +59,8 @@ public with sharing class FW_OrderController {
 
     public static List<Order> getOrders(){
         List<Order> orders = [
-                SELECT Id, CreatedById, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c, BillingStreet,
+                SELECT Id, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
+                        BillingStreet,
                         Status, TotalAmount, EffectiveDate, (
                         SELECT Id,
                                 OrderId,
@@ -72,9 +73,8 @@ public with sharing class FW_OrderController {
                 )
                 FROM Order
                 WHERE CreatedById =: UserInfo.getUserId()
+                ORDER BY CreatedDate DESC
         ];
-
-        System.debug(orders);
         return orders;
     }
 }
