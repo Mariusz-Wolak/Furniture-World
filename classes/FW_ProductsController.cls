@@ -307,7 +307,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void insertOrder(User currentUser, Object[] productsInBasket, Decimal totalPrice){
+    public static void insertOrder(User currentUser, List<Object> productsInBasket, Decimal totalPrice){
         FW_OrderController.insertOrder(currentUser, productsInBasket, totalPrice);
     }
 

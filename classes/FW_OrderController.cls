@@ -1,13 +1,12 @@
 public with sharing class FW_OrderController {
 
-    public static void insertOrder(User currentUser, Object[] productsInBasket, Decimal totalPrice){
+    public static void insertOrder(User currentUser, List<Object> productsInBasket, Decimal totalPrice){
         String productsString = JSON.serialize(productsInBasket);
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
         Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
         String userString = JSON.serialize(currentUser);
         User currUser = (User) JSON.deserialize(userString, User.class);
-
         try {
             String orderId;
             Order newOrder = new Order();
