@@ -7,19 +7,3 @@
     font-size: 15px;
     font-weight: bold;
 }
-
-.THIS.iterationItems{
-    font-size: 15px;
-    font-style: italic;
-    line-height: 3;
-}
-
-.THIS .moreIcon:hover{
-    background-color: darkblue;
-    cursor: pointer;
-}
-
-.THIS .complaintIcon:hover{
-    background-color: orangered;
-    cursor: pointer;
-}
