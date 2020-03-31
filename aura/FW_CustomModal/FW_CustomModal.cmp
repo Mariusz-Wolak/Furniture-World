@@ -14,6 +14,8 @@
     <aura:attribute name="order" type="Order" access="global"/>
 
     <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
+    <aura:attribute name="caseSubject" type="String" access="global"/>
+    <aura:attribute name="caseDescription" type="String" access="global"/>
 
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
@@ -257,14 +259,16 @@
                             Total price: €{!v.order.Price__c}
                         </div>
 
-                        <lightning:select name="selectItem" label="Select an item" onchange="{!c.doSomething}">
+                        <lightning:select aura:id="selectItemToComplaint" label="Select an item" onchange="{!c.doSomething}">
                             <aura:iteration items="{!v.order.OrderItems}" var="product">
-                                <option value="">{!product.PricebookEntry.Product2.Name}</option>
+                                <option
+                                        value="{!product.PricebookEntry.Product2.Id}">{!product.PricebookEntry.Product2.Name}
+                                </option>
                             </aura:iteration>
                         </lightning:select>
 
-                        <lightning:input label="Subject"/>
-                        <lightning:textarea label="Description"/>
+                        <lightning:input label="Subject" value="{!v.caseSubject}"/>
+                        <lightning:textarea label="Description" value="{!v.caseDescription}"/>
                     </center>
 
                     <div class="slds-text-align_right">

@@ -1316,4 +1316,11 @@
         <shortDescription>Make_A_Complaint</shortDescription>
         <value>Make a complaint</value>
     </labels>
+    <labels>
+        <fullName>Your_Complaint_Has_Been_Successfully_Sent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Complaint_Has_Been_Successfully_Sent</shortDescription>
+        <value>Your complaint has been successfully sent</value>
+    </labels>
 </CustomLabels>

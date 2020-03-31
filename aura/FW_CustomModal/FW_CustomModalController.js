@@ -28,7 +28,6 @@
     },
 
     sendComplaint: function(component, event, helper){
-        console.log('send complaint');
-        component.set('v.showComplaintsModal', false);
+        helper.doSendComplaint(component, event);
     }
 })
