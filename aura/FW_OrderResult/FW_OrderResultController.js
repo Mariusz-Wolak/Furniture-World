@@ -14,5 +14,6 @@
 
     showComplaintsModal: function(component, event, helper){
         component.set('v.showComplaintsModal', true);
+
     }
 })

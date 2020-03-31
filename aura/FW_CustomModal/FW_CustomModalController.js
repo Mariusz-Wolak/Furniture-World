@@ -23,6 +23,10 @@
         component.set('v.showOrderDetails', false);
     },
 
+    closeComplaintModal: function(component, event, helper){
+        component.set('v.showComplaintsModal', false);
+    },
+
     sendComplaint: function(component, event, helper){
         console.log('send complaint');
         component.set('v.showComplaintsModal', false);

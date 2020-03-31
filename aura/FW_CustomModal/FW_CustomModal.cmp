@@ -82,7 +82,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                        {!$Label.c.Total_Price}:
+                            {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -150,7 +150,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                        {!$Label.c.Total_Price}:
+                            {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -179,7 +179,7 @@
                         <div class="productInfo slds-col slds-size_3-of-12"/>
 
                         <div class="addressOnOrderDetails slds-col slds-size_4-of-12">
-<!--                            <div>{!v.currentUser.name}</div>-->
+                            <!--                            <div>{!v.currentUser.name}</div>-->
                             <div>{!v.order.BillingStreet}</div>
                             <div>{!v.order.BillingCity}</div>
                         </div>
@@ -199,9 +199,9 @@
                         <div class="productsListDiv slds-grid">
                             <div class="productInfo slds-col slds-size_3-of-12"/>
 
-<!--                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">-->
-<!--                                <img src="{!product.displayUrl}"/>-->
-<!--                            </div>-->
+                            <!--                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">-->
+                            <!--                                <img src="{!product.displayUrl}"/>-->
+                            <!--                            </div>-->
 
                             <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
                                     {!product.PricebookEntry.Product2.Name}
@@ -246,11 +246,29 @@
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <center>
+                        <div class="productInfo">
+                            Order Id: {!v.order.Id}
+                        </div>
+                        <div class="productInfo">
+                            Date:
+                            <ui:outputDate value="{!v.order.EffectiveDate}"/>
+                        </div>
+                        <div class="productInfo">
+                            Total price: €{!v.order.Price__c}
+                        </div>
+
+                        <lightning:select name="selectItem" label="Select an item" onchange="{!c.doSomething}">
+                            <aura:iteration items="{!v.order.OrderItems}" var="product">
+                                <option value="">{!product.PricebookEntry.Product2.Name}</option>
+                            </aura:iteration>
+                        </lightning:select>
+
                         <lightning:input label="Subject"/>
                         <lightning:textarea label="Description"/>
                     </center>
 
                     <div class="slds-text-align_right">
+                        <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeComplaintModal}"/>
                         <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}"/>
                     </div>
                 </div>
