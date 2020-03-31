@@ -24,7 +24,7 @@
                 </div>
                 <aura:if isTrue="{!not(empty(v.families))}">
                     <div class="singleField slds-size--1-of-1">
-                        <lightning:select label="{!$Label.c.Family}">
+                        <lightning:select aura:id="selectFamily" label="{!$Label.c.Family}">
                             <aura:iteration items="{!v.families}" var="famil">
                                 <option text="{!famil}" value="{!v.family}"></option>
                             </aura:iteration>
@@ -36,7 +36,7 @@
                                           name="fileUploader"
                                           multiple="true"
                                           accept=".pdf, .png"
-                                          recordId="0055J000000Iw2UQAS"
+                                          recordId="0055J000000IzhoQAC"
                                           onuploadfinished="{!c.handleUploadFinished}"/>
                 </div>
                 <div class="singleField slds-text-align--right">
@@ -47,5 +47,5 @@
         </center>
     </lightning:card>
 
-
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
