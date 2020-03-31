@@ -4,6 +4,10 @@
     font-weight: bold;
 }
 
+.THIS .addressOnOrderDetails{
+    font-size: 20px;
+}
+
 .THIS .totalOrderPrice{
     font-weight: bold;
     font-size: 25px;
