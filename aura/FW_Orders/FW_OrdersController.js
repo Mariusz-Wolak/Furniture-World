@@ -1,7 +1,6 @@
 ({
     onInit: function(component, event, helper){
         helper.returnOrders(component, event);
-
         let scrollOptions = {
             left: 0,
             top: 1100,

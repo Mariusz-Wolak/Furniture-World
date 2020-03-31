@@ -37,16 +37,13 @@
     doAddToBasket: function(component, event){
         let basketIcon = component.find('basketIcon');
         let productId = component.get('v.product.id');
-
         let action = component.get('c.insertToBasket');
         action.setParams({
            "productId":  productId
         });
-
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.find('customToast').showSuccessToast($A.get('$Label.c.Item_Has_Been_Added_To_Basket'));
                 let sendTotalQuantity = component.getEvent('FW_SendTotalQuantity');
                 sendTotalQuantity.setParams({
                    "totalQuantity": response.getReturnValue()[0].totalQuantity

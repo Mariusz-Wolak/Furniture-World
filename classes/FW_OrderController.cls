@@ -22,7 +22,6 @@ public with sharing class FW_OrderController {
             newOrder.EffectiveDate = Date.today();
             newOrder.Price__c = totalPrice;
 
-
             Database.SaveResult saveResult = Database.insert(newOrder);
             if (saveResult.isSuccess()) {
                 orderId = saveResult.Id;
@@ -61,7 +60,7 @@ public with sharing class FW_OrderController {
                 SELECT Id, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
                         BillingStreet,
                         Status, TotalAmount, EffectiveDate, (
-                        SELECT Id,
+                        SELECT  Id,
                                 OrderId,
                                 OrderItemNumber,
                                 PricebookEntry.Product2.Name,
@@ -83,7 +82,6 @@ public with sharing class FW_OrderController {
         newCase.Description = description;
         newCase.Order__c = orderId;
         newCase.ProductId = productId;
-
         try{
             insert newCase;
         }catch(Exception e){

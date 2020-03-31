@@ -47,9 +47,7 @@
     doOrder: function(component, event, helper){
         let currentUser = component.get('v.currentUser');
         let productsInBasket = component.get('v.productsInBasket');
-        console.log(productsInBasket);
         let totalPrice = component.get('v.totalPrice');
-
         let action = component.get('c.insertOrder');
         action.setParams({
            "currentUser": currentUser,
@@ -88,7 +86,6 @@
         let description = component.get('v.caseDescription');
         let orderId = component.get('v.order.Id');
         let productId = component.find('selectItemToComplaint').get('v.value');
-
         let action = component.get('c.insertCase');
         action.setParams({
            "subject": subject,

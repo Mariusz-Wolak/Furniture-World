@@ -39,8 +39,6 @@
                 appEvent.setParams({
                     "products": response.getReturnValue()
                 });
-
-                    console.log('response in similar prods in basket result: '+response.getReturnValue());
                 appEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());

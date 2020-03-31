@@ -1323,4 +1323,25 @@
         <shortDescription>Your_Complaint_Has_Been_Successfully_Sent</shortDescription>
         <value>Your complaint has been successfully sent</value>
     </labels>
+    <labels>
+        <fullName>Report</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Report</shortDescription>
+        <value>Report</value>
+    </labels>
+    <labels>
+        <fullName>Id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Id</shortDescription>
+        <value>Id</value>
+    </labels>
+    <labels>
+        <fullName>Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date</shortDescription>
+        <value>Date</value>
+    </labels>
 </CustomLabels>

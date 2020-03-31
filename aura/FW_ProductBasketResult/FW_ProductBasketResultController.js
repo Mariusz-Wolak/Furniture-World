@@ -100,15 +100,12 @@
     },
 
     selectItem: function(component, event, helper){
-        console.log('select item ctrl');
         let product = component.get("v.product");
-        console.log('product: '+product);
         let selectedProductEvent = component.getEvent("selectedProduct");
         selectedProductEvent.setParams({
             "product": product
         });
         selectedProductEvent.fire();
-        console.log('after selected product event fire');
 
         helper.returnSimilarProducts(component);
     }

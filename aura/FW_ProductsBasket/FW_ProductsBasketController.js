@@ -2,7 +2,6 @@
     onInit: function(component, event, helper){
         component.set('v.showProductView', false);
         helper.returnProductsFromBasket(component);
-
         let scrollOptions = {
             left: 0,
             top: 1100,
