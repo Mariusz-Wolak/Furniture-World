@@ -22,7 +22,6 @@ public with sharing class FW_OrderController {
             newOrder.EffectiveDate = Date.today();
             newOrder.Price__c = totalPrice;
 
-            System.debug('newOrder in insertOrder: '+newOrder);
 
             Database.SaveResult saveResult = Database.insert(newOrder);
             if (saveResult.isSuccess()) {

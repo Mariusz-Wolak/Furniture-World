@@ -1,6 +1,9 @@
 <aura:component description="FW_OrderResult">
 
     <aura:attribute name="order" type="Order" access="global"/>
+    <aura:attribute name="showOrderDetails" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <div class="iterationItems slds-grid slds-align_absolute-center">
         <div class="slds-col slds-size_2-of-12">{!v.order.Id}</div>
@@ -14,4 +17,6 @@
             <lightning:icon aura:id="complaintIcon" class="complaintIcon" iconName="action:new_note" size="xx-small"/>
         </div>
     </div>
+
+    <c:FW_CustomModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}"/>
 </aura:component>
