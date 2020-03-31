@@ -918,6 +918,13 @@
         <value>Select</value>
     </labels>
     <labels>
+        <fullName>Select_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select_Item</shortDescription>
+        <value>Select item</value>
+    </labels>
+    <labels>
         <fullName>Send</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1343,5 +1350,19 @@
         <protected>true</protected>
         <shortDescription>Date</shortDescription>
         <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>Subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>Description</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Description</shortDescription>
+        <value>Description</value>
     </labels>
 </CustomLabels>

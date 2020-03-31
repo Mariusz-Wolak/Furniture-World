@@ -245,17 +245,17 @@
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <center>
                         <div class="productInfo">
-                            Order Id: {!v.order.Id}
+                        {!$Label.c.Id}: {!v.order.Id}
                         </div>
                         <div class="productInfo">
-                            Date:
+                        {!$Label.c.Date}:
                             <ui:outputDate value="{!v.order.EffectiveDate}"/>
                         </div>
                         <div class="productInfo">
-                            Total price: €{!v.order.Price__c}
+                        {!$Label.c.Total_Price}: €{!v.order.Price__c}
                         </div>
 
-                        <lightning:select aura:id="selectItemToComplaint" label="Select an item" onchange="{!c.doSomething}">
+                        <lightning:select aura:id="selectItemToComplaint" label="{!$Label.c.Select_Item}">
                             <aura:iteration items="{!v.order.OrderItems}" var="product">
                                 <option
                                         value="{!product.PricebookEntry.Product2.Id}">{!product.PricebookEntry.Product2.Name}
@@ -263,8 +263,8 @@
                             </aura:iteration>
                         </lightning:select>
 
-                        <lightning:input label="Subject" value="{!v.caseSubject}"/>
-                        <lightning:textarea label="Description" value="{!v.caseDescription}"/>
+                        <lightning:input label="{!$Label.c.Subject}" value="{!v.caseSubject}"/>
+                        <lightning:textarea label="{!$Label.c.Description}" value="{!v.caseDescription}"/>
                     </center>
 
                     <div class="slds-text-align_right">
