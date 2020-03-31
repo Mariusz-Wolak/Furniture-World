@@ -22,7 +22,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.account', response.getReturnValue());
+                component.set('v.currentUser', response.getReturnValue());
                 component.set('v.showProceedBasketModal', true);
             }else{
                 let toastComponent = component.find('customToast');

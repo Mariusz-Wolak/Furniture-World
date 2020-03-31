@@ -17,5 +17,9 @@
 
     closeOrderSummary: function(component, event, helper){
         helper.clearBasket(component, event);
+    },
+
+    closeOrderDetails: function(component, event, helper){
+        component.set('v.showOrderDetails', false);
     }
 })

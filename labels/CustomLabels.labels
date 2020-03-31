@@ -1295,4 +1295,18 @@
         <shortDescription>Contact_Us</shortDescription>
         <value>Contact us</value>
     </labels>
+    <labels>
+        <fullName>Orders_History</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Orders_History</shortDescription>
+        <value>Orders hitory</value>
+    </labels>
+    <labels>
+        <fullName>Order_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order_Details</shortDescription>
+        <value>Order details</value>
+    </labels>
 </CustomLabels>

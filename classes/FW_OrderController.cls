@@ -1,28 +1,47 @@
 public with sharing class FW_OrderController {
 
-    public static Object getUserInfo() {
+    public static void insertOrder(User currentUser, Object[] productsInBasket, Decimal totalPrice){
+        String productsString = JSON.serialize(productsInBasket);
+        List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
+                List<FW_ProductWrapped>.class);
+        Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
+        String userString = JSON.serialize(currentUser);
+        User currUser = (User) JSON.deserialize(userString, User.class);
+
         try {
-            List<User> users = [SELECT Id, Name, Address FROM User WHERE
-                    Id = :UserInfo.getUserId()];
-            return users[0];
-        } catch (Exception e) {
+            String orderId;
+            Order newOrder = new Order();
+            newOrder.AccountId = '0015J000003ioeGQAQ';
+            newOrder.Pricebook2Id = pricebook.Id;
+            newOrder.BillingStreet = currUser.street;
+            newOrder.BillingCity = currUser.city;
+            newOrder.BillingState = currUser.state;
+            newOrder.BillingCountry = currUser.country;
+            newOrder.Status = 'Draft';
+            newOrder.EndDate = Date.today().addDays(14);
+            newOrder.EffectiveDate = Date.today();
+            newOrder.Price__c = totalPrice;
+
+
+            Database.SaveResult saveResult = Database.insert(newOrder);
+            if (saveResult.isSuccess()) {
+                orderId = saveResult.Id;
+            }
+
+            List<OrderItem> itemsToOrder = new List<OrderItem>();
+            for(FW_ProductWrapped prod: wrappedProducts){
+                OrderItem item = new OrderItem(OrderId = orderId);
+                item.UnitPrice = prod.price;
+                item.Quantity = prod.quantity;
+                item.Product2Id = prod.id;
+                item.PricebookEntryId = prod.pricebookEntryId;
+                itemsToOrder.add(item);
+            }
+
+            insert itemsToOrder;
+        }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
         }
-    }
-
-    public static void insertOrder(User account, Object[] productsInBasket, Decimal totalPrice){
-        Order newOrder = new Order();
-        System.debug('account: '+account);
-//        System.debug('account.name: '+account[0].Name);
-        System.debug('account.address.country: '+account.Address);
-//        newOrder.BillingStreet = account.address.street;
-//        newOrder.BillingCity = account.Address.city;
-//        newOrder.BillingPostalCode = account.Address.postalCode;
-//        newOrder.BillingState = account.Address.state;
-//        newOrder.BillingCountry = account.Address.country;
-//        newOrder.Status = 'Draft';
-//        newOrder.EndDate = Date.today().addDays(14);
-//        newOrder.EffectiveDate = Date.today();
     }
 
     public static void deleteBasket(){
@@ -35,5 +54,26 @@ public with sharing class FW_OrderController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+    }
+
+    public static List<Order> getOrders(){
+        List<Order> orders = [
+                SELECT Id, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
+                        BillingStreet,
+                        Status, TotalAmount, EffectiveDate, (
+                        SELECT Id,
+                                OrderId,
+                                OrderItemNumber,
+                                PricebookEntry.Product2.Name,
+                                PricebookEntry.Product2.id,
+                                Quantity,
+                                UnitPrice
+                        FROM OrderItems
+                )
+                FROM Order
+                WHERE CreatedById =: UserInfo.getUserId()
+                ORDER BY CreatedDate DESC
+        ];
+        return orders;
     }
 }

@@ -32,7 +32,6 @@
 
     showProduct: function(component, event, helper){
         let product = event.getParam('product');
-        console.log('showProduct in basket: '+JSON.stringify(product));
         component.set('v.selectedItem', product);
         component.set('v.showProductView', true);
     }

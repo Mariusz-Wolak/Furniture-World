@@ -45,15 +45,14 @@
     },
 
     doOrder: function(component, event, helper){
-        let account = component.get('v.account');
+        let currentUser = component.get('v.currentUser');
         let productsInBasket = component.get('v.productsInBasket');
+        console.log(productsInBasket);
         let totalPrice = component.get('v.totalPrice');
-        console.log('account: '+account);
-        console.log('account: '+JSON.stringify(account));
 
         let action = component.get('c.insertOrder');
         action.setParams({
-           "account": account,
+           "currentUser": currentUser,
            "productsInBasket": productsInBasket,
            "totalPrice": totalPrice
         });
@@ -76,7 +75,7 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.showOrderSummary', false);
-                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/Search-Furniture', '_top');
+                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders', '_top');
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

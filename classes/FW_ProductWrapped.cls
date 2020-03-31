@@ -2,7 +2,7 @@ public with sharing class FW_ProductWrapped {
     @AuraEnabled
     public String id;
     @AuraEnabled
-    public string displayUrl;
+    public String displayUrl;
     @AuraEnabled
     public String description;
     @AuraEnabled
@@ -19,4 +19,8 @@ public with sharing class FW_ProductWrapped {
     public Decimal totalPrice;
     @AuraEnabled
     public Integer totalQuantity;
+    @AuraEnabled
+    public String pricebookEntryId;
+    @AuraEnabled
+    public String buyer;
 }
