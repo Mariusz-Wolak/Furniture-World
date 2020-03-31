@@ -8,7 +8,7 @@
         <aura:attribute name="family" type="String" access="global"/>
         <aura:attribute name="families" type="String[]" access="global"/>
 
-<!--        <aura:registerEvent name="WDLC_ProductIdSendToSummary" type="c:WDLC_ProductIdSendToSummary"/>-->
+        <aura:registerEvent name="FW_ProductIdSendToRecordView" type="c:FW_ProductIdSendToRecordView"/>
 
         <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
