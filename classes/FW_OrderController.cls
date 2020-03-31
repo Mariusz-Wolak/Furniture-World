@@ -7,10 +7,12 @@ public with sharing class FW_OrderController {
         Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
         String userString = JSON.serialize(currentUser);
         User currUser = (User) JSON.deserialize(userString, User.class);
+        Order__c orderFromCustomSettings = Order__c.getInstance('FW_Order');
+
         try {
             String orderId;
             Order newOrder = new Order();
-            newOrder.AccountId = '0015J000003ioeGQAQ';
+            newOrder.AccountId = orderFromCustomSettings.accountId__c;
             newOrder.Pricebook2Id = pricebook.Id;
             newOrder.BillingStreet = currUser.street;
             newOrder.BillingCity = currUser.city;
