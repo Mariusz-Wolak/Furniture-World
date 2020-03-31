@@ -1307,7 +1307,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Orders_History</shortDescription>
-        <value>Orders hitory</value>
+        <value>Orders history</value>
     </labels>
     <labels>
         <fullName>Order_Details</fullName>
