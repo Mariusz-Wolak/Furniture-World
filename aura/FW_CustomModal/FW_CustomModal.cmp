@@ -13,6 +13,10 @@
     <aura:attribute name="showOrderDetails" type="Boolean" access="global"/>
     <aura:attribute name="order" type="Order" access="global"/>
 
+    <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
+    <aura:attribute name="caseSubject" type="String" access="global"/>
+    <aura:attribute name="caseDescription" type="String" access="global"/>
+
     <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
 
     <aura:if isTrue="{!v.deleteDivisionIsOpen}">
@@ -80,7 +84,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                        {!$Label.c.Total_Price}:
+                            {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -148,7 +152,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                        {!$Label.c.Total_Price}:
+                            {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -177,7 +181,7 @@
                         <div class="productInfo slds-col slds-size_3-of-12"/>
 
                         <div class="addressOnOrderDetails slds-col slds-size_4-of-12">
-<!--                            <div>{!v.currentUser.name}</div>-->
+                            <!--                            <div>{!v.currentUser.name}</div>-->
                             <div>{!v.order.BillingStreet}</div>
                             <div>{!v.order.BillingCity}</div>
                         </div>
@@ -197,9 +201,9 @@
                         <div class="productsListDiv slds-grid">
                             <div class="productInfo slds-col slds-size_3-of-12"/>
 
-<!--                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">-->
-<!--                                <img src="{!product.displayUrl}"/>-->
-<!--                            </div>-->
+                            <!--                            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">-->
+                            <!--                                <img src="{!product.displayUrl}"/>-->
+                            <!--                            </div>-->
 
                             <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
                                     {!product.PricebookEntry.Product2.Name}
@@ -228,6 +232,48 @@
 
                     <div class="slds-text-align_right">
                         <lightning:button label="{!$Label.c.OK}" onclick="{!c.closeOrderDetails}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showComplaintsModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <p class="orderSummaryHeader">{!$Label.c.Make_A_Complaint}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <center>
+                        <div class="productInfo">
+                            Order Id: {!v.order.Id}
+                        </div>
+                        <div class="productInfo">
+                            Date:
+                            <ui:outputDate value="{!v.order.EffectiveDate}"/>
+                        </div>
+                        <div class="productInfo">
+                            Total price: €{!v.order.Price__c}
+                        </div>
+
+                        <lightning:select aura:id="selectItemToComplaint" label="Select an item" onchange="{!c.doSomething}">
+                            <aura:iteration items="{!v.order.OrderItems}" var="product">
+                                <option
+                                        value="{!product.PricebookEntry.Product2.Id}">{!product.PricebookEntry.Product2.Name}
+                                </option>
+                            </aura:iteration>
+                        </lightning:select>
+
+                        <lightning:input label="Subject" value="{!v.caseSubject}"/>
+                        <lightning:textarea label="Description" value="{!v.caseDescription}"/>
+                    </center>
+
+                    <div class="slds-text-align_right">
+                        <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeComplaintModal}"/>
+                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}"/>
                     </div>
                 </div>
             </div>

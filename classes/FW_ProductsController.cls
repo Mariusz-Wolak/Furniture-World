@@ -320,4 +320,9 @@ public with sharing class FW_ProductsController {
     public static List<Order> getOrders(){
         return FW_OrderController.getOrders();
     }
+
+    @AuraEnabled
+    public static void insertCase(String subject, String description, String orderId, String productId){
+        FW_OrderController.insertCase(subject, description, orderId, productId);
+    }
 }
