@@ -1365,4 +1365,18 @@
         <shortDescription>Description</shortDescription>
         <value>Description</value>
     </labels>
+    <labels>
+        <fullName>Add_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_Item</shortDescription>
+        <value>Add item</value>
+    </labels>
+    <labels>
+        <fullName>Family</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Family</shortDescription>
+        <value>Family</value>
+    </labels>
 </CustomLabels>

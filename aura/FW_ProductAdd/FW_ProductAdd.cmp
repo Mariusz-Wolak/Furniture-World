@@ -1,0 +1,51 @@
+<aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes"
+                controller="FW_ProductManagementController">
+
+        <aura:attribute name="product" type="Object" access="global"/>
+        <aura:attribute name="filesId" type="String[]" access="global"/>
+        <aura:attribute name="description" type="String" access="global"/>
+        <aura:attribute name="name" type="String" access="global"/>
+        <aura:attribute name="family" type="String" access="global"/>
+        <aura:attribute name="families" type="String[]" access="global"/>
+
+<!--        <aura:registerEvent name="WDLC_ProductIdSendToSummary" type="c:WDLC_ProductIdSendToSummary"/>-->
+
+        <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+        <lightning:card>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size--2-of-6"/>
+                <div class="slds-col slds-size--4-of-6">
+                    <h2 style="font-size:46px; font-weight:bolder;">{!$Label.c.Add_Item}</h2>
+                </div>
+                <div class="slds-col slds-size--1-of-1">
+                    <ui:inputText value="{!v.description}" label="{!$Label.c.Description}"></ui:inputText>
+                </div>
+                <div class="slds-col slds-size--1-of-1">
+                    <ui:inputText value="{!v.name}" label="{!$Label.c.Name}"></ui:inputText>
+                </div>
+                <aura:if isTrue="{!not(empty(v.families))}">
+                    <div class="slds-col slds-size--1-of-1">
+                        <lightning:select label="{!$Label.c.Family}">
+                            <aura:iteration items="{!v.families}" var="famil">
+                                <option text="{!famil}" value="{!v.family}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </aura:if>
+                <div class="slds-col slds-size--1-of-1">
+                    <lightning:fileUpload label="Attach receipt"
+                                          name="fileUploader"
+                                          multiple="true"
+                                          accept=".pdf, .png"
+                                          recordId="0055J000000Iw2UQAS"
+                                          onuploadfinished="{!c.handleUploadFinished}"/>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-text-align--right">
+                    <lightning:button label="{!$Label.c.Add_Item}" variant="brand-outline" onclick="{!c.createProduct}">{!$Label.c.Add_Item}</lightning:button>
+                </div>
+            </div>
+        </lightning:card>
+
+
+</aura:component>
