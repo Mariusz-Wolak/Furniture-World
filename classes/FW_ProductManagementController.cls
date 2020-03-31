@@ -47,10 +47,8 @@ public with sharing class FW_ProductManagementController {
             prod.Type__c = 'Furniture';
             prod.IsActive = true;
             if (photosIds.size() > 0) {
-                System.debug('photosIds size >0 v2');
                 prod.DisplayUrl = myDomainURL + photosIds.get(0);
                 prod.DisplayUrl2__c = myDomainURL + photosIds.get(1);
-                System.debug('po dwoch fotach');
             }
             Database.SaveResult sr = Database.insert(prod);
             String productId = sr.getId();
@@ -62,7 +60,6 @@ public with sharing class FW_ProductManagementController {
                 photos.add(photo);
             }
             Database.insert(photos);
-            System.debug('productId in AddItem: '+productId);
             return productId;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
