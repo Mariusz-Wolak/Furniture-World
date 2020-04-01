@@ -1,7 +1,7 @@
 public with sharing class FW_ProductManagementController {
 
-    public static String myDomainURL = 'https://furnitureworld-dev-ed.lightning.force.com/sfc/servlet' +
-            '.shepherd/document/download/';
+    public static FW_URL__c productImgStartURL = FW_URL__c.getInstance('FW_ProductImg');
+    public static String startURL = productImgStartURL.URL__c;
 
     @AuraEnabled
     public static List<String> getFamilyOptions() {
@@ -31,7 +31,7 @@ public with sharing class FW_ProductManagementController {
             prod.Type__c = 'Furniture';
             prod.IsActive = true;
             if (photosIds.size() > 0) {
-                prod.DisplayUrl = myDomainURL + photosIds.get(0);
+                prod.DisplayUrl = startURL + photosIds.get(0);
             }
             Database.SaveResult sr = Database.insert(prod);
             String productId = sr.getId();
@@ -39,7 +39,7 @@ public with sharing class FW_ProductManagementController {
             for (String ph : photosIds) {
                 PhotoForItem__c photo = new PhotoForItem__c();
                 photo.Product__c = productId;
-                photo.imgURL__c = myDomainURL + ph;
+                photo.imgURL__c = startURL + ph;
                 photos.add(photo);
             }
             Database.insert(photos);

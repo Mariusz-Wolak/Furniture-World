@@ -30,6 +30,13 @@
         });
         createAction.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
+                let navEvt = $A.get("e.force:navigateToSObject");
+                navEvt.setParams({
+                    "recordId": response.getReturnValue(),
+                    "slideDevName": "detail"
+                });
+                console.log('navEvt params: '+navEvt.getParams());
+                navEvt.fire();
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Product_Has_Been_Added_Successfully"));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
