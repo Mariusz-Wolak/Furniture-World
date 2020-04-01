@@ -6,7 +6,7 @@
     <aura:registerEvent name="FW_SendMainPhoto" type="c:FW_SendMainPhoto"/>
 
     <div class="photoDiv">
-        <img src="{!v.photoObject.imgURL__c}" onclick="{!c.sendMainPhoto}"/>
+        <img src="{!v.photoObject}" onclick="{!c.sendMainPhoto}"/>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>

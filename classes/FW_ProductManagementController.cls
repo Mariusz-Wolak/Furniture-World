@@ -35,14 +35,52 @@ public with sharing class FW_ProductManagementController {
             }
             Database.SaveResult sr = Database.insert(prod);
             String productId = sr.getId();
-            List<PhotoForItem__c> photos = new List<PhotoForItem__c>();
-            for (String ph : photosIds) {
-                PhotoForItem__c photo = new PhotoForItem__c();
-                photo.Product__c = productId;
-                photo.imgURL__c = startURL + ph;
-                photos.add(photo);
+
+            List<ContentDocumentLink> contDocLinkList = new List<ContentDocumentLink>();
+            for (String photoId : photosIds) {
+                contDocLinkList.add(new ContentDocumentLink(LinkedEntityId = productId, ContentDocumentId = photoId,
+                        ShareType = 'I', Visibility = 'AllUsers'));
             }
-            Database.insert(photos);
+            Set<String> ids = new Set<String>();
+            for (ContentDocumentLink cd : contDocLinkList) {
+                ids.add(cd.ContentDocumentId);
+            }
+            insert contDocLinkList;
+            List<ContentVersion> cvs = [SELECT Id FROM ContentVersion WHERE ContentDocumentId IN :ids];
+            List<ContentDistribution> cds = new List<ContentDistribution>();
+            for (ContentVersion cv : cvs) {
+                ContentDistribution cd = new ContentDistribution();
+                cd.Name = 'myContentVersion';
+                cd.ContentVersionId = cv.id;
+                cd.PreferencesAllowViewInBrowser = true;
+                cd.PreferencesLinkLatestVersion = true;
+                cd.PreferencesNotifyOnVisit = false;
+                cd.PreferencesPasswordRequired = false;
+                cd.PreferencesAllowOriginalDownload = true;
+                cds.add(cd);
+            }
+            insert cds;
+            ContentDistribution contentDistributionRetrieved = [
+                    SELECT
+                            ContentDownloadUrl, ContentVersionId
+                    FROM ContentDistribution
+                    WHERE ContentVersionId = :cvs.get(0).Id
+                    LIMIT 1
+            ];
+            prod.DisplayUrl = contentDistributionRetrieved.ContentDownloadUrl;
+            update prod;
+
+
+//            List<PhotoForItem__c> photos = new List<PhotoForItem__c>();
+//            for (String ph : photosIds) {
+//                PhotoForItem__c photo = new PhotoForItem__c();
+//                photo.Product__c = productId;
+//                photo.imgURL__c = startURL + ph;
+//                photos.add(photo);
+//            }
+//
+//            Database.insert(photos);
+
             return productId;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -50,9 +88,39 @@ public with sharing class FW_ProductManagementController {
     }
 
     @AuraEnabled
-    public static List<PhotoForItem__c> loadPhotos(String id) {
+    public static List<String> loadPhotos(String id) {
         try {
-            List<PhotoForItem__c> photos = [SELECT Id, Product__c, imgURL__c FROM PhotoForItem__c WHERE Product__c = :id];
+//            List<PhotoForItem__c> photos = [SELECT Id, Product__c, imgURL__c FROM PhotoForItem__c WHERE Product__c = :id];
+//            return photos;
+
+            List<ContentDocumentLink> cdl = [
+                    SELECT ContentDocumentId, LinkedEntityId
+                    FROM ContentDocumentLink
+                    WHERE LinkedEntityId = :id
+            ];
+            Set<String> ids = new Set<String>();
+            for (ContentDocumentLink cd : cdl) {
+                ids.add(cd.ContentDocumentId);
+            }
+            List<ContentVersion> cvs = [
+                    SELECT Id
+                    FROM ContentVersion
+                    WHERE ContentDocumentId IN :ids
+            ];
+            Set<String> cvIds = new Set<String>();
+            for (ContentVersion cv : cvs) {
+                cvIds.add(cv.Id);
+            }
+            List<ContentDistribution> cddd = [
+                    SELECT ContentVersionId,
+                            ContentDownloadUrl
+                    FROM ContentDistribution
+                    WHERE ContentVersionId IN :cvIds
+            ];
+            List<String> photos = new List<String>();
+            for (ContentDistribution c : cddd) {
+                photos.add(c.ContentDownloadUrl);
+            }
             return photos;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());

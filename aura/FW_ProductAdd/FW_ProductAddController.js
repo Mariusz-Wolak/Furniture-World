@@ -12,6 +12,7 @@
     },
 
     handleUploadFinished: function (component, event, helper) {
+        console.log('handleupload finished');
         let uploadedFiles = event.getParam("files");
         let filesIds = [];
         uploadedFiles.forEach(function(item){

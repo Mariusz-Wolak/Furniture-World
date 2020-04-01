@@ -33,7 +33,7 @@
                 <div class="singleField slds-size--1-of-1">
                     <lightning:fileUpload name="fileUploader"
                                           multiple="true"
-                                          accept=".pdf, .png, .jpg"
+                                          accept=".pdf, .png, .jpg, .webp"
                                           recordId="0055J000000IzhoQAC"
                                           onuploadfinished="{!c.handleUploadFinished}"/>
                 </div>
