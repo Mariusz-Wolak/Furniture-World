@@ -1393,4 +1393,11 @@
         <shortDescription>Product_Has_Been_Added_Successfully</shortDescription>
         <value>Product has been added successfully.</value>
     </labels>
+    <labels>
+        <fullName>Change_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Change_Photo</shortDescription>
+        <value>Change photo</value>
+    </labels>
 </CustomLabels>
