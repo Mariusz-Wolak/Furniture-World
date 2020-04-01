@@ -50,7 +50,6 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static List<PhotoForItem__c> loadPhotos(String id) {
-        System.debug('loadPhotos in APEX start');
         try {
             List<PhotoForItem__c> photos = [SELECT Id, Product__c, imgURL__c FROM PhotoForItem__c WHERE Product__c = :id];
             return photos;
@@ -60,8 +59,6 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static void setMainPhoto(String url, String productId) {
-        System.debug('set main photo url v2: '+url);
-        System.debug('set main photo productId v2: '+productId);
         try {
             List<Product2> products = [SELECT Id, DisplayUrl FROM Product2 WHERE Id = :productId];
             products[0].DisplayUrl = url;
@@ -72,10 +69,8 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static String getMainPhoto(String productId){
-        System.debug('getMainPhotoApexStart');
         try {
             List<Product2> products = [SELECT Id, DisplayUrl FROM Product2 WHERE Id = :productId];
-            System.debug('products in get main photo: '+products);
             return products[0].DisplayUrl;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
