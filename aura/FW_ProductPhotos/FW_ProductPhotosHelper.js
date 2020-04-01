@@ -23,7 +23,6 @@
         getMainPhotoAction.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                console.log('response get main photo: '+JSON.stringify(response.getReturnValue()));
                 component.set('v.mainPhoto', response.getReturnValue());
             }else{
                 component.find('customToast').showErrorToast(response.getError());

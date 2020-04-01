@@ -5,7 +5,6 @@
             top: 1100,
             behavior: 'smooth'
         }
-        console.log('scroll options: '+JSON.stringify(scrollOptions));
         setTimeout(function(){ window.scrollTo(scrollOptions); }, 1000);
     },
 

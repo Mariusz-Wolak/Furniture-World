@@ -1,7 +1,6 @@
 <aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes"
                 controller="FW_ProductManagementController">
 
-<!--    <aura:attribute name="product" type="Object" access="global"/>-->
     <aura:attribute name="filesId" type="String[]" access="global"/>
     <aura:attribute name="description" type="String" access="global"/>
     <aura:attribute name="name" type="String" access="global"/>

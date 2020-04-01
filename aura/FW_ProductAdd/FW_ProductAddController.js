@@ -28,14 +28,8 @@
             "family" : component.find("selectFamily").get("v.value"),
             "photosIds" : component.get("v.filesId")
         });
-        console.log(JSON.stringify(createAction.getParams()));
         createAction.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
-                let sendIdEvent = $A.get("e.c:FW_ProductIdSendToRecordView");
-                sendIdEvent.setParams({
-                    "productId" : response.getReturnValue()
-                });
-                sendIdEvent.fire();
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Product_Has_Been_Added_Successfully"));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
