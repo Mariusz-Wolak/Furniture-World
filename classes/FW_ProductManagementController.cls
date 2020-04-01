@@ -21,22 +21,6 @@ public with sharing class FW_ProductManagementController {
         }
     }
 
-    public List<PhotoForItem__c> getPhotos(List<String> files, String productId){
-        try {
-
-            List<PhotoForItem__c> photos = new List<PhotoForItem__c>();
-            for (String file : files) {
-                PhotoForItem__c photo = new PhotoForItem__c();
-                photo.imgURL__c = myDomainURL + file;
-                photo.Product__c = productId;
-                photos.add(photo);
-            }
-            Database.upsert(photos);
-            return photos;
-        }catch(Exception e){
-            throw new AuraHandledException(e.getMessage());
-        }
-    }
     @AuraEnabled
     public static Id addProduct(String name, String description, String family, List<String> photosIds){
         try {
@@ -48,7 +32,6 @@ public with sharing class FW_ProductManagementController {
             prod.IsActive = true;
             if (photosIds.size() > 0) {
                 prod.DisplayUrl = myDomainURL + photosIds.get(0);
-                prod.DisplayUrl2__c = myDomainURL + photosIds.get(1);
             }
             Database.SaveResult sr = Database.insert(prod);
             String productId = sr.getId();
@@ -56,7 +39,7 @@ public with sharing class FW_ProductManagementController {
             for (String ph : photosIds) {
                 PhotoForItem__c photo = new PhotoForItem__c();
                 photo.Product__c = productId;
-                photo.imgURL__c = ph;
+                photo.imgURL__c = myDomainURL + ph;
                 photos.add(photo);
             }
             Database.insert(photos);
@@ -67,6 +50,7 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static List<PhotoForItem__c> loadPhotos(String id) {
+        System.debug('loadPhotos in APEX start');
         try {
             List<PhotoForItem__c> photos = [SELECT Id, Product__c, imgURL__c FROM PhotoForItem__c WHERE Product__c = :id];
             return photos;
@@ -76,9 +60,11 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static void setMainPhoto(String url, String productId) {
+        System.debug('set main photo url v2: '+url);
+        System.debug('set main photo productId v2: '+productId);
         try {
-            List<Product2> products = [SELECT Id, DisplayUrl2__c FROM Product2 WHERE Id = :productId];
-            products[0].DisplayUrl2__c = url;
+            List<Product2> products = [SELECT Id, DisplayUrl FROM Product2 WHERE Id = :productId];
+            products[0].DisplayUrl = url;
             Database.SaveResult result = Database.update(products[0]);
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
@@ -86,9 +72,11 @@ public with sharing class FW_ProductManagementController {
     }
     @AuraEnabled
     public static String getMainPhoto(String productId){
+        System.debug('getMainPhotoApexStart');
         try {
-            List<Product2> products = [SELECT Id, DisplayUrl2__c FROM Product2 WHERE Id = :productId];
-            return products[0].DisplayUrl2__c;
+            List<Product2> products = [SELECT Id, DisplayUrl FROM Product2 WHERE Id = :productId];
+            System.debug('products in get main photo: '+products);
+            return products[0].DisplayUrl;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
         }

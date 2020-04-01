@@ -1,30 +1,29 @@
-<aura:component description="FW_ProductPhotos" implements="flexipage:availableForAllPageTypes"
+<aura:component description="FW_ProductPhotos" implements="force:hasRecordId, flexipage:availableForAllPageTypes"
                 controller="FW_ProductManagementController">
 
-    <aura:attribute name="productId" type="String" access="global"/>
-    <aura:attribute name="photos" type="String[]" access="global"/>
-    <aura:attribute name="product" type="String" access="global"/>
+<!--    <aura:attribute name="productId" type="String" access="global"/>-->
+    <aura:attribute name="photosObjects" type="Object[]" access="global"/>
+    <aura:attribute name="mainPhoto" type="String" access="global"/>
 
     <aura:attribute name="showPhotos" type="Boolean" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.receiveProductId}"/>
-    <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getMainPhoto}"/>
+<!--    <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.setPhotos}"/>-->
+    <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getPhotoFromEvent}"/>
 
-    <aura:if isTrue="{!v.showPhotos}">
-        <aura:iteration items="{!v.photos}" var="photo">
+    PRODUCT PHOTOS COMPONENT
+
+        <aura:iteration items="{!v.photosObjects}" var="photoObject">
+            iteration item
             <div class="slds-col slds-size_3-of-12">
-                <c:FW_ProductSinglePhoto photo="{!photo.imgURL__c}" product="{!v.product}"/>
+                <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}"/>
             </div>
             <div class="slds-col slds-size_9-of-12"/>
         </aura:iteration>
 
-        <!--        <div class="slds-col slds-size_1-of-12">-->
-        <!--            <img src="{!v.photos[0].imgURL__c}" alt=""/>-->
-        <!--            <img src="{!v.photos[1].imgURL__c}" alt=""/>-->
-        <!--        </div>-->
         <div class="slds-col slds-size_4-of-12">
-            <img src="{!v.product}" alt=""/>
+            <img src="{!v.mainPhoto}" alt=""/>
         </div>
-    </aura:if>
+
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

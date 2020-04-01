@@ -1,7 +1,7 @@
 <aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes"
                 controller="FW_ProductManagementController">
 
-    <aura:attribute name="product" type="Object" access="global"/>
+<!--    <aura:attribute name="product" type="Object" access="global"/>-->
     <aura:attribute name="filesId" type="String[]" access="global"/>
     <aura:attribute name="description" type="String" access="global"/>
     <aura:attribute name="name" type="String" access="global"/>
@@ -25,15 +25,14 @@
                 <aura:if isTrue="{!not(empty(v.families))}">
                     <div class="singleField slds-size--1-of-1">
                         <lightning:select aura:id="selectFamily" label="{!$Label.c.Family}">
-                            <aura:iteration items="{!v.families}" var="famil">
-                                <option text="{!famil}" value="{!v.family}"></option>
+                            <aura:iteration items="{!v.families}" var="familyVar">
+                                <option text="{!familyVar}" value="{!v.family}"></option>
                             </aura:iteration>
                         </lightning:select>
                     </div>
                 </aura:if>
                 <div class="singleField slds-size--1-of-1">
-                    <lightning:fileUpload label="Attach receipt"
-                                          name="fileUploader"
+                    <lightning:fileUpload name="fileUploader"
                                           multiple="true"
                                           accept=".pdf, .png"
                                           recordId="0055J000000IzhoQAC"

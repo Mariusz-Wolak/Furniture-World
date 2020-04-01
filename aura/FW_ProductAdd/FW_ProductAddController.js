@@ -1,5 +1,5 @@
 ({
-    onInit : function(component, event){
+    onInit : function(component, event, helper){
         let initAction = component.get("c.getFamilyOptions");
         initAction.setCallback(this,function(response){
             if(response.getState() === "SUCCESS"){
@@ -11,19 +11,16 @@
         $A.enqueueAction(initAction);
     },
 
-    handleUploadFinished: function (component, event) {
+    handleUploadFinished: function (component, event, helper) {
         let uploadedFiles = event.getParam("files");
         let filesIds = [];
         uploadedFiles.forEach(function(item){
             filesIds.push(item.documentId);
         });
         component.set("v.filesId", filesIds);
-        console.log('filesIds: '+component.get('v.filesId'));
     },
 
-    createProduct : function(component, event){
-        let family = component.find('selectFamily').get('v.value');
-        console.log('family: '+family);
+    createProduct : function(component, event, helper){
         let createAction = component.get("c.addProduct");
         createAction.setParams({
             "name" : component.get("v.name"),
@@ -39,6 +36,7 @@
                     "productId" : response.getReturnValue()
                 });
                 sendIdEvent.fire();
+                component.find('customToast').showSuccessToast($A.get("$Label.c.Product_Has_Been_Added_Successfully"));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

@@ -1,11 +1,15 @@
 
 <aura:component description="FW_ProductSinglePhoto" controller="FW_ProductManagementController">
 
-    <aura:attribute name="photo" type="String" access="global"/>
-    <aura:attribute name="product" type="String" access="global"/>
+    <aura:attribute name="photoObject" type="Object" access="global"/>
+    <aura:attribute name="productId" type="String" access="global"/>
 
     <aura:registerEvent name="FW_SendMainPhoto" type="c:FW_SendMainPhoto"/>
 
-    <img src="{!v.photo}" onclick="{!c.setMainPhoto}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
+    zdjecie
+    <img src="{!v.photoObject.imgURL__c}" onclick="{!c.sendMainPhoto}"/>
+
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

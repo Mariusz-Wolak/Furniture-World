@@ -1,61 +1,82 @@
-
 ({
     onInit: function(component, event, helper){
-        console.log('on init product photos');
-        component.set('v.showPhotos', false);
-    },
-
-    receiveProductId: function(component, event, helper){
-        let productId = event.getParam('productId');
-        console.log('productId in receive product in photos: '+productId);
-
-        let action = component.get('c.loadPhotos');
-        action.setParams({
-           "id": productId
+        console.log('ont init productPhotosCtrl');
+        let loadPhotosAction = component.get('c.loadPhotos');
+        loadPhotosAction.setParams({
+           "id": component.get('v.recordId')
         });
-        action.setCallback(this, function(response){
+        loadPhotosAction.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.photos', response.getReturnValue());
-                                console.log('response load photos: '+JSON.stringify(response.getReturnValue()));
-                                component.set('v.showPhotos', true);
-                                let res = response.getReturnValue();
-                                for(let i=0; i<res.length; i++){
-                                    let id = res[i].imgURL__c;
-                                    res[i].imgURL__c = 'https://furnitureworld-dev-ed.lightning.force.com/sfc/servlet' +
-                                                                                   '.shepherd/document/download/'+id;
-                                                                                   console.log('photo: '+res[i].imgURL__c);
-                                }
-                                component.set('v.product', res[0].imgURL__c);
+                let photosObjects = response.getReturnValue();
+                console.log('photosObject in response: '+JSON.stringify(photosObjects));
+                component.set('v.photosObjects', photosObjects);
+                for(let i=0; i<photosObjects.length; i++){
+                }
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
         });
 
-
-        console.log('before action 2');
-        let action2 = component.get('c.getMainPhoto');
-        action2.setParams({
-           "productId": productId
+        let getMainPhotoAction = component.get('c.getMainPhoto');
+        getMainPhotoAction.setParams({
+           "productId": component.get('v.recordId')
         });
-        action2.setCallback(this, function(response){
+        getMainPhotoAction.setCallback(this, function(response){
             let state = response.getState();
-            console.log('state: '+state);
             if(state === 'SUCCESS'){
-                component.set('v.product', response.getReturnValue());
                 console.log('response get main photo: '+JSON.stringify(response.getReturnValue()));
+                component.set('v.mainPhoto', response.getReturnValue());
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
         });
 
-
-        $A.enqueueAction(action2);
-        $A.enqueueAction(action);
+        $A.enqueueAction(getMainPhotoAction);
+        $A.enqueueAction(loadPhotosAction);
     },
 
-    getMainPhoto: function(component, event, helper){
+//    setPhotos: function(component, event, helper){
+//        let productId = event.getParam('productId');
+//        component.set('v.productId', productId);
+//        let loadPhotosAction = component.get('c.loadPhotos');
+//        loadPhotosAction.setParams({
+//           "id": component.get('v.recordId')
+//        });
+//        loadPhotosAction.setCallback(this, function(response){
+//            let state = response.getState();
+//            if(state === 'SUCCESS'){
+//                let photosObjects = response.getReturnValue();
+//                component.set('v.photosObjects', photosObjects);
+//                for(let i=0; i<photosObjects.length; i++){
+//                   console.log('photo imgURL updated=: '+photosObjects[i].imgURL__c);
+//                }
+//            }else{
+//                component.find('customToast').showErrorToast(response.getError());
+//            }
+//        });
+//
+//        let getMainPhotoAction = component.get('c.getMainPhoto');
+//        getMainPhotoAction.setParams({
+//           "productId": component.get('v.recordId')
+//        });
+//        getMainPhotoAction.setCallback(this, function(response){
+//            let state = response.getState();
+//            if(state === 'SUCCESS'){
+//                console.log('response get main photo: '+JSON.stringify(response.getReturnValue()));
+//                component.set('v.mainPhoto', response.getReturnValue());
+//            }else{
+//                component.find('customToast').showErrorToast(response.getError());
+//            }
+//        });
+//
+//        $A.enqueueAction(getMainPhotoAction);
+//        $A.enqueueAction(action);
+//    },
+
+    getPhotoFromEvent: function(component, event, helper){
         let mainPhoto = event.getParam('photo');
-        component.set('v.product', mainPhoto);
+        component.set('v.mainPhoto', mainPhoto);
+        component.find('customToast').showSuccessToast($A.get("$Label.c.Photo_Has_Been_Set_Successfully"));
     }
 })

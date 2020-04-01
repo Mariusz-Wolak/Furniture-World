@@ -1,11 +1,9 @@
-
 ({
-    setMainPhoto: function(component, event, helper){
-        let myEvent = component.getEvent('FW_SendMainPhoto');
-        let photo = component.get('v.photo');
-        myEvent.setParams({
-           "photo": photo
-        });
-        myEvent.fire();
+    onInit: function(component, event, helper){
+        console.log('on init single photo');
+    },
+
+    sendMainPhoto: function(component, event, helper){
+        helper.doSendMainPhoto(component, event);
     }
 })

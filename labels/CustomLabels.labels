@@ -1379,4 +1379,18 @@
         <shortDescription>Family</shortDescription>
         <value>Family</value>
     </labels>
+    <labels>
+        <fullName>Photo_Has_Been_Set_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Photo_Has_Been_Set_Successfully</shortDescription>
+        <value>Photo has been set successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Product_Has_Been_Added_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product_Has_Been_Added_Successfully</shortDescription>
+        <value>Product has been added successfully.</value>
+    </labels>
 </CustomLabels>
