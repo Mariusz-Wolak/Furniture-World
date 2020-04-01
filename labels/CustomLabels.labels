@@ -1400,4 +1400,11 @@
         <shortDescription>Change_Photo</shortDescription>
         <value>Change photo</value>
     </labels>
+    <labels>
+        <fullName>Back</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
 </CustomLabels>

@@ -43,5 +43,23 @@
             }
         });
         $A.enqueueAction(createAction);
+    },
+
+    backToListView: function(component, event, helper){
+        let action = component.get('c.getListViewId');
+        action.setCallback(this, function(response){
+           if(response.getState() === 'SUCCESS'){
+                let navEvent = $A.get("e.force:navigateToList");
+                navEvent.setParams({
+                   "listViewId": response.getReturnValue(),
+                   "listViewName": null,
+                    "scope": "Product2"
+                });
+                navEvent.fire();
+           }else{
+               component.find('customToast').showErrorToast(response.getError());
+           }
+        });
+        $A.enqueueAction(action);
     }
 })

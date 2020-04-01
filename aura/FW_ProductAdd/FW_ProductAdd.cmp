@@ -38,6 +38,8 @@
                                           onuploadfinished="{!c.handleUploadFinished}"/>
                 </div>
                 <div class="singleField slds-text-align--right">
+                    <lightning:button label="{!$Label.c.Back}" variant="brand-outline"
+                                      onclick="{!c.backToListView}">{!$Label.c.Back}</lightning:button>
                     <lightning:button label="{!$Label.c.Add_Item}" variant="brand-outline"
                                       onclick="{!c.createProduct}">{!$Label.c.Add_Item}</lightning:button>
                 </div>
