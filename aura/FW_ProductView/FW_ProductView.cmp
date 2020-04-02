@@ -9,6 +9,8 @@
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
 
+    <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
+
     <aura:registerEvent name="FW_SendTotalQuantity" type="c:FW_SendTotalQuantity"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -18,17 +20,9 @@
     <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
 
     <div class="slds-grid">
-        <div class="slds-col slds-size_1-of-12">
-            <img class="selectedMiniature selectedMiniature2" src="{!v.product.displayUrl}"
-                 alt=""/>
 
-            <img src="{!v.product.displayUrl}"
-                 alt=""/>
-        </div>
-
-        <div class="slds-col slds-size--6-of-12">
-            <img src="{!v.product.displayUrl}"
-                 alt=""/>
+        <div class="slds-col slds-size_7-of-12">
+        <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
         </div>
 
         <div class="slds-col slds-size--5-of-12">

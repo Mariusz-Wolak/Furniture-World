@@ -1,0 +1,27 @@
+<aura:component description="FW_ProductPhotos" implements="force:hasRecordId, flexipage:availableForAllPageTypes"
+                controller="FW_ProductManagementController">
+
+    <aura:attribute name="photosObjects" type="Object[]" access="global"/>
+    <aura:attribute name="mainPhoto" type="Object" access="global"/>
+    <aura:attribute name="productId" type="String" access="global"/>
+
+    <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getPhotoFromEvent}"/>
+
+    <div class="slds-grid">
+        <div class="slds-cold slds-size_2-of-12">
+        <aura:iteration items="{!v.photosObjects}" var="photoObject">
+            <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}" isCommunity="{!v.isCommunity}"
+                                     mainPhoto="{!v.mainPhoto}"/>
+        </aura:iteration>
+        </div>
+
+        <div class="mainPhotoDiv slds-col slds-size_10-of-12">
+            <img src="{!v.mainPhoto}" alt=""/>
+        </div>
+    </div>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

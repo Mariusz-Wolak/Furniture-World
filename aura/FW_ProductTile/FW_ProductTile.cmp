@@ -13,7 +13,7 @@
 
     <div aura:id="productTileDiv" class="productTileDiv" onmouseover="{!c.highlightTile}"
          onmouseleave="{!c.removeHighlightTile}">
-        <img src="{!v.item.displayUrl}"/>
+        <img src="{!v.item.displayUrl}" onclick="{!c.selectItem}" class="img"/>
         <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.name}</h1>
         <div class="slds-grid">
             <div class="slds-col slds-size_4-of-12">
