@@ -14,8 +14,7 @@
         $A.util.removeClass(observeIcon, 'isHidden');
 
         let productTileDiv = component.find('productTileDiv');
-        $A.util.addClass(productTileDiv, 'withBorder');
-        $A.util.addClass(productTileDiv, 'isHidden');
+        $A.util.addClass(productTileDiv, 'blackBorder');
     },
 
     removeHighlightTile: function(component, event, helper){
@@ -23,7 +22,7 @@
         $A.util.addClass(observeIcon, 'isHidden');
 
         let productTileDiv = component.find('productTileDiv');
-        $A.util.removeClass(productTileDiv, 'withBorder');
+        $A.util.removeClass(productTileDiv, 'blackBorder');
     },
 
     selectItem: function(component, event, helper){

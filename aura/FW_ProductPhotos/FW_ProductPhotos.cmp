@@ -13,7 +13,8 @@
     <div class="slds-grid">
         <div class="slds-cold slds-size_2-of-12">
         <aura:iteration items="{!v.photosObjects}" var="photoObject">
-            <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}" isCommunity="{!v.isCommunity}"/>
+            <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}" isCommunity="{!v.isCommunity}"
+                                     mainPhoto="{!v.mainPhoto}"/>
         </aura:iteration>
         </div>
 

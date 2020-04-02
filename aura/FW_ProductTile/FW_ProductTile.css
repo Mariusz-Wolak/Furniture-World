@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.THIS .img{
+    cursor: pointer;
+}
+
 .THIS .itemPrice{
     font-size: 18px;
     font-weight: bold;
@@ -26,6 +30,7 @@
 
 .THIS .observeIcon{
     cursor: pointer;
+    margin-top: -20px;
 }
 
 .THIS .isHidden{
@@ -36,7 +41,7 @@
     display: block;
 }
 
-.THIS.withBorder{
+.THIS.blackBorder{
     border: 1px solid black;
 }
 

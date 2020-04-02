@@ -2,6 +2,8 @@
     doSendMainPhoto: function(component, event, helper){
         let myEvent = component.getEvent('FW_SendMainPhoto');
         let photo = component.get('v.photoObject');
+        photo.isSelected = true;
+        component.set('v.photoObject', photo);
         myEvent.setParams({
            "photo": photo
         });
@@ -12,7 +14,7 @@
             let productId = component.get('v.productId');
             let action = component.get('c.setMainPhoto');
             action.setParams({
-               "url": photo,
+               "url": photo.url,
                "productId": productId
             });
             action.setCallback(this, function(response){
