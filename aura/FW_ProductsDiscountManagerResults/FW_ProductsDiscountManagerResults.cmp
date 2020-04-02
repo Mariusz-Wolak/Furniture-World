@@ -1,0 +1,17 @@
+<aura:component description="FW_ProductsDiscountManagerResults" controller="FW_ProductsController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="results" type="Object[]" access="global"/>
+
+    <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
+
+    <lightning:card title="Search results">
+        <aura:iteration items="{!v.results}" var="product">
+            <div class="slds-size_1-of-12">
+                <img src="{!product.displayUrl}" alt=""/>
+            </div>
+        </aura:iteration>
+    </lightning:card>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>
