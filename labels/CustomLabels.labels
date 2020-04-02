@@ -1428,4 +1428,32 @@
         <shortDescription>Discount_Manager</shortDescription>
         <value>Discount Manager</value>
     </labels>
+    <labels>
+        <fullName>Set_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set_Discount</shortDescription>
+        <value>Set Discount</value>
+    </labels>
+    <labels>
+        <fullName>Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>Current_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current_Price</shortDescription>
+        <value>Current Price</value>
+    </labels>
+    <labels>
+        <fullName>Price_After_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price_After_Discount</shortDescription>
+        <value>Price After Discount</value>
+    </labels>
 </CustomLabels>

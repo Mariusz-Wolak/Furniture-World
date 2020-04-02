@@ -2,14 +2,35 @@
                 implements="flexipage:availableForAllPageTypes">
 
     <aura:attribute name="results" type="Object[]" access="global"/>
+    <aura:attribute name="discountValue" type="String" access="global"/>
+
+
 
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
-    <lightning:card class ="card" title="{!$Label.c.Results}">
-        <aura:iteration items="{!v.results}" var="product">
-            <c:FW_ProductsDiscountManagerSingleResult product="{!product}"/>
-        </aura:iteration>
-    </lightning:card>
+    <aura:if isTrue="{!not(empty(v.results))}">
+        <lightning:card class="card">
+            <div class="header">{!$Label.c.Set_Discount}</div>
+            <div class="infoDiv slds-grid">
+                <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                    <div class="infoText">{!$Label.c.Type}</div>
+                    <lightning:select aura:id="discountType">
+                        <option value="%">%</option>
+                        <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>
+                    </lightning:select>
+                </div>
+
+                <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                <div class="infoText">{!$Label.c.Value}</div>
+                    <lightning:input value="{!v.discountValue}"/>
+                </div>
+            </div>
+
+            <aura:iteration items="{!v.results}" var="product">
+                <c:FW_ProductsDiscountManagerSingleResult product="{!product}"/>
+            </aura:iteration>
+        </lightning:card>
+    </aura:if>
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

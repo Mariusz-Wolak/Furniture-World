@@ -13,10 +13,12 @@
         <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
             {!v.product.name}
         </div>
-        <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+        <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+            <div class="infoText">{!$Label.c.Current_Price}</div>
             <lightning:input value="{!v.product.price}"/>
         </div>
-        <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+        <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+            <div class="infoText">{!$Label.c.Price_After_Discount}</div>
             <lightning:input value="{!v.priceAfterDiscount}"/>
         </div>
     </div>

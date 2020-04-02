@@ -1,3 +1,19 @@
 .THIS.card {
+    margin-top: 20px;
     padding: 20px;
+}
+
+.THIS .header{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.THIS .infoDiv{
+    font-size: 20px;
+}
+
+.THIS .infoText{
+    margin-top: 25px;
+    margin-right: 10px;
 }
