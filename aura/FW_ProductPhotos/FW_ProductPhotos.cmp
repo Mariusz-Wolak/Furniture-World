@@ -10,18 +10,14 @@
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getPhotoFromEvent}"/>
 
-    <div class="changePhotoHeader">{!$Label.c.Change_Photo}</div>
-
     <div class="slds-grid">
-        <div class="slds-cold slds-size_1-of-12">
+        <div class="slds-cold slds-size_2-of-12">
         <aura:iteration items="{!v.photosObjects}" var="photoObject">
             <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}" isCommunity="{!v.isCommunity}"/>
         </aura:iteration>
         </div>
 
-        <div class="slds-cold slds-size_1-of-12"/>
-
-        <div class="slds-col slds-size_2-of-12">
+        <div class="mainPhotoDiv slds-col slds-size_10-of-12">
             <img src="{!v.mainPhoto}" alt=""/>
         </div>
     </div>
