@@ -3,6 +3,7 @@
 
     <aura:attribute name="photosObjects" type="Object[]" access="global"/>
     <aura:attribute name="mainPhoto" type="String" access="global"/>
+    <aura:attribute name="productId" type="String" access="global"/>
 
     <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
 

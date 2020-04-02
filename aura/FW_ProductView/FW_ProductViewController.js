@@ -1,6 +1,7 @@
 ({
     doInit: function(component, event, helper){
         component.set('v.header', $A.get('$Label.c.Similar_Items'));
+        component.set('v.isCommunity', true);
         helper.checkIfIsObserved(component);
         helper.returnNewestComments(component);
         helper.returnSimilarProducts(component);
