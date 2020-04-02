@@ -1,0 +1,23 @@
+<aura:component description="FW_ProductsDiscountManagerSingleResult">
+
+    <aura:attribute name="product" type="Object" access="global"/>
+    <aura:attribute name="priceAfterDiscount" type="String" access="global"/>
+
+    <div class="result slds-grid">
+        <div class="imgDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
+            <div class="slds-text-align_left">
+                <lightning:input type="checkbox"/>
+            </div>
+            <img src="{!v.product.displayUrl}" alt=""/>
+        </div>
+        <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+            {!v.product.name}
+        </div>
+        <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:input value="{!v.product.price}"/>
+        </div>
+        <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:input value="{!v.priceAfterDiscount}"/>
+        </div>
+    </div>
+</aura:component>

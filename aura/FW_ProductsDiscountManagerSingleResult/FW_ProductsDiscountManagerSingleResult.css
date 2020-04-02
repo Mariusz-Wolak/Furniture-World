@@ -1,0 +1,10 @@
+
+.THIS.result{
+    padding: 5px;
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.THIS .resultInfo{
+    font-size: 20px;
+}

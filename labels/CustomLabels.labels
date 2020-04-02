@@ -1414,4 +1414,11 @@
         <shortDescription>Upload_Has_Been_Finished_Successfully</shortDescription>
         <value>Upload has been finished successfully.</value>
     </labels>
+    <labels>
+        <fullName>Raw</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Raw</shortDescription>
+        <value>Raw</value>
+    </labels>
 </CustomLabels>
