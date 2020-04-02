@@ -1,11 +1,18 @@
-<aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes" controller="FW_ProductsController">
+<aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes"
+                controller="FW_ProductsController">
 
     <aura:attribute name="searchItemName" type="String" access="global"/>
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
 
-    <div onkeypress="{!c.search}">
-        <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+    <h1 class="header">{!$Label.c.Discount_Manager}</h1>
+
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-4"/>
+        <div class="slds-col searchBarDiv slds-size_2-of-4" onkeypress="{!c.search}">
+            <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+        </div>
+        <div class="slds-col slds-size_1-of-4"/>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>

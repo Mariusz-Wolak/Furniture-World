@@ -1421,4 +1421,11 @@
         <shortDescription>Raw</shortDescription>
         <value>Raw</value>
     </labels>
+    <labels>
+        <fullName>Discount_Manager</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Manager</shortDescription>
+        <value>Discount Manager</value>
+    </labels>
 </CustomLabels>
