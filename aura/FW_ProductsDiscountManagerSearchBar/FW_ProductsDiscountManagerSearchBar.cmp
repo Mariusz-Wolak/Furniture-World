@@ -1,0 +1,12 @@
+<aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes" controller="FW_ProductsController">
+
+    <aura:attribute name="searchItemName" type="String" access="global"/>
+
+    <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
+
+    <div onkeypress="{!c.search}">
+        <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+    </div>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>
