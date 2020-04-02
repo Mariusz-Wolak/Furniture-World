@@ -1407,4 +1407,11 @@
         <shortDescription>Back</shortDescription>
         <value>Back</value>
     </labels>
+    <labels>
+        <fullName>Upload_Has_Been_Finished_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload_Has_Been_Finished_Successfully</shortDescription>
+        <value>Upload has been finished successfully.</value>
+    </labels>
 </CustomLabels>

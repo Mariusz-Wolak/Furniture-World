@@ -18,6 +18,7 @@
             filesIds.push(item.documentId);
         });
         component.set("v.filesId", filesIds);
+        component.find('customToast').showSuccessToast($A.get("$Label.c.Upload_Has_Been_Finished_Successfully"));
     },
 
     createProduct : function(component, event, helper){
