@@ -1,26 +1,29 @@
 ({
     doSendMainPhoto: function(component, event, helper){
-        let url = component.get('v.photoObject');
-        let productId = component.get('v.productId');
-        let action = component.get('c.setMainPhoto');
-        action.setParams({
-           "url": url,
-           "productId": productId
+        let myEvent = component.getEvent('FW_SendMainPhoto');
+        let photo = component.get('v.photoObject');
+        myEvent.setParams({
+           "photo": photo
         });
-        console.log('doSendMainPhoto params: '+action.getParams());
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if(state === 'SUCCESS'){
-                let myEvent = component.getEvent('FW_SendMainPhoto');
-                let photo = component.get('v.photoObject');
-                myEvent.setParams({
-                   "photo": photo
-                });
-                myEvent.fire();
-            }else{
-                component.find('customToast').showErrorToast(response.getError());
-            }
-        });
-        $A.enqueueAction(action);
+        myEvent.fire();
+
+        let isCommunity = component.get('v.isCommunity');
+        if(isCommunity == false){
+            let productId = component.get('v.productId');
+            let action = component.get('c.setMainPhoto');
+            action.setParams({
+               "url": photo,
+               "productId": productId
+            });
+            action.setCallback(this, function(response){
+                let state = response.getState();
+                if(state === 'SUCCESS'){
+                    component.find('customToast').showSuccessToast($A.get("$Label.c.Photo_Has_Been_Set_Successfully"));
+                }else{
+                    component.find('customToast').showErrorToast(response.getError());
+                }
+            });
+            $A.enqueueAction(action);
+        }
     }
 })

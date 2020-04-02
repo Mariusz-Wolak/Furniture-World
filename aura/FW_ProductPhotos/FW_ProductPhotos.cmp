@@ -4,7 +4,7 @@
     <aura:attribute name="photosObjects" type="Object[]" access="global"/>
     <aura:attribute name="mainPhoto" type="String" access="global"/>
 
-    <aura:attribute name="isCommunity" type="Boolean" access="global"/>
+    <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getPhotoFromEvent}"/>
@@ -14,7 +14,7 @@
     <div class="slds-grid">
         <div class="slds-cold slds-size_1-of-12">
         <aura:iteration items="{!v.photosObjects}" var="photoObject">
-            <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}"/>
+            <c:FW_ProductSinglePhoto photoObject="{!photoObject}" productId="{!v.recordId}" isCommunity="{!v.isCommunity}"/>
         </aura:iteration>
         </div>
 
