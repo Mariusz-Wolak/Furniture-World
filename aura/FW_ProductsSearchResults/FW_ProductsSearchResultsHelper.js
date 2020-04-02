@@ -6,7 +6,6 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.results', response.getReturnValue());
-                console.log('results newest: '+JSON.stringify(response.getReturnValue()));
             }else{
                 let toastComponent = component.find('customToast');
                 toastComponent.showErrorToast(response.getError());

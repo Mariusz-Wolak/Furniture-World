@@ -11,7 +11,7 @@
     <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse"
                   action="{!c.toggleObserveIcon}"/>
 
-    <div aura:id="productTileDiv" class="productTileDiv whiteBorder" onmouseover="{!c.highlightTile}"
+    <div aura:id="productTileDiv" class="productTileDiv" onmouseover="{!c.highlightTile}"
          onmouseleave="{!c.removeHighlightTile}">
         <img src="{!v.item.displayUrl}" onclick="{!c.selectItem}" class="img"/>
         <h1 class="itemTitle" onclick="{!c.selectItem}">{!v.item.name}</h1>

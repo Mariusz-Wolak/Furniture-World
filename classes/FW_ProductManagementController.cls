@@ -70,17 +70,6 @@ public with sharing class FW_ProductManagementController {
             prod.DisplayUrl = contentDistributionRetrieved.ContentDownloadUrl;
             update prod;
 
-
-//            List<PhotoForItem__c> photos = new List<PhotoForItem__c>();
-//            for (String ph : photosIds) {
-//                PhotoForItem__c photo = new PhotoForItem__c();
-//                photo.Product__c = productId;
-//                photo.imgURL__c = startURL + ph;
-//                photos.add(photo);
-//            }
-//
-//            Database.insert(photos);
-
             return productId;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -90,9 +79,6 @@ public with sharing class FW_ProductManagementController {
     @AuraEnabled
     public static List<String> loadPhotos(String id) {
         try {
-//            List<PhotoForItem__c> photos = [SELECT Id, Product__c, imgURL__c FROM PhotoForItem__c WHERE Product__c = :id];
-//            return photos;
-
             List<ContentDocumentLink> cdl = [
                     SELECT ContentDocumentId, LinkedEntityId
                     FROM ContentDocumentLink

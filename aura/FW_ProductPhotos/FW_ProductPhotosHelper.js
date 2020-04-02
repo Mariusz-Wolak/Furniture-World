@@ -9,6 +9,7 @@
             if(state === 'SUCCESS'){
                 let mainPhotoUrl = response.getReturnValue();
                 component.set('v.mainPhoto', mainPhotoUrl);
+                let srcImg = component.get('v.mainPhoto.url');
                 this.doLoadPhotos(component, mainPhotoUrl);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
@@ -19,7 +20,6 @@
     },
 
     doLoadPhotos: function(component, mainPhotoUrl){
-        console.log('mainPhotoUrl: '+mainPhotoUrl);
         let loadPhotosAction = component.get('c.loadPhotos');
         loadPhotosAction.setParams({
            "id": component.get('v.recordId')
@@ -29,8 +29,6 @@
             if(state === 'SUCCESS'){
                 let photosObjects = [];
                 for(let url of response.getReturnValue()){
-                    console.log('url: '+url);
-
                     let mainUrl = new URL(mainPhotoUrl);
                     let photoUrl = new URL(url);
                     let isSelected = mainUrl.search === photoUrl.search;

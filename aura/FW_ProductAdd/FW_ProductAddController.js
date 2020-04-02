@@ -12,7 +12,6 @@
     },
 
     handleUploadFinished: function (component, event, helper) {
-        console.log('handleupload finished');
         let uploadedFiles = event.getParam("files");
         let filesIds = [];
         uploadedFiles.forEach(function(item){
@@ -36,7 +35,6 @@
                     "recordId": response.getReturnValue(),
                     "slideDevName": "detail"
                 });
-                console.log('navEvt params: '+navEvt.getParams());
                 navEvt.fire();
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Product_Has_Been_Added_Successfully"));
             }else{
