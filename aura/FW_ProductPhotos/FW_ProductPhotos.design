@@ -1,0 +1,7 @@
+<!--
+ - Created by BRITENET on 02.04.2020.
+ -->
+
+<design:component>
+    <design:attribute name="isCommunity"/>
+</design:component>
