@@ -10,8 +10,12 @@
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
 
-    <aura:if isTrue="{!not(empty(v.results))}">
-        <lightning:card class="card">
+    <lightning:card class="card">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_4-of-12">
+                <c:FW_ProductsDiscountManagerSearchBar/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
             <h1 class="header">{!$Label.c.Set_Discount}</h1>
             <div class="infoDiv slds-grid">
                 <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
@@ -34,6 +38,8 @@
 
                 <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
             </div>
+            </div>
+        </div>
 
             <div class="scroll slds-scrollable_y">
                 <aura:iteration items="{!v.results}" var="product">
@@ -58,9 +64,7 @@
                     </div>
                 </div>
             </div>
-
-        </lightning:card>
-    </aura:if>
+    </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

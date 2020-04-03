@@ -5,14 +5,8 @@
 
     <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
 
-    <h1 class="header">{!$Label.c.Discount_Manager}</h1>
-
-    <div class="slds-grid">
-        <div class="slds-col slds-size_1-of-4"/>
-        <div class="slds-col searchBarDiv slds-size_2-of-4" onkeypress="{!c.search}">
-            <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
-        </div>
-        <div class="slds-col slds-size_1-of-4"/>
+    <div class="searchBarDiv" onkeypress="{!c.search}">
+        <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
     </div>
 
     <c:FW_CustomToast aura:id="customToast"/>
