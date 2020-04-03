@@ -1512,4 +1512,11 @@
         <shortDescription>Pricebook_Has_Been_Added_Successfully</shortDescription>
         <value>Pricebook has been added successfully</value>
     </labels>
+    <labels>
+        <fullName>Start_Date_Cant_Be_Earlier_Than_End_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start_Date_Cant_Be_Earlier_Than_End_Date</shortDescription>
+        <value>Start date can't be earlier than end date</value>
+    </labels>
 </CustomLabels>

@@ -41,9 +41,15 @@
             <div class="infoDiv slds-grid">
                 <div class="slds-col slds-size_7-of-12 slds-align_absolute-center">
                     <div class="infoText">{!$Label.c.Pricebook}</div>
-                    <lightning:select aura:id="pricebook">
-                        <option value="Pricebook 1">Pricebook text visible</option>
-                        <option value="Pricebook 2">price book text visible another</option>
+<!--                    <lightning:select aura:id="pricebook">-->
+<!--                        <option value="Pricebook 1">Pricebook text visible</option>-->
+<!--                        <option value="Pricebook 2">price book text visible another</option>-->
+<!--                    </lightning:select>-->
+
+                    <lightning:select aura:id="pricebooksList">
+                        <aura:iteration items="{!v.pricebooksList}" var="pricebook">
+                            <option value="{!pricebook.Name}" text="{!pricebook.Name}"/>
+                        </aura:iteration>
                     </lightning:select>
 
                     <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>

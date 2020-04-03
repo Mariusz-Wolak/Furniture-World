@@ -1,7 +1,7 @@
 ({
     onInit: function(component, event, helper){
         helper.receivePricebooksList(component, event);
-    }
+    },
 
     receiveSearchResults: function(component, event, helper){
         component.set("v.results", event.getParam("results"));
