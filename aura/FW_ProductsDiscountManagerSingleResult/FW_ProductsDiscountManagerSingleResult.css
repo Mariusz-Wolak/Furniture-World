@@ -5,11 +5,18 @@
     border: 1px solid black;
 }
 
-.THIS .resultInfo{
+.THIS .productName{
     font-size: 20px;
+    font-weight: bold;
 }
 
 .THIS .infoText{
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.THIS .priceText{
+    font-size: 15px;
     margin-top: 25px;
     margin-right: 10px;
 }

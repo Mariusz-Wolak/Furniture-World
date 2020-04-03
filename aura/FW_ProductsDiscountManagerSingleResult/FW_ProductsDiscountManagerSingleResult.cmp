@@ -10,16 +10,16 @@
             </div>
             <img src="{!v.product.displayUrl}" alt=""/>
         </div>
-        <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+        <div class="productName slds-col slds-size_2-of-12 slds-align_absolute-center">
             {!v.product.name}
         </div>
         <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
-            <div class="infoText">{!$Label.c.Standard_Price}</div>
+            <div class="priceText">{!$Label.c.Standard_Price}</div>
             <lightning:input value="{!v.product.price}"/>
         </div>
         <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
-            <div class="infoText">{!$Label.c.Price_After_Discount}</div>
-            <lightning:input value="{!v.priceAfterDiscount}"/>
+            <div class="priceText">{!$Label.c.Price_After_Discount}</div>
+            <lightning:input value="{!v.priceAfterDiscount}" disabled="true"/>
         </div>
     </div>
 </aura:component>
