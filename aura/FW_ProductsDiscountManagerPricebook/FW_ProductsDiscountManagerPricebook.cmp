@@ -13,19 +13,19 @@
         <center>
             <div class="slds-grid slds-wrap slds-align_absolute-center">
                 <h1 class="header">{!$Label.c.New_Pricebook}</h1>
-                <div class="slds-size--1-of-1">
-                    <div class="singleField">{!$Label.c.Name}</div>
+                <div class="slds-size--1-of-1" style="font-size: 20px;">
+                    <div class="inputHeader">{!$Label.c.Name}</div>
                     <lightning:input value="{!v.name}"/>
                 </div>
                 <div class="slds-size--1-of-1" style="font-size: 20px;">
-                    <div class="singleField">{!$Label.c.Start_Date}</div>
+                    <div class="inputHeader">{!$Label.c.Start_Date}</div>
                     <lightning:input value="{!v.startDate}" type="date"/>
                 </div>
-                <div class="slds-size--1-of-1">
-                    <div class="singleField">{!$Label.c.End_Date}</div>
+                <div class="slds-size--1-of-1" style="font-size: 20px;">
+                    <div class="inputHeader">{!$Label.c.End_Date}</div>
                     <lightning:input value="{!v.endDate}" type="date"/>
                 </div>
-                <div class="singleField slds-text-align--right">
+                <div class="button slds-text-align--right">
                     <lightning:button label="{!$Label.c.Add}" variant="brand-outline"
                                       onclick="{!c.createProduct}">{!$Label.c.Add}</lightning:button>
                 </div>

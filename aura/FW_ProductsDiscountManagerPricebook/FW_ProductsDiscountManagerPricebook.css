@@ -8,12 +8,13 @@
     font-weight: bold;
 }
 
-.THIS.singleField{
+.THIS .inputHeader{
     margin-top: 15px;
+    margin-bottom: -25px;
     font-size: 20px;
 }
 
-.THIS .singleField{
-    margin-top: 15px;
-    font-size: 20px;
+.THIS .button{
+    margin-top: 20px;
+    font-size: 25px;
 }
