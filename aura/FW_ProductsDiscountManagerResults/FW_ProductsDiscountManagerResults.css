@@ -10,6 +10,7 @@
 }
 
 .THIS .infoDiv{
+    text-align: right;
     font-size: 20px;
 }
 
@@ -23,6 +24,6 @@
 }
 
 .THIS .scroll{
-    margin-top: 50px;
+    margin-top: 10px;
     height: 25rem;
 }

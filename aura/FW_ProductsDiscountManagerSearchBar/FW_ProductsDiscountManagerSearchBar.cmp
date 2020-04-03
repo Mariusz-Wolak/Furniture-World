@@ -3,7 +3,7 @@
 
     <aura:attribute name="searchItemName" type="String" access="global"/>
 
-    <aura:registerEvent name="SendProductsToProductsList" type="c:FW_SendProductsToProductsList"/>
+    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>
 
     <div class="searchBarDiv" onkeypress="{!c.search}">
         <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>

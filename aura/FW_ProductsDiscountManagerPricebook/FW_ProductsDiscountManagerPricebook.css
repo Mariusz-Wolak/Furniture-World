@@ -3,6 +3,10 @@
     padding: 20px;
 }
 
+.THIS .container{
+    width: 50%;
+}
+
 .THIS .header{
     font-size: 30px;
     font-weight: bold;
@@ -15,6 +19,8 @@
 }
 
 .THIS .button{
+    float: right;
     margin-top: 20px;
+    text-align: right;
     font-size: 25px;
 }

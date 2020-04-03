@@ -7,7 +7,7 @@
     <aura:attribute name="pricebooksList" type="Object" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
+    <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager" action="{!c.receiveSearchResults}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
 
     <lightning:card class="card">
@@ -15,55 +15,13 @@
             <div class="slds-col slds-size_4-of-12">
                 <c:FW_ProductsDiscountManagerSearchBar/>
             </div>
-            <div class="slds-col slds-size_1-of-2">
-            <h1 class="header">{!$Label.c.Set_Discount}</h1>
-            <div class="infoDiv slds-grid">
-                <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
-                <div class="slds-col slds-size_2-of-12 slds-align_absolute-center">
-                    <div class="infoText">{!$Label.c.Type}</div>
-                    <lightning:select aura:id="discountType">
-                        <option value="%">%</option>
-                        <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>
-                    </lightning:select>
-                </div>
-
-                <div class="slds-col slds-size_2-of-12 slds-align_absolute-center">
-                    <div class="infoText">{!$Label.c.Value}</div>
-                    <lightning:input value="{!v.discountValue}"/>
-                </div>
-                <div class="button slds-col slds-size_2-of-12 slds-align_absolute-center">
-                    <lightning:button label="{!$Label.c.Compute}" variant="brand-outline"
-                                      onclick="{!c.compute}">{!$Label.c.Compute}</lightning:button>
-                </div>
-
-                <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
-            </div>
-            </div>
         </div>
 
-            <div class="scroll slds-scrollable_y">
-                <aura:iteration items="{!v.results}" var="product">
-                    <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
-                </aura:iteration>
-            </div>
-
-            <div class="infoDiv slds-grid">
-                <div class="slds-col slds-size_7-of-12 slds-align_absolute-center">
-                    <div class="infoText">{!$Label.c.Pricebook}</div>
-                    <lightning:select aura:id="pricebooksList">
-                        <aura:iteration items="{!v.pricebooksList}" var="pricebook">
-                            <option value="{!pricebook.Name}" text="{!pricebook.Name}"/>
-                        </aura:iteration>
-                    </lightning:select>
-
-                    <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
-
-                    <div class="button slds-col slds-size_4-of-12 slds-align_absolute-center">
-                        <lightning:button label="{!$Label.c.Set_Discount}" variant="brand-outline"
-                                          onclick="{!c.createProduct}">{!$Label.c.Set_Discount}</lightning:button>
-                    </div>
-                </div>
-            </div>
+        <div class="scroll slds-scrollable_y">
+            <aura:iteration items="{!v.results}" var="product">
+                <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
+            </aura:iteration>
+        </div>
     </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>

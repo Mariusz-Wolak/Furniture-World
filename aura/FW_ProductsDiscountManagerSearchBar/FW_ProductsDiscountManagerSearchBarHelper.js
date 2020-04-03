@@ -8,12 +8,13 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                let appEvent = $A.get("e.c:FW_SendProductsToProductsList");
-                appEvent.setParams({
+                console.log('results: '+JSON.stringify(response.getReturnValue()));
+                let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
+                cmpEvent.setParams({
                     "results": response.getReturnValue(),
                     "searchItemName": name
                 });
-                appEvent.fire();
+                cmpEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
