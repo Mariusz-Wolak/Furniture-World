@@ -11,11 +11,10 @@
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Pricebook_Has_Been_Added_Successfully"));
                 let newPricebook = response.getReturnValue();
-                console.log('new pricebook: '+JSON.stringify(newPricebook));
                 if(newPricebook.IsActive == true){
                     let sendPricebookEvent = $A.get('e.c:FW_ProductsDiscountManagerNewPricebook');
                     sendPricebookEvent.setParams({
-                        "pricebook": response.getReturnValue()
+                        "pricebook": newPricebook
                     });
                     sendPricebookEvent.fire();
                 }
