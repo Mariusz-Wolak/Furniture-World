@@ -325,4 +325,9 @@ public with sharing class FW_ProductsController {
     public static void insertCase(String subject, String description, String orderId, String productId){
         FW_OrderController.insertCase(subject, description, orderId, productId);
     }
+
+    @AuraEnabled
+    public static Pricebook2 insertPricebook(String name, Date startDate, Date endDate){
+        return FW_ProductsDiscountManagerController.insertPricebook(name, startDate, endDate);
+    }
 }

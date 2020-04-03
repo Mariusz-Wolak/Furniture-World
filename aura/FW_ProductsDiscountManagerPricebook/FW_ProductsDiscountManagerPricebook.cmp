@@ -6,9 +6,10 @@
     <aura:attribute name="endDate" type="Date" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
 
+    <aura:registerEvent name="FW_ProductsDiscountManagerNewPricebook" type="c:FW_ProductsDiscountManagerNewPricebook"/>
+
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
-    <aura:if isTrue="{!not(empty(v.results))}">
     <lightning:card class="card">
         <center>
             <div class="slds-grid slds-wrap slds-align_absolute-center">
@@ -27,11 +28,11 @@
                 </div>
                 <div class="button slds-text-align--right">
                     <lightning:button label="{!$Label.c.Add}" variant="brand-outline"
-                                      onclick="{!c.createProduct}">{!$Label.c.Add}</lightning:button>
+                                      onclick="{!c.addPricebook}">{!$Label.c.Add}</lightning:button>
                 </div>
             </div>
         </center>
     </lightning:card>
-    </aura:if>
 
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

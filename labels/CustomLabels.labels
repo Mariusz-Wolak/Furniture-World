@@ -1505,4 +1505,11 @@
         <shortDescription>Compute</shortDescription>
         <value>Compute</value>
     </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Added_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Added_Successfully</shortDescription>
+        <value>Pricebook has been added successfully</value>
+    </labels>
 </CustomLabels>
