@@ -354,7 +354,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<Object> getPricebooksList() {
+    public static List<Pricebook2> getPricebooksList() {
         return FW_ProductsDiscountManagerController.getPricebooksList();
     }
 }

@@ -22,7 +22,7 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
     }
 
-    public static List<Object> getPricebooksList() {
+    public static List<Pricebook2> getPricebooksList() {
         try {
             List<Pricebook2> pricebooks = [
                     SELECT Id, Name, StartDate__c, EndDate__c, isActive

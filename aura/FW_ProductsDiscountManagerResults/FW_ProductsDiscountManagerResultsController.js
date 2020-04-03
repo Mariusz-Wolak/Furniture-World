@@ -26,5 +26,24 @@
             singleProductCmp[i].passDiscountValues(discountType, discountValue);
         }
         console.log('compute end values: '+discountValue+discountType);
+    },
+
+    getPricebook: function(component, event, helper){
+        let pricebooks = component.get('v.pricebooksList');
+        let selectedPricebookId = component.find('pricebooksSelect').get('v.value');
+        let startDate;
+        let endDate;
+
+        for(let i=0; i<pricebooks.length; i++){
+            if(pricebooks[i].Id == selectedPricebookId){
+                component.set('v.pricebookStartDate', pricebooks[i].StartDate__c);
+                component.set('v.pricebookEndDate', pricebooks[i].EndDate__c);
+                startDate = pricebooks[i].StartDate__c;
+                endDate = pricebooks[i].EndDate__c;
+            }
+        }
+        console.log(selectedPricebookId);
+        console.log(startDate);
+        console.log(endDate);
     }
 })

@@ -5,6 +5,8 @@
 
     <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>
 
+    <h1 class="header">{!$Label.c.Search}</h1>
+
     <div class="searchBarDiv" onkeypress="{!c.search}">
         <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
     </div>
