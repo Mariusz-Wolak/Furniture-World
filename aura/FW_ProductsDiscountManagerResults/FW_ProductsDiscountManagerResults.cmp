@@ -4,8 +4,6 @@
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="discountValue" type="String" access="global"/>
 
-
-
     <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
 
     <aura:if isTrue="{!not(empty(v.results))}">

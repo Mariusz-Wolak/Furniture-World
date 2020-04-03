@@ -1,0 +1,34 @@
+<aura:component description="FW_ProductsDiscountManagerPricebook" controller="FW_ProductsController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="name" type="String" access="global"/>
+    <aura:attribute name="startDate" type="Date" access="global"/>
+    <aura:attribute name="endDate" type="Date" access="global"/>
+    <aura:attribute name="results" type="Object[]" access="global"/>
+
+    <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
+
+    <aura:if isTrue="{!not(empty(v.results))}">
+    <lightning:card class="card">
+        <center>
+            <div class="slds-grid slds-wrap slds-align_absolute-center">
+                <h1 class="header">{!$Label.c.New_Pricebook}</h1>
+                <div class="singleField slds-size--1-of-1">
+                    <lightning:input value="{!v.name}" label="{!$Label.c.Name}"/>
+                </div>
+                <div class="singleField slds-size--1-of-1">
+                    <lightning:input value="{!v.startDate}" type="date" label="{!$Label.c.Start_Date}"/>
+                </div>
+                <div class="singleField slds-size--1-of-1">
+                    <lightning:input value="{!v.endDate}" type="date" label="{!$Label.c.End_Date}"/>
+                </div>
+                <div class="singleField slds-text-align--right">
+                    <lightning:button label="{!$Label.c.Add}" variant="brand-outline"
+                                      onclick="{!c.createProduct}">{!$Label.c.Add}</lightning:button>
+                </div>
+            </div>
+        </center>
+    </lightning:card>
+    </aura:if>
+
+</aura:component>

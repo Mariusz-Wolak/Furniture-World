@@ -1450,10 +1450,45 @@
         <value>Current Price</value>
     </labels>
     <labels>
+        <fullName>Standard_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Standard_Price</shortDescription>
+        <value>Standard Price</value>
+    </labels>
+    <labels>
         <fullName>Price_After_Discount</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Price_After_Discount</shortDescription>
         <value>Price After Discount</value>
+    </labels>
+    <labels>
+        <fullName>New_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Pricebook</shortDescription>
+        <value>New Pricebook</value>
+    </labels>
+    <labels>
+        <fullName>Start_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start_Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>End_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End_Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
     </labels>
 </CustomLabels>
