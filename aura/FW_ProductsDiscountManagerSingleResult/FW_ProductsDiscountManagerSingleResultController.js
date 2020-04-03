@@ -7,7 +7,9 @@
             component.set('v.priceAfterDiscount', component.get('v.product.price') - component.get('v.product.price') *
             discountValue/100);
         }else{
-            component.set('v.priceAfterDiscount', component.get('v.product.price') - discountValue);
+            if((component.get('v.product.price') - discountValue) > 0){
+                component.set('v.priceAfterDiscount', component.get('v.product.price') - discountValue);
+            }
         }
 
         console.log('discount value and type in single result: '+discountValue+' '+discountType);
