@@ -1,3 +1,19 @@
 .THIS.card {
-    padding: 15px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.THIS .header{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.THIS.singleField{
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.THIS .singleField{
+    margin-top: 15px;
+    font-size: 20px;
 }

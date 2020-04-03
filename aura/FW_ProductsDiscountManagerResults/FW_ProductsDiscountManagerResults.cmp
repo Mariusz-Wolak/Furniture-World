@@ -8,7 +8,7 @@
 
     <aura:if isTrue="{!not(empty(v.results))}">
         <lightning:card class="card">
-            <div class="header">{!$Label.c.Set_Discount}</div>
+            <h1 class="header">{!$Label.c.Set_Discount}</h1>
             <div class="infoDiv slds-grid">
                 <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
                     <div class="infoText">{!$Label.c.Type}</div>
