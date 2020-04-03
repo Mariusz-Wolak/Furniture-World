@@ -12,14 +12,7 @@
             <h1 class="header">{!$Label.c.Set_Discount}</h1>
             <div class="infoDiv slds-grid">
                 <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
-                <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
-                    <div class="infoText">{!$Label.c.Pricebook}</div>
-                    <lightning:select aura:id="pricebook">
-                        <option value="Pricebook 1">Pricebook text visible</option>
-                        <option value="Pricebook 2">price book text visible another</option>
-                    </lightning:select>
-                </div>
-                <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
+                <div class="slds-col slds-size_2-of-12 slds-align_absolute-center">
                     <div class="infoText">{!$Label.c.Type}</div>
                     <lightning:select aura:id="discountType">
                         <option value="%">%</option>
@@ -31,12 +24,35 @@
                 <div class="infoText">{!$Label.c.Value}</div>
                     <lightning:input value="{!v.discountValue}"/>
                 </div>
+                <div class="button slds-col slds-size_2-of-12 slds-align_absolute-center">
+                    <lightning:button label="{!$Label.c.Compute}" variant="brand-outline"
+                                      onclick="{!c.createProduct}">{!$Label.c.Compute}</lightning:button>
+                </div>
+
                 <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
             </div>
 
             <aura:iteration items="{!v.results}" var="product">
                 <c:FW_ProductsDiscountManagerSingleResult product="{!product}"/>
             </aura:iteration>
+
+            <div class="infoDiv slds-grid">
+                <div class="slds-col slds-size_7-of-12 slds-align_absolute-center">
+                    <div class="infoText">{!$Label.c.Pricebook}</div>
+                    <lightning:select aura:id="pricebook">
+                        <option value="Pricebook 1">Pricebook text visible</option>
+                        <option value="Pricebook 2">price book text visible another</option>
+                    </lightning:select>
+
+                    <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"/>
+
+                    <div class="button slds-col slds-size_4-of-12 slds-align_absolute-center">
+                        <lightning:button label="{!$Label.c.Set_Discount}" variant="brand-outline"
+                                          onclick="{!c.createProduct}">{!$Label.c.Set_Discount}</lightning:button>
+                    </div>
+                </div>
+            </div>
+
         </lightning:card>
     </aura:if>
 

@@ -1498,4 +1498,11 @@
         <shortDescription>Pricebook</shortDescription>
         <value>Pricebook</value>
     </labels>
+    <labels>
+        <fullName>Compute</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compute</shortDescription>
+        <value>Compute</value>
+    </labels>
 </CustomLabels>
