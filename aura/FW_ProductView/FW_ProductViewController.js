@@ -2,6 +2,7 @@
     doInit: function(component, event, helper){
         component.set('v.header', $A.get('$Label.c.Similar_Items'));
         component.set('v.isCommunity', true);
+        component.set('v.productId', component.get('v.product.id'));
         helper.checkIfIsObserved(component);
         helper.returnNewestComments(component);
         helper.returnSimilarProducts(component);
@@ -44,5 +45,12 @@
     setSimilarProducts: function(component, event, helper){
         component.set('v.results', event.getParam('products'));
         helper.returnNewestComments(component);
+    },
+
+    checkIfIsObserved: function(component, event, helper){
+        console.log('setting new product id');
+        component.set('v.productId', event.getParam('productId'));
+        console.log('new product id: '+event.getParam('productId'));
+        helper.checkIfIsObserved(component);
     }
 })

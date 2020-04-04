@@ -32,6 +32,19 @@
         });
         selectedProductEvent.fire();
 
+        let appEvent = $A.get('e.c:FW_ProductIdSendToRecordView');
+        appEvent.setParams({
+            "productId": product.id
+        });
+        appEvent.fire();
+
+        let scrollOptions = {
+            left: 0,
+            top: 1100,
+            behavior: 'smooth'
+        }
+        window.scrollTo(scrollOptions);
+
         helper.returnSimilarProducts(component);
     },
 

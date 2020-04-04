@@ -35,7 +35,6 @@ public with sharing class FW_ProductsController {
                         productWrapped.pricebookEntryId = pbe.Id;
                     }
                 }
-
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -89,6 +88,8 @@ public with sharing class FW_ProductsController {
                         productWrapped.pricebookEntryId = pbe.Id;
                     }
                 }
+
+                System.debug('product in apex newest: '+productWrapped);
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;

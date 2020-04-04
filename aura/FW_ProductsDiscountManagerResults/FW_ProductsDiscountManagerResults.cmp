@@ -15,7 +15,7 @@
 
     <lightning:card class="card">
         <div class="slds-grid">
-            <div class="slds-col slds-size_4-of-12">
+            <div class="searchBarDiv slds-col slds-size_4-of-12">
                 <c:FW_ProductsDiscountManagerSearchBar/>
             </div>
 
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="infoDiv slds-grid slds-wrap">
+                <div class="infoDiv slds-grid">
                     <div class="slds-col slds-size_4-of-12">
                         <lightning:select aura:id="pricebooksSelect" onchange="{!c.getPricebook}" label="{!$Label.c.Pricebook}">
                             <aura:iteration items="{!v.pricebooksList}" var="pricebook">
@@ -50,10 +50,10 @@
                         <lightning:input value="{!v.pricebookStartDate}" placeholder="{!$Label.c.Start_Date}" disabled="true"
                                          label="{!$Label.c.Start_Date}"/>
                     </div>
-                    <div class="inputDiv slds-col slds-size_3-of-12">
+                    <div class="slds-col slds-size_3-of-12">
                         <lightning:input value="{!v.pricebookEndDate}" placeholder="{!$Label.c.End_Date}" disabled="true" label="{!$Label.c.End_Date}"/>
                     </div>
-                    <div class="button slds-col slds-size_2-of-12">
+                    <div class="button slds-col slds-size_2-of-12 slds-text-align_right">
                         <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                     </div>
                 </div>

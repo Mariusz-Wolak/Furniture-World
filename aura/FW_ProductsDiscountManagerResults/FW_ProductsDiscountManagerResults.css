@@ -16,11 +16,12 @@
 
 .THIS .infoText{
     margin-top: 25px;
-    margin-right: 10px;
 }
 
 .THIS .button{
-    margin-top: 30px;
+    margin-left: -15px;
+    margin-top: 26px;
+    font-size: 25px;
 }
 
 .THIS .scroll{
@@ -28,7 +29,6 @@
     height: 25rem;
 }
 
-.THIS .inputDiv{
-    margin-left: 5px;
-    margin-right: 5px;
+.THIS .searchBarDiv{
+    margin-top: 30px;
 }

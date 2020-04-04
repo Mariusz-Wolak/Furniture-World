@@ -1506,6 +1506,13 @@
         <value>Compute</value>
     </labels>
     <labels>
+        <fullName>Search_For_Product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search_For_Product</shortDescription>
+        <value>Search For Product</value>
+    </labels>
+    <labels>
         <fullName>Pricebook_Has_Been_Added_Successfully</fullName>
         <language>en_US</language>
         <protected>true</protected>
