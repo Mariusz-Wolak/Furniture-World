@@ -9,6 +9,8 @@
         }else{
             if((component.get('v.product.price') - discountValue) > 0){
                 component.set('v.priceAfterDiscount', component.get('v.product.price') - discountValue);
+            }else{
+                component.set('v.priceAfterDiscount', 0);
             }
         }
 
