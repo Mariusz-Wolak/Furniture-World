@@ -23,4 +23,8 @@ public with sharing class FW_ProductWrapped {
     public String pricebookEntryId;
     @AuraEnabled
     public String buyer;
+    @AuraEnabled
+    public FW_ObservedItem__c[] observedItems;
+    @AuraEnabled
+    public Boolean isObserved;
 }

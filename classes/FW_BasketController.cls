@@ -36,7 +36,8 @@ public with sharing class FW_BasketController {
             if (productsCachedMap != null) {
                 Set<String> productsIds = productsCachedMap.keySet();
                 List<Product2> products = [
-                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c,
+                        (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :UserInfo.getUserId())
                         FROM Product2
                         WHERE Id IN :productsIds AND Type__c = 'Furniture'
                 ];
@@ -52,6 +53,8 @@ public with sharing class FW_BasketController {
                     productWrapped.type = prod.Type__c;
                     productWrapped.family = prod.Family;
                     productWrapped.price = prod.Price__c;
+                    productWrapped.observedItems = prod.FW_ObservedItems__r;
+                    productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
                     totalQuantity += productWrapped.quantity;
                     totalPrice += productWrapped.quantity * productWrapped.price;

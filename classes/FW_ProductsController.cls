@@ -4,7 +4,8 @@ public with sharing class FW_ProductsController {
 
     private static List<Object> getQuery(String name) {
         if (String.isNotBlank(name)) {
-            String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c FROM Product2 ' +
+            String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, (SELECT Id FROM ' +
+                    'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 ' +
                     'WHERE Name LIKE \'%' + name + '%\' AND Type__c = \'Furniture\' ORDER BY Price__c ASC';
 
             Set<Id> productsIds = new Set<Id>();
@@ -26,6 +27,8 @@ public with sharing class FW_ProductsController {
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
+                productWrapped.observedItems = prod.FW_ObservedItems__r;
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (PricebookEntry pbe : pricebookEntries) {
                     if (pbe.Product2Id == prod.Id) {
@@ -55,7 +58,8 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<Object> getNewestProducts() {
-        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
+        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (SELECT Id FROM ' +
+                'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 WHERE Type__c = ' +
                 '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
         try {
             List<Product2> products = Database.query(query);
@@ -77,6 +81,8 @@ public with sharing class FW_ProductsController {
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
+                productWrapped.observedItems = prod.FW_ObservedItems__r;
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (PricebookEntry pbe : pricebookEntries) {
                     if (pbe.Product2Id == prod.Id) {
@@ -173,7 +179,8 @@ public with sharing class FW_ProductsController {
                 }
 
                 List<Product2> products = [
-                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c,
+                        (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :userid)
                         FROM Product2
                         WHERE Id IN :observedProductsIds
                 ];
@@ -196,6 +203,8 @@ public with sharing class FW_ProductsController {
                     productWrapped.type = prod.Type__c;
                     productWrapped.family = prod.Family;
                     productWrapped.price = prod.Price__c;
+                    productWrapped.observedItems = prod.FW_ObservedItems__r;
+                    productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                     for (PricebookEntry pbe : pricebookEntries) {
                         if (pbe.Product2Id == prod.Id) {
@@ -253,7 +262,9 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<Object> getSimilarProducts(String productFamily, String productId) {
-        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate FROM Product2 WHERE Type__c = ' +
+        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (SELECT Id FROM ' +
+                'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 WHERE ' +
+                'Type__c = ' +
                 '\'Furniture\' AND Family LIKE \'%' + productFamily + '%\' AND (NOT Id = \'' + productId + '\') LIMIT 4';
         try {
             List<Product2> products = Database.query(query);
@@ -275,6 +286,8 @@ public with sharing class FW_ProductsController {
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
                 productWrapped.price = prod.Price__c;
+                productWrapped.observedItems = prod.FW_ObservedItems__r;
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
                 productsWrappedList.add(productWrapped);
 
                 for (PricebookEntry pbe : pricebookEntries) {
