@@ -1526,4 +1526,11 @@
         <shortDescription>Start_Date_Cant_Be_Earlier_Than_End_Date</shortDescription>
         <value>Start date can't be earlier than end date</value>
     </labels>
+    <labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select_All</shortDescription>
+        <value>Select all</value>
+    </labels>
 </CustomLabels>

@@ -51,7 +51,8 @@
                                          label="{!$Label.c.Start_Date}"/>
                     </div>
                     <div class="slds-col slds-size_3-of-12">
-                        <lightning:input value="{!v.pricebookEndDate}" placeholder="{!$Label.c.End_Date}" disabled="true" label="{!$Label.c.End_Date}"/>
+                        <lightning:input value="{!v.pricebookEndDate}" placeholder="{!$Label.c.End_Date}" disabled="true"
+                                         label="{!$Label.c.End_Date}"/>
                     </div>
                     <div class="button slds-col slds-size_2-of-12 slds-text-align_right">
                         <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
@@ -60,11 +61,14 @@
             </div>
         </div>
 
-        <div class="scroll slds-scrollable_y">
-            <aura:iteration items="{!v.results}" var="product">
-                <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
-            </aura:iteration>
-        </div>
+        <aura:if isTrue="{!not(empty(v.results))}">
+            <lightning:input type="checkbox" label="{!$Label.c.Select_All}"/>
+            <div class="scroll slds-scrollable_y">
+                <aura:iteration items="{!v.results}" var="product">
+                    <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
+                </aura:iteration>
+            </div>
+        </aura:if>
     </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>
