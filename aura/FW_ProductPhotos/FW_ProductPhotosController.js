@@ -1,6 +1,5 @@
 ({
     onInit: function(component, event, helper){
-        let srcImg = component.get('v.mainPhoto.url');
         helper.loadMainPhoto(component, event);
     },
 

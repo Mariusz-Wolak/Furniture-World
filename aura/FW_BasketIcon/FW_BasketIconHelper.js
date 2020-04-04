@@ -5,6 +5,7 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let results = response.getReturnValue();
+                console.log('results response: '+JSON.stringify(results));
                 if(results != undefined && results != null && results != ''){
                     component.set('v.totalQuantity', results[0].totalQuantity);
                 }

@@ -19,7 +19,6 @@ public with sharing class FW_BasketController {
                 productsCachedMap.put(productId, quantity);
                 sessionPartition.put('productsCachedMap', productsCachedMap);
             }
-
             return getProductsFromBasket();
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -57,8 +56,8 @@ public with sharing class FW_BasketController {
                     totalQuantity += productWrapped.quantity;
                     totalPrice += productWrapped.quantity * productWrapped.price;
 
-                    for(PricebookEntry pbe: pricebookEntries){
-                        if(pbe.Product2Id == prod.Id){
+                    for (PricebookEntry pbe : pricebookEntries) {
+                        if (pbe.Product2Id == prod.Id) {
                             productWrapped.pricebookEntryId = pbe.Id;
                         }
                     }
@@ -66,10 +65,11 @@ public with sharing class FW_BasketController {
                     productsWrappedList.add(productWrapped);
                 }
             }
-            for(FW_ProductWrapped pw: productsWrappedList){
+            for (FW_ProductWrapped pw : productsWrappedList) {
                 pw.totalPrice = totalPrice;
                 pw.totalQuantity = totalQuantity;
             }
+
             return productsWrappedList;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
