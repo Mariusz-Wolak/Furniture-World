@@ -16,7 +16,22 @@ public with sharing class FW_ProductsController {
                 productsIds.add(prod.Id);
             }
 
-            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+            List<PricebookEntry> pricebookEntries = [
+                    SELECT Id, Product2Id, Name, UnitPrice
+                    FROM PricebookEntry
+                    WHERE Product2Id IN
+                            :productsIds
+            ];
+
+            List<AggregateResult> aggregateResults = [
+                    SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
+                    FROM
+                            PricebookEntry
+                    WHERE
+                            Product2Id IN
+                                    :productsIds
+                    GROUP BY Product2Id
+            ];
 
             for (Product2 prod : products) {
                 FW_ProductWrapped productWrapped = new FW_ProductWrapped();
@@ -26,13 +41,25 @@ public with sharing class FW_ProductsController {
                 productWrapped.name = prod.Name;
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
-                productWrapped.price = prod.Price__c;
+
+                for (AggregateResult aggrRes : aggregateResults) {
+                    if (prod.Id == (String) aggrRes.get('Product2Id')) {
+                        productWrapped.price = (Decimal) aggrRes.get('maxPrice');
+                        if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
+                            productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
+                        } else {
+                            productWrapped.discountPrice = null;
+                        }
+                    }
+                }
+
                 productWrapped.observedItems = prod.FW_ObservedItems__r;
                 productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (PricebookEntry pbe : pricebookEntries) {
                     if (pbe.Product2Id == prod.Id) {
                         productWrapped.pricebookEntryId = pbe.Id;
+//                        ??????????????????
                     }
                 }
                 productsWrappedList.add(productWrapped);
@@ -89,7 +116,7 @@ public with sharing class FW_ProductsController {
                     }
                 }
 
-                System.debug('product in apex newest: '+productWrapped);
+                System.debug('product in apex newest: ' + productWrapped);
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -180,8 +207,7 @@ public with sharing class FW_ProductsController {
                 }
 
                 List<Product2> products = [
-                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c,
-                        (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :userid)
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :userid)
                         FROM Product2
                         WHERE Id IN :observedProductsIds
                 ];
@@ -373,7 +399,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void insertDiscount(Map<String, Decimal> productsMapped, String pricebookId){
+    public static void insertDiscount(Map<String, Decimal> productsMapped, String pricebookId) {
         FW_ProductsDiscountManagerController.insertDiscount(productsMapped, pricebookId);
     }
 }

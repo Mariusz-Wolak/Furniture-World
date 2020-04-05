@@ -3,14 +3,17 @@
         let params = event.getParam('arguments');
         let discountType = params.discountType;
         let discountValue = params.discountValue;
+        let priceAfterDiscount;
         if(discountType == '%'){
-            component.set('v.priceAfterDiscount', component.get('v.product.price') - component.get('v.product.price') *
-            discountValue/100);
+            priceAfterDiscount = component.get('v.product.price') - component.get('v.product.price') *
+                                                 discountValue/100;
+            component.set('v.priceAfterDiscount', priceAfterDiscount.toFixed(2));
         }else{
             if((component.get('v.product.price') - discountValue) > 0){
-                component.set('v.priceAfterDiscount', component.get('v.product.price') - discountValue);
+                priceAfterDiscount = component.get('v.product.price') - discountValue;
+                component.set('v.priceAfterDiscount', priceAfterDiscount.toFixed(2));
             }else{
-                component.set('v.priceAfterDiscount', 0);
+                component.set('v.priceAfterDiscount', 0.00);
             }
         }
     },
