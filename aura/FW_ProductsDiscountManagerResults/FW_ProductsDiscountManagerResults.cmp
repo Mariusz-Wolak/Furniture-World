@@ -8,6 +8,8 @@
     <aura:attribute name="pricebookStartDate" type="String" access="global"/>
     <aura:attribute name="pricebookEndDate" type="String" access="global"/>
 
+    <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
                   action="{!c.receiveSearchResults}"/>
@@ -62,13 +64,8 @@
         </div>
 
         <aura:if isTrue="{!not(empty(v.results))}">
-            <div class="checkboxDiv slds-grid">
-                <div class=" slds-col slds-large-size_1-of-12 slds-text-align_right">
-                    <lightning:input type="checkbox" onchange="{!c.selectAll}"/>
-                </div>
-                <div class="checkboxLabel slds-col slds-large-size_1-of-12 slds-text-align_left" style="font-size: 20px; ">
-                        {!$Label.c.Select_All}
-                </div>
+            <div class="checkboxDiv">
+                <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}" label="{!$Label.c.All}"/>
             </div>
             <div class="scroll slds-scrollable_y">
                 <aura:iteration items="{!v.results}" var="product">

@@ -8,7 +8,6 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                console.log('results: '+JSON.stringify(response.getReturnValue()));
                 let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
                 cmpEvent.setParams({
                     "results": response.getReturnValue(),

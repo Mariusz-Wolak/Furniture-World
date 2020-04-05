@@ -9,11 +9,14 @@
     <aura:attribute name="priceAfterDiscount" type="String" access="global"/>
     <aura:attribute name="discountType" type="String" access="global"/>
     <aura:attribute name="discountValue" type="String" access="global"/>
+    <aura:attribute name="checkboxVal" type="Boolean" access="global"/>
+
+    <aura:handler event="c:FW_ProductsDiscountManagerSelectAllEvent" action="{!c.selectAllEvent}"/>
 
     <div class="result slds-grid">
         <div class="imgDiv slds-col slds-size_1-of-12 slds-align_absolute-center">
             <div class="slds-text-align_left">
-                <lightning:input type="checkbox"/>
+                <lightning:input type="checkbox" checked="{!v.checkboxVal}"/>
             </div>
             <img src="{!v.product.displayUrl}" alt=""/>
         </div>

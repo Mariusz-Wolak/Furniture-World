@@ -13,7 +13,9 @@
                 component.set('v.priceAfterDiscount', 0);
             }
         }
+    },
 
-        console.log('discount value and type in single result: '+discountValue+' '+discountType);
+    selectAllEvent: function(component, event, helper){
+        component.set('v.checkboxVal', event.getParam('selectAll'));
     }
 })

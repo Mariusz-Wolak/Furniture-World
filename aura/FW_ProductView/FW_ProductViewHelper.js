@@ -10,11 +10,9 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 if(response.getReturnValue() == true){
-                    console.log('is observed');
                     $A.util.removeClass(observeIcon, 'greyIcon');
                     $A.util.addClass(observeIcon, 'highlightedIcon');
                 }else{
-                    console.log('is NOT observed');
                     $A.util.removeClass(observeIcon, 'highlightedIcon');
                     $A.util.addClass(observeIcon, 'greyIcon');
                 }

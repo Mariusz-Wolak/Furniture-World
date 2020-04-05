@@ -1533,4 +1533,11 @@
         <shortDescription>Select_All</shortDescription>
         <value>Select all</value>
     </labels>
+    <labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
 </CustomLabels>

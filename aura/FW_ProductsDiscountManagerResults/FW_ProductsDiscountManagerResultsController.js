@@ -17,15 +17,11 @@
     compute: function(component, event, helper){
         let discountType = component.find('discountType').get('v.value');
         let discountValue = component.get('v.discountValue');
-        console.log('compute before aura method values: '+discountValue+discountType);
         let singleProductCmp = component.find('singleProduct');
-        console.log('singleProductCmp: '+singleProductCmp);
-        console.log('singleProductCmp.length: '+singleProductCmp.length);
 
         for(let i=0; i<singleProductCmp.length; i++){
             singleProductCmp[i].passDiscountValues(discountType, discountValue);
         }
-        console.log('compute end values: '+discountValue+discountType);
     },
 
     getPricebook: function(component, event, helper){
@@ -42,8 +38,14 @@
                 endDate = pricebooks[i].EndDate__c;
             }
         }
-        console.log(selectedPricebookId);
-        console.log(startDate);
-        console.log(endDate);
+    },
+
+    selectAll: function(component, event, helper){
+        let checkboxVal = component.find('selectAllCheckbox').get('v.value');
+        let selectAllEvent = $A.get('e.c:FW_ProductsDiscountManagerSelectAllEvent');
+        selectAllEvent.setParams({
+            "selectAll": checkboxVal
+        });
+        selectAllEvent.fire();
     }
 })

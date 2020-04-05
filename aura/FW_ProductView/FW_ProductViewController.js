@@ -48,9 +48,7 @@
     },
 
     checkIfIsObserved: function(component, event, helper){
-        console.log('setting new product id');
         component.set('v.productId', event.getParam('productId'));
-        console.log('new product id: '+event.getParam('productId'));
         helper.checkIfIsObserved(component);
     }
 })
