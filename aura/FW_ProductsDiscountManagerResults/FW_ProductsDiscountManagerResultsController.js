@@ -47,5 +47,17 @@
             "selectAll": checkboxVal
         });
         selectAllEvent.fire();
+    },
+
+    setDiscount: function(component, event, helper){
+        let singleProductCmp = component.find('singleProduct');
+        for(let i=0; i<singleProductCmp.length; i++){
+            singleProductCmp[i].passSelectedProducts();
+        }
+    },
+
+    receiveProductToDiscount: function(component, event, helper){
+        let productToDiscount = event.getParam('productToDiscount');
+        console.log('received productToDiscount in results: '+JSON.stringify(productToDiscount));
     }
 })

@@ -14,6 +14,7 @@
     <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
                   action="{!c.receiveSearchResults}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
+    <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent" action="{!c.receiveProductToDiscount}"/>
 
     <lightning:card class="card">
         <div class="slds-grid">

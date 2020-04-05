@@ -17,5 +17,23 @@
 
     selectAllEvent: function(component, event, helper){
         component.set('v.checkboxVal', event.getParam('selectAll'));
+    },
+
+    passSelectedProducts: function(component, event, helper){
+        let isSelected = component.find('checkbox').get('v.value');
+        if(isSelected){
+            let product = component.get('v.product');
+            let priceAfterDiscount = component.get('v.priceAfterDiscount');
+            let productToDiscount = {
+                product: product,
+                priceAfterDiscount: priceAfterDiscount
+            }
+
+            let sendProductToDiscountEvent = component.getEvent('FW_DiscountManagerProductToDiscountEvent');
+            sendProductToDiscountEvent.setParams({
+                "productToDiscount": productToDiscount
+            });
+            sendProductToDiscountEvent.fire();
+        }
     }
 })
