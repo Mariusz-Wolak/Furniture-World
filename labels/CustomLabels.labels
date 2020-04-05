@@ -1540,4 +1540,11 @@
         <shortDescription>All</shortDescription>
         <value>All</value>
     </labels>
+    <labels>
+        <fullName>Discount_Has_Been_Set_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Has_Been_Set_Successfully</shortDescription>
+        <value>Discount has been set successfully</value>
+    </labels>
 </CustomLabels>

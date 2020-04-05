@@ -371,4 +371,9 @@ public with sharing class FW_ProductsController {
     public static List<Pricebook2> getPricebooksList() {
         return FW_ProductsDiscountManagerController.getPricebooksList();
     }
+
+    @AuraEnabled
+    public static void insertDiscount(Map<String, Decimal> productsMapped, String pricebookId){
+        FW_ProductsDiscountManagerController.insertDiscount(productsMapped, pricebookId);
+    }
 }

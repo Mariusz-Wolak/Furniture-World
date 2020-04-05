@@ -27,4 +27,5 @@ public with sharing class FW_ProductWrapped {
     public FW_ObservedItem__c[] observedItems;
     @AuraEnabled
     public Boolean isObserved;
+
 }

@@ -7,6 +7,7 @@
     <aura:attribute name="pricebooksList" type="Object[]" access="global"/>
     <aura:attribute name="pricebookStartDate" type="String" access="global"/>
     <aura:attribute name="pricebookEndDate" type="String" access="global"/>
+    <aura:attribute name="productsToDiscountList" type="Object[]" access="global"/>
 
     <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
 
@@ -66,7 +67,7 @@
 
         <aura:if isTrue="{!not(empty(v.results))}">
             <div class="checkboxDiv">
-                <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}" label="{!$Label.c.All}"/>
+                <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}" label="{!$Label.c.Select_All}"/>
             </div>
             <div class="scroll slds-scrollable_y">
                 <aura:iteration items="{!v.results}" var="product">

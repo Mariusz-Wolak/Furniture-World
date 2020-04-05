@@ -20,7 +20,7 @@
     <div class="result slds-grid">
         <div class="imgDiv slds-col slds-size_1-of-12 slds-align_absolute-center">
             <div class="slds-text-align_left">
-                <ui:inputCheckbox aura:id="checkbox"/>
+                <ui:inputCheckbox aura:id="checkbox" value="{!v.checkboxVal}"/>
             </div>
             <img src="{!v.product.displayUrl}" alt=""/>
         </div>

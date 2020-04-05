@@ -35,4 +35,23 @@ public with sharing class FW_ProductsDiscountManagerController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    public static void insertDiscount(Map<String, Decimal> productsMapped, String pricebookId){
+        try{
+            List<PricebookEntry> pricebookEntries = new List<PricebookEntry>();
+            for(String productId: productsMapped.keySet()) {
+                PricebookEntry newPricebookEntry = new PricebookEntry();
+                newPricebookEntry.Pricebook2Id = pricebookId;
+                newPricebookEntry.Product2Id = productId;
+                newPricebookEntry.UnitPrice = productsMapped.get(productId);
+                newPricebookEntry.UseStandardPrice = false;
+                newPricebookEntry.isActive = true;
+                pricebookEntries.add(newPricebookEntry);
+
+                insert pricebookEntries;
+            }
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

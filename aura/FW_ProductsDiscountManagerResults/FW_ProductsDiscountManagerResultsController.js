@@ -36,6 +36,7 @@
                 component.set('v.pricebookEndDate', pricebooks[i].EndDate__c);
                 startDate = pricebooks[i].StartDate__c;
                 endDate = pricebooks[i].EndDate__c;
+                break;
             }
         }
     },
@@ -57,7 +58,29 @@
     },
 
     receiveProductToDiscount: function(component, event, helper){
+        console.log('receiveProductToDiscount');
         let productToDiscount = event.getParam('productToDiscount');
-        console.log('received productToDiscount in results: '+JSON.stringify(productToDiscount));
+        let productsToDiscountList = component.get('v.productsToDiscountList');
+        productsToDiscountList.push(productToDiscount);
+        if(productsToDiscountList.length == component.get('v.results').length){
+            let productsMapped = new Map();
+
+            for(let i=0; i<productsToDiscountList.length; i++){
+                if(productsToDiscountList[i].isSelected){
+                    console.log('productsToDiscountList[i].product.id: '+productsToDiscountList[i].product.id);
+                    console.log('productsToDiscountList[i].priceAfterDiscount: '+productsToDiscountList[i].priceAfterDiscount);
+                    productsMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
+                    console.log('productsMapped: '+productsMapped);
+                }
+            }
+
+            console.log('ok, robimy akcje apexowa, bo mamy wszystkie resulty, a jest ich v3: '+productsToDiscountList.length);
+            let pricebookId = component.find('pricebooksSelect').get('v.value');
+            helper.insertNewDiscount(component, productsMapped, pricebookId);
+
+            productsToDiscountList = [];
+            component.set('v.productsToDiscountList', productsToDiscountList);
+        }
+
     }
 })
