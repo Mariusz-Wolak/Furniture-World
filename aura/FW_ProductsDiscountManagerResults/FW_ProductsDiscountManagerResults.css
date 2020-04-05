@@ -32,3 +32,12 @@
 .THIS .searchBarDiv{
     margin-top: 30px;
 }
+
+.THIS .checkboxDiv{
+    padding-top: 23px;
+    padding-left: 10px;
+}
+
+.THIS .checkboxLabel{
+    margin-top: -5px;
+}
