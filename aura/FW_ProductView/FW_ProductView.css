@@ -9,12 +9,14 @@
 }
 
 .THIS .productPrice{
+    display: inline-block;
     font-size: 32px;
     font-style: italic;
     font-weight: bold;
 }
 
 .THIS .crossedPrice{
+    margin-left: 20px;
     display: inline-block;
     font-size: 26px;
     font-style: italic;
