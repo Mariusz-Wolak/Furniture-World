@@ -34,7 +34,7 @@
 
             <aura:if isTrue="{!v.product.discountPrice}">
                 <div class="productPrice ">€{!v.product.discountPrice}</div>
-                <div class="crossedPrice strikethrough">€{!v.product.price}</div>
+                <div class="crossedPriceView strikethrough">€{!v.product.price}</div>
                 <aura:set attribute="else">
                     <div class="productPrice">€{!v.product.price}</div>
                 </aura:set>
