@@ -1547,4 +1547,11 @@
         <shortDescription>Discount_Has_Been_Set_Successfully</shortDescription>
         <value>Discount has been set successfully</value>
     </labels>
+    <labels>
+        <fullName>Search_For_Products</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search_For_Products</shortDescription>
+        <value>Search for products</value>
+    </labels>
 </CustomLabels>

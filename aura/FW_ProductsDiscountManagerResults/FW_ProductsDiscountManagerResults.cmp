@@ -8,6 +8,7 @@
     <aura:attribute name="pricebookStartDate" type="String" access="global"/>
     <aura:attribute name="pricebookEndDate" type="String" access="global"/>
     <aura:attribute name="productsToDiscountList" type="Object[]" access="global"/>
+    <aura:attribute name="standardPricebookId" type="String" access="global"/>
 
     <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
 

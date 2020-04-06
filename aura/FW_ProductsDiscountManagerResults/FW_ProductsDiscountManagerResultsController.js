@@ -63,20 +63,24 @@
         let productsToDiscountList = component.get('v.productsToDiscountList');
         productsToDiscountList.push(productToDiscount);
         if(productsToDiscountList.length == component.get('v.results').length){
-            let productsMapped = new Map();
+            let discountPriceMapped = new Map();
+            let standardPriceMapped = new Map();
 
             for(let i=0; i<productsToDiscountList.length; i++){
                 if(productsToDiscountList[i].isSelected){
-                    console.log('productsToDiscountList[i].product.id: '+productsToDiscountList[i].product.id);
-                    console.log('productsToDiscountList[i].priceAfterDiscount: '+productsToDiscountList[i].priceAfterDiscount);
-                    productsMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
-                    console.log('productsMapped: '+productsMapped);
+                    console.log('productsToDiscountList[i].product: '+JSON.stringify(productsToDiscountList[i].product));
+                    console.log('productsToDiscountList[i].product.id: '+JSON.stringify(productsToDiscountList[i].product.id));
+                    console.log('productsToDiscountList[i].priceAfterDiscount: '+JSON.stringify(productsToDiscountList[i]
+                    .priceAfterDiscount));
+                    discountPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
+                    standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].price;
+                    console.log('discountPriceMapped: '+discountPriceMapped);
                 }
             }
 
             console.log('ok, robimy akcje apexowa, bo mamy wszystkie resulty, a jest ich v3: '+productsToDiscountList.length);
             let pricebookId = component.find('pricebooksSelect').get('v.value');
-            helper.insertNewDiscount(component, productsMapped, pricebookId);
+            helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, pricebookId);
 
             productsToDiscountList = [];
             component.set('v.productsToDiscountList', productsToDiscountList);

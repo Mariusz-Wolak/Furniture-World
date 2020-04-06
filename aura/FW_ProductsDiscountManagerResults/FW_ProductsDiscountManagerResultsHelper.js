@@ -4,7 +4,20 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.pricebooksList', response.getReturnValue());
+                let pricebooksList = response.getReturnValue();
+                console.log('response pricebooks: '+JSON.stringify(response.getReturnValue()));
+                console.log('pricebooksList.length: '+JSON.stringify(pricebooksList.length));
+                for(let i=0; i<pricebooksList.length; i++){
+                    console.log(pricebooksList[i].Name);
+                    console.log(pricebooksList[i].Id);
+                    if(pricebooksList[i].Name == 'Standard'){
+                        console.log('mamy standard');
+                        component.set('v.standardPricebookId', pricebooksList[i].Id);
+                        pricebooksList.splice(i, 1);
+                        break;
+                    }
+                }
+                component.set('v.pricebooksList', pricebooksList);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
@@ -12,10 +25,11 @@
         $A.enqueueAction(action);
     },
 
-    insertNewDiscount: function(component, productsMapped, pricebookId){
+    insertNewDiscount: function(component, standardPriceMapped, discountPriceMapped, pricebookId){
         let action = component.get('c.insertDiscount');
         action.setParams({
-            "productsMapped": productsMapped,
+            "standardPriceMapped": standardPriceMapped,
+            "discountPriceMapped": discountPriceMapped,
             "pricebookId": pricebookId
         });
         console.log('action params: '+JSON.stringify(action.getParams()));

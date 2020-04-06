@@ -463,7 +463,8 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void insertDiscount(Map<String, Decimal> productsMapped, String pricebookId) {
-        FW_ProductsDiscountManagerController.insertDiscount(productsMapped, pricebookId);
+    public static void insertDiscount(Map<String, Decimal> standardPriceMapped, Map<String, Decimal> discountPriceMapped, String
+            pricebookId) {
+        FW_ProductsDiscountManagerController.insertDiscount(standardPriceMapped,discountPriceMapped, pricebookId);
     }
 }
