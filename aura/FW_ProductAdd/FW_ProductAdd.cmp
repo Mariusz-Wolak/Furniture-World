@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes"
+<aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes, lightning:isUrlAddressable"
                 controller="FW_ProductManagementController">
 
     <aura:attribute name="filesId" type="String[]" access="global"/>
@@ -57,7 +57,18 @@
             </lightning:card>
         </div>
     </section>
-    <div class="slds-backdrop slds-backdrop_open"></div>
+    <div class="slds-backdrop slds-backdrop_open">
+    </div>
+
+    <lightning:listView aura:id="listViewProducts"
+                        objectApiName="Product2"
+                        listName="FurnitureWorldProducts"
+                        rows="30"
+                        showSearchBar="true"
+                        showActionBar="true"
+                        enableInlineEdit="true"
+                        showRowLevelActions="true"
+    />
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

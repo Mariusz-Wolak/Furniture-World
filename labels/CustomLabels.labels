@@ -1554,4 +1554,18 @@
         <shortDescription>Search_For_Products</shortDescription>
         <value>Search for products</value>
     </labels>
+    <labels>
+        <fullName>Disabled_Set_Standard_Price_First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabled_Set_Standard_Price_First</shortDescription>
+        <value>Disabled - set standard price first</value>
+    </labels>
+    <labels>
+        <fullName>Prices_Have_To_Be_Higher_Than_0</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Prices_Have_To_Be_Higher_Than_0</shortDescription>
+        <value>Prices have to be higher than 0</value>
+    </labels>
 </CustomLabels>

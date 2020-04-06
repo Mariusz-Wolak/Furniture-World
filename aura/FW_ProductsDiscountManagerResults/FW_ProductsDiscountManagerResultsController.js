@@ -58,33 +58,25 @@
     },
 
     receiveProductToDiscount: function(component, event, helper){
-        console.log('receiveProductToDiscount');
         let productToDiscount = event.getParam('productToDiscount');
         let productsToDiscountList = component.get('v.productsToDiscountList');
         productsToDiscountList.push(productToDiscount);
         if(productsToDiscountList.length == component.get('v.results').length){
             let discountPriceMapped = new Map();
             let standardPriceMapped = new Map();
+            let standardPricebookId = component.get('v.standardPricebookId');
 
             for(let i=0; i<productsToDiscountList.length; i++){
                 if(productsToDiscountList[i].isSelected){
-                    console.log('productsToDiscountList[i].product: '+JSON.stringify(productsToDiscountList[i].product));
-                    console.log('productsToDiscountList[i].product.id: '+JSON.stringify(productsToDiscountList[i].product.id));
-                    console.log('productsToDiscountList[i].priceAfterDiscount: '+JSON.stringify(productsToDiscountList[i]
-                    .priceAfterDiscount));
                     discountPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
-                    standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].price;
-                    console.log('discountPriceMapped: '+discountPriceMapped);
+                    standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].product.price;
                 }
             }
 
-            console.log('ok, robimy akcje apexowa, bo mamy wszystkie resulty, a jest ich v3: '+productsToDiscountList.length);
             let pricebookId = component.find('pricebooksSelect').get('v.value');
-            helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, pricebookId);
-
+            helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId);
             productsToDiscountList = [];
             component.set('v.productsToDiscountList', productsToDiscountList);
         }
-
     }
 })

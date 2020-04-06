@@ -1,4 +1,14 @@
 ({
+    onInit: function(component, event, helper){
+        console.log('onInit result');
+        component.set('v.standardPriceInputDisabled', true);
+        let price = component.get('v.product.price');
+        console.log(price);
+        if(price == null){
+            component.set('v.standardPriceInputDisabled', false);
+        }
+    },
+
     getDiscountValues: function(component, event, helper){
         let params = event.getParam('arguments');
         let discountType = params.discountType;
@@ -25,6 +35,10 @@
     passSelectedProducts: function(component, event, helper){
         let product = component.get('v.product');
         let priceAfterDiscount = component.get('v.priceAfterDiscount');
+        let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
+        if(!standardPriceInputDisabled){
+            priceAfterDiscount = null;
+        }
         let isSelected = component.find('checkbox').get('v.value');
         let productToDiscount = {
             product: product,

@@ -12,9 +12,11 @@
     <aura:attribute name="discountType" type="String" access="global"/>
     <aura:attribute name="discountValue" type="String" access="global"/>
     <aura:attribute name="checkboxVal" type="Boolean" access="global"/>
+    <aura:attribute name="standardPriceInputDisabled" type="Boolean" access="global"/>
 
     <aura:registerEvent name="FW_DiscountManagerProductToDiscountEvent" type="c:FW_DiscountManagerProductToDiscountEvent"/>
 
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerSelectAllEvent" action="{!c.selectAllEvent}"/>
 
     <div class="result slds-grid">
@@ -25,15 +27,21 @@
             <img src="{!v.product.displayUrl}" alt=""/>
         </div>
         <div class="productName slds-col slds-size_1-of-12 slds-align_absolute-center">
-            {!v.product.name}
+                {!v.product.name}
         </div>
         <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
             <div class="priceText">{!$Label.c.Standard_Price}</div>
-            <ui:inputCurrency format=".00" value="{!v.product.price}"/>
+            <ui:inputCurrency aura:id="standardPriceInput" format=".00" value="{!v.product.price}"
+                              disabled="{!v.standardPriceInputDisabled}"/>
         </div>
         <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
-            <div class="priceText">{!$Label.c.Price_After_Discount}</div>
-            <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+            <aura:if isTrue="{!v.standardPriceInputDisabled}">
+                <div class="priceText">{!$Label.c.Price_After_Discount}</div>
+                <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+                <aura:set attribute="else">
+                    <div class="priceText">{!$Label.c.Disabled_Set_Standard_Price_First}</div>
+                </aura:set>
+            </aura:if>
         </div>
     </div>
 

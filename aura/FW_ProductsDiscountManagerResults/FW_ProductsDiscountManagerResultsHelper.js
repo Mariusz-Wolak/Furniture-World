@@ -25,11 +25,12 @@
         $A.enqueueAction(action);
     },
 
-    insertNewDiscount: function(component, standardPriceMapped, discountPriceMapped, pricebookId){
+    insertNewDiscount: function(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId){
         let action = component.get('c.insertDiscount');
         action.setParams({
             "standardPriceMapped": standardPriceMapped,
             "discountPriceMapped": discountPriceMapped,
+            "standardPricebookId": standardPricebookId,
             "pricebookId": pricebookId
         });
         console.log('action params: '+JSON.stringify(action.getParams()));
