@@ -42,7 +42,15 @@ public with sharing class FW_BasketController {
                         WHERE Id IN :productsIds AND Type__c = 'Furniture'
                 ];
 
-                List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
+                List<AggregateResult> aggregateResults = [
+                        SELECT Product2Id, MIN(UnitPrice) minPrice
+                        FROM
+                                PricebookEntry
+                        WHERE
+                                Product2Id IN
+                                        :productsIds
+                        GROUP BY Product2Id
+                ];
 
                 for (Product2 prod : products) {
                     FW_ProductWrapped productWrapped = new FW_ProductWrapped();
@@ -52,19 +60,20 @@ public with sharing class FW_BasketController {
                     productWrapped.name = prod.Name;
                     productWrapped.type = prod.Type__c;
                     productWrapped.family = prod.Family;
-                    productWrapped.price = prod.Price__c;
                     productWrapped.observedItems = prod.FW_ObservedItems__r;
                     productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
-                    totalQuantity += productWrapped.quantity;
-                    totalPrice += productWrapped.quantity * productWrapped.price;
 
-                    for (PricebookEntry pbe : pricebookEntries) {
-                        if (pbe.Product2Id == prod.Id) {
-                            productWrapped.pricebookEntryId = pbe.Id;
+                    for (AggregateResult aggrRes : aggregateResults) {
+                        if (prod.Id == (String) aggrRes.get('Product2Id')) {
+                            productWrapped.price = (Decimal) aggrRes.get('minPrice');
+                            productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
+                            break;
                         }
                     }
-
+                    System.debug('product Wrapped: '+productWrapped);
+                    totalQuantity += productWrapped.quantity;
+                    totalPrice += productWrapped.quantity * productWrapped.price;
                     productsWrappedList.add(productWrapped);
                 }
             }

@@ -16,13 +16,6 @@ public with sharing class FW_ProductsController {
                 productsIds.add(prod.Id);
             }
 
-            List<PricebookEntry> pricebookEntries = [
-                    SELECT Id, Product2Id, Name, UnitPrice
-                    FROM PricebookEntry
-                    WHERE Product2Id IN
-                            :productsIds
-            ];
-
             List<AggregateResult> aggregateResults = [
                     SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
                     FROM
@@ -41,10 +34,13 @@ public with sharing class FW_ProductsController {
                 productWrapped.name = prod.Name;
                 productWrapped.type = prod.Type__c;
                 productWrapped.family = prod.Family;
+                productWrapped.observedItems = prod.FW_ObservedItems__r;
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (AggregateResult aggrRes : aggregateResults) {
                     if (prod.Id == (String) aggrRes.get('Product2Id')) {
                         productWrapped.price = (Decimal) aggrRes.get('maxPrice');
+                        productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
                         if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
                             productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
                         } else {
@@ -53,15 +49,6 @@ public with sharing class FW_ProductsController {
                     }
                 }
 
-                productWrapped.observedItems = prod.FW_ObservedItems__r;
-                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
-
-                for (PricebookEntry pbe : pricebookEntries) {
-                    if (pbe.Product2Id == prod.Id) {
-                        productWrapped.pricebookEntryId = pbe.Id;
-//                        ??????????????????
-                    }
-                }
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -96,8 +83,6 @@ public with sharing class FW_ProductsController {
                 productsIds.add(prod.Id);
             }
 
-            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
-
             List<AggregateResult> aggregateResults = [
                     SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
                     FROM
@@ -123,6 +108,7 @@ public with sharing class FW_ProductsController {
                 for (AggregateResult aggrRes : aggregateResults) {
                     if (prod.Id == (String) aggrRes.get('Product2Id')) {
                         productWrapped.price = (Decimal) aggrRes.get('maxPrice');
+                        productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
                         if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
                             productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
                         } else {
@@ -131,13 +117,6 @@ public with sharing class FW_ProductsController {
                     }
                 }
 
-                for (PricebookEntry pbe : pricebookEntries) {
-                    if (pbe.Product2Id == prod.Id) {
-                        productWrapped.pricebookEntryId = pbe.Id;
-                    }
-                }
-
-                System.debug('product in apex newest: ' + productWrapped);
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
@@ -239,8 +218,6 @@ public with sharing class FW_ProductsController {
                     productsIds.add(prod.Id);
                 }
 
-                List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
-
                 List<AggregateResult> aggregateResults = [
                         SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
                         FROM
@@ -267,17 +244,12 @@ public with sharing class FW_ProductsController {
                     for (AggregateResult aggrRes : aggregateResults) {
                         if (prod.Id == (String) aggrRes.get('Product2Id')) {
                             productWrapped.price = (Decimal) aggrRes.get('maxPrice');
+                            productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
                             if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
                                 productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
                             } else {
                                 productWrapped.discountPrice = null;
                             }
-                        }
-                    }
-
-                    for (PricebookEntry pbe : pricebookEntries) {
-                        if (pbe.Product2Id == prod.Id) {
-                            productWrapped.pricebookEntryId = pbe.Id;
                         }
                     }
 
@@ -344,8 +316,6 @@ public with sharing class FW_ProductsController {
                 productsIds.add(prod.Id);
             }
 
-            List<PricebookEntry> pricebookEntries = [SELECT Id, Product2Id FROM PricebookEntry WHERE Product2Id IN :productsIds];
-
             List<AggregateResult> aggregateResults = [
                     SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
                     FROM
@@ -371,6 +341,7 @@ public with sharing class FW_ProductsController {
                 for (AggregateResult aggrRes : aggregateResults) {
                     if (prod.Id == (String) aggrRes.get('Product2Id')) {
                         productWrapped.price = (Decimal) aggrRes.get('maxPrice');
+                        productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
                         if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
                             productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
                         } else {
@@ -380,12 +351,6 @@ public with sharing class FW_ProductsController {
                 }
 
                 productsWrappedList.add(productWrapped);
-
-                for (PricebookEntry pbe : pricebookEntries) {
-                    if (pbe.Product2Id == prod.Id) {
-                        productWrapped.pricebookEntryId = pbe.Id;
-                    }
-                }
             }
             return productsWrappedList;
         } catch (Exception e) {

@@ -24,6 +24,8 @@ public with sharing class FW_ProductWrapped {
     @AuraEnabled
     public String pricebookEntryId;
     @AuraEnabled
+    public String pricebookId;
+    @AuraEnabled
     public String buyer;
     @AuraEnabled
     public FW_ObservedItem__c[] observedItems;
