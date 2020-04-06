@@ -5,19 +5,18 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let pricebooksList = response.getReturnValue();
-                console.log('response pricebooks: '+JSON.stringify(response.getReturnValue()));
-                console.log('pricebooksList.length: '+JSON.stringify(pricebooksList.length));
                 for(let i=0; i<pricebooksList.length; i++){
                     console.log(pricebooksList[i].Name);
                     console.log(pricebooksList[i].Id);
                     if(pricebooksList[i].Name == 'Standard'){
-                        console.log('mamy standard');
                         component.set('v.standardPricebookId', pricebooksList[i].Id);
                         pricebooksList.splice(i, 1);
                         break;
                     }
                 }
                 component.set('v.pricebooksList', pricebooksList);
+                component.set('v.pricebookEndDate', pricebooksList[0].StartDate__c);
+                component.set('v.pricebookStartDate', pricebooksList[0].EndDate__c);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
