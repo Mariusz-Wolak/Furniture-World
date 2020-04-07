@@ -33,7 +33,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.find('customToast').showSuccessToast($A.get("$Label.c.Discount_Has_Been_Set_Successfully"));
+                component.find('customToast').showSuccessToast($A.get("$Label.c.Prices_Saved_Successfully"));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

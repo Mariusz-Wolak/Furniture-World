@@ -1548,6 +1548,13 @@
         <value>Discount has been set successfully</value>
     </labels>
     <labels>
+        <fullName>Prices_Saved_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price(s)_Saved_Successfully</shortDescription>
+        <value>Price(s) saved successfully</value>
+    </labels>
+    <labels>
         <fullName>Search_For_Products</fullName>
         <language>en_US</language>
         <protected>true</protected>

@@ -38,3 +38,16 @@
     margin-left: 30px;
     font-size: 20px;
 }
+
+.THIS .checkbox{
+    margin-left: 60px;
+    display: inline-block;
+    float: left;
+}
+
+.THIS .checkboxLabel{
+    margin-top: -6px;
+    margin-left: 10px;
+    display: inline-block;
+    float: left;
+}

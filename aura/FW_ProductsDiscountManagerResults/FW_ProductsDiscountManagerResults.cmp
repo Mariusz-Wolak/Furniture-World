@@ -68,9 +68,12 @@
 
         <aura:if isTrue="{!not(empty(v.results))}">
             <div class="checkboxDiv">
-                <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}" label="{!$Label.c.Select_All}"/>
+                <div class="checkbox">
+                    <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}"/>
+                </div>
+                <div class="checkboxLabel">{!$Label.c.Select_All}</div>
             </div>
-            <div class="scroll slds-scrollable_y">
+            <div class="scroll slds-scrollable_y" style="display: block; clear: both">
                 <aura:iteration items="{!v.results}" var="product">
                     <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
                 </aura:iteration>
