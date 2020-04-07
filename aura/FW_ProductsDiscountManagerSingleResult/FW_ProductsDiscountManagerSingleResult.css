@@ -5,6 +5,10 @@
     border: 1px solid black;
 }
 
+.THIS.result:hover{
+    background: #F8F8F8;
+}
+
 .THIS .productName{
     font-size: 20px;
     font-weight: bold;

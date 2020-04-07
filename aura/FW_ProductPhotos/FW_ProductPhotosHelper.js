@@ -45,8 +45,6 @@
 
                 }
                 component.set('v.photosObjects', photosObjects);
-                for(let i=0; i<photosObjects.length; i++){
-                }
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

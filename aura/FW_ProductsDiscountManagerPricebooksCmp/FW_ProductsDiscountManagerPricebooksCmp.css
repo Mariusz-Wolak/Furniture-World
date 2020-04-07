@@ -1,0 +1,13 @@
+.THIS.card{
+    padding: 10px;
+}
+
+.THIS .header{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.THIS .buttonDiv{
+    margin-top: 10px;
+    font-size: 16px;
+}

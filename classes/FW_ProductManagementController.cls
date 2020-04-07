@@ -79,32 +79,32 @@ public with sharing class FW_ProductManagementController {
     @AuraEnabled
     public static List<String> loadPhotos(String id) {
         try {
-            List<ContentDocumentLink> cdl = [
+            List<ContentDocumentLink> cdlList = [
                     SELECT ContentDocumentId, LinkedEntityId
                     FROM ContentDocumentLink
                     WHERE LinkedEntityId = :id
             ];
             Set<String> ids = new Set<String>();
-            for (ContentDocumentLink cd : cdl) {
+            for (ContentDocumentLink cd : cdlList) {
                 ids.add(cd.ContentDocumentId);
             }
-            List<ContentVersion> cvs = [
+            List<ContentVersion> cvList = [
                     SELECT Id
                     FROM ContentVersion
                     WHERE ContentDocumentId IN :ids
             ];
             Set<String> cvIds = new Set<String>();
-            for (ContentVersion cv : cvs) {
+            for (ContentVersion cv : cvList) {
                 cvIds.add(cv.Id);
             }
-            List<ContentDistribution> cddd = [
+            List<ContentDistribution> contentDistList = [
                     SELECT ContentVersionId,
                             ContentDownloadUrl
                     FROM ContentDistribution
                     WHERE ContentVersionId IN :cvIds
             ];
             List<String> photos = new List<String>();
-            for (ContentDistribution c : cddd) {
+            for (ContentDistribution c : contentDistList) {
                 photos.add(c.ContentDownloadUrl);
             }
             return photos;

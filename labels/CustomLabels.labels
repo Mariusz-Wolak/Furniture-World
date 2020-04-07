@@ -1576,10 +1576,10 @@
         <value>Prices have to be higher than 0</value>
     </labels>
     <labels>
-        <fullName>Se</fullName>
+        <fullName>Pricebooks</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Prices_Have_To_Be_Higher_Than_0</shortDescription>
-        <value>Prices have to be higher than 0</value>
+        <shortDescription>Pricebooks</shortDescription>
+        <value>Pricebooks</value>
     </labels>
 </CustomLabels>

@@ -1,5 +1,4 @@
 .THIS.card {
-    margin-top: 20px;
     padding: 20px;
 }
 
@@ -50,8 +49,4 @@
     margin-left: 10px;
     display: inline-block;
     float: left;
-}
-
-.THIS .singleResult:hover{
-    background: #F0F0F0;
 }
