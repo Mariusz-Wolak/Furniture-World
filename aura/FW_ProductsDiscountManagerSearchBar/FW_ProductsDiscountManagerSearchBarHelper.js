@@ -8,12 +8,13 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
-                cmpEvent.setParams({
-                    "results": response.getReturnValue(),
-                    "searchItemName": name
-                });
-                cmpEvent.fire();
+                component.set('v.results', response.getReturnValue());
+//                let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
+//                cmpEvent.setParams({
+//                    "results": response.getReturnValue(),
+//                    "searchItemName": name
+//                });
+//                cmpEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

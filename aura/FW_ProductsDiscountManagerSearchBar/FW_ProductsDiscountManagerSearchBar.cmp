@@ -22,7 +22,7 @@
             <aura:if isTrue="{!not(empty(v.results))}">
                 <div class="scroll slds-scrollable_y" style="display: block; clear: both">
                     <aura:iteration items="{!v.results}" var="product">
-                        <c:FW_ProductsDiscountManagerSingleResult product="{!product}"/>
+                        <c:FW_ProductsDiscountManagerSearchResult product="{!product}"/>
                     </aura:iteration>
                 </div>
             </aura:if>
