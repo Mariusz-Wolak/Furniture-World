@@ -1,5 +1,4 @@
 public with sharing class FW_BasketController {
-
     public static List<FW_ProductWrapped> insertToBasket(String productId) {
         try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
@@ -71,7 +70,6 @@ public with sharing class FW_BasketController {
                             break;
                         }
                     }
-                    System.debug('product Wrapped: '+productWrapped);
                     totalQuantity += productWrapped.quantity;
                     totalPrice += productWrapped.quantity * productWrapped.price;
                     productsWrappedList.add(productWrapped);
