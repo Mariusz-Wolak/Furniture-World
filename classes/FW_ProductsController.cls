@@ -434,4 +434,9 @@ public with sharing class FW_ProductsController {
         FW_ProductsDiscountManagerController.insertDiscount(standardPriceMapped,discountPriceMapped, standardPricebookId, 
                 pricebookId);
     }
+
+    @AuraEnabled
+    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId){
+        return FW_ProductsDiscountManagerController.getProductsFromPricebook(pricebookId);
+    }
 }

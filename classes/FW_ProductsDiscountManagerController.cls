@@ -80,4 +80,42 @@ public with sharing class FW_ProductsDiscountManagerController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId){
+        try {
+            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Id =: pricebookId];
+            Set<String> productsIds = new Set<String>();
+            for(PricebookEntry pbe: pbeList){
+                productsIds.add(pbe.Product2Id);
+            }
+            List<Product2> products = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+                                        FROM Product2
+                                        WHERE Type__c = 'Furniture' AND Id IN:productsIds];
+            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+
+            for (Product2 prod : products) {
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                productWrapped.id = prod.Id;
+                productWrapped.displayUrl = prod.DisplayUrl;
+                productWrapped.description = prod.Description;
+                productWrapped.name = prod.Name;
+                productWrapped.type = prod.Type__c;
+                productWrapped.family = prod.Family;
+                productWrapped.observedItems = prod.FW_ObservedItems__r;
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
+
+                for (PricebookEntry pbe : pbeList) {
+                    if (prod.Id == pbe.Product2Id) {
+                        productWrapped.price = pbe.UnitPrice;
+                        productWrapped.pricebookEntryId = pbe.Id;
+                    }
+                }
+
+                productsWrappedList.add(productWrapped);
+            }
+            return productsWrappedList;
+        } catch (Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
