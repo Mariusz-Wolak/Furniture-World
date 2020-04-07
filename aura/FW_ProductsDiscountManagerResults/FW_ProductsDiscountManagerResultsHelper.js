@@ -6,8 +6,6 @@
             if(state === 'SUCCESS'){
                 let pricebooksList = response.getReturnValue();
                 for(let i=0; i<pricebooksList.length; i++){
-                    console.log(pricebooksList[i].Name);
-                    console.log(pricebooksList[i].Id);
                     if(pricebooksList[i].Name == 'Standard'){
                         component.set('v.standardPricebookId', pricebooksList[i].Id);
                         pricebooksList.splice(i, 1);
@@ -32,7 +30,6 @@
             "standardPricebookId": standardPricebookId,
             "pricebookId": pricebookId
         });
-        console.log('action params: '+JSON.stringify(action.getParams()));
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){

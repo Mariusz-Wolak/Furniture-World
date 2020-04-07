@@ -1,9 +1,7 @@
 ({
     onInit: function(component, event, helper){
-        console.log('onInit result');
         component.set('v.standardPriceInputDisabled', true);
         let price = component.get('v.product.price');
-        console.log(price);
         if(price == null){
             component.set('v.standardPriceInputDisabled', false);
         }
