@@ -30,8 +30,6 @@ public with sharing class FW_ProductManagementController {
             prod.Family = family;
             prod.Type__c = 'Furniture';
             prod.IsActive = true;
-            Decimal defaultPrice = 99.99;
-            prod.Price__c = defaultPrice;
             if (photosIds.size() > 0) {
                 prod.DisplayUrl = startURL + photosIds.get(0);
             }

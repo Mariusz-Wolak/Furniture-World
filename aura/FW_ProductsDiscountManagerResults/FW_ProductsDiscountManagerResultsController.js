@@ -58,6 +58,7 @@
     },
 
     receiveProductToDiscount: function(component, event, helper){
+        let isError = false;
         let productToDiscount = event.getParam('productToDiscount');
         let productsToDiscountList = component.get('v.productsToDiscountList');
         productsToDiscountList.push(productToDiscount);
@@ -67,14 +68,20 @@
             let standardPricebookId = component.get('v.standardPricebookId');
 
             for(let i=0; i<productsToDiscountList.length; i++){
+                if(productsToDiscountList[i].isError){
+                    isError = true;
+                    break;
+                }
                 if(productsToDiscountList[i].isSelected){
                     discountPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
                     standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].product.price;
                 }
             }
 
-            let pricebookId = component.find('pricebooksSelect').get('v.value');
-            helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId);
+            if(!isError){
+                let pricebookId = component.find('pricebooksSelect').get('v.value');
+                helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId);
+            }
             productsToDiscountList = [];
             component.set('v.productsToDiscountList', productsToDiscountList);
         }

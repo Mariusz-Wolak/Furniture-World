@@ -32,16 +32,27 @@
 
     passSelectedProducts: function(component, event, helper){
         let product = component.get('v.product');
-        let priceAfterDiscount = component.get('v.priceAfterDiscount');
         let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
+        let priceAfterDiscount = component.get('v.priceAfterDiscount');
+        let isSelected = component.find('checkbox').get('v.value');
+        let isError = false;
+
+        if(standardPriceInputDisabled && isSelected && !priceAfterDiscount > 0){
+            component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
+            isError = true;
+        }
+        else if(!standardPriceInputDisabled && isSelected && !product.price > 0){
+            component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
+            isError = true;
+        }
         if(!standardPriceInputDisabled){
             priceAfterDiscount = null;
         }
-        let isSelected = component.find('checkbox').get('v.value');
         let productToDiscount = {
             product: product,
             priceAfterDiscount: priceAfterDiscount,
-            isSelected: isSelected
+            isSelected: isSelected,
+            isError: isError
         }
 
         let sendProductToDiscountEvent = component.getEvent('FW_DiscountManagerProductToDiscountEvent');
