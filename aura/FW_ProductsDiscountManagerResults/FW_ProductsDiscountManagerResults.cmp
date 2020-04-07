@@ -21,7 +21,7 @@
     <lightning:card class="card">
         <div class="slds-grid">
             <div class="searchBarDiv slds-col slds-size_4-of-12">
-                <c:FW_ProductsDiscountManagerSearchBar/>
+                <c:FW_ProductsDiscountManagerSearchBar aura:id="searchBar"/>
             </div>
 
             <div class="slds-col slds-size_1-of-12"/>

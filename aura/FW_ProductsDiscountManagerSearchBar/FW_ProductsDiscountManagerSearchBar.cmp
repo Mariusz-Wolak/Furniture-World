@@ -1,6 +1,8 @@
 <aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes"
                 controller="FW_ProductsController">
 
+    <aura:method name="search" action="{!c.refreshResults}" access="global"/>
+
     <aura:attribute name="searchItemName" type="String" access="global"/>
 
     <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>
