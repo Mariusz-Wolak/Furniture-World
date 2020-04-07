@@ -85,5 +85,11 @@
             productsToDiscountList = [];
             component.set('v.productsToDiscountList', productsToDiscountList);
         }
+    },
+
+    selectPricebook: function(component, event, helper){
+        let pricebook = event.getParam('pricebook');
+        component.set('v.selectedPricebook', pricebook);
+        helper.receiveProductsFromPricebook(component, pricebook.id);
     }
 })
