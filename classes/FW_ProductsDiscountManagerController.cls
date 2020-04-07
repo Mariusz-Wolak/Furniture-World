@@ -8,12 +8,7 @@ public with sharing class FW_ProductsDiscountManagerController {
             newPricebook.Name = name;
             newPricebook.StartDate__c = startDate;
             newPricebook.EndDate__c = endDate;
-
-            if ((System.today() >= startDate && System.today() <= endDate) || startDate >= System.today()) {
-                newPricebook.IsActive = true;
-            } else {
-                newPricebook.IsActive = false;
-            }
+            newPricebook.IsActive = true;
 
             insert newPricebook;
             return newPricebook;
@@ -28,7 +23,6 @@ public with sharing class FW_ProductsDiscountManagerController {
                     SELECT Id, Name, StartDate__c, EndDate__c, isActive
                     FROM Pricebook2
                     WHERE isActive = true
-                    OR StartDate__c >= TODAY
             ];
             return pricebooks;
         } catch (Exception e) {

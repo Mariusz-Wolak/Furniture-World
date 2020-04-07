@@ -1,8 +1,3 @@
-.THIS.card {
-    margin-top: 20px;
-    padding: 20px;
-}
-
 .THIS .container{
     width: 50%;
 }
@@ -13,7 +8,7 @@
 }
 
 .THIS .inputHeader{
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: -25px;
     font-size: 20px;
 }
@@ -21,6 +16,7 @@
 .THIS .button{
     float: right;
     margin-top: 20px;
+    margin-bottom: 30px;
     text-align: right;
     font-size: 25px;
 }

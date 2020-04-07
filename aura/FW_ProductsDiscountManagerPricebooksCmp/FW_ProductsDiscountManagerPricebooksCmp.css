@@ -2,7 +2,13 @@
     padding: 10px;
 }
 
+.THIS .tableHeader{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .THIS .header{
+    margin-bottom: 20px;
     font-size: 30px;
     font-weight: bold;
 }
@@ -10,4 +16,8 @@
 .THIS .buttonDiv{
     margin-top: 10px;
     font-size: 16px;
+}
+
+.THIS .scroll{
+    height: 20rem;
 }

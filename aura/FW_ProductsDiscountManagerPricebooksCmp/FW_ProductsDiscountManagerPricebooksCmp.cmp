@@ -1,6 +1,9 @@
-<aura:component description="FW_ProductsDiscountManagerPricebooksCmp" implements="flexipage:availableForAllPageTypes">
+<aura:component description="FW_ProductsDiscountManagerPricebooksCmp" implements="flexipage:availableForAllPageTypes" controller="FW_ProductsController">
 
     <aura:attribute name="showModal" type="Boolean" access="global"/>
+    <aura:attribute name="pricebooks" type="Object[]" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <lightning:card class="card">
         <div class="slds-grid">
@@ -13,8 +16,20 @@
             </div>
         </div>
 
-            <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
+        <div class="tableHeader slds-grid slds-align_absolute-center">
+            <div class="slds-col slds-size_1-of-12"/>
+            <div class="slds-col slds-size_4-of-12">{!$Label.c.Name}</div>
+            <div class="slds-col slds-size_3-of-12">{!$Label.c.Start_Date}</div>
+            <div class="slds-col slds-size_3-of-12">{!$Label.c.End_Date}</div>
+        </div>
 
+        <div class="scroll slds-scrollable_y">
+        <aura:iteration items="{!v.pricebooks}" var="pricebook">
+            <c:FW_ProductsPricebookResult pricebook = "{!pricebook}"/>
+        </aura:iteration>
+        </div>
+
+        <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
     </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>
