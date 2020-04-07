@@ -1,17 +1,33 @@
 <aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes"
                 controller="FW_ProductsController">
 
-    <aura:method name="search" action="{!c.refreshResults}" access="global"/>
+    <!--    <aura:method name="search" action="{!c.refreshResults}" access="global"/>-->
 
     <aura:attribute name="searchItemName" type="String" access="global"/>
+    <aura:attribute name="pricebook" type="Object" access="global"/>
+    <aura:attribute name="results" type="Object[]" access="global"/>
 
-    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>
+    <!--    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>-->
 
-    <h1 class="header">{!$Label.c.Search_For_Products}</h1>
+    <aura:handler event="c:FW_SelectedPricebook" action="{!c.setPricebook}"/>
 
-    <div class="searchBarDiv" onkeypress="{!c.search}">
-        <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
-    </div>
+    <aura:if isTrue="{!v.pricebook}">
+        <lightning:card class="card">
+            <h1 class="header">{!$Label.c.Add_Products_To_Selected_Price_Book}</h1>
+
+            <div class="searchBarDiv" onkeypress="{!c.search}">
+                <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+            </div>
+
+            <aura:if isTrue="{!not(empty(v.results))}">
+                <div class="scroll slds-scrollable_y" style="display: block; clear: both">
+                    <aura:iteration items="{!v.results}" var="product">
+                        <c:FW_ProductsDiscountManagerSingleResult product="{!product}"/>
+                    </aura:iteration>
+                </div>
+            </aura:if>
+        </lightning:card>
+    </aura:if>
 
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

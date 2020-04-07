@@ -1,8 +1,12 @@
+.THIS.card{
+    padding: 20px;
+}
+
 .THIS.searchBarDiv{
     font-size: 20px;
 }
 
-.THIS.header{
+.THIS .header{
     font-size: 30px;
     font-weight: bold;
 }

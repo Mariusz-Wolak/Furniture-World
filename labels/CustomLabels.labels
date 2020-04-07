@@ -1464,11 +1464,25 @@
         <value>Price After Discount</value>
     </labels>
     <labels>
-        <fullName>New_Pricebook</fullName>
+        <fullName>New_Price_Book</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>New_Pricebook</shortDescription>
-        <value>New Pricebook</value>
+        <shortDescription>New_Price_Book</shortDescription>
+        <value>New Price Book</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Value</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Value</shortDescription>
+        <value>Discount Value</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Type</shortDescription>
+        <value>Discount Type</value>
     </labels>
     <labels>
         <fullName>Start_Date</fullName>
@@ -1476,6 +1490,13 @@
         <protected>true</protected>
         <shortDescription>Start_Date</shortDescription>
         <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Set_Prices</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set_Prices</shortDescription>
+        <value>Set Prices</value>
     </labels>
     <labels>
         <fullName>End_Date</fullName>
@@ -1576,10 +1597,24 @@
         <value>Prices have to be higher than 0</value>
     </labels>
     <labels>
-        <fullName>Pricebooks</fullName>
+        <fullName>Price_Books</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Pricebooks</shortDescription>
-        <value>Pricebooks</value>
+        <shortDescription>Price_Books</shortDescription>
+        <value>Price Books</value>
+    </labels>
+    <labels>
+        <fullName>No_Product_Associated_With_This_Pricebook_Have_Been_Found</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No_Product_Associated_With_This_Pricebook_Have_Been_Found</shortDescription>
+        <value>No product associated with this pricebook have been found</value>
+    </labels>
+    <labels>
+        <fullName>Add_Products_To_Selected_Price_Book</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_Products_To_Selected_Price_Book</shortDescription>
+        <value>Add Products To Selected Price Book</value>
     </labels>
 </CustomLabels>

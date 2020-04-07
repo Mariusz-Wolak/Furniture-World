@@ -7,5 +7,9 @@
 
     refreshResults: function(component, event, helper){
         helper.doSearch(component);
+    },
+
+    setPricebook: function(component, event, helper){
+        component.set('v.pricebook', event.getParam('pricebook'));
     }
 })

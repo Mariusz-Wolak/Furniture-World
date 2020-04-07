@@ -1,15 +1,14 @@
-.THIS.card {
-
-}
-
 .THIS .header{
-    text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
 
 .THIS .infoDiv{
     text-align: left;
+    font-size: 20px;
+}
+
+.THIS .selectedDateDiv{
     font-size: 20px;
 }
 
@@ -24,7 +23,7 @@
 }
 
 .THIS .scroll{
-    margin-top: 20px;
+    margin-top: 40px;
     height: 35rem;
 }
 
@@ -32,13 +31,14 @@
     margin-top: 30px;
 }
 
-.THIS .checkboxDiv{
-    margin-top: 23px;
+.THIS .optionsDiv{
+    margin-top: 40px;
     margin-left: 30px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
-.THIS .checkbox{
+.THIS .inlineDiv{
     margin-left: 60px;
     display: inline-block;
     float: left;
@@ -49,4 +49,16 @@
     margin-left: 10px;
     display: inline-block;
     float: left;
+}
+
+.THIS .noResultsInfo{
+    font-size: 16px;
+}
+
+.THIS .discountOptionDiv{
+    margin-top: -35px;
+}
+
+.THIS .buttonSetPrices{
+    margin-top: -6px;
 }

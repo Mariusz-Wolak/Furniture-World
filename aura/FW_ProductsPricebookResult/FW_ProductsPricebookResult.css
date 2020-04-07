@@ -6,3 +6,13 @@
 .THIS.resultDiv{
     cursor: pointer;
 }
+
+.THIS .pricebookName{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.THIS .pricebookName:hover{
+    color: blue;
+}
