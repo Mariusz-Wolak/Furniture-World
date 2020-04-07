@@ -9,7 +9,7 @@ public with sharing class FW_OrderController {
         for (FW_ProductWrapped prod : wrappedProducts) {
             productsIds.add(prod.id);
         }
-//
+
         List<PricebookEntry> pbeList = [
                 SELECT Name, Id, Pricebook2Id, Product2Id
                 FROM PricebookEntry

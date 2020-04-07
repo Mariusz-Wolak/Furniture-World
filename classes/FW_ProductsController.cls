@@ -22,7 +22,7 @@ public with sharing class FW_ProductsController {
                             PricebookEntry
                     WHERE
                             Product2Id IN
-                                    :productsIds
+                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
@@ -89,7 +89,7 @@ public with sharing class FW_ProductsController {
                             PricebookEntry
                     WHERE
                             Product2Id IN
-                                    :productsIds
+                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
@@ -224,7 +224,7 @@ public with sharing class FW_ProductsController {
                                 PricebookEntry
                         WHERE
                                 Product2Id IN
-                                        :productsIds
+                                        :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                         GROUP BY Product2Id
                 ];
 
@@ -322,7 +322,7 @@ public with sharing class FW_ProductsController {
                             PricebookEntry
                     WHERE
                             Product2Id IN
-                                    :productsIds
+                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
