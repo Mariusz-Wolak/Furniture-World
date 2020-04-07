@@ -2,7 +2,7 @@
     <aura:attribute name="pricebook" type="Object" access="global"/>
 
 
-    <div class="resultDiv slds-grid slds-align_absolute-center">
+    <div class="resultDiv slds-grid slds-align_absolute-center" onclick="{!c.selectPricebook}">
         <div class="slds-col slds-size_1-of-12"/>
         <div class="slds-col slds-size_4-of-12">
                 {!v.pricebook.Name}
