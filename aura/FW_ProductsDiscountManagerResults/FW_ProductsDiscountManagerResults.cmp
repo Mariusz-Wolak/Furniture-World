@@ -16,7 +16,8 @@
     <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
                   action="{!c.receiveSearchResults}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
-    <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent" action="{!c.receiveProductToDiscount}"/>
+    <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent"
+                  action="{!c.receiveProductToDiscount}"/>
 
     <lightning:card class="card">
         <div class="slds-grid">
@@ -75,7 +76,9 @@
             </div>
             <div class="scroll slds-scrollable_y" style="display: block; clear: both">
                 <aura:iteration items="{!v.results}" var="product">
-                    <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
+                    <div class="singleResult">
+                        <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
+                    </div>
                 </aura:iteration>
             </div>
         </aura:if>

@@ -8,15 +8,16 @@
     <div class="resultsHeader">{!$Label.c.Orders_History}</div>
 
     <div class="tableHeader slds-grid slds-align_absolute-center">
-        <div class="slds-col slds-size_2-of-12">{!$Label.c.Id}</div>
-        <div class="slds-col slds-size_1-of-12">{!$Label.c.Status}</div>
-        <div class="slds-col slds-size_1-of-12">{!$Label.c.Date}</div>
-        <div class="slds-col slds-size_1-of-12">{!$Label.c.Total_Price}</div>
+        <div class="slds-col slds-size_3-of-12">{!$Label.c.Id}</div>
+        <div class="slds-col slds-size_3-of-12">{!$Label.c.Date}</div>
+        <div class="slds-col slds-size_3-of-12">{!$Label.c.Total_Price}</div>
         <div class="slds-col slds-size_1-of-12">{!$Label.c.Details}</div>
         <div class="slds-col slds-size_1-of-12">{!$Label.c.Report}</div>
     </div>
 
     <aura:iteration items="{!v.results}" var="order">
+        <div class="singleResult">
         <c:FW_OrderResult order="{!order}"/>
+        </div>
     </aura:iteration>
 </aura:component>
