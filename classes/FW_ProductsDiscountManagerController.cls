@@ -23,6 +23,7 @@ public with sharing class FW_ProductsDiscountManagerController {
                     SELECT Id, Name, StartDate__c, EndDate__c, isActive
                     FROM Pricebook2
                     WHERE isActive = true
+                    ORDER BY StartDate__c
             ];
             return pricebooks;
         } catch (Exception e) {
