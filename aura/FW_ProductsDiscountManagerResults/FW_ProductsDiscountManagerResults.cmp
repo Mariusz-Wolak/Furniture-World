@@ -21,6 +21,7 @@
     <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent"
                   action="{!c.receiveProductToDiscount}"/>
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
+    <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
 
 
     <aura:if isTrue="{!v.selectedPricebook}">

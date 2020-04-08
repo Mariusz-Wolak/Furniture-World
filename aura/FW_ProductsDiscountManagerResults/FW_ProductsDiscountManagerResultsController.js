@@ -91,5 +91,12 @@
         let pricebook = event.getParam('pricebook');
         component.set('v.selectedPricebook', pricebook);
         helper.receiveProductsFromPricebook(component, pricebook);
+    },
+
+    addProductToPricebookList: function(component, event, helper){
+        let product = event.getParam('product');
+        let pricebooksResults = component.get('v.resultsFromSelectedPricebook');
+        pricebooksResults.push(product);
+        component.set('v.resultsFromSelectedPricebook', pricebooksResults);
     }
 })

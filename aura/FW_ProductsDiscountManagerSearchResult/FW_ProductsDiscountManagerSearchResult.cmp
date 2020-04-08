@@ -2,6 +2,8 @@
 
     <aura:attribute name="product" type="Object" access="global"/>
 
+    <aura:registerEvent name="FW_SendProductToPricebook" type="c:FW_SendProductToPricebook"/>
+
     <div class="result slds-grid">
         <div class="imgDiv slds-col slds-size_1-of-12 slds-align_absolute-center">
             <img src="{!v.product.displayUrl}" alt=""/>
@@ -14,7 +16,7 @@
         </div>
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <lightning:icon aura:id="addIcon" class="addIcon" iconName="utility:add" alternativeText="{!$Label.c.Add}" title="{!$Label.c.Add}"
-                            size="xx-small"/>
+                            size="xx-small" onclick="{!c.addToPricebook}"/>
         </div>
     </div>
 
