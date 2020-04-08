@@ -51,7 +51,6 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.set('v.resultsFromSelectedPricebook', response.getReturnValue());
-                console.log('results from pricebook: '+JSON.stringify(response.response.getReturnValue()));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

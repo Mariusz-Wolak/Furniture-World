@@ -60,5 +60,14 @@
             "productToDiscount": productToDiscount
         });
         sendProductToDiscountEvent.fire();
+    },
+
+    removeFromPricebook: function(component, event, helper){
+        let product = component.get('v.product');
+        let sendRemovedProductEvent = $A.get('e.c:FW_SendRemovedProductFromPricebook');
+        sendRemovedProductEvent.setParams({
+            "product": product
+        });
+        sendRemovedProductEvent.fire();
     }
 })

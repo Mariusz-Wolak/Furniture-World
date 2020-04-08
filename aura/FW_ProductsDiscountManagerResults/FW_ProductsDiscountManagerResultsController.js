@@ -95,8 +95,21 @@
 
     addProductToPricebookList: function(component, event, helper){
         let product = event.getParam('product');
-        let pricebooksResults = component.get('v.resultsFromSelectedPricebook');
-        pricebooksResults.push(product);
-        component.set('v.resultsFromSelectedPricebook', pricebooksResults);
+        let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
+        resultsFromPricebook.push(product);
+        component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
+    },
+
+    removeProductFromPricebook: function(component, event, helper){
+        console.log('removeProductFromPricebook');
+        let product = event.getParam('product');
+        let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
+        for(let i=0; i<resultsFromPricebook.length; i++){
+            if(resultsFromPricebook[i].id == product.id){
+                resultsFromPricebook.splice(i, 1);
+                break;
+            }
+        }
+        component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
     }
 })

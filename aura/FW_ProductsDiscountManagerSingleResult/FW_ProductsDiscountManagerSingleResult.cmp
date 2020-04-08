@@ -15,6 +15,7 @@
     <aura:attribute name="standardPriceInputDisabled" type="Boolean" access="global"/>
 
     <aura:registerEvent name="FW_DiscountManagerProductToDiscountEvent" type="c:FW_DiscountManagerProductToDiscountEvent"/>
+    <aura:registerEvent name="FW_SendRemovedProductFromPricebook" type="c:FW_SendRemovedProductFromPricebook"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerSelectAllEvent" action="{!c.selectAllEvent}"/>

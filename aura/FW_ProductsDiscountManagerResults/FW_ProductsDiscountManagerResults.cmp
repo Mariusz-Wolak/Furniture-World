@@ -22,6 +22,7 @@
                   action="{!c.receiveProductToDiscount}"/>
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
     <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
+    <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.removeProductFromPricebook}"/>
 
 
     <aura:if isTrue="{!v.selectedPricebook}">
