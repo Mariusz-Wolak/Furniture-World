@@ -51,18 +51,28 @@
     },
 
     setDiscount: function(component, event, helper){
+        console.log('set prices clicked');
         let singleProductCmp = component.find('singleProduct');
+        console.log('after getting singleProductCmp');
+        console.log('singleProductCmp: '+singleProductCmp);
         for(let i=0; i<singleProductCmp.length; i++){
+            console.log(i);
+            console.log('singleProductCmp passSelectedProducts');
             singleProductCmp[i].passSelectedProducts();
         }
     },
 
     receiveProductToDiscount: function(component, event, helper){
+        console.log('receive ProductToDiscount');
         let isError = false;
         let productToDiscount = event.getParam('productToDiscount');
         let productsToDiscountList = component.get('v.productsToDiscountList');
         productsToDiscountList.push(productToDiscount);
-        if(productsToDiscountList.length == component.get('v.results').length){
+        console.log('przed sprawdzeniem length');
+        console.log('productsToDiscountList.length: '+productsToDiscountList.length);
+        console.log('cmp get results length: '+component.get('v.resultsFromSelectedPricebook').length);
+        if(productsToDiscountList.length == component.get('v.resultsFromSelectedPricebook').length){
+            console.log('length sie zgadza, teraz mapping');
             let discountPriceMapped = new Map();
             let standardPriceMapped = new Map();
             let standardPricebookId = component.get('v.standardPricebookId');
@@ -77,9 +87,11 @@
                     standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].product.price;
                 }
             }
-
             if(!isError){
-                let pricebookId = component.find('pricebooksSelect').get('v.value');
+                console.log('nie ma errora');
+//                let pricebookId = component.find('pricebooksSelect').get('v.value');
+                let pricebookId = component.get('v.selectedPricebook').Id;
+                console.log('pricebookId before insert discount: '+pricebookId);
                 helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId);
             }
             productsToDiscountList = [];

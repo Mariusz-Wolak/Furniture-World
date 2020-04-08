@@ -31,7 +31,9 @@
     },
 
     passSelectedProducts: function(component, event, helper){
+        console.log('start tkaing prices f');
         let product = component.get('v.product');
+        console.log('start taking prices from product: '+product.name);
         let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
         let priceAfterDiscount = component.get('v.priceAfterDiscount');
         let isSelected = component.find('checkbox').get('v.value');

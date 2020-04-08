@@ -12,15 +12,26 @@
         let pricebooksList = component.get('v.pricebooks');
         pricebooksList.push(newPricebook);
         component.set('v.pricebooks', pricebooksList);
-    },
+    }
 
-    selectPricebook: function(component, event, helper){
+//    selectPricebook: function(component, event, helper){
 //        let selectedPricebook = event.getParam('pricebook');
 //        let pricebooks = component.get('v.pricebooks');
+//        let newPricebooks;
 //        for(let i=0; i<pricebooks.length; i++){
-//            if(pricebooks[i].Id != selectedPricebook.Id){
-//
+//            if(pricebooks[i].Id == selectedPricebook.Id){
+//                let pricebookWrapped = {
+//                   pricebook: pricebook,
+//                   isSelected: true
+//               };
+//            }else{
+//                let pricebookWrapped = {
+//                   pricebook: pricebook,
+//                   isSelected: false
+//                };
 //            }
+//            newPricebooks.push(pricebookWrapped);
 //        }
-    }
+//        component.set('v.pricebooks', newPricebooks);
+//    }
 })

@@ -5,32 +5,26 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
-    <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
+    <!--    <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>-->
 
-    <lightning:card class="card">
-        <div class="slds-grid">
-            <div class="header slds-col slds-size_1-of-12"/>
-            <div class="header slds-col slds-size_4-of-12">
-                    {!$Label.c.Price_Books}
+    <lightning:card  title="{!$Label.c.Price_Books}">
+        <aura:set attribute="actions">
+            <lightning:button label="{!$Label.c.New_Price_Book}" onclick="{!c.openModal}"/>
+        </aura:set>
+
+        <p class="slds-p-horizontal_small">
+            <div class="tableHeader slds-grid ">
+                <div class="slds-col slds-size_4-of-12">{!$Label.c.Name}</div>
+                <div class="slds-col slds-size_3-of-12">{!$Label.c.Start_Date}</div>
+                <div class="slds-col slds-size_3-of-12">{!$Label.c.End_Date}</div>
             </div>
-            <div class="slds-col slds-size_3-of-12"></div>
-            <div class="buttonDiv slds-col slds-size_4-of-12">
-                <lightning:button label="{!$Label.c.New_Price_Book}" onclick="{!c.openModal}"/>
+
+            <div class="scroll slds-scrollable_y">
+                <aura:iteration items="{!v.pricebooks}" var="pricebook">
+                    <c:FW_ProductsPricebookResult pricebook="{!pricebook}"/>
+                </aura:iteration>
             </div>
-        </div>
-
-        <div class="tableHeader slds-grid slds-align_absolute-center">
-            <div class="slds-col slds-size_1-of-12"/>
-            <div class="slds-col slds-size_4-of-12">{!$Label.c.Name}</div>
-            <div class="slds-col slds-size_3-of-12">{!$Label.c.Start_Date}</div>
-            <div class="slds-col slds-size_3-of-12">{!$Label.c.End_Date}</div>
-        </div>
-
-        <div class="scroll slds-scrollable_y">
-        <aura:iteration items="{!v.pricebooks}" var="pricebook">
-            <c:FW_ProductsPricebookResult pricebook="{!pricebook}"/>
-        </aura:iteration>
-        </div>
+        </p>
 
         <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
     </lightning:card>

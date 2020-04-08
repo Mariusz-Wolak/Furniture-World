@@ -3,8 +3,8 @@
 
     <aura:registerEvent name="FW_SelectedPricebook" type="c:FW_SelectedPricebook"/>
 
-    <div class="resultDiv slds-grid slds-align_absolute-center" onclick="{!c.selectPricebook}">
-        <div class="slds-col slds-size_1-of-12"/>
+<!--    class="{!concat('photoDiv', if(v.photoObject.isSelected, ' bordered', ''))}"-->
+    <div class="resultDiv slds-grid" onclick="{!c.selectPricebook}">
         <div class="pricebookName slds-col slds-size_4-of-12">
                 {!v.pricebook.Name}
         </div>
@@ -15,6 +15,11 @@
 
         <div class="slds-col slds-size_3-of-12">
                 {!v.pricebook.EndDate__c}
+        </div>
+
+        <div class="slds-col slds-size_1-of-12">
+            <lightning:icon aura:id="removeIcon" class="removeIcon" iconName="action:more" alternativeText="{!$Label.c.Remove}" title="{!$Label.c.Remove}"
+                            size="xx-small" onclick="{!c.removeFromPricebook}"/>
         </div>
     </div>
 </aura:component>
