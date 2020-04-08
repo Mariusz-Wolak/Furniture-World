@@ -1,11 +1,13 @@
 <aura:component description="FW_ProductsPricebookResult">
+
     <aura:attribute name="pricebook" type="Object" access="global"/>
+    <aura:attribute name="showPricebookDeleteModal" type="Boolean" access="global"/>
 
     <aura:registerEvent name="FW_SelectedPricebook" type="c:FW_SelectedPricebook"/>
 
 <!--    class="{!concat('photoDiv', if(v.photoObject.isSelected, ' bordered', ''))}"-->
-    <div class="resultDiv slds-grid" onclick="{!c.selectPricebook}">
-        <div class="pricebookName slds-col slds-size_4-of-12">
+    <div class="resultDiv slds-grid">
+        <div class="pricebookName slds-col slds-size_4-of-12" onclick="{!c.selectPricebook}">
                 {!v.pricebook.Name}
         </div>
 
@@ -17,9 +19,13 @@
                 {!v.pricebook.EndDate__c}
         </div>
 
-        <div class="slds-col slds-size_1-of-12">
-            <lightning:icon aura:id="removeIcon" class="removeIcon" iconName="action:more" alternativeText="{!$Label.c.Remove}" title="{!$Label.c.Remove}"
+        <div class="slds-col slds-size_2-of-12">
+            <lightning:icon aura:id="editIcon" class="editIcon" iconName="action:more" alternativeText="{!$Label.c.Edit}" title="{!$Label.c.Edit}"
                             size="xx-small" onclick="{!c.removeFromPricebook}"/>
+            <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete" alternativeText="{!$Label.c.Delete}" title="{!$Label.c.Delete}"
+                            size="xx-small" onclick="{!c.showPricebookDeleteModal}"/>
         </div>
     </div>
+
+    <c:FW_PricebookDeleteModal showPricebookDeleteModal="{!v.showPricebookDeleteModal}" pricebook="{!v.pricebook}"/>
 </aura:component>

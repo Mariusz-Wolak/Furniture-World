@@ -119,4 +119,13 @@ public with sharing class FW_ProductsDiscountManagerController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    public static Boolean removePricebook(String pricebookId){
+        try{
+            Database.DeleteResult result = Database.delete(pricebookId);
+            return result.isSuccess();
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+}
 }

@@ -10,8 +10,12 @@
     receiveNewPricebook: function(component, event, helper){
         let newPricebook = event.getParam("pricebook");
         let pricebooksList = component.get('v.pricebooks');
-        pricebooksList.push(newPricebook);
+        pricebooksList.unshift(newPricebook);
         component.set('v.pricebooks', pricebooksList);
+    },
+
+    refreshPricebooks: function(component, event, helper){
+        helper.receivePricebooksList(component, event);
     }
 
 //    selectPricebook: function(component, event, helper){

@@ -7,5 +7,9 @@
             "pricebook": pricebook
         });
         appEvent.fire();
+    },
+
+    showPricebookDeleteModal: function(component, event, helper){
+        component.set('v.showPricebookDeleteModal', true);
     }
 })

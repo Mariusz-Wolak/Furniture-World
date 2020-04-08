@@ -15,3 +15,13 @@
 .THIS .pricebookName:hover{
     color: blue;
 }
+
+.THIS .deleteIcon{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.THIS .editIcon{
+    cursor: pointer;
+}
+

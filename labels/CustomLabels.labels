@@ -1538,7 +1538,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Pricebook_Has_Been_Added_Successfully</shortDescription>
-        <value>Pricebook has been added successfully</value>
+        <value>Price book has been added successfully</value>
     </labels>
     <labels>
         <fullName>Start_Date_Cant_Be_Earlier_Than_End_Date</fullName>
@@ -1608,7 +1608,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>No_Product_Associated_With_This_Pricebook_Have_Been_Found</shortDescription>
-        <value>No product associated with this pricebook have been found</value>
+        <value>No product associated with this price book have been found</value>
     </labels>
     <labels>
         <fullName>Add_Products_To_Selected_Price_Book</fullName>
