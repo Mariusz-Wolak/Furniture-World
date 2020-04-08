@@ -8,10 +8,10 @@
     <aura:attribute name="results" type="Object[]" access="global"/>
     <aura:attribute name="productsFromPricebook" type="Object[]" access="global"/>
 
-    <!--    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>-->
-
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.setPricebook}"/>
     <aura:handler event="c:FW_SendProductsFromPricebook" action="{!c.receiveProductsFromPricebook}"/>
+    <aura:handler event="c:FW_SendProductToPricebook" action="{!c.removeSentProduct}"/>
+
 
     <aura:if isTrue="{!v.pricebook}">
         <lightning:card class="card">

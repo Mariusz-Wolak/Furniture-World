@@ -19,12 +19,6 @@
                     }
                 }
                 component.set('v.results', results);
-//                let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
-//                cmpEvent.setParams({
-//                    "results": response.getReturnValue(),
-//                    "searchItemName": name
-//                });
-//                cmpEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

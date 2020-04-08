@@ -5,9 +5,9 @@
         }
     },
 
-    refreshResults: function(component, event, helper){
-        helper.doSearch(component);
-    },
+//    refreshResults: function(component, event, helper){
+//        helper.doSearch(component);
+//    },
 
     setPricebook: function(component, event, helper){
         component.set('v.pricebook', event.getParam('pricebook'));
@@ -25,6 +25,18 @@
             }
         }
         component.set('v.productsFromPricebook', productsFromPricebook);
+        component.set('v.results', results);
+    },
+
+    removeSentProduct: function(component, event, helper){
+        let product = event.getParam('product');
+        let results = component.get('v.results');
+        for(let i=0; i<results.length; i++){
+            if(results[i].id == product.id){
+                results.splice(i, 1);
+                break;
+            }
+        }
         component.set('v.results', results);
     }
 })
