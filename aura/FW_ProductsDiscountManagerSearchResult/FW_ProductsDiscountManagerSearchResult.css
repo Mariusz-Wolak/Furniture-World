@@ -10,7 +10,11 @@
     font-weight: bold;
 }
 
+.THIS .addIcon svg{
+    fill: green;
+}
+
 .THIS .addIcon:hover svg{
     cursor: pointer;
-    fill: green;
+    fill: darkgreen;
 }

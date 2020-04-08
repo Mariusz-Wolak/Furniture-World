@@ -15,7 +15,7 @@
                 {!v.product.price}
         </div>
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
-            <lightning:icon aura:id="addIcon" class="addIcon" iconName="utility:add" alternativeText="{!$Label.c.Add}" title="{!$Label.c.Add}"
+            <lightning:icon aura:id="addIcon" class="addIcon" iconName="utility:chevronright" alternativeText="{!$Label.c.Add}" title="{!$Label.c.Add}"
                             size="xx-small" onclick="{!c.addToPricebook}"/>
         </div>
     </div>

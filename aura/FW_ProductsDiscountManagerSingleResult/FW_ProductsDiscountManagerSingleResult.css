@@ -23,3 +23,13 @@
     font-size: 15px;
     margin-right: 10px;
 }
+
+.THIS .removeIcon{
+    background: red;
+}
+
+
+.THIS .removeIcon:hover{
+    cursor: pointer;
+    background: #8B0000;
+}
