@@ -6,6 +6,7 @@
     <aura:attribute name="searchItemName" type="String" access="global"/>
     <aura:attribute name="pricebook" type="Object" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
+    <aura:attribute name="productsFromPricebook" type="Object[]" access="global"/>
 
     <!--    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>-->
 

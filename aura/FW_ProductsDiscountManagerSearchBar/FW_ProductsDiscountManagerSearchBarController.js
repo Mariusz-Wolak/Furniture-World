@@ -16,7 +16,6 @@
     receiveProductsFromPricebook: function(component, event, helper){
         let productsFromPricebook = event.getParam('products');
         let results = component.get('v.results');
-        let idsToRemove = [];
         for(let i=0; i<productsFromPricebook.length; i++){
             for(let j=0; j<results.length; j++){
                 if(results[j].id == productsFromPricebook[i].id){
@@ -25,7 +24,7 @@
                 }
             }
         }
-        
+        component.set('v.productsFromPricebook', productsFromPricebook);
         component.set('v.results', results);
     }
 })
