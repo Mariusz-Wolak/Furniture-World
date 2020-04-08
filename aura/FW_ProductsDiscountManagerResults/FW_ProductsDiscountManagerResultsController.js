@@ -96,7 +96,7 @@
     addProductToPricebookList: function(component, event, helper){
         let product = event.getParam('product');
         let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
-        resultsFromPricebook.push(product);
+        resultsFromPricebook.unshift(product);
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
     },
 

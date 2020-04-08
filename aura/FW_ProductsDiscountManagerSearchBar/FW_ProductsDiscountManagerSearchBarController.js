@@ -38,5 +38,13 @@
             }
         }
         component.set('v.results', results);
+    },
+
+    receiveRemovedProductFromPricebook: function(component, event, helper){
+        console.log('receive removed');
+        let product = event.getParam('product');
+        let results = component.get('v.results');
+        results.unshift(product);
+        component.set('v.results', results);
     }
 })
