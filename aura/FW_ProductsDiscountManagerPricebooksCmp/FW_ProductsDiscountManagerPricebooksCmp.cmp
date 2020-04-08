@@ -1,6 +1,7 @@
 <aura:component description="FW_ProductsDiscountManagerPricebooksCmp" implements="flexipage:availableForAllPageTypes" controller="FW_ProductsController">
 
     <aura:attribute name="showModal" type="Boolean" access="global"/>
+    <aura:attribute name="showPricebookDetails" type="Boolean" access="global"/>
     <aura:attribute name="pricebooks" type="Object[]" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
@@ -27,6 +28,7 @@
         </p>
 
         <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
+        <c:FW_ProductsDiscountManagerPricebookDetails showPricebookDetails="{!v.showPricebookDetails}"/>
     </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>

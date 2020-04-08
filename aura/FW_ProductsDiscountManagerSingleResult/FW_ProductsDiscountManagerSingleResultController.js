@@ -12,6 +12,9 @@
         let discountType = params.discountType;
         let discountValue = params.discountValue;
         let priceAfterDiscount;
+        console.log('discountValue: '+discountValue);
+        console.log('discountType: '+discountType);
+        console.log(component.get('v.product.name'));
         if(discountType == '%'){
             priceAfterDiscount = component.get('v.product.price') - component.get('v.product.price') *
                                                  discountValue/100;

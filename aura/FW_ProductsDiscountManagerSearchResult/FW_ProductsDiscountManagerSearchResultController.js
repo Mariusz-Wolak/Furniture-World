@@ -6,7 +6,5 @@
             "product": product
         });
         sendToPricebookEvent.fire();
-
-
     }
 })
