@@ -50,7 +50,13 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.resultsFromSelectedPricebook', response.getReturnValue());
+                let products = response.getReturnValue();
+                component.set('v.resultsFromSelectedPricebook', products);
+                let sendProductsEvent = $A.get('e.c:FW_SendProductsFromPricebook');
+                sendProductsEvent.setParams({
+                    "products": products
+                });
+                sendProductsEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

@@ -101,7 +101,6 @@
     },
 
     removeProductFromPricebook: function(component, event, helper){
-        console.log('removeProductFromPricebook');
         let product = event.getParam('product');
         let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
         for(let i=0; i<resultsFromPricebook.length; i++){

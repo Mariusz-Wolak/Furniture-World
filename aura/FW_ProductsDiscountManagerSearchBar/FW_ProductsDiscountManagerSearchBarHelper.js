@@ -8,7 +8,8 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.results', response.getReturnValue());
+                let results = response.getReturnValue();
+                component.set('v.results', results);
 //                let cmpEvent = component.getEvent('FW_SendProductsToDiscountManager');
 //                cmpEvent.setParams({
 //                    "results": response.getReturnValue(),

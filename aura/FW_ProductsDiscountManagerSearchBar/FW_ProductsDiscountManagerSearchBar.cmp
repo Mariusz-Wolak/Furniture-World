@@ -10,6 +10,7 @@
     <!--    <aura:registerEvent name="FW_SendProductsToDiscountManager" type="c:FW_SendProductsToDiscountManager"/>-->
 
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.setPricebook}"/>
+    <aura:handler event="c:FW_SendProductsFromPricebook" action="{!c.receiveProductsFromPricebook}"/>
 
     <aura:if isTrue="{!v.pricebook}">
         <lightning:card class="card">
