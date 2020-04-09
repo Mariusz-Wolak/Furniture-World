@@ -6,8 +6,7 @@
 
     <aura:registerEvent name="FW_SelectedPricebook" type="c:FW_SelectedPricebook"/>
 
-    <!--    class="{!concat('photoDiv', if(v.photoObject.isSelected, ' bordered', ''))}"-->
-    <div class="resultDiv slds-grid">
+    <div class="{!concat('resultDiv slds-grid', if(v.pricebook.isSelected, ' selected',''))}">
         <div class="pricebookName slds-col slds-size_4-of-12" onclick="{!c.selectPricebook}">
                 {!v.pricebook.Name}
         </div>
