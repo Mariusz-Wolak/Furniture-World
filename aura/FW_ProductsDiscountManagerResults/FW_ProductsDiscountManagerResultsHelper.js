@@ -51,6 +51,10 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 let products = response.getReturnValue();
+                for(let i=0; i<products.length; i++){
+                    console.log('price: '+products[i].price);
+                    console.log('discountPrice: '+products[i].discountPrice);
+                }
                 component.set('v.resultsFromSelectedPricebook', products);
                 let sendProductsEvent = $A.get('e.c:FW_SendProductsFromPricebook');
                 sendProductsEvent.setParams({

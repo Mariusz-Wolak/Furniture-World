@@ -55,5 +55,14 @@
         if(selectedPricebook.Id == deletedPricebook.Id){
             component.set('v.pricebook', null);
         }
+    },
+
+    openAddAllModal: function(component, event, helper){
+        console.log('openAddAllModal');
+        component.set('v.showAddAllModal', true);
+    },
+
+    clearResults: function(component, event, helper){
+        component.set('v.results', null);
     }
 })

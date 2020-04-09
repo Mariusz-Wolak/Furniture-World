@@ -157,5 +157,15 @@
            "pricebook": component.get('v.selectedPricebook')
         });
         sendPricebookEvent.fire();
+    },
+
+    addSearchResultsToPricebook: function(component, event, helper){
+        let resultsFromSearch = event.getParam('results');
+        for(let i=0; i<resultsFromSearch.length; i++){
+            resultsFromSearch[i].discountPrice = null;
+        }
+        let currentResults = component.get('v.resultsFromSelectedPricebook');
+        let resultsToShow = resultsFromSearch.concat(currentResults);
+        component.set('v.resultsFromSelectedPricebook', resultsToShow)
     }
 })

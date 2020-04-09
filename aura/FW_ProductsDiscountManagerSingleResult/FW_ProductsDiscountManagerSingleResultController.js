@@ -6,6 +6,7 @@
             component.set('v.priceAfterDiscount', component.get('v.product.price'));
         }else{
             component.set('v.isStandardPB', false);
+            component.set('v.priceAfterDiscount', component.get('v.product.discountPrice'));
         }
     },
 
