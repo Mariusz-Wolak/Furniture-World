@@ -4,6 +4,10 @@
     line-height: 3;
 }
 
+.THIS.resultDiv:hover{
+    background: #F8F8F8;
+}
+
 .THIS .pricebookName{
     cursor: pointer;
 }
@@ -24,4 +28,13 @@
 .THIS .editIcon{
     cursor: pointer;
 }
+
+.THIS .deleteIcon:hover{
+    background: darkred;
+}
+
+.THIS .editIcon:hover{
+    background: darkblue;
+}
+
 
