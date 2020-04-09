@@ -36,7 +36,12 @@ public with sharing class FW_ProductsDiscountManagerController {
 
     public static void insertDiscount(Map<String, Decimal> discountPriceMapped, String pricebookId) {
         try {
+            System.debug(discountPriceMapped);
             List<PricebookEntry> pricebookEntries = new List<PricebookEntry>();
+            List<PricebookEntry> pbeAllList = [SELECT Pricebook2Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id =: pricebookId AND
+            Product2Id NOT IN :discountPriceMapped.keySet()];
+            delete pbeAllList;
+
             List<PricebookEntry> pbeList = [SELECT Pricebook2Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id =: pricebookId AND
             Product2Id IN:discountPriceMapped.keySet()];
 
