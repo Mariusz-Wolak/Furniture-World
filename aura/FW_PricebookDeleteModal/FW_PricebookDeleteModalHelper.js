@@ -9,8 +9,11 @@
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast('Price book has been deleted successfully');
                 component.set('v.showPricebookDeleteModal', false);
-                let refreshPricebooksEvent = $A.get('e.c:FW_RefreshPricebooksList');
-                refreshPricebooksEvent.fire();
+                let sendDeletedPricebook = $A.get('e.c:FW_SendDeletedPricebook');
+                sendDeletedPricebook.setParams({
+                    "pricebook": component.get('v.pricebook')
+                });
+                sendDeletedPricebook.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

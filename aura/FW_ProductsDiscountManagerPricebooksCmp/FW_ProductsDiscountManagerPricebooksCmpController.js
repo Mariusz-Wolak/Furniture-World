@@ -27,9 +27,17 @@
         component.set('v.pricebooks', pricebooksList);
     },
 
-    refreshPricebooks: function(component, event, helper){
-        helper.receivePricebooksList(component, event);
-    }
+    receiveDeletedPricebook: function(component, event, helper){
+        let deletedPricebook = event.getParam('pricebook');
+        let pricebooksList = component.get('v.pricebooks');
+        for(let i=0; i<pricebooksList.length; i++){
+            if(pricebooksList[i].Id == deletedPricebook.Id){
+                pricebooksList.splice(i, 1);
+                break;
+            }
+        }
+        component.set('v.pricebooks', pricebooksList);
+    },
 
 //    selectPricebook: function(component, event, helper){
 //        let selectedPricebook = event.getParam('pricebook');

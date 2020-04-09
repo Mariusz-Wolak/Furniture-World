@@ -46,5 +46,13 @@
         let results = component.get('v.results');
         results.unshift(product);
         component.set('v.results', results);
+    },
+
+    receiveDeletedPricebook: function(component, event, helper){
+        let deletedPricebook = event.getParam('pricebook');
+        let selectedPricebook = component.get('v.pricebook');
+        if(selectedPricebook.Id == deletedPricebook.Id){
+            component.set('v.pricebook', null);
+        }
     }
 })

@@ -25,6 +25,7 @@
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
     <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
     <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.removeProductFromPricebook}"/>
+    <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
 
 
     <aura:if isTrue="{!v.selectedPricebook}">
@@ -56,7 +57,7 @@
                     </div>
 
                     <div  class="inlineDiv buttonSetPrices">
-                        <lightning:button label="{!$Label.c.Set_Prices}" onclick="{!c.setDiscount}"/>
+                        <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                     </div>
                 </div>
 

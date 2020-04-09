@@ -32,6 +32,14 @@
         }
     },
 
+    receiveDeletedPricebook: function(component, event, helper){
+        let deletedPricebook = event.getParam('pricebook');
+        let selectedPricebook = component.get('v.selectedPricebook');
+        if(selectedPricebook.Id == deletedPricebook.Id){
+            component.set('v.selectedPricebook', null);
+        }
+    },
+
     compute: function(component, event, helper){
         let discountType = component.find('discountType').get('v.value');
         let discountValue = component.get('v.discountValue');

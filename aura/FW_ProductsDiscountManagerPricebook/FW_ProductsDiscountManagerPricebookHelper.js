@@ -42,6 +42,9 @@
                 });
                 sendPricebookEvent.fire();
                 component.set('v.showModal', false);
+                component.set('v.name', null);
+                component.set('v.startDate', null);
+                component.set('v.endDate', null);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

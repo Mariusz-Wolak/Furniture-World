@@ -3,7 +3,7 @@
     <aura:attribute name="showPricebookDeleteModal" type="Boolean" access="global"/>
     <aura:attribute name="pricebook" type="Object" access="global"/>
 
-    <aura:registerEvent name="FW_RefreshPricebooksList" type="c:FW_RefreshPricebooksList"/>
+    <aura:registerEvent name="FW_SendDeletedPricebook" type="c:FW_SendDeletedPricebook"/>
 
         <aura:if isTrue="{!v.showPricebookDeleteModal}">
             <div role="dialog" class="slds-modal slds-fade-in-open ">

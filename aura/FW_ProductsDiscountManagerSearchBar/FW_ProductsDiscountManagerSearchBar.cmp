@@ -12,6 +12,7 @@
     <aura:handler event="c:FW_SendProductsFromPricebook" action="{!c.receiveProductsFromPricebook}"/>
     <aura:handler event="c:FW_SendProductToPricebook" action="{!c.removeSentProduct}"/>
     <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.receiveRemovedProductFromPricebook}"/>
+    <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
 
 
     <aura:if isTrue="{!v.pricebook}">
