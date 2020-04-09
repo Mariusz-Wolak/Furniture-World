@@ -25,7 +25,7 @@
 
 .THIS .scroll{
     margin-top: 40px;
-    height: 35rem;
+    height: 38rem;
 }
 
 .THIS .searchBarDiv{
@@ -40,7 +40,7 @@
 }
 
 .THIS .inlineDiv{
-    margin-left: 60px;
+    margin-left: 20px;
     display: inline-block;
     float: left;
 }

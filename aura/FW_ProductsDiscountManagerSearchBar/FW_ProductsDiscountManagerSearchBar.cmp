@@ -17,7 +17,7 @@
 
     <aura:if isTrue="{!v.pricebook}">
         <lightning:card class="card">
-            <h1 class="header">{!$Label.c.Add_Products_To_Selected_Price_Book}</h1>
+            <h1 class="header slds-align_absolute-center">{!$Label.c.Add_Products_To_Selected_Price_Book}</h1>
 
             <div class="searchBarDiv" onkeypress="{!c.search}">
                 <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
