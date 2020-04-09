@@ -3,6 +3,7 @@
         let pricebook = component.get('v.selectedPricebook');
         if(pricebook.Name === 'Standard Price Book'){
             component.set('v.isStandardPB', true);
+            component.set('v.priceAfterDiscount', component.get('v.product.price'));
         }else{
             component.set('v.isStandardPB', false);
         }
