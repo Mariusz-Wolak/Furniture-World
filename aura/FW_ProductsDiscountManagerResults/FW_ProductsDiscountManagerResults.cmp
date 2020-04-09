@@ -34,12 +34,15 @@
 
     <aura:if isTrue="{!v.selectedPricebook}">
         <lightning:card class="card">
-            <h1 class="header slds-align_absolute-center">{!v.selectedPricebook.Name} (
+            <h1 class="header slds-align_absolute-center">{!v.selectedPricebook.Name} &nbsp;
+
+                <aura:if isTrue="{!not(v.isStandardPB)}">(
                 <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/>
                 &nbsp; - &nbsp;
                 <ui:outputDate
                         value="{!v.selectedPricebook.EndDate__c}"/>
                 )
+                </aura:if>
             </h1>
 
             <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">

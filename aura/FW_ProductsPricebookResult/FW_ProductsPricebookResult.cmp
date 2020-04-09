@@ -15,18 +15,28 @@
         </div>
 
         <div class="slds-col slds-size_3-of-12">
+            <aura:if isTrue="{!not(v.isStandardPB)}">
             <ui:outputDate value="{!v.pricebook.StartDate__c}"/>
+                <aura:set attribute="else">
+                    -
+                </aura:set>
+            </aura:if>
         </div>
 
         <div class="slds-col slds-size_3-of-12">
-            <ui:outputDate value="{!v.pricebook.EndDate__c}"/>
+            <aura:if isTrue="{!not(v.isStandardPB)}">
+                <ui:outputDate value="{!v.pricebook.EndDate__c}"/>
+                <aura:set attribute="else">
+                    -
+                </aura:set>
+            </aura:if>
         </div>
 
         <div class="slds-col slds-size_2-of-12">
+            <aura:if isTrue="{!not(v.isStandardPB)}">
             <lightning:icon aura:id="editIcon" class="editIcon" iconName="action:more" alternativeText="{!$Label.c.Edit}" title="{!$Label.c.Edit}"
                             size="xx-small" onclick="{!c.showPricebookDetailsModal}"/>
 
-            <aura:if isTrue="{!not(v.isStandardPB)}">
             <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete" alternativeText="{!$Label.c.Delete}"
                             title="{!$Label.c.Delete}"
                             size="xx-small" onclick="{!c.showPricebookDeleteModal}"/>
