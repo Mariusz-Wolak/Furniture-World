@@ -19,6 +19,7 @@
     <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
                   action="{!c.receiveSearchResults}"/>
     <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
+    <aura:handler event="c:FW_SendUpdatedPricebook" action="{!c.updatePricebook}"/>
     <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent"
                   action="{!c.receiveProductToDiscount}"/>
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
@@ -36,7 +37,7 @@
 
             <div class="selectedDateDiv slds-grid">
                 <div class="slds-col slds-size_1-of-12"/>
-                <h1>From {!v.selectedPricebook.StartDate__c} to {!v.selectedPricebook.EndDate__c} </h1>
+                <h1>From <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/> to <ui:outputDate value="{!v.selectedPricebook.EndDate__c}"/> </h1>
             </div>
 
             <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">

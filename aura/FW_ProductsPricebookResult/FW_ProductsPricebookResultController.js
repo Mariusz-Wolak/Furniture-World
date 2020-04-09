@@ -11,5 +11,9 @@
 
     showPricebookDeleteModal: function(component, event, helper){
         component.set('v.showPricebookDeleteModal', true);
-    }
+    },
+
+    showPricebookDetailsModal: function(component, event, helper){
+         component.set('v.showPricebookDetailsModal', true);
+     }
 })

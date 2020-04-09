@@ -1617,4 +1617,11 @@
         <shortDescription>Add_Products_To_Selected_Price_Book</shortDescription>
         <value>Add Products To Selected Price Book</value>
     </labels>
+    <labels>
+        <fullName>Update_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update_Pricebook</shortDescription>
+        <value>Update price book</value>
+    </labels>
 </CustomLabels>

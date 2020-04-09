@@ -43,9 +43,9 @@ public with sharing class FW_ProductsDiscountManagerController {
             ];
 
             Map<String, Decimal> newProductsMapped = standardPriceMapped.clone();
-            for(String productId: standardPriceMapped.keySet()){
-                for(PricebookEntry pbe: standardEntries){
-                    if(productId == pbe.Product2Id){
+            for (String productId : standardPriceMapped.keySet()) {
+                for (PricebookEntry pbe : standardEntries) {
+                    if (productId == pbe.Product2Id) {
                         newProductsMapped.remove(productId);
                         break;
                     }
@@ -65,7 +65,7 @@ public with sharing class FW_ProductsDiscountManagerController {
             }
 
             for (String productId : discountPriceMapped.keySet()) {
-                if(newProductsMapped.containsKey(productId)){
+                if (newProductsMapped.containsKey(productId)) {
                     continue;
                 }
                 PricebookEntry newPricebookEntry = new PricebookEntry();
@@ -82,16 +82,18 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
     }
 
-    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId){
+    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId) {
         try {
-            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Id =: pricebookId];
+            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Id = :pricebookId];
             Set<String> productsIds = new Set<String>();
-            for(PricebookEntry pbe: pbeList){
+            for (PricebookEntry pbe : pbeList) {
                 productsIds.add(pbe.Product2Id);
             }
-            List<Product2> products = [SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
-                                        FROM Product2
-                                        WHERE Type__c = 'Furniture' AND Id IN:productsIds];
+            List<Product2> products = [
+                    SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+                    FROM Product2
+                    WHERE Type__c = 'Furniture' AND Id IN:productsIds
+            ];
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
             for (Product2 prod : products) {
@@ -115,17 +117,29 @@ public with sharing class FW_ProductsDiscountManagerController {
                 productsWrappedList.add(productWrapped);
             }
             return productsWrappedList;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
 
-    public static Boolean removePricebook(String pricebookId){
-        try{
+    public static Boolean removePricebook(String pricebookId) {
+        try {
             Database.DeleteResult result = Database.delete(pricebookId);
             return result.isSuccess();
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    public static Pricebook2 updatePricebook(Pricebook2 pricebook){
+        if (pricebook.StartDate__c > pricebook.EndDate__c) {
+            throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
+        }
+        try{
+            update pricebook;
+            return pricebook;
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
         }
-}
+    }
 }

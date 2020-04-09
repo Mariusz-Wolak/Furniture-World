@@ -1,44 +1,38 @@
-<aura:component description="FW_ProductsDiscountManagerPricebook" controller="FW_ProductsController"
-                implements="flexipage:availableForAllPageTypes">
+<aura:component description="FW_PricebookUpdateModal" controller="FW_ProductsController">
 
-    <aura:attribute name="showModal" type="Boolean" access="global"/>
-    <aura:attribute name="name" type="String" access="global"/>
-    <aura:attribute name="startDate" type="Date" access="global"/>
-    <aura:attribute name="endDate" type="Date" access="global"/>
-    <aura:attribute name="results" type="Object[]" access="global"/>
+    <aura:attribute name="showPricebookDetailsModal" type="Boolean" access="global"/>
+    <aura:attribute name="pricebook" type="Object" access="global"/>
 
-    <aura:registerEvent name="FW_ProductsDiscountManagerNewPricebook" type="c:FW_ProductsDiscountManagerNewPricebook"/>
+    <aura:registerEvent name="FW_SendUpdatedPricebook" type="c:FW_SendUpdatedPricebook"/>
 
-    <aura:handler event="c:FW_SendProductsToProductsList" action="{!c.receiveSearchResults}"/>
-
-    <aura:if isTrue="{!v.showModal}">
+    <aura:if isTrue="{!v.showPricebookDetailsModal}">
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                  aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
             <div class="slds-modal__container">
                 <header class="slds-modal__header">
-                    <h1 class="slds-text-heading--medium">{!$Label.c.New_Pricebook}</h1>
+                    <h1 class="slds-text-heading--medium">{!$Label.c.Update_Pricebook}</h1>
                 </header>
                 <center>
                     <div class="slds-modal__content slds-p-around--medium">
                         <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.Name}</div>
-                            <lightning:input value="{!v.name}"/>
+                            <lightning:input value="{!v.pricebook.Name}"/>
                         </div>
                         <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.Start_Date}</div>
-                            <lightning:input value="{!v.startDate}" type="date"/>
+                            <lightning:input value="{!v.pricebook.StartDate__c}" type="date"/>
                         </div>
                         <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.End_Date}</div>
-                            <lightning:input value="{!v.endDate}" type="date"/>
+                            <lightning:input value="{!v.pricebook.EndDate__c}" type="date"/>
                         </div>
                     </div>
                 </center>
                 <footer class="slds-modal__footer">
                     <lightning:button label="{!$Label.c.Cancel}"
                                       onclick="{!c.closeModal}">{!$Label.c.Cancel}</lightning:button>
-                    <lightning:button label="{!$Label.c.Add}"
-                                      onclick="{!c.addPricebook}">{!$Label.c.Add}</lightning:button>
+                    <lightning:button label="{!$Label.c.Update}"
+                                      onclick="{!c.editPricebook}">{!$Label.c.Update}</lightning:button>
                 </footer>
             </div>
         </section>

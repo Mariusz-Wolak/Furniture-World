@@ -14,6 +14,24 @@
         component.set('v.pricebooksList', pricebooksList);
     },
 
+    updatePricebook: function(component, event, helper){
+        let updatedPricebook = event.getParam('pricebook');
+        let pricebooksList = component.get('v.pricebooksList');
+        for(let i=0; i<pricebooksList.length; i++){
+            if(pricebooksList[i].Id == updatedPricebook.Id){
+                pricebooksList.splice(i, 1);
+                break;
+            }
+        }
+        pricebooksList.unshift(updatedPricebook);
+        component.set('v.pricebooksList', pricebooksList);
+
+        let selectedPricebook = component.get('v.selectedPricebook');
+        if(selectedPricebook.Id == updatedPricebook.Id){
+            component.set('v.selectedPricebook', updatedPricebook);
+        }
+    },
+
     compute: function(component, event, helper){
         let discountType = component.find('discountType').get('v.value');
         let discountValue = component.get('v.discountValue');

@@ -14,6 +14,19 @@
         component.set('v.pricebooks', pricebooksList);
     },
 
+    updatePricebook: function(component, event, helper){
+        let updatedPricebook = event.getParam('pricebook');
+        let pricebooksList = component.get('v.pricebooks');
+        for(let i=0; i<pricebooksList.length; i++){
+            if(pricebooksList[i].Id == updatedPricebook.Id){
+                pricebooksList.splice(i, 1);
+                break;
+            }
+        }
+        pricebooksList.unshift(updatedPricebook);
+        component.set('v.pricebooks', pricebooksList);
+    },
+
     refreshPricebooks: function(component, event, helper){
         helper.receivePricebooksList(component, event);
     }
