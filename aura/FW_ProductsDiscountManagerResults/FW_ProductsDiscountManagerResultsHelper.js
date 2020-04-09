@@ -22,16 +22,12 @@
         $A.enqueueAction(action);
     },
 
-    insertNewDiscount: function(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId){
-        console.log('insert new discount helper');
+    insertNewDiscount: function(component, discountPriceMapped, pricebookId){
         let action = component.get('c.insertDiscount');
         action.setParams({
-            "standardPriceMapped": standardPriceMapped,
             "discountPriceMapped": discountPriceMapped,
-            "standardPricebookId": standardPricebookId,
             "pricebookId": pricebookId
         });
-        console.log('insertDiscount params: '+JSON.stringify(action.getParams()));
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){

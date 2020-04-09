@@ -428,11 +428,8 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void insertDiscount(Map<String, Decimal> standardPriceMapped, Map<String, Decimal> discountPriceMapped,
-            String standardPricebookId, String
-            pricebookId) {
-        FW_ProductsDiscountManagerController.insertDiscount(standardPriceMapped,discountPriceMapped, standardPricebookId, 
-                pricebookId);
+    public static void insertDiscount(Map<String, Decimal> discountPriceMapped, String pricebookId) {
+        FW_ProductsDiscountManagerController.insertDiscount(discountPriceMapped, pricebookId);
     }
 
     @AuraEnabled

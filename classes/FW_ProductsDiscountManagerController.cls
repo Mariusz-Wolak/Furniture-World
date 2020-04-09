@@ -34,48 +34,13 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
     }
 
-    public static void insertDiscount(Map<String, Decimal> standardPriceMapped, Map<String, Decimal> discountPriceMapped,
-            String standardPricebookId, String pricebookId) {
+    public static void insertDiscount(Map<String, Decimal> discountPriceMapped, String pricebookId) {
         try {
-            List<Pricebook2> standardPricebook = [SELECT Id FROM Pricebook2 WHERE Name = 'Standard Price Book'];
-            List<PricebookEntry> standardEntries = [
-                    SELECT Product2Id, Pricebook2Id, UnitPrice
-                    FROM PricebookEntry
-                    WHERE Product2Id IN :
-                            standardPriceMapped.keySet() AND Pricebook2Id = :standardPricebook[0].Id
-            ];
-
-            Map<String, Decimal> newProductsMapped = standardPriceMapped.clone();
-            for (String productId : standardPriceMapped.keySet()) {
-                for (PricebookEntry pbe : standardEntries) {
-                    if (productId == pbe.Product2Id) {
-                        newProductsMapped.remove(productId);
-                        break;
-                    }
-                }
-            }
-
             List<PricebookEntry> pricebookEntries = new List<PricebookEntry>();
-
-            for (String productId : newProductsMapped.keySet()) {
-                PricebookEntry newPricebookEntry = new PricebookEntry();
-                newPricebookEntry.Pricebook2Id = standardPricebook[0].Id;
-                newPricebookEntry.Product2Id = productId;
-                newPricebookEntry.UnitPrice = newProductsMapped.get(productId);
-                newPricebookEntry.UseStandardPrice = false;
-                newPricebookEntry.isActive = true;
-                pricebookEntries.add(newPricebookEntry);
-            }
-
             List<PricebookEntry> pbeList = [SELECT Pricebook2Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id =: pricebookId AND
             Product2Id IN:discountPriceMapped.keySet()];
 
-
-
             for (String productId : discountPriceMapped.keySet()) {
-                if (newProductsMapped.containsKey(productId)) {
-                    continue;
-                }
 
                 for(PricebookEntry pbe: pbeList){
                     if(productId == pbe.Product2Id){
@@ -84,19 +49,9 @@ public with sharing class FW_ProductsDiscountManagerController {
                         discountPriceMapped.remove(productId);
                     }
                 }
-//                PricebookEntry newPricebookEntry = new PricebookEntry();
-//                newPricebookEntry.Pricebook2Id = pricebookId;
-//                newPricebookEntry.Product2Id = productId;
-//                newPricebookEntry.UnitPrice = discountPriceMapped.get(productId);
-//                newPricebookEntry.UseStandardPrice = false;
-//                newPricebookEntry.isActive = true;
-//                pricebookEntries.add(newPricebookEntry);
             }
 
             for (String productId : discountPriceMapped.keySet()) {
-                if (newProductsMapped.containsKey(productId)) {
-                    continue;
-                }
                 PricebookEntry newPricebookEntry = new PricebookEntry();
                 newPricebookEntry.Pricebook2Id = pricebookId;
                 newPricebookEntry.Product2Id = productId;
@@ -105,9 +60,6 @@ public with sharing class FW_ProductsDiscountManagerController {
                 newPricebookEntry.isActive = true;
                 pricebookEntries.add(newPricebookEntry);
             }
-
-
-
             upsert pricebookEntries;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -126,6 +78,9 @@ public with sharing class FW_ProductsDiscountManagerController {
                     FROM Product2
                     WHERE Type__c = 'Furniture' AND Id IN:productsIds
             ];
+
+            List<PricebookEntry> standardPB = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Name = 'Standard Price Book'];
+
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
             for (Product2 prod : products) {
@@ -141,8 +96,14 @@ public with sharing class FW_ProductsDiscountManagerController {
 
                 for (PricebookEntry pbe : pbeList) {
                     if (prod.Id == pbe.Product2Id) {
-                        productWrapped.price = pbe.UnitPrice;
+                        productWrapped.discountPrice = pbe.UnitPrice;
                         productWrapped.pricebookEntryId = pbe.Id;
+                    }
+                }
+
+                for (PricebookEntry pbe : standardPB) {
+                    if (prod.Id == pbe.Product2Id) {
+                        productWrapped.price = pbe.UnitPrice;
                     }
                 }
 
@@ -152,6 +113,47 @@ public with sharing class FW_ProductsDiscountManagerController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+
+
+
+
+//        try {
+//            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Id = :pricebookId];
+//            Set<String> productsIds = new Set<String>();
+//            for (PricebookEntry pbe : pbeList) {
+//                productsIds.add(pbe.Product2Id);
+//            }
+//            List<Product2> products = [
+//                    SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c
+//                    FROM Product2
+//                    WHERE Type__c = 'Furniture' AND Id IN:productsIds
+//            ];
+//            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
+//
+//            for (Product2 prod : products) {
+//                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+//                productWrapped.id = prod.Id;
+//                productWrapped.displayUrl = prod.DisplayUrl;
+//                productWrapped.description = prod.Description;
+//                productWrapped.name = prod.Name;
+//                productWrapped.type = prod.Type__c;
+//                productWrapped.family = prod.Family;
+//                productWrapped.observedItems = prod.FW_ObservedItems__r;
+//                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
+//
+//                for (PricebookEntry pbe : pbeList) {
+//                    if (prod.Id == pbe.Product2Id) {
+//                        productWrapped.price = pbe.UnitPrice;
+//                        productWrapped.pricebookEntryId = pbe.Id;
+//                    }
+//                }
+//
+//                productsWrappedList.add(productWrapped);
+//            }
+//            return productsWrappedList;
+//        } catch (Exception e) {
+//            throw new AuraHandledException(e.getMessage());
+//        }
     }
 
     public static Boolean removePricebook(String pricebookId) {

@@ -45,7 +45,6 @@
         let discountValue = component.get('v.discountValue');
         let singleProductCmp = component.find('singleProduct');
 
-        console.log('length: '+singleProductCmp.length);
         if(singleProductCmp.length == undefined){
             console.log('undefined');
             singleProductCmp.passDiscountValues(discountType, discountValue);
@@ -75,61 +74,48 @@
         }
     },
 
-    selectAll: function(component, event, helper){
-        let checkboxVal = component.find('selectAllCheckbox').get('v.value');
-        let selectAllEvent = $A.get('e.c:FW_ProductsDiscountManagerSelectAllEvent');
-        selectAllEvent.setParams({
-            "selectAll": checkboxVal
-        });
-        selectAllEvent.fire();
-    },
+//    selectAll: function(component, event, helper){
+//        let checkboxVal = component.find('selectAllCheckbox').get('v.value');
+//        let selectAllEvent = $A.get('e.c:FW_ProductsDiscountManagerSelectAllEvent');
+//        selectAllEvent.setParams({
+//            "selectAll": checkboxVal
+//        });
+//        selectAllEvent.fire();
+//    },
 
     setDiscount: function(component, event, helper){
-        console.log('set prices clicked');
         let singleProductCmp = component.find('singleProduct');
-        console.log('after getting singleProductCmp');
-        console.log('singleProductCmp: '+singleProductCmp);
-        for(let i=0; i<singleProductCmp.length; i++){
-            console.log(i);
-            console.log('singleProductCmp passSelectedProducts');
-            singleProductCmp[i].passSelectedProducts();
+        if(singleProductCmp.length == undefined){
+            singleProductCmp.passSelectedProducts();
+        }else{
+            for(let i=0; i<singleProductCmp.length; i++){
+                singleProductCmp[i].passSelectedProducts();
+            }
         }
     },
 
     receiveProductToDiscount: function(component, event, helper){
-        console.log('receive ProductToDiscount');
         let isError = false;
         let productToDiscount = event.getParam('productToDiscount');
         let productsToDiscountList = component.get('v.productsToDiscountList');
         productsToDiscountList.push(productToDiscount);
-        console.log('przed sprawdzeniem length');
-        console.log('productsToDiscountList.length: '+productsToDiscountList.length);
-        console.log('cmp get results length: '+component.get('v.resultsFromSelectedPricebook').length);
         if(productsToDiscountList.length == component.get('v.resultsFromSelectedPricebook').length){
-            console.log('length sie zgadza, teraz mapping');
             let discountPriceMapped = new Map();
-            let standardPriceMapped = new Map();
-            let standardPricebookId = component.get('v.standardPricebookId');
 
             for(let i=0; i<productsToDiscountList.length; i++){
                 if(productsToDiscountList[i].isError){
                     isError = true;
                     break;
                 }
-                if(productsToDiscountList[i].isSelected){
                     discountPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].priceAfterDiscount;
-                    standardPriceMapped[productsToDiscountList[i].product.id] = productsToDiscountList[i].product.price;
-                }
             }
             if(!isError){
-                console.log('nie ma errora');
-//                let pricebookId = component.find('pricebooksSelect').get('v.value');
                 let pricebookId = component.get('v.selectedPricebook').Id;
-                console.log('pricebookId before insert discount: '+pricebookId);
-                helper.insertNewDiscount(component, standardPriceMapped, discountPriceMapped, standardPricebookId, pricebookId);
+                helper.insertNewDiscount(component, discountPriceMapped, pricebookId);
             }
             productsToDiscountList = [];
             component.set('v.productsToDiscountList', productsToDiscountList);
+            component.set('v.discountValue', null);
         }
     },
 

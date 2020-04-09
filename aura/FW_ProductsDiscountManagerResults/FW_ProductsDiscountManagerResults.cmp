@@ -40,12 +40,6 @@
 
             <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">
                 <div class="optionsDiv">
-<!--                    <div class="inlineDiv">-->
-<!--                        <ui:inputCheckbox aura:id="selectAllCheckbox" change="{!c.selectAll}"/>-->
-<!--                    </div>-->
-<!--                    <div class="checkboxLabel">-->
-<!--                        {!$Label.c.Select_All}-->
-<!--                    </div>-->
                     <div class="inlineDiv discountOptionDiv">
                         <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Discount_Value}" onchange="{!c.compute}"
                                          label="{!$Label.c.Discount_Value}"/>
@@ -60,10 +54,6 @@
                     <div class="inlineDiv buttonSetPrices">
                         <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                     </div>
-
-<!--                    <div class="inlineDiv buttonSetPrices">-->
-<!--                        <lightning:button label="Remove selected" onclick="{!c.setDiscount}"/>-->
-<!--                    </div>-->
                 </div>
 
                 <div class="scroll slds-scrollable_y" style="display: block; clear: both">
@@ -77,57 +67,6 @@
                     </div>
                 </aura:set>
             </aura:if>
-
-
-            <!--        <div class="slds-grid">-->
-            <!--            <div class="slds-col slds-size_7-of-12">-->
-            <!--                <h1 class="header">{!$Label.c.Set_Discount}</h1>-->
-
-            <!--                <div class="infoDiv slds-grid slds-wrap">-->
-            <!--                    <div class="slds-col slds-size_8-of-12"/>-->
-            <!--                    <div class="slds-col slds-size_2-of-12">-->
-            <!--                        <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Value}" onchange="{!c.compute}"-->
-            <!--                                         label="{!$Label.c.Value}"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="slds-col slds-size_2-of-12">-->
-            <!--                        <lightning:select aura:id="discountType" onchange="{!c.compute}" label="{!$Label.c.Type}">-->
-            <!--                            <option value="%">%</option>-->
-            <!--                            <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>-->
-            <!--                        </lightning:select>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="infoDiv slds-grid">-->
-            <!--                    <div class="slds-col slds-size_4-of-12">-->
-            <!--                        <lightning:select aura:id="pricebooksSelect" onchange="{!c.getPricebook}" label="{!$Label.c.Pricebook}">-->
-            <!--                            <aura:iteration items="{!v.pricebooksList}" var="pricebook">-->
-            <!--                                <option value="{!pricebook.Id}" label="{!pricebook.Name}"/>-->
-            <!--                            </aura:iteration>-->
-            <!--                        </lightning:select>-->
-            <!--                    </div>-->
-            <!--                    <div class="slds-col slds-size_3-of-12">-->
-            <!--                        <lightning:input value="{!v.pricebookStartDate}" placeholder="{!$Label.c.Start_Date}" disabled="true"-->
-            <!--                                         label="{!$Label.c.Start_Date}"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="slds-col slds-size_3-of-12">-->
-            <!--                        <lightning:input value="{!v.pricebookEndDate}" placeholder="{!$Label.c.End_Date}" disabled="true"-->
-            <!--                                         label="{!$Label.c.End_Date}"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="button slds-col slds-size_2-of-12 slds-text-align_right">-->
-            <!--                        <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-
-
-            <!--            <div class="slds-col slds-size_1-of-12"/>-->
-
-            <!--            <div class="searchBarDiv slds-col slds-size_4-of-12">-->
-            <!--                <c:FW_ProductsDiscountManagerSearchBar aura:id="searchBar"/>-->
-            <!--            </div>-->
-
-
-            <!--        </div>-->
 
 
         </lightning:card>

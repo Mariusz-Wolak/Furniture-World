@@ -34,29 +34,27 @@
     },
 
     passSelectedProducts: function(component, event, helper){
-        console.log('start tkaing prices f');
         let product = component.get('v.product');
-        console.log('start taking prices from product: '+product.name);
-        let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
+//        let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
         let priceAfterDiscount = component.get('v.priceAfterDiscount');
-        let isSelected = component.find('checkbox').get('v.value');
+//        let isSelected = component.find('checkbox').get('v.value');
         let isError = false;
 
-        if(standardPriceInputDisabled && isSelected && !priceAfterDiscount > 0){
+        if(!priceAfterDiscount > 0){
             component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
             isError = true;
         }
-        else if(!standardPriceInputDisabled && isSelected && !product.price > 0){
-            component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
-            isError = true;
-        }
-        if(!standardPriceInputDisabled){
-            priceAfterDiscount = null;
-        }
+//        else if(!standardPriceInputDisabled && isSelected && !product.price > 0){
+//            component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
+//            isError = true;
+//        }
+//        if(!standardPriceInputDisabled){
+//            priceAfterDiscount = null;
+//        }
         let productToDiscount = {
             product: product,
             priceAfterDiscount: priceAfterDiscount,
-            isSelected: isSelected,
+//            isSelected: isSelected,
             isError: isError
         }
 
