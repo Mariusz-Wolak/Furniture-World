@@ -67,6 +67,32 @@ public with sharing class FW_ProductsDiscountManagerController {
                 pricebookEntries.add(newPricebookEntry);
             }
 
+            List<PricebookEntry> pbeList = [SELECT Pricebook2Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id =: pricebookId AND
+            Product2Id IN:discountPriceMapped.keySet()];
+
+
+
+            for (String productId : discountPriceMapped.keySet()) {
+                if (newProductsMapped.containsKey(productId)) {
+                    continue;
+                }
+
+                for(PricebookEntry pbe: pbeList){
+                    if(productId == pbe.Product2Id){
+                        pbe.UnitPrice = discountPriceMapped.get(productId);
+                        pricebookEntries.add(pbe);
+                        discountPriceMapped.remove(productId);
+                    }
+                }
+//                PricebookEntry newPricebookEntry = new PricebookEntry();
+//                newPricebookEntry.Pricebook2Id = pricebookId;
+//                newPricebookEntry.Product2Id = productId;
+//                newPricebookEntry.UnitPrice = discountPriceMapped.get(productId);
+//                newPricebookEntry.UseStandardPrice = false;
+//                newPricebookEntry.isActive = true;
+//                pricebookEntries.add(newPricebookEntry);
+            }
+
             for (String productId : discountPriceMapped.keySet()) {
                 if (newProductsMapped.containsKey(productId)) {
                     continue;
@@ -79,6 +105,9 @@ public with sharing class FW_ProductsDiscountManagerController {
                 newPricebookEntry.isActive = true;
                 pricebookEntries.add(newPricebookEntry);
             }
+
+
+
             upsert pricebookEntries;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
