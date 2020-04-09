@@ -122,7 +122,7 @@
     selectPricebook: function(component, event, helper){
         let pricebook = event.getParam('pricebook');
         component.set('v.selectedPricebook', pricebook);
-        helper.receiveProductsFromPricebook(component, pricebook);
+        helper.receiveProductsFromPricebook(component, event);
     },
 
     addProductToPricebookList: function(component, event, helper){

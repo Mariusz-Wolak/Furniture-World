@@ -32,7 +32,8 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Prices_Saved_Successfully"));
-                component.find('searchBar').search();
+                this.receiveProductsFromPricebook(component, event);
+//                component.find('searchBar').search();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
@@ -40,7 +41,8 @@
         $A.enqueueAction(action);
     },
 
-    receiveProductsFromPricebook: function(component, pricebook){
+    receiveProductsFromPricebook: function(component, event){
+        let pricebook = component.get('v.selectedPricebook');
         let action = component.get('c.getProductsFromPricebook');
         action.setParams({
             "pricebookId": pricebook.Id
