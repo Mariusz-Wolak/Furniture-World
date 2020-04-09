@@ -17,12 +17,6 @@
     margin-top: 25px;
 }
 
-.THIS .button{
-    margin-left: -15px;
-    margin-top: 25px;
-    font-size: 25px;
-}
-
 .THIS .scroll{
     margin-top: 80px;
     height: 38rem;
@@ -40,9 +34,9 @@
 }
 
 .THIS .inlineDiv{
-    margin-left: 20px;
+    margin-right: 20px;
     display: inline-block;
-    float: left;
+    float: right;
 }
 
 .THIS .checkboxLabel{
@@ -61,5 +55,6 @@
 }
 
 .THIS .buttonSetPrices{
+    margin-right: 80px;
     margin-top: -6px;
 }

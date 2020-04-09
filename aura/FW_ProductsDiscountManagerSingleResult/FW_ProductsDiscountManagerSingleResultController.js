@@ -1,9 +1,10 @@
 ({
     onInit: function(component, event, helper){
-        component.set('v.standardPriceInputDisabled', true);
-        let price = component.get('v.product.price');
-        if(price == null){
-            component.set('v.standardPriceInputDisabled', false);
+        let pricebook = component.get('v.selectedPricebook');
+        if(pricebook.Name === 'Standard Price Book'){
+            component.set('v.isStandardPB', true);
+        }else{
+            component.set('v.isStandardPB', false);
         }
     },
 
@@ -67,5 +68,5 @@
 
     showDeleteProductModal: function(component, event, helper){
         component.set('v.showDeleteProductModal', true);
-    },
+    }
 })

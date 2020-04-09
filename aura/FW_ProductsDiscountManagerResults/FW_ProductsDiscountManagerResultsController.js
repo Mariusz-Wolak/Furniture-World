@@ -122,6 +122,12 @@
     selectPricebook: function(component, event, helper){
         let pricebook = event.getParam('pricebook');
         component.set('v.selectedPricebook', pricebook);
+
+        if(pricebook.Name === 'Standard Price Book'){
+            component.set('v.isStandardPB', true);
+        }else{
+            component.set('v.isStandardPB', false);
+        }
         helper.receiveProductsFromPricebook(component, event);
     },
 
