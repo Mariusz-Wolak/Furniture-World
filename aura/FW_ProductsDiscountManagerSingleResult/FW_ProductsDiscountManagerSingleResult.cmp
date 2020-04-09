@@ -46,8 +46,8 @@
         </div>
 
         <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
-            <lightning:icon aura:id="removeIcon" class="removeIcon" iconName="action:remove" alternativeText="{!$Label.c.Remove}" title="{!$Label.c.Remove}"
-                            size="xx-small" onclick="{!c.removeFromPricebook}"/>
+            <lightning:icon aura:id="removeIcon" class="removeIcon" iconName="utility:chevronleft" alternativeText="{!$Label.c.Remove}" title="{!$Label.c.Remove}"
+                            size="medium" onclick="{!c.removeFromPricebook}"/>
         </div>
     </div>
 
