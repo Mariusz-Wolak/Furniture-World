@@ -23,11 +23,11 @@
     margin-right: 10px;
 }
 
-.THIS .removeIcon svg{
-    fill: red;
+.THIS .removeIcon{
+    background: red;
 }
 
-.THIS .removeIcon:hover svg{
+.THIS .removeIcon:hover{
     cursor: pointer;
-    fill: darkred;
+    background: darkred;
 }

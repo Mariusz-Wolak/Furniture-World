@@ -14,6 +14,7 @@
 
     <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
     <aura:registerEvent name="FW_SendProductsFromPricebook" type="c:FW_SendProductsFromPricebook"/>
+    <aura:registerEvent name="FW_SendSelectedPricebook" type="c:FW_SendSelectedPricebook"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
@@ -26,6 +27,7 @@
     <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
     <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.removeProductFromPricebook}"/>
     <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
+    <aura:handler event="c:FW_GetSelectedPricebook" action="{!c.sendSelectedPricebook}"/>
 
 
     <aura:if isTrue="{!v.selectedPricebook}">
@@ -58,7 +60,7 @@
 
                 <div class="scroll slds-scrollable_y" style="display: block; clear: both">
                     <aura:iteration items="{!v.resultsFromSelectedPricebook}" var="product">
-                        <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}"/>
+                        <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}" selectedPricebook="{!v.selectedPricebook}"/>
                     </aura:iteration>
                 </div>
                 <aura:set attribute="else">

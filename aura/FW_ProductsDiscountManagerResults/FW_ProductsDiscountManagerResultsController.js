@@ -143,5 +143,13 @@
             }
         }
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
+    },
+
+    sendSelectedPricebook: function(component, event, helper){
+        let sendPricebookEvent = $A.get("e.c:FW_SendSelectedPricebook");
+        sendPricebookEvent.setParams({
+           "pricebook": component.get('v.selectedPricebook')
+        });
+        sendPricebookEvent.fire();
     }
 })

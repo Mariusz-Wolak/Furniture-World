@@ -446,4 +446,9 @@ public with sharing class FW_ProductsController {
     public static Pricebook2 updatePricebook(Pricebook2 pricebook){
         return FW_ProductsDiscountManagerController.updatePricebook(pricebook);
     }
+
+    @AuraEnabled
+    public static void deleteProductFromPricebook(String productId, String pricebookId){
+        FW_ProductsDiscountManagerController.deleteProductFromPricebook(productId, pricebookId);
+    }
 }
