@@ -1,6 +1,5 @@
 ({
     selectPricebook: function(component, event, helper){
-        console.log('select pb');
         let pricebook = component.get('v.pricebook');
         let appEvent = $A.get('e.c:FW_SelectedPricebook');
         appEvent.setParams({
@@ -16,6 +15,4 @@
     showPricebookDetailsModal: function(component, event, helper){
          component.set('v.showPricebookDetailsModal', true);
      }
-
-
 })
