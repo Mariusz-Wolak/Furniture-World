@@ -13,5 +13,12 @@
 
 .THIS .scroll{
     margin-top: 19px;
-    height: 16rem;
+    height: 15rem;
+}
+
+.THIS .addAllButton{
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-bottom: 6px;
+    float: right;
 }
