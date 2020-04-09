@@ -1,5 +1,8 @@
 public with sharing class FW_ProductsDiscountManagerController {
     public static Object insertPricebook(String name, Date startDate, Date endDate) {
+        if(String.isBlank(name) || startDate==null || endDate==null){
+            throw new AuraHandledException('Please fill in given inputs.');
+        }
         if (startDate > endDate) {
             throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
         }
@@ -132,6 +135,9 @@ public with sharing class FW_ProductsDiscountManagerController {
     }
 
     public static Pricebook2 updatePricebook(Pricebook2 pricebook){
+        if(String.isBlank(pricebook.Name) || pricebook.StartDate__c==null || pricebook.EndDate__c==null){
+            throw new AuraHandledException('Please fill in given inputs.');
+        }
         if (pricebook.StartDate__c > pricebook.EndDate__c) {
             throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
         }
