@@ -13,6 +13,7 @@
     <aura:attribute name="selectedPricebook" type="Object" access="global"/>
 
     <aura:attribute name="isStandardPB" type="Boolean" access="global"/>
+    <aura:attribute name="showPricebookClearModal" type="Boolean" access="global"/>
 
     <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
     <aura:registerEvent name="FW_SendProductsFromPricebook" type="c:FW_SendProductsFromPricebook"/>
@@ -31,7 +32,7 @@
     <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
     <aura:handler event="c:FW_GetSelectedPricebook" action="{!c.sendSelectedPricebook}"/>
     <aura:handler event="c:FW_SendAllSearchResultsToPricebook" action="{!c.addSearchResultsToPricebook}"/>
-
+    <aura:handler event="c:FW_SendClearedProductsFromPricebook" action="{!c.handleClearedProducts}"/>
 
 
     <aura:if isTrue="{!v.selectedPricebook}">
@@ -39,11 +40,11 @@
             <h1 class="header slds-align_absolute-center">{!v.selectedPricebook.Name} &nbsp;
 
                 <aura:if isTrue="{!not(v.isStandardPB)}">(
-                <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/>
-                &nbsp; - &nbsp;
-                <ui:outputDate
-                        value="{!v.selectedPricebook.EndDate__c}"/>
-                )
+                    <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/>
+                    &nbsp; - &nbsp;
+                    <ui:outputDate
+                            value="{!v.selectedPricebook.EndDate__c}"/>
+                    )
                 </aura:if>
             </h1>
 
@@ -68,9 +69,11 @@
                         <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                     </div>
 
-                    <div class="buttonClearPricebook">
-                        <lightning:button label="Clear Price Book" onclick="{!c.clearPricebook}" variant="destructive"/>
-                    </div>
+                    <aura:if isTrue="{!not(v.isStandardPB)}">
+                        <div class="buttonClearPricebook">
+                            <lightning:button label="Clear Price Book" onclick="{!c.clearPricebook}" variant="destructive"/>
+                        </div>
+                    </aura:if>
                 </div>
 
                 <div class="scroll slds-scrollable_y" style="display: block; clear: both;">
@@ -97,5 +100,7 @@
 
     </aura:if>
 
+    <c:FW_DiscountPricebookClearModal resultsFromSelectedPricebook="{!v.resultsFromSelectedPricebook}" pricebook="{!v.selectedPricebook}"
+                                      showPricebookClearModal="{!v.showPricebookClearModal}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

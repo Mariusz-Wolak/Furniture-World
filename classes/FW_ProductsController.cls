@@ -451,4 +451,9 @@ public with sharing class FW_ProductsController {
     public static void deleteProductFromPricebook(String productId, String pricebookId){
         FW_ProductsDiscountManagerController.deleteProductFromPricebook(productId, pricebookId);
     }
+
+    @AuraEnabled
+    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<FW_ProductWrapped> products){
+        FW_ProductsDiscountManagerController.removeProductsFromPricebook(pricebook, products);
+    }
 }

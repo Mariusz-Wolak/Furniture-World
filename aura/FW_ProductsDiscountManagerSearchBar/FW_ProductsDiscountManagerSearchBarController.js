@@ -64,5 +64,13 @@
 
     clearResults: function(component, event, helper){
         component.set('v.results', null);
+    },
+
+    handleClearedProducts: function(component, event, helper){
+        console.log('receive removed list from PB');
+        let products = event.getParam('products');
+        let results = component.get('v.results');
+        results.unshift(product);
+        component.set('v.results', results);
     }
 })

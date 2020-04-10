@@ -7,7 +7,6 @@
         console.log('pricebook: '+JSON.stringify(pricebook));
 
 
-
         let sendRemovedProductEvent = $A.get('e.c:FW_SendRemovedProductFromPricebook');
         sendRemovedProductEvent.setParams({
             "product": product

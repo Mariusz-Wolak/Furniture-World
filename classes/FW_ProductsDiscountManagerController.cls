@@ -1,14 +1,14 @@
 public with sharing class FW_ProductsDiscountManagerController {
     public static Object insertPricebook(String name, Date startDate, Date endDate) {
-        if(String.isBlank(name) || startDate==null || endDate==null){
+        if (String.isBlank(name) || startDate == null || endDate == null) {
             throw new AuraHandledException('Please fill in given inputs.');
         }
         if (startDate > endDate) {
             throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
         }
         List<Pricebook2> pricebooks = [Select Id, Name FROM Pricebook2];
-        for(Pricebook2 pb: pricebooks){
-            if(pb.Name == name){
+        for (Pricebook2 pb : pricebooks) {
+            if (pb.Name == name) {
                 throw new AuraHandledException('This name is already in use');
             }
         }
@@ -44,13 +44,17 @@ public with sharing class FW_ProductsDiscountManagerController {
         try {
             List<PricebookEntry> pricebookEntries = new List<PricebookEntry>();
 
-            List<PricebookEntry> pbeList = [SELECT Pricebook2Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id =: pricebookId AND
-            Product2Id IN:discountPriceMapped.keySet()];
+            List<PricebookEntry> pbeList = [
+                    SELECT Pricebook2Id, Product2Id, UnitPrice
+                    FROM PricebookEntry
+                    WHERE Pricebook2Id = :pricebookId AND
+                    Product2Id IN:discountPriceMapped.keySet()
+            ];
 
             for (String productId : discountPriceMapped.keySet()) {
 
-                for(PricebookEntry pbe: pbeList){
-                    if(productId == pbe.Product2Id){
+                for (PricebookEntry pbe : pbeList) {
+                    if (productId == pbe.Product2Id) {
                         pbe.UnitPrice = discountPriceMapped.get(productId);
                         pricebookEntries.add(pbe);
                         discountPriceMapped.remove(productId);
@@ -122,8 +126,6 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
 
 
-
-
 //        try {
 //            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Pricebook2.Id = :pricebookId];
 //            Set<String> productsIds = new Set<String>();
@@ -172,29 +174,52 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
     }
 
-    public static Pricebook2 updatePricebook(Pricebook2 pricebook){
-        if(String.isBlank(pricebook.Name) || pricebook.StartDate__c==null || pricebook.EndDate__c==null){
+    public static Pricebook2 updatePricebook(Pricebook2 pricebook) {
+        if (String.isBlank(pricebook.Name) || pricebook.StartDate__c == null || pricebook.EndDate__c == null) {
             throw new AuraHandledException('Please fill in given inputs.');
         }
         if (pricebook.StartDate__c > pricebook.EndDate__c) {
             throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
         }
-        try{
+        try {
             update pricebook;
             return pricebook;
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
 
-    public static void deleteProductFromPricebook(String productId, String pricebookId){
-        try{
-            List<PricebookEntry> pbeList = [SELECT Id, Product2Id, Pricebook2Id FROM PricebookEntry WHERE Product2Id=:productId AND Pricebook2Id =:
-                    pricebookId];
-            if(!pbeList.isEmpty()){
+    public static void deleteProductFromPricebook(String productId, String pricebookId) {
+        try {
+            List<PricebookEntry> pbeList = [
+                    SELECT Id, Product2Id, Pricebook2Id
+                    FROM PricebookEntry
+                    WHERE Product2Id = :productId AND Pricebook2Id = :
+                            pricebookId
+            ];
+            if (!pbeList.isEmpty()) {
                 delete pbeList;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<FW_ProductWrapped> products) {
+        try {
+            Set<String> productsIds = new Set<String>();
+            for (FW_ProductWrapped prod : products) {
+                productsIds.add(prod.id);
+            }
+
+            List<PricebookEntry> pbeList = [
+                    SELECT Id, Product2Id, Pricebook2Id
+                    FROM PricebookEntry
+                    WHERE Product2Id IN :productsIds AND
+                    Pricebook2Id = :pricebook.Id
+            ];
+            delete pbeList;
+        } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }

@@ -167,5 +167,13 @@
         let currentResults = component.get('v.resultsFromSelectedPricebook');
         let resultsToShow = resultsFromSearch.concat(currentResults);
         component.set('v.resultsFromSelectedPricebook', resultsToShow)
+    },
+
+    clearPricebook: function(component, event, helper){
+        component.set('v.showPricebookClearModal', true);
+    },
+
+    handleClearedProducts: function(component, event, helper){
+        component.set('v.resultsFromSelectedPricebook', null);
     }
 })
