@@ -5,6 +5,7 @@
     <aura:attribute name="commentText" type="String" access="global"/>
     <aura:attribute name="commentsList" type="Object[]" access="global"/>
     <aura:attribute name="rating" type="Integer" access="global"/>
+    <aura:attribute name="productId" type="String" access="global"/>
 
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
@@ -18,11 +19,12 @@
     <aura:handler name="observedProductsManagerEvent" event="c:FW_ProductsObservedManagerResponse"
                   action="{!c.toggleObserveIcon}"/>
     <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
+    <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.checkIfIsObserved}"/>
 
     <div class="slds-grid">
 
         <div class="slds-col slds-size_7-of-12">
-        <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
+            <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
         </div>
 
         <div class="slds-col slds-size--5-of-12">
@@ -30,7 +32,13 @@
 
             <div class="productFamily">{!v.product.family}</div>
 
-            <div class="productPrice">€{!v.product.price}</div>
+            <aura:if isTrue="{!v.product.discountPrice}">
+                <div class="productPrice ">€{!v.product.discountPrice}</div>
+                <div class="crossedPriceView strikethrough">€{!v.product.price}</div>
+                <aura:set attribute="else">
+                    <div class="productPrice">€{!v.product.price}</div>
+                </aura:set>
+            </aura:if>
 
             <div class="productDescription">{!v.product.description}</div>
 
@@ -56,7 +64,7 @@
 
     <aura:if isTrue="{!empty(v.commentsList)}">
         <div class="singleComment">
-                <div class="commentText">{!$Label.c.No_One_Rated_This_Item_Yet_Be_First}</div>
+            <div class="commentText">{!$Label.c.No_One_Rated_This_Item_Yet_Be_First}</div>
         </div>
     </aura:if>
 
@@ -93,7 +101,7 @@
     </div>
 
     <div class="sectionHeader">
-        {!v.header}
+            {!v.header}
     </div>
 
     <div class="slds-grid slds-wrap">

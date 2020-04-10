@@ -1,0 +1,20 @@
+
+.THIS.result{
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.THIS .productName{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.THIS .addIcon svg{
+    fill: green;
+}
+
+.THIS .addIcon:hover svg{
+    cursor: pointer;
+    fill: darkgreen;
+}

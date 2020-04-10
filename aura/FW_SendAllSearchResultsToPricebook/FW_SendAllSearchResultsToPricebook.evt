@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="FW_SendAllSearchResultsToPricebook">
+    <aura:attribute name="results" type="Object[]" access="global"/>
+</aura:event>

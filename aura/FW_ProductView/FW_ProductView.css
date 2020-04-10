@@ -9,9 +9,17 @@
 }
 
 .THIS .productPrice{
+    display: inline-block;
     font-size: 32px;
     font-style: italic;
     font-weight: bold;
+}
+
+.THIS .crossedPriceView{
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 26px;
+    font-style: italic;
 }
 
 .THIS .productDescription{
@@ -86,4 +94,24 @@
 
 .THIS .selectedMiniature{
     border: 2px solid black;
+}
+
+.THIS .strikethrough {
+  position: relative;
+}
+
+.THIS .strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  -webkit-transform:rotate(-5deg);
+  -moz-transform:rotate(-5deg);
+  -ms-transform:rotate(-5deg);
+  -o-transform:rotate(-5deg);
+  transform:rotate(-5deg);
 }

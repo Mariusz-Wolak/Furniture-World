@@ -2,7 +2,7 @@
     loadMainPhoto: function(component, event, helper){
         let getMainPhotoAction = component.get('c.getMainPhoto');
         getMainPhotoAction.setParams({
-           "productId": component.get('v.recordId')
+           "productId": component.get('v.productId')
         });
         getMainPhotoAction.setCallback(this, function(response){
             let state = response.getState();
@@ -22,7 +22,7 @@
     doLoadPhotos: function(component, mainPhotoUrl){
         let loadPhotosAction = component.get('c.loadPhotos');
         loadPhotosAction.setParams({
-           "id": component.get('v.recordId')
+           "id": component.get('v.productId')
         });
         loadPhotosAction.setCallback(this, function(response){
             let state = response.getState();
@@ -45,8 +45,6 @@
 
                 }
                 component.set('v.photosObjects', photosObjects);
-                for(let i=0; i<photosObjects.length; i++){
-                }
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

@@ -1414,4 +1414,214 @@
         <shortDescription>Upload_Has_Been_Finished_Successfully</shortDescription>
         <value>Upload has been finished successfully.</value>
     </labels>
+    <labels>
+        <fullName>Raw</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Raw</shortDescription>
+        <value>Raw</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Manager</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Manager</shortDescription>
+        <value>Discount Manager</value>
+    </labels>
+    <labels>
+        <fullName>Set_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set_Discount</shortDescription>
+        <value>Set Discount</value>
+    </labels>
+    <labels>
+        <fullName>Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>Current_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current_Price</shortDescription>
+        <value>Current Price</value>
+    </labels>
+    <labels>
+        <fullName>Standard_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Standard_Price</shortDescription>
+        <value>Standard Price</value>
+    </labels>
+    <labels>
+        <fullName>Price_After_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price_After_Discount</shortDescription>
+        <value>Price After Discount</value>
+    </labels>
+    <labels>
+        <fullName>New_Price_Book</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Price_Book</shortDescription>
+        <value>New Price Book</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Value</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Value</shortDescription>
+        <value>Discount Value</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Type</shortDescription>
+        <value>Discount Type</value>
+    </labels>
+    <labels>
+        <fullName>Start_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start_Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Set_Prices</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set_Prices</shortDescription>
+        <value>Set Prices</value>
+    </labels>
+    <labels>
+        <fullName>End_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End_Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook</shortDescription>
+        <value>Pricebook</value>
+    </labels>
+    <labels>
+        <fullName>Compute</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compute</shortDescription>
+        <value>Compute</value>
+    </labels>
+    <labels>
+        <fullName>Search_For_Product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search_For_Product</shortDescription>
+        <value>Search For Product</value>
+    </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Added_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Added_Successfully</shortDescription>
+        <value>Price book has been added successfully</value>
+    </labels>
+    <labels>
+        <fullName>Start_Date_Cant_Be_Earlier_Than_End_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start_Date_Cant_Be_Earlier_Than_End_Date</shortDescription>
+        <value>Start date can't be earlier than end date</value>
+    </labels>
+    <labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select_All</shortDescription>
+        <value>Select all</value>
+    </labels>
+    <labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Has_Been_Set_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount_Has_Been_Set_Successfully</shortDescription>
+        <value>Discount has been set successfully</value>
+    </labels>
+    <labels>
+        <fullName>Prices_Saved_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price(s)_Saved_Successfully</shortDescription>
+        <value>Price(s) saved successfully</value>
+    </labels>
+    <labels>
+        <fullName>Search_For_Products</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search_For_Products</shortDescription>
+        <value>Search for products</value>
+    </labels>
+    <labels>
+        <fullName>Disabled_Set_Standard_Price_First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabled_Set_Standard_Price_First</shortDescription>
+        <value>Disabled - set standard price first</value>
+    </labels>
+    <labels>
+        <fullName>Prices_Have_To_Be_Higher_Than_0</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Prices_Have_To_Be_Higher_Than_0</shortDescription>
+        <value>Prices have to be higher than 0</value>
+    </labels>
+    <labels>
+        <fullName>Price_Books</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price_Books</shortDescription>
+        <value>Price Books</value>
+    </labels>
+    <labels>
+        <fullName>No_Product_Associated_With_This_Pricebook_Have_Been_Found</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No_Product_Associated_With_This_Pricebook_Have_Been_Found</shortDescription>
+        <value>No product associated with this price book have been found</value>
+    </labels>
+    <labels>
+        <fullName>Add_Products_To_Selected_Price_Book</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_Products_To_Selected_Price_Book</shortDescription>
+        <value>Add Products To Selected Price Book</value>
+    </labels>
+    <labels>
+        <fullName>Update_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update_Pricebook</shortDescription>
+        <value>Update price book</value>
+    </labels>
 </CustomLabels>

@@ -1,6 +1,6 @@
 ({
     checkIfIsObserved: function(component, event){
-        let productId = component.get('v.product.id');
+        let productId = component.get('v.productId');
         let observeIcon = component.find('observeIcon');
         let action = component.get('c.checkIfProductIsObserved');
         action.setParams({
@@ -12,6 +12,9 @@
                 if(response.getReturnValue() == true){
                     $A.util.removeClass(observeIcon, 'greyIcon');
                     $A.util.addClass(observeIcon, 'highlightedIcon');
+                }else{
+                    $A.util.removeClass(observeIcon, 'highlightedIcon');
+                    $A.util.addClass(observeIcon, 'greyIcon');
                 }
             }else{
                 component.find('customToast').showErrorToast(response.getError());

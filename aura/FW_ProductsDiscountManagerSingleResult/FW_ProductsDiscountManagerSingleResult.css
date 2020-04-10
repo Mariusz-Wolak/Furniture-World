@@ -1,0 +1,33 @@
+
+.THIS.result{
+    padding: 5px;
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.THIS.result:hover{
+    background: #F8F8F8;
+}
+
+.THIS .productName{
+    font-size: 16px;
+}
+
+.THIS .infoText{
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.THIS .priceText{
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.THIS .removeIcon{
+    background: #cc0000;
+}
+
+.THIS .removeIcon:hover{
+    cursor: pointer;
+    background: darkred;
+}
