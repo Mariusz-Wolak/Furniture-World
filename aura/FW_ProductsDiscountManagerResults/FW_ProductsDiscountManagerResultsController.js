@@ -41,6 +41,7 @@
     },
 
     compute: function(component, event, helper){
+        console.log('compute on parent');
         let discountType = component.find('discountType').get('v.value');
         let discountValue = component.get('v.discountValue');
         let singleProductCmp = component.find('singleProduct');

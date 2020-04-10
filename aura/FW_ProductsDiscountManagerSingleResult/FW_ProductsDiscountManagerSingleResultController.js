@@ -35,26 +35,16 @@
 
     passSelectedProducts: function(component, event, helper){
         let product = component.get('v.product');
-//        let standardPriceInputDisabled = component.get('v.standardPriceInputDisabled');
         let priceAfterDiscount = component.get('v.priceAfterDiscount');
-//        let isSelected = component.find('checkbox').get('v.value');
         let isError = false;
 
         if(!priceAfterDiscount > 0){
             component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
             isError = true;
         }
-//        else if(!standardPriceInputDisabled && isSelected && !product.price > 0){
-//            component.find('customToast').showErrorToast($A.get('$Label.c.Prices_Have_To_Be_Higher_Than_0'));
-//            isError = true;
-//        }
-//        if(!standardPriceInputDisabled){
-//            priceAfterDiscount = null;
-//        }
         let productToDiscount = {
             product: product,
             priceAfterDiscount: priceAfterDiscount,
-//            isSelected: isSelected,
             isError: isError
         }
 
@@ -67,5 +57,11 @@
 
     showDeleteProductModal: function(component, event, helper){
         component.set('v.showDeleteProductModal', true);
-    }
+    },
+
+//    validateNewPrice: function(component, event, helper){
+//        let discountInput = component.find('discountInput');
+//        discountInput.showHelpMessageIfInvalid();
+//        return discountInput.checkValidity();
+//    }
 })
