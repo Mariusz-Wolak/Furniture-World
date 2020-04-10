@@ -41,18 +41,14 @@
     },
 
     receiveRemovedProductFromPricebook: function(component, event, helper){
-        console.log('receive removed product');
         let product = event.getParam('product');
         let results = component.get('v.results');
         if(results == null){
-            console.log('results null');
             results = [];
         }else{
-            console.log('results not null');
         }
         results.unshift(product);
         component.set('v.results', results);
-        console.log('results in search bar: '+JSON.stringify(results));
     },
 
     receiveDeletedPricebook: function(component, event, helper){
@@ -72,7 +68,6 @@
     },
 
     handleClearedProducts: function(component, event, helper){
-        console.log('receive removed list from PB');
         let products = event.getParam('products');
         let results = component.get('v.results');
 

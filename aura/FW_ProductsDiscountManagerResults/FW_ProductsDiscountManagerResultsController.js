@@ -41,7 +41,6 @@
     },
 
     compute: function(component, event, helper){
-        console.log('compute on parent');
         let discountType = component.find('discountType').get('v.value');
         let discountValue = component.get('v.discountValue');
         let singleProductCmp = component.find('singleProduct');
@@ -141,13 +140,10 @@
     },
 
     removeProductFromPricebook: function(component, event, helper){
-        console.log('handle remove in results');
         let product = event.getParam('product');
         let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
-        console.log('resultsFromPricebook: '+JSON.stringify(resultsFromPricebook));
         for(let i=0; i<resultsFromPricebook.length; i++){
             if(resultsFromPricebook[i].id == product.id){
-                console.log('pricebook splice result');
                 resultsFromPricebook.splice(i, 1);
                 break;
             }

@@ -57,11 +57,5 @@
 
     showDeleteProductModal: function(component, event, helper){
         component.set('v.showDeleteProductModal', true);
-    },
-
-//    validateNewPrice: function(component, event, helper){
-//        let discountInput = component.find('discountInput');
-//        discountInput.showHelpMessageIfInvalid();
-//        return discountInput.checkValidity();
-//    }
+    }
 })
