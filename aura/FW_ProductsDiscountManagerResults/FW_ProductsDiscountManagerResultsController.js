@@ -125,6 +125,7 @@
         }else{
             component.set('v.isStandardPB', false);
         }
+        component.set('v.searchItemName', '');
         helper.receiveProductsFromPricebook(component, event);
     },
 
@@ -178,5 +179,11 @@
 
     handleClearedProducts: function(component, event, helper){
         component.set('v.resultsFromSelectedPricebook', null);
+    },
+
+    search: function(component, event, helper){
+        if(event.which == 13){
+            helper.doSearch(component);
+        }
     }
 })
