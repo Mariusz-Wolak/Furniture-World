@@ -34,9 +34,9 @@
 }
 
 .THIS .inlineDiv{
-    margin-right: 20px;
+    margin-left: 20px;
     display: inline-block;
-    float: right;
+    float: left;
 }
 
 .THIS .checkboxLabel{
@@ -55,6 +55,11 @@
 }
 
 .THIS .buttonSetPrices{
-    margin-right: 80px;
+    margin-left: 50px;
     margin-top: -6px;
+}
+
+.THIS .buttonClearPricebook{
+    float: right;
+    margin-right: 30px;
 }

@@ -50,26 +50,30 @@
             <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">
                 <div class="optionsDiv">
 
-                    <div class="inlineDiv buttonSetPrices">
-                        <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
-                    </div>
-
                     <aura:if isTrue="{!not(v.isStandardPB)}">
+                        <div class="inlineDiv discountOptionDiv">
+                            <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Discount_Value}" onchange="{!c.compute}"
+                                             label="{!$Label.c.Discount_Value}"/>
+                        </div>
+
                         <div class="inlineDiv discountOptionDiv">
                             <lightning:select aura:id="discountType" onchange="{!c.compute}" label="{!$Label.c.Discount_Type}">
                                 <option value="%">%</option>
                                 <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>
                             </lightning:select>
                         </div>
-
-                        <div class="inlineDiv discountOptionDiv">
-                            <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Discount_Value}" onchange="{!c.compute}"
-                                             label="{!$Label.c.Discount_Value}"/>
-                        </div>
                     </aura:if>
+
+                    <div class="inlineDiv buttonSetPrices">
+                        <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                    </div>
+
+                    <div class="buttonClearPricebook">
+                        <lightning:button label="Clear Price Book" onclick="{!c.clearPricebook}" variant="destructive"/>
+                    </div>
                 </div>
 
-                <div class="scroll slds-scrollable_y" style="display: block; clear: both">
+                <div class="scroll slds-scrollable_y" style="display: block; clear: both;">
                     <aura:iteration items="{!v.resultsFromSelectedPricebook}" var="product">
                         <c:FW_ProductsDiscountManagerSingleResult aura:id="singleProduct" product="{!product}" selectedPricebook="{!v.selectedPricebook}"/>
                     </aura:iteration>
