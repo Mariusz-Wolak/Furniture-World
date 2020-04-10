@@ -131,6 +131,9 @@
     addProductToPricebookList: function(component, event, helper){
         let product = event.getParam('product');
         let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
+        if(resultsFromPricebook == null){
+            resultsFromPricebook = [];
+        }
         resultsFromPricebook.unshift(product);
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
     },
@@ -148,6 +151,7 @@
             }
         }
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
+        component.find('customToast').showSuccessToast('Product has been successfully removed from Price Book');
     },
 
     sendSelectedPricebook: function(component, event, helper){

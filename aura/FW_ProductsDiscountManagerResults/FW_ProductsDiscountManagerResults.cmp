@@ -63,14 +63,20 @@
                                 <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>
                             </lightning:select>
                         </div>
+
+                        <div class="inlineDiv buttonSetPrices">
+                            <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                        </div>
+
+                        <aura:set attribute="else">
+                            <div class="saveRightButton">
+                                <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                            </div>
+                        </aura:set>
                     </aura:if>
 
-                    <div class="inlineDiv buttonSetPrices">
-                        <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
-                    </div>
-
                     <aura:if isTrue="{!not(v.isStandardPB)}">
-                        <div class="buttonClearPricebook">
+                        <div class="rightButton">
                             <lightning:button label="Clear Price Book" onclick="{!c.clearPricebook}" variant="destructive"/>
                         </div>
                     </aura:if>

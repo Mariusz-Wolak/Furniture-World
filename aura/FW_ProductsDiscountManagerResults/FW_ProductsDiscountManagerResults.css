@@ -59,7 +59,13 @@
     margin-top: -6px;
 }
 
-.THIS .buttonClearPricebook{
+.THIS .rightButton{
     float: right;
     margin-right: 30px;
+    margin-top: -2px;
+}
+
+.THIS .saveRightButton{
+    float: right;
+    margin-right: 40px;
 }
