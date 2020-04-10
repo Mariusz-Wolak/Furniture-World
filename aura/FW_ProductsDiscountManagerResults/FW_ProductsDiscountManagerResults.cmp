@@ -79,7 +79,7 @@
                             </div>
 
 
-                            <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
+                            <div class="searchBarDivRight" onkeypress="{!c.search}">
                                 <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
                             </div>
                         </aura:set>
