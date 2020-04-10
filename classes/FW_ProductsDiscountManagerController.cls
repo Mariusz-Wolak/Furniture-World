@@ -205,10 +205,13 @@ public with sharing class FW_ProductsDiscountManagerController {
         }
     }
 
-    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<FW_ProductWrapped> products) {
+    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<Object> products) {
+        String productsString = JSON.serialize(products);
+        List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
+                List<FW_ProductWrapped>.class);
         try {
             Set<String> productsIds = new Set<String>();
-            for (FW_ProductWrapped prod : products) {
+            for (FW_ProductWrapped prod : wrappedProducts) {
                 productsIds.add(prod.id);
             }
 

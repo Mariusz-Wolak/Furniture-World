@@ -10,11 +10,12 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast('Price Book has been cleared successfully');
-                letSendProducts = $A.get("e.c:FW_SendClearedProductsFromPricebook");
-                letSendProducts.setParams({
+                let sendProducts = $A.get("e.c:FW_SendClearedProductsFromPricebook");
+                sendProducts.setParams({
                     "products": products
                  });
-                letSendProducts.fire();
+                sendProducts.fire();
+                component.set('v.showPricebookClearModal', false);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

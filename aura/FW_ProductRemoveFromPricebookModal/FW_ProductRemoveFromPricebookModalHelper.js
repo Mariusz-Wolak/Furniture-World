@@ -1,10 +1,7 @@
 ({
     doRemoveProduct: function(component, event){
-        console.log('doRemoveProduct modal helper');
         let product = component.get('v.product');
-        console.log('product in helper: '+JSON.stringify(product));
         let pricebook = component.get('v.selectedPricebook');
-        console.log('pricebook: '+JSON.stringify(pricebook));
 
 
         let sendRemovedProductEvent = $A.get('e.c:FW_SendRemovedProductFromPricebook');
@@ -14,7 +11,6 @@
 
 
         let action = component.get('c.deleteProductFromPricebook');
-        console.log('before set params');
         action.setParams({
             "productId":  product.id,
             "pricebookId": pricebook.Id

@@ -41,9 +41,7 @@
     },
 
     receiveRemovedProductFromPricebook: function(component, event, helper){
-        console.log('receive removed');
         let product = event.getParam('product');
-        console.log('product to delete: '+JSON.stringify(product));
         let results = component.get('v.results');
         results.unshift(product);
         component.set('v.results', results);
@@ -58,7 +56,6 @@
     },
 
     openAddAllModal: function(component, event, helper){
-        console.log('openAddAllModal');
         component.set('v.showAddAllModal', true);
     },
 
@@ -70,7 +67,8 @@
         console.log('receive removed list from PB');
         let products = event.getParam('products');
         let results = component.get('v.results');
-        results.unshift(product);
-        component.set('v.results', results);
+
+        let resultsToShow = products.concat(results);
+        component.set('v.results', resultsToShow)
     }
 })

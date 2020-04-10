@@ -10,7 +10,6 @@
             if(state === 'SUCCESS'){
                 let results = response.getReturnValue();
                 let productsFromPricebook = component.get('v.productsFromPricebook');
-                console.log("productsFromPricebook in search: "+productsFromPricebook);
                 for(let i=0; i<productsFromPricebook.length; i++){
                     for(let j=0; j<results.length; j++){
                         if(results[j].id == productsFromPricebook[i].id){

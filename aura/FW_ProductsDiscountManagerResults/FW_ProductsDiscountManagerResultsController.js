@@ -46,13 +46,10 @@
         let singleProductCmp = component.find('singleProduct');
 
         if(singleProductCmp.length == undefined){
-            console.log('undefined');
             singleProductCmp.passDiscountValues(discountType, discountValue);
         }else{
             for(let i=0; i<singleProductCmp.length; i++){
-                console.log(singleProductCmp.length);
                 singleProductCmp[i].passDiscountValues(discountType, discountValue);
-                console.log(singleProductCmp[i]);
             }
         }
     },
@@ -136,7 +133,6 @@
         let resultsFromPricebook = component.get('v.resultsFromSelectedPricebook');
         resultsFromPricebook.unshift(product);
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
-        console.log(component.get('v.resultsFromSelectedPricebook'));
     },
 
     removeProductFromPricebook: function(component, event, helper){

@@ -453,7 +453,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<FW_ProductWrapped> products){
+    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<Object> products){
         FW_ProductsDiscountManagerController.removeProductsFromPricebook(pricebook, products);
     }
 }
