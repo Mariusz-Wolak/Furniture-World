@@ -190,6 +190,9 @@ public with sharing class FW_ProductsDiscountManagerController {
     }
 
     public static void deleteProductFromPricebook(String productId, String pricebookId) {
+        System.debug('deleteProductFromPricebook');
+        System.debug('productId: '+productId);
+        System.debug('pricebookId: '+pricebookId);
         try {
             List<PricebookEntry> pbeList = [
                     SELECT Id, Product2Id, Pricebook2Id

@@ -18,7 +18,6 @@
     <aura:handler event="c:FW_SendAllSearchResultsToPricebook" action="{!c.clearResults}"/>
     <aura:handler event="c:FW_SendClearedProductsFromPricebook" action="{!c.handleClearedProducts}"/>
 
-
     <aura:if isTrue="{!v.pricebook}">
         <lightning:card class="card">
             <h1 class="header slds-align_absolute-center">{!$Label.c.Add_Products_To_Selected_Price_Book}</h1>

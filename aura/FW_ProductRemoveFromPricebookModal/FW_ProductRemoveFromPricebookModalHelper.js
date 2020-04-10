@@ -3,13 +3,11 @@
         let product = component.get('v.product');
         let pricebook = component.get('v.selectedPricebook');
 
-
         let sendRemovedProductEvent = $A.get('e.c:FW_SendRemovedProductFromPricebook');
         sendRemovedProductEvent.setParams({
             "product": product
         });
-
-
+        sendRemovedProductEvent.fire();
         let action = component.get('c.deleteProductFromPricebook');
         action.setParams({
             "productId":  product.id,
@@ -19,7 +17,6 @@
             let state = response.getState();
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast('Product has been removed from price book successfully');
-                sendRemovedProductEvent.fire();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
