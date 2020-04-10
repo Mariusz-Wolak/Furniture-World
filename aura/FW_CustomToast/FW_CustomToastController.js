@@ -36,7 +36,7 @@
             "title": title,
             "message": message,
             "type": 'error',
-            "mode": 'sticky'
+            "mode": 'dismissible'
         });
         toastEvent.fire();
     },
@@ -54,7 +54,7 @@
             "title": title,
             "message": message,
             "type": 'success',
-            "mode": 'sticky'
+            "mode": 'dismissible'
         });
         toastEvent.fire();
     }

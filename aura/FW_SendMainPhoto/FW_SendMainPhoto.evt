@@ -1,0 +1,4 @@
+
+<aura:event type="COMPONENT" description="FW_SendMainPhoto">
+    <aura:attribute name="photo" type="String" access="global"/>
+</aura:event>

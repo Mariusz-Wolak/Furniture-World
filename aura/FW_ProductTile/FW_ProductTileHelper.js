@@ -2,7 +2,7 @@
     doToggleObserved: function(component){
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
-        let productId = component.get('v.item.Id');
+        let productId = component.get('v.item.id');
         let isAddingToObserved;
 
         if($A.util.hasClass(observeIcon, 'greyIcon')){
@@ -14,7 +14,7 @@
     },
 
     checkIfIsObserved: function(component, event, helper){
-        let productId = component.get('v.item.Id');
+        let productId = component.get('v.item.id');
         let observeIcon = component.find('observeIcon');
         let action = component.get('c.checkIfProductIsObserved');
         action.setParams({
@@ -36,8 +36,8 @@
     },
 
      returnSimilarProducts: function(component){
-        let productFamily = component.get('v.item.Family');
-        let productId = component.get('v.item.Id');
+        let productFamily = component.get('v.item.family');
+        let productId = component.get('v.item.id');
         let action = component.get('c.getSimilarProducts');
         action.setParams({
             "productFamily": productFamily,

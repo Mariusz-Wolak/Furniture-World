@@ -1,0 +1,22 @@
+<aura:component description="FW_OrderResult">
+
+    <aura:attribute name="order" type="Order" access="global"/>
+    <aura:attribute name="showOrderDetails" type="Boolean" access="global"/>
+    <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div class="iterationItems slds-grid slds-align_absolute-center">
+        <div class="slds-col slds-size_3-of-12">{!v.order.Id}</div>
+        <div class="slds-col slds-size_3-of-12"><ui:outputDate value="{!v.order.EffectiveDate}"/></div>
+        <div class="slds-col slds-size_3-of-12">€{!v.order.Price__c}</div>
+        <div class="slds-col slds-size_1-of-12">
+            <lightning:icon aura:id="moreIcon" class="moreIcon" iconName="action:more" size="xx-small" onclick="{!c.showDetails}"/>
+        </div>
+        <div class="slds-col slds-size_1-of-12">
+            <lightning:icon aura:id="complaintIcon" class="complaintIcon" iconName="action:new_note" size="xx-small" onclick="{!c.showComplaintsModal}"/>
+        </div>
+    </div>
+
+    <c:FW_CustomModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}" showComplaintsModal="{!v.showComplaintsModal}"/>
+</aura:component>

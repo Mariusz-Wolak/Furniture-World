@@ -3,7 +3,7 @@
         let results = component.get('v.results');
         let action = component.get('c.checkIfResultsAreObserved');
         action.setParams({
-            "productsIds": results.Id
+            "productsIds": results.id
         });
         action.setCallback(this, function(response){
             let state = response.getState();

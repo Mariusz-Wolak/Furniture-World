@@ -1,6 +1,6 @@
 ({
     checkIfIsObserved: function(component, event){
-        let productId = component.get('v.product.Id');
+        let productId = component.get('v.productId');
         let observeIcon = component.find('observeIcon');
         let action = component.get('c.checkIfProductIsObserved');
         action.setParams({
@@ -12,6 +12,9 @@
                 if(response.getReturnValue() == true){
                     $A.util.removeClass(observeIcon, 'greyIcon');
                     $A.util.addClass(observeIcon, 'highlightedIcon');
+                }else{
+                    $A.util.removeClass(observeIcon, 'highlightedIcon');
+                    $A.util.addClass(observeIcon, 'greyIcon');
                 }
             }else{
                 component.find('customToast').showErrorToast(response.getError());
@@ -23,7 +26,7 @@
     doToggleObserved: function(component, event){
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
-        let productId = component.get('v.product.Id');
+        let productId = component.get('v.product.id');
         let isAddingToObserved;
 
         if($A.util.hasClass(observeIcon, 'greyIcon')){
@@ -34,16 +37,26 @@
         observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
-    doToggleBasket: function(component, event){
+    doAddToBasket: function(component, event){
         let basketIcon = component.find('basketIcon');
-
-        if($A.util.hasClass(basketIcon, 'greyIcon')){
-            $A.util.removeClass(basketIcon, 'greyIcon');
-            $A.util.addClass(basketIcon, 'highlightedIcon');
-        }else{
-            $A.util.removeClass(basketIcon, 'highlightedIcon');
-            $A.util.addClass(basketIcon, 'greyIcon');
-        }
+        let productId = component.get('v.product.id');
+        let action = component.get('c.insertToBasket');
+        action.setParams({
+           "productId":  productId
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                let sendTotalQuantity = component.getEvent('FW_SendTotalQuantity');
+                sendTotalQuantity.setParams({
+                   "totalQuantity": response.getReturnValue()[0].totalQuantity
+                });
+                sendTotalQuantity.fire();
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     },
 
     doAddComment: function(component, event){
@@ -54,7 +67,7 @@
         }else if(commentText == undefined || commentText.length < 10){
             component.find('customToast').showErrorToast('10 '+$A.get('$Label.c.Characters_Required'));
         }else{
-            let productId = component.get('v.product.Id');
+            let productId = component.get('v.product.id');
             let action = component.get('c.insertComment');
             action.setParams({
                "productId": productId,
@@ -78,7 +91,7 @@
     },
 
     returnNewestComments: function(component){
-        let productId = component.get('v.product.Id');
+        let productId = component.get('v.product.id');
         let action = component.get("c.getNewestComments");
         action.setParams({
            "productId": productId
@@ -96,8 +109,8 @@
     },
 
     returnSimilarProducts: function(component){
-        let productFamily = component.get('v.product.Family');
-        let productId = component.get('v.product.Id');
+        let productFamily = component.get('v.product.family');
+        let productId = component.get('v.product.id');
         let action = component.get('c.getSimilarProducts');
         action.setParams({
             "productFamily": productFamily,

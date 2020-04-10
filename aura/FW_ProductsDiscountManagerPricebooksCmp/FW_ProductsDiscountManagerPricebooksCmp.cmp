@@ -1,0 +1,37 @@
+<aura:component description="FW_ProductsDiscountManagerPricebooksCmp" implements="flexipage:availableForAllPageTypes" controller="FW_ProductsController">
+
+    <aura:attribute name="showModal" type="Boolean" access="global"/>
+    <aura:attribute name="pricebooks" type="Object[]" access="global"/>
+    <aura:attribute name="wrappedPricebooks" type="Object[]" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
+    <aura:handler event="c:FW_SendUpdatedPricebook" action="{!c.updatePricebook}"/>
+    <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
+    <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
+    <aura:handler name="change" value="{!v.pricebooks}" action="{!c.onChange}"/>
+
+    <lightning:card title="{!$Label.c.Price_Books}">
+        <aura:set attribute="actions">
+            <lightning:button label="{!$Label.c.New_Price_Book}" onclick="{!c.openModal}"/>
+        </aura:set>
+
+        <p class="slds-p-horizontal_small">
+        <div class="tableHeader slds-grid ">
+            <div class="slds-col slds-size_4-of-12">{!$Label.c.Name}</div>
+            <div class="slds-col slds-size_3-of-12">{!$Label.c.Start_Date}</div>
+            <div class="slds-col slds-size_3-of-12">{!$Label.c.End_Date}</div>
+        </div>
+
+        <div class="scroll slds-scrollable_y">
+            <aura:iteration items="{!v.pricebooks}" var="pricebook">
+                <c:FW_ProductsPricebookResult pricebook="{!pricebook}"/>
+            </aura:iteration>
+        </div>
+        </p>
+
+        <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
+    </lightning:card>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

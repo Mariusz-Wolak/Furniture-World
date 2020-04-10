@@ -5,7 +5,6 @@
         meta.setAttribute("http-equiv", "Content-Security-Policy")
         meta.setAttribute("content", "date=no;img-src 'self' data:");
         document.getElementsByTagName('head')[0].appendChild(meta);
-
         helper.checkIfIsObserved(component);
     },
 
@@ -14,8 +13,7 @@
         $A.util.removeClass(observeIcon, 'isHidden');
 
         let productTileDiv = component.find('productTileDiv');
-        $A.util.addClass(productTileDiv, 'withBorder');
-        $A.util.addClass(productTileDiv, 'isHidden');
+        $A.util.addClass(productTileDiv, 'blackBorder');
     },
 
     removeHighlightTile: function(component, event, helper){
@@ -23,7 +21,7 @@
         $A.util.addClass(observeIcon, 'isHidden');
 
         let productTileDiv = component.find('productTileDiv');
-        $A.util.removeClass(productTileDiv, 'withBorder');
+        $A.util.removeClass(productTileDiv, 'blackBorder');
     },
 
     selectItem: function(component, event, helper){
@@ -33,6 +31,19 @@
             "product": product
         });
         selectedProductEvent.fire();
+
+        let appEvent = $A.get('e.c:FW_ProductIdSendToRecordView');
+        appEvent.setParams({
+            "productId": product.id
+        });
+        appEvent.fire();
+
+        let scrollOptions = {
+            left: 0,
+            top: 1100,
+            behavior: 'smooth'
+        }
+        window.scrollTo(scrollOptions);
 
         helper.returnSimilarProducts(component);
     },

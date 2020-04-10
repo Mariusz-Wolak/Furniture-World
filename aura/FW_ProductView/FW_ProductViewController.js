@@ -1,6 +1,8 @@
 ({
     doInit: function(component, event, helper){
         component.set('v.header', $A.get('$Label.c.Similar_Items'));
+        component.set('v.isCommunity', true);
+        component.set('v.productId', component.get('v.product.id'));
         helper.checkIfIsObserved(component);
         helper.returnNewestComments(component);
         helper.returnSimilarProducts(component);
@@ -10,8 +12,8 @@
         helper.doToggleObserved(component);
     },
 
-    toggleBasket: function(component, event, helper){
-        helper.doToggleBasket(component);
+    addToBasket: function(component, event, helper){
+        helper.doAddToBasket(component);
     },
 
     addComment: function(component, event, helper){
@@ -43,5 +45,10 @@
     setSimilarProducts: function(component, event, helper){
         component.set('v.results', event.getParam('products'));
         helper.returnNewestComments(component);
+    },
+
+    checkIfIsObserved: function(component, event, helper){
+        component.set('v.productId', event.getParam('productId'));
+        helper.checkIfIsObserved(component);
     }
 })
