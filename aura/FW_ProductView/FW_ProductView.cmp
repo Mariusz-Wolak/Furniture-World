@@ -21,7 +21,7 @@
     <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
     <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.checkIfIsObserved}"/>
 
-    <div class="productInfoDiv slds-grid">
+    <div class="slds-grid">
         <div class="slds-col slds-size_7-of-12">
             <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
         </div>
@@ -96,7 +96,7 @@
     </div>
 
     <div class="buttonSendComment slds-align_absolute-center">
-        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}" class="buttonClass"/>
     </div>
 
     <div class="sectionHeader">
