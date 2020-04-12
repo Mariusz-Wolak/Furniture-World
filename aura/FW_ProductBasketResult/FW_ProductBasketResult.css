@@ -5,11 +5,12 @@
 }
 
 .THIS .deleteIcon{
-    background-color: grey;
+    background-color: #cc0000;
 }
 
 .THIS .deleteIcon:hover{
-    background-color: red;
+    background-color: darkred;
+    cursor: pointer;
 }
 
 .THIS .quantityDiv{
