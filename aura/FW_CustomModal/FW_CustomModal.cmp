@@ -242,7 +242,6 @@
                     <p class="orderSummaryHeader">{!$Label.c.Make_A_Complaint}</p>
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <center>
                         <div class="productInfo">
                         {!$Label.c.Id}: {!v.order.Id}
                         </div>
@@ -254,6 +253,8 @@
                         {!$Label.c.Total_Price}: €{!v.order.Price__c}
                         </div>
 
+
+                    <center>
                         <lightning:select aura:id="selectItemToComplaint" label="{!$Label.c.Select_Item}">
                             <aura:iteration items="{!v.order.OrderItems}" var="product">
                                 <option
