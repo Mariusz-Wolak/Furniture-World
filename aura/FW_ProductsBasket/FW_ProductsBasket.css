@@ -1,6 +1,6 @@
 .THIS .proceedButton{
-    padding: 20px;
-    font-size: 30px;
+    padding: 15px;
+    font-size: 25px;
 }
 
 .THIS .totalPriceHeader{
@@ -19,6 +19,19 @@
     font-font-weight: bold;
 }
 
+.THIS hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
 .THIS.productView{
     padding-top: 40px;
+}
+
+.THIS .basketResult{
+    padding: 5px 0;
 }
