@@ -18,6 +18,8 @@
         <div class="resultsHeader">{!$Label.c.The_List_Is_Empty}</div>
 
         <aura:set attribute="else">
+            <div class="resultsHeader">{!$Label.c.Your_Basket}</div>
+
             <div class="slds-grid">
                 <div class="slds-col slds-size_1-of-12"/>
 

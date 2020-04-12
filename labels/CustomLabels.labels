@@ -1624,4 +1624,11 @@
         <shortDescription>Update_Pricebook</shortDescription>
         <value>Update price book</value>
     </labels>
+    <labels>
+        <fullName>Your_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Basket</shortDescription>
+        <value>Your Basket</value>
+    </labels>
 </CustomLabels>
