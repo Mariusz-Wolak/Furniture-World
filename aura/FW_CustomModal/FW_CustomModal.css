@@ -5,13 +5,13 @@
 }
 
 .THIS .orderInfoHeaderInComplaints{
-    font-size: 20px;
+    font-size: 18px;
     font-style: italic;
     font-weight: bold;
 }
 
 .THIS .orderInfoInComplaints{
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
     font-weight: normal;
     display: inline-block;

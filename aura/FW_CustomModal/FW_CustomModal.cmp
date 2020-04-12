@@ -277,7 +277,7 @@
 
                     <div class="slds-text-align_right">
                         <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeComplaintModal}"/>
-                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}"/>
+                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}" variant="brand"/>
                     </div>
                 </div>
             </div>
