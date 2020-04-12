@@ -1,5 +1,13 @@
+.THIS .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 
 .THIS .productName{
+    display: inline-block;
+    float: left;
     font-size: 24px;
     font-style: italic;
     font-weight: bold;
@@ -36,6 +44,11 @@
 
 .THIS .iconsDiv{
     padding-top: 30px;
+}
+
+.THIS .observeDiv{
+    float: right;
+    display: inline-block;
 }
 
 .THIS .observeIcon, .THIS .basketIcon{
