@@ -1,8 +1,7 @@
 public with sharing class FW_BasketController {
-    public static List<FW_ProductWrapped> insertToBasket(String productId) {
+    public static List<FW_ProductWrapped> insertToBasket(String productId, Integer quantity) {
         try {
             Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
-            Integer quantity = 1;
             Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
 
             if (productsCachedMap != null) {

@@ -40,9 +40,11 @@
     doAddToBasket: function(component, event){
         let basketButton = component.find('basketButton');
         let productId = component.get('v.product.id');
+        let quantity = component.get('v.quantity');
         let action = component.get('c.insertToBasket');
         action.setParams({
-           "productId":  productId
+           "productId":  productId,
+           "quantity": quantity
         });
         action.setCallback(this, function(response){
             let state = response.getState();
