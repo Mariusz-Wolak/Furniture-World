@@ -42,10 +42,6 @@
     font-weight: bold
 }
 
-.THIS .iconsDiv{
-    padding-top: 30px;
-}
-
 .THIS .observeDiv{
     float: left;
     display: inline-block;
@@ -54,6 +50,10 @@
 
 .THIS .observeIcon{
     cursor: pointer;
+}
+
+.THIS .basketButtonDiv{
+    margin-left: 3px;
 }
 
 .THIS .basketButton{
@@ -135,4 +135,31 @@
   -ms-transform:rotate(-5deg);
   -o-transform:rotate(-5deg);
   transform:rotate(-5deg);
+}
+
+
+
+.THIS .quantityDiv{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.THIS .quantityInput{
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+.THIS .quantityOperation{
+    margin-top: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.THIS .plusDiv{
+    margin-right: -5px;
 }
