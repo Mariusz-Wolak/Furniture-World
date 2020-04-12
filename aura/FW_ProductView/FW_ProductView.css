@@ -1,4 +1,13 @@
+.THIS .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
 .THIS .productName{
+    display: inline-block;
+    float: left;
     font-size: 24px;
     font-style: italic;
     font-weight: bold;
@@ -28,17 +37,28 @@
 }
 
 .THIS.rateProductText{
-    padding-top: 10px;
+    padding-top: 75px;
     font-size: 24px;
     font-weight: bold
 }
 
-.THIS .iconsDiv{
-    padding-top: 30px;
+.THIS .observeDiv{
+    float: left;
+    display: inline-block;
+    margin-left: 50px;
 }
 
-.THIS .observeIcon, .THIS .basketIcon{
+.THIS .observeIcon{
     cursor: pointer;
+}
+
+.THIS .basketButtonDiv{
+    margin-left: 3px;
+}
+
+.THIS .basketButton{
+    padding: 10px;
+    font-size: 20px;
 }
 
 .THIS .greyIcon{
@@ -53,11 +73,8 @@
     background-color: green;
 }
 
-.THIS .basketIcon:hover{
-    background-color: green;
-}
-
 .THIS.sectionHeader{
+    padding-top: 75px;
     font-size: 24px;
     font-style: italic;
     font-weight: bold;
@@ -89,7 +106,11 @@
 }
 
 .THIS.buttonSendComment{
-    font-size: 24px;
+}
+
+.THIS .buttonClass{
+    font-size: 25px;
+    padding: 15px;
 }
 
 .THIS .selectedMiniature{
@@ -114,4 +135,31 @@
   -ms-transform:rotate(-5deg);
   -o-transform:rotate(-5deg);
   transform:rotate(-5deg);
+}
+
+
+
+.THIS .quantityDiv{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.THIS .quantityInput{
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+.THIS .quantityOperation{
+    margin-top: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.THIS .plusDiv{
+    margin-right: -5px;
 }

@@ -6,6 +6,7 @@
     <aura:attribute name="commentsList" type="Object[]" access="global"/>
     <aura:attribute name="rating" type="Integer" access="global"/>
     <aura:attribute name="productId" type="String" access="global"/>
+    <aura:attribute name="quantity" type="Integer" access="global"/>
 
     <aura:attribute name="header" type="String" access="global"/>
     <aura:attribute name="results" type="Object[]" access="global"/>
@@ -22,13 +23,19 @@
     <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.checkIfIsObserved}"/>
 
     <div class="slds-grid">
-
         <div class="slds-col slds-size_7-of-12">
             <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
         </div>
 
         <div class="slds-col slds-size--5-of-12">
-            <div class="productName">{!v.product.name}</div>
+
+            <div class="clearfix">
+                <div class="productName">{!v.product.name}</div>
+                <div class="observeDiv">
+                    <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="medium"
+                                    onclick="{!c.toggleObserved}"/>
+                </div>
+            </div>
 
             <div class="productFamily">{!v.product.family}</div>
 
@@ -42,18 +49,15 @@
 
             <div class="productDescription">{!v.product.description}</div>
 
-            <div class="iconsDiv slds-grid slds-align--absolute-center">
-                <div class="slds-col slds-size--3-of-12"/>
+            <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
+                <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
+                <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
+                                 value="{!v.quantity}" onchange="{!c.changeQuantity}"/>
+                <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
+            </div>
 
-                <div class="observeDiv slds-col slds-size--4-of-12">
-                    <lightning:icon aura:id="observeIcon" class="greyIcon observeIcon" iconName="action:preview" size="medium"
-                                    onclick="{!c.toggleObserved}"/>
-                </div>
-
-                <div class="basketDiv slds-col slds-size--4-of-12">
-                    <lightning:icon aura:id="basketIcon" class="greyIcon basketIcon" iconName="custom:custom93" size="large"
-                                    onclick="{!c.addToBasket}"/>
-                </div>
+            <div class="basketButtonDiv slds-grid slds-align_absolute-center">
+                <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
             </div>
         </div>
     </div>
@@ -97,7 +101,7 @@
     </div>
 
     <div class="buttonSendComment slds-align_absolute-center">
-        <lightning:button variant="brand-outline" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}" class="buttonClass"/>
     </div>
 
     <div class="sectionHeader">
