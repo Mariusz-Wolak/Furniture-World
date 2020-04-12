@@ -1,5 +1,5 @@
 .THIS.productTileDiv{
-    padding: 5px;
+    padding: 20px;
 }
 
 .THIS .itemTitle{
@@ -49,7 +49,7 @@
 }
 
 .THIS.blackBorder{
-    border: 1px solid black;
+    border: 1px solid darkgrey;
 }
 
 .THIS .highlightedIcon{
