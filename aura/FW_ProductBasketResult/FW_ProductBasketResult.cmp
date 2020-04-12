@@ -26,20 +26,32 @@
         <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
             <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
             <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
-                             value="{!v.quantity}" onchange="{!c.changeQuantity}"></lightning:input>
+                             value="{!v.quantity}" onchange="{!c.changeQuantity}"/>
             <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
         </div>
 
+
         <aura:if isTrue="{!v.showTotalPriceForProduct}">
             <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
-                €{!v.totalPriceForProduct} &nbsp; <div class="singlePrice">({!v.quantity} x €{!v.product.price})</div>
+                €{!v.totalPriceForProduct} &nbsp; <div class="singlePrice">(€{!v.product.price} each)</div>
             </div>
             <aura:set attribute="else">
                 <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
-                    €{!v.product.price}
+                    €{!v.product.price} &nbsp; <div class="singlePrice">(€{!v.product.price} each)</div>
                 </div>
             </aura:set>
         </aura:if>
+
+<!--        <aura:if isTrue="{!v.showTotalPriceForProduct}">-->
+<!--            <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">-->
+<!--                €{!v.totalPriceForProduct} &nbsp; <div class="singlePrice">({!v.quantity} x €{!v.product.price})</div>-->
+<!--            </div>-->
+<!--            <aura:set attribute="else">-->
+<!--                <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">-->
+<!--                    €{!v.product.price}-->
+<!--                </div>-->
+<!--            </aura:set>-->
+<!--        </aura:if>-->
 
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete"
