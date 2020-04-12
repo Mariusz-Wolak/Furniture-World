@@ -84,7 +84,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                            {!$Label.c.Total_Price}:
+                        {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -152,7 +152,7 @@
 
                     <div class="slds-text-align_right">
                         <div class="productInfo">
-                            {!$Label.c.Total_Price}:
+                        {!$Label.c.Total_Price}:
                         </div>
                         <div class="totalOrderPrice">
                             €{!v.totalPrice}
@@ -242,18 +242,27 @@
                     <p class="orderSummaryHeader">{!$Label.c.Make_A_Complaint}</p>
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <center>
-                        <div class="productInfo">
-                        {!$Label.c.Id}: {!v.order.Id}
-                        </div>
-                        <div class="productInfo">
-                        {!$Label.c.Date}:
+                    <div class="orderInfoHeaderInComplaints">
+                    {!$Label.c.Id}:
+                        <div class="orderInfoInComplaints">{!v.order.Id}</div>
+                    </div>
+
+                    <div class="orderInfoHeaderInComplaints">
+                    {!$Label.c.Date}:
+                        <div class="orderInfoInComplaints">
                             <ui:outputDate value="{!v.order.EffectiveDate}"/>
                         </div>
-                        <div class="productInfo">
-                        {!$Label.c.Total_Price}: €{!v.order.Price__c}
-                        </div>
+                    </div>
 
+                    <div class="orderInfoHeaderInComplaints">
+                    {!$Label.c.Total_Price}:
+                        <div class="orderInfoInComplaints">
+                            €{!v.order.Price__c}
+                        </div>
+                    </div>
+
+
+                    <center>
                         <lightning:select aura:id="selectItemToComplaint" label="{!$Label.c.Select_Item}">
                             <aura:iteration items="{!v.order.OrderItems}" var="product">
                                 <option
@@ -268,7 +277,7 @@
 
                     <div class="slds-text-align_right">
                         <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeComplaintModal}"/>
-                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}"/>
+                        <lightning:button label="{!$Label.c.Send}" onclick="{!c.sendComplaint}" variant="brand"/>
                     </div>
                 </div>
             </div>
