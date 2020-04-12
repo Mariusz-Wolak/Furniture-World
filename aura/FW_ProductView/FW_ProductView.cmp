@@ -96,7 +96,7 @@
     </div>
 
     <div class="buttonSendComment slds-align_absolute-center">
-        <lightning:button variant="brand-outline" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
+        <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}"/>
     </div>
 
     <div class="sectionHeader">
