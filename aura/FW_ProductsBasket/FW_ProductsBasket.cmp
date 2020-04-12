@@ -46,7 +46,7 @@
 
                     <div>
                         <lightning:button class="proceedButton slds-button_stretch slds-button_brand"
-                                          label="{!$Label.c.Proceed}" onclick="{!c.showProceedModal}"></lightning:button>
+                                          label="{!$Label.c.Order_Now}" onclick="{!c.showProceedModal}"></lightning:button>
                     </div>
                 </div>
             </div>
