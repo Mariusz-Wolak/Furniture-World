@@ -49,11 +49,8 @@
             <div class="productDescription">{!v.product.description}</div>
 
             <div class="iconsDiv slds-grid slds-align--absolute-center">
-                <div class="slds-col slds-size--3-of-12"/>
-
                 <div class="basketDiv slds-col slds-size--4-of-12">
-                    <lightning:icon aura:id="basketIcon" class="greyIcon basketIcon" iconName="custom:custom93" size="large"
-                                    onclick="{!c.addToBasket}"/>
+                    <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
                 </div>
             </div>
         </div>

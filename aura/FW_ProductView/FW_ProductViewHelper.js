@@ -38,7 +38,7 @@
     },
 
     doAddToBasket: function(component, event){
-        let basketIcon = component.find('basketIcon');
+        let basketButton = component.find('basketButton');
         let productId = component.get('v.product.id');
         let action = component.get('c.insertToBasket');
         action.setParams({

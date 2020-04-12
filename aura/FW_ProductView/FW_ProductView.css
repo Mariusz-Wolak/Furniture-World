@@ -49,11 +49,16 @@
 .THIS .observeDiv{
     float: left;
     display: inline-block;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
-.THIS .observeIcon, .THIS .basketIcon{
+.THIS .observeIcon{
     cursor: pointer;
+}
+
+.THIS .basketButton{
+    padding: 10px;
+    font-size: 20px;
 }
 
 .THIS .greyIcon{
@@ -65,10 +70,6 @@
 }
 
 .THIS .observeIcon:hover{
-    background-color: green;
-}
-
-.THIS .basketIcon:hover{
     background-color: green;
 }
 
