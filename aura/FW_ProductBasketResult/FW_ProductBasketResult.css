@@ -1,6 +1,6 @@
 .THIS .productInfo {
     font-style: italic;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .THIS .quantityDiv{
-    margin-top: -12px;
+    margin-top: 0px;
     cursor: pointer;
 }
 
@@ -41,6 +41,7 @@
 }
 
 .THIS .productName{
+
     text-decoration: underline;
     cursor: pointer;
 }
