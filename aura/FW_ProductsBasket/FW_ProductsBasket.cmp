@@ -19,6 +19,7 @@
 
         <aura:set attribute="else">
             <div class="resultsHeader">{!$Label.c.Your_Basket}</div>
+            <hr/>
 
             <div class="slds-grid">
                 <div class="slds-col slds-size_1-of-12"/>

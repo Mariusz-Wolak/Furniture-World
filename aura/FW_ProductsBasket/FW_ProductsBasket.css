@@ -15,9 +15,17 @@
 }
 
 .THIS.resultsHeader{
-    margin-bottom: 30px;
     font-size: 32px;
     font-font-weight: bold;
+}
+
+.THIS hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 .THIS.productView{
