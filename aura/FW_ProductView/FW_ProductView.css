@@ -47,8 +47,9 @@
 }
 
 .THIS .observeDiv{
-    float: right;
+    float: left;
     display: inline-block;
+    margin-left: 100px;
 }
 
 .THIS .observeIcon, .THIS .basketIcon{
