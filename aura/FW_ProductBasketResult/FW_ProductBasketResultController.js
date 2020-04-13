@@ -1,6 +1,10 @@
 ({
     onInit: function(component, event, helper){
-        component.set('v.showTotalPriceForProduct', false);
+//        component.set('v.showTotalPriceForProduct', false);
+        let unitPrice = component.get('v.product.price');
+        let quantity = component.get('v.quantity');
+        let totalPriceForProduct = unitPrice * quantity;
+        component.set('v.totalPriceForProduct', totalPriceForProduct.toFixed(2));
     },
 
     deleteFromBasket: function(component, event, helper){
