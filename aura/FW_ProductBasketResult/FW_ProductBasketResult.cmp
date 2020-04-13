@@ -30,8 +30,7 @@
         </div>
 
         <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
-            €{!v.totalPriceForProduct} &nbsp;
-            <div class="singlePrice">(€{!v.product.price} each)</div>
+            €{!v.totalPriceForProduct} &nbsp; <div class="singlePrice">(€{!v.product.actualPrice} each)</div>
         </div>
 
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">

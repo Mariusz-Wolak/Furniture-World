@@ -41,7 +41,7 @@ public with sharing class FW_BasketController {
                 ];
 
                 List<AggregateResult> aggregateResults = [
-                        SELECT Product2Id, MIN(UnitPrice) minPrice
+                        SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
                         FROM
                                 PricebookEntry
                         WHERE
@@ -64,13 +64,22 @@ public with sharing class FW_BasketController {
 
                     for (AggregateResult aggrRes : aggregateResults) {
                         if (prod.Id == (String) aggrRes.get('Product2Id')) {
-                            productWrapped.price = (Decimal) aggrRes.get('minPrice');
+                            productWrapped.price = (Decimal) aggrRes.get('maxPrice');
                             productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
+                            if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
+                                productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
+                            } else {
+                                productWrapped.discountPrice = null;
+                            }
                             break;
                         }
                     }
                     totalQuantity += productWrapped.quantity;
-                    totalPrice += productWrapped.quantity * productWrapped.price;
+                    if(productWrapped.discountPrice < productWrapped.price){
+                        totalPrice += productWrapped.quantity * productWrapped.discountPrice;
+                    }else{
+                        totalPrice += productWrapped.quantity * productWrapped.price;
+                    }
                     productsWrappedList.add(productWrapped);
                 }
             }
