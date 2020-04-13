@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="slds-text-align_right">
+                    <div class="proceedModalButtons slds-text-align_right">
                         <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.closeProceedBasketModal}"/>
                         <lightning:button label="{!$Label.c.Order}" onclick="{!c.order}" variant="brand"/>
                     </div>
