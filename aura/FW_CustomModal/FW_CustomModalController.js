@@ -1,4 +1,11 @@
 ({
+    onInit: function(component, event, helper){
+//        let productsInBasket = component.get('v.productsInBasket');
+//        for(let i=0; i<productsInBasket.length; i++){
+//            productsInBasket[i].totalPriceForProduct = productsInBasket[i].quantity * productsInBasket[i].actualPrice;
+//        }
+    },
+
     closeDeleteDivisionModal: function(component, event, helper) {
         component.set("v.deleteDivisionIsOpen", false);
     },
