@@ -23,7 +23,7 @@
 
 .THIS .totalOrderPrice{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .THIS .orderSummaryHeader{
@@ -32,6 +32,7 @@
 }
 
 .THIS .proceedModalButtons{
+    margin-top: 10px;
     font-size: 20px;
 }
 
