@@ -1,6 +1,11 @@
+.THIS .selectedPricebookHeader{
+    padding-left: 20px;
+    margin-bottom: 60px;
+    font-size: 25px;
+}
+
 .THIS .header{
     margin-bottom: 20px;
-    text-align: center;
     font-size: 20px;
 }
 
