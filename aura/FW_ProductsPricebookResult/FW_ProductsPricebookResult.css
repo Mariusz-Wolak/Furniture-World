@@ -1,5 +1,6 @@
 
 .THIS.resultDiv{
+    padding-left: 20px;
     font-size: 14px;
     line-height: 3;
 }
@@ -27,6 +28,7 @@
 
 .THIS .deleteIcon{
     margin-left: 10px;
+    background: #cc0000;
     cursor: pointer;
 }
 

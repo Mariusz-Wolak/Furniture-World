@@ -1638,4 +1638,18 @@
         <shortDescription>Order_Now</shortDescription>
         <value>Order Now</value>
     </labels>
+    <labels>
+        <fullName>Change_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Change_Price</shortDescription>
+        <value>Change Price</value>
+    </labels>
+    <labels>
+        <fullName>Select_Price_Book_From_The_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select_Price_Book_From_The_List</shortDescription>
+        <value>Select Price Book From The List</value>
+    </labels>
 </CustomLabels>

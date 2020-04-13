@@ -37,8 +37,8 @@
 
 
     <aura:if isTrue="{!v.selectedPricebook}">
-        <lightning:card class="card">
-            <h1 class="header slds-align_absolute-center">{!v.selectedPricebook.Name} &nbsp;
+        <lightning:card>
+            <h1 class="selectedPricebookHeader">{!v.selectedPricebook.Name} &nbsp;
 
                 <aura:if isTrue="{!not(v.isStandardPB)}">(
                     <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/>
@@ -51,8 +51,11 @@
 
             <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">
                 <div class="optionsDiv">
-
                     <aura:if isTrue="{!not(v.isStandardPB)}">
+                        <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
+                            <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+                        </div>
+
                         <div class="inlineDiv discountOptionDiv">
                             <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Discount_Value}" onchange="{!c.compute}"
                                              label="{!$Label.c.Discount_Value}"/>
@@ -69,18 +72,15 @@
                             <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                         </div>
 
-                        <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
-                            <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
-                        </div>
-
                         <aura:set attribute="else">
-                            <div class="saveRightButton">
-                                <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                            <div class="optionsDiv">
+                                <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
+                                    <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+                                </div>
                             </div>
 
-
-                            <div class="searchBarDivRight" onkeypress="{!c.search}">
-                                <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+                            <div class="saveRightButton">
+                                <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
                             </div>
                         </aura:set>
                     </aura:if>
@@ -110,7 +110,7 @@
 
         <aura:set attribute="else">
             <lightning:card>
-                <div class="header slds-align_absolute-center">Select Price Book From The List</div>
+                <div class="header slds-align_absolute-center">{!$Label.c.Select_Price_Book_From_The_List}</div>
             </lightning:card>
         </aura:set>
 

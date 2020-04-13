@@ -1,6 +1,11 @@
+.THIS .selectedPricebookHeader{
+    padding-left: 20px;
+    margin-bottom: 60px;
+    font-size: 25px;
+}
+
 .THIS .header{
     margin-bottom: 20px;
-    text-align: center;
     font-size: 20px;
 }
 
@@ -22,19 +27,14 @@
     height: 38rem;
 }
 
-.THIS .searchBarDiv{
-    margin-top: 30px;
-}
-
 .THIS .optionsDiv{
     margin-top: 40px;
-    margin-left: 7px;
     margin-bottom: 20px;
     font-size: 20px;
 }
 
 .THIS .inlineDiv{
-    margin-left: 20px;
+    padding-left: 30px;
     display: inline-block;
     float: left;
 }
@@ -71,12 +71,6 @@
 }
 
 .THIS .searchBarDiv{
-    margin-top: -35px;
-    margin-left: 70px;
-}
-
-.THIS .searchBarDivRight{
     float: left;
-    margin-top: -29px;
-    margin-left: 250px;
+    margin-top: -35px;
 }

@@ -32,7 +32,7 @@
                     <lightning:button label="{!$Label.c.Cancel}"
                                       onclick="{!c.closeModal}">{!$Label.c.Cancel}</lightning:button>
                     <lightning:button label="{!$Label.c.Update}"
-                                      onclick="{!c.editPricebook}">{!$Label.c.Update}</lightning:button>
+                                      onclick="{!c.editPricebook}" variant="brand">{!$Label.c.Update}</lightning:button>
                 </footer>
             </div>
         </section>
