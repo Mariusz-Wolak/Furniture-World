@@ -1,6 +1,5 @@
 ({
     onInit: function(component, event, helper){
-//        component.set('v.showTotalPriceForProduct', false);
         let unitPrice = component.get('v.product.price');
         let quantity = component.get('v.quantity');
         let totalPriceForProduct = unitPrice * quantity;
@@ -110,6 +109,12 @@
             "product": product
         });
         selectedProductEvent.fire();
+
+        let appEvent = $A.get('e.c:FW_ProductIdSendToRecordView');
+        appEvent.setParams({
+            "productId": product.id
+        });
+        appEvent.fire();
 
         helper.returnSimilarProducts(component);
     }

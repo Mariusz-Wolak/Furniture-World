@@ -5,12 +5,11 @@
     <aura:attribute name="totalPriceForProduct" type="Decimal" access="global"/>
     <aura:attribute name="priceDifference" type="Decimal" access="global"/>
 
-    <aura:attribute name="showTotalPriceForProduct" type="Boolean" access="global"/>
-
     <aura:registerEvent name="FW_ProductsBasketRefreshedEvent" type="c:FW_ProductsBasketRefreshedEvent"/>
     <aura:registerEvent name="FW_SendPriceDifference" type="c:FW_SendPriceDifference"/>
     <aura:registerEvent name="selectedProduct" type="c:FW_ProductSelected"/>
     <aura:registerEvent name="sendSimilarProducts" type="c:FW_SendSimilarProducts"/>
+    <aura:registerEvent name="FW_ProductIdSendToRecordView" type="c:FW_ProductIdSendToRecordView"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
@@ -30,17 +29,10 @@
             <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
         </div>
 
-
-<!--        <aura:if isTrue="{!v.showTotalPriceForProduct}">-->
-            <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
-                €{!v.totalPriceForProduct} &nbsp; <div class="singlePrice">(€{!v.product.price} each)</div>
-            </div>
-<!--            <aura:set attribute="else">-->
-<!--                <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">-->
-<!--                    €{!v.product.price} &nbsp; <div class="singlePrice">(€{!v.product.price} each)</div>-->
-<!--                </div>-->
-<!--            </aura:set>-->
-<!--        </aura:if>-->
+        <div class="productInfo slds-col slds-size_3-of-12 slds-align_absolute-center">
+            €{!v.totalPriceForProduct} &nbsp;
+            <div class="singlePrice">(€{!v.product.price} each)</div>
+        </div>
 
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete"
