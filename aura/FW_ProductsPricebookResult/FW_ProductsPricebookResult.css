@@ -28,6 +28,7 @@
 
 .THIS .deleteIcon{
     margin-left: 10px;
+    background: #cc0000;
     cursor: pointer;
 }
 
