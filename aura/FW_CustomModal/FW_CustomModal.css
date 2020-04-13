@@ -37,12 +37,17 @@
 }
 
 .THIS .productsListDiv{
+    margin-right: 35px;
     padding-top: 30px;
 }
 
 .THIS .orderSummarySinglePrice{
     font-size: 14px;
     font-weight: normal;
+}
+
+.THIS .orderSummaryResult{
+    padding-bottom: 10px;
 }
 
 .THIS .summaryDiv{
