@@ -2,7 +2,7 @@
 .THIS.result{
     padding: 5px;
     margin: 20px;
-    border: 1px solid black;
+    border: 1px solid darkgrey;
 }
 
 .THIS.result:hover{
