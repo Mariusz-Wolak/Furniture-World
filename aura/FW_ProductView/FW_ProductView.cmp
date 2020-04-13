@@ -12,6 +12,7 @@
     <aura:attribute name="results" type="Object[]" access="global"/>
 
     <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="hideAddToBasket" type="Boolean" access="global" default="false"/>
 
     <aura:registerEvent name="FW_SendTotalQuantity" type="c:FW_SendTotalQuantity"/>
 
@@ -49,6 +50,7 @@
 
             <div class="productDescription">{!v.product.description}</div>
 
+            <aura:if isTrue="{!not(v.hideAddToBasket)}">
             <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
                 <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
                 <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
@@ -59,6 +61,7 @@
             <div class="basketButtonDiv slds-grid slds-align_absolute-center">
                 <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
             </div>
+            </aura:if>
         </div>
     </div>
 

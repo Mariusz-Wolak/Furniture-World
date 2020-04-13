@@ -50,6 +50,7 @@
 
     checkIfIsObserved: function(component, event, helper){
         component.set('v.productId', event.getParam('productId'));
+        component.set('v.quantity', 1);
         helper.checkIfIsObserved(component);
     },
 

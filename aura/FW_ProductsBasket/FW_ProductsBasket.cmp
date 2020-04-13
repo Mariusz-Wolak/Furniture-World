@@ -56,7 +56,7 @@
 
     <aura:if isTrue="{!v.showProductView}">
         <div class="productView">
-            <c:FW_ProductView product="{!v.selectedItem}"/>
+            <c:FW_ProductView product="{!v.selectedItem}" hideAddToBasket="true"/>
         </div>
     </aura:if>
 
