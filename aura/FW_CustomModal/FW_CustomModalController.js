@@ -1,9 +1,5 @@
 ({
     onInit: function(component, event, helper){
-//        let productsInBasket = component.get('v.productsInBasket');
-//        for(let i=0; i<productsInBasket.length; i++){
-//            productsInBasket[i].totalPriceForProduct = productsInBasket[i].quantity * productsInBasket[i].actualPrice;
-//        }
     },
 
     closeDeleteDivisionModal: function(component, event, helper) {
@@ -23,7 +19,8 @@
     },
 
     closeOrderSummary: function(component, event, helper){
-        helper.clearBasket(component, event);
+        component.set('v.showOrderSummary', false);
+        window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders', '_top');
     },
 
     closeOrderDetails: function(component, event, helper){
