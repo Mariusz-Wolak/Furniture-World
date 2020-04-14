@@ -4,6 +4,11 @@
     font-weight: bold;
 }
 
+.THIS .orderSummaryUserLabels{
+    font-weight: normal;
+    font-size: 14px;
+}
+
 .THIS .orderInfoHeaderInComplaints{
     font-size: 18px;
     font-style: italic;
