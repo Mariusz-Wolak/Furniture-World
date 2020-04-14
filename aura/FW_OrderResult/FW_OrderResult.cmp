@@ -6,14 +6,27 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
-    <div class="iterationItems slds-grid slds-align_absolute-center">
-        <div class="slds-col slds-size_3-of-12">{!v.order.Id}</div>
-        <div class="slds-col slds-size_3-of-12"><ui:outputDate value="{!v.order.EffectiveDate}"/></div>
-        <div class="slds-col slds-size_3-of-12">€{!v.order.Price__c}</div>
-        <div class="slds-col slds-size_1-of-12">
-            <lightning:icon aura:id="moreIcon" class="moreIcon" iconName="action:more" size="xx-small" onclick="{!c.showDetails}"/>
+    <div class="iterationItems slds-grid">
+        <div class="slds-col slds-size_1-of-12 slds-grid slds-align_absolute-center">{!v.order.OrderNumber}</div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"><ui:outputDate value="{!v.order.EffectiveDate}"/></div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">{!v.order.Status}</div>
+
+        <div class="orderItem slds-col slds-size_3-of-12">
+            <aura:iteration items="{!v.order.OrderItems}" var="product">
+                <div><span class="productName">{!product.PricebookEntry.Product2.Name}</span> &nbsp;
+                    x{!product.Quantity} &nbsp; (€{!product.UnitPrice} each)</div>
+            </aura:iteration>
         </div>
-        <div class="slds-col slds-size_1-of-12">
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">€{!v.order.Price__c}</div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon aura:id="moreIcon" class="moreIcon" iconName="utility:info" size="small" onclick="{!c.showDetails}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
             <lightning:icon aura:id="complaintIcon" class="complaintIcon" iconName="action:new_note" size="xx-small" onclick="{!c.showComplaintsModal}"/>
         </div>
     </div>

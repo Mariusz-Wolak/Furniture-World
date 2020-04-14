@@ -4,6 +4,11 @@
     font-weight: bold;
 }
 
+.THIS .orderSummaryUserLabels{
+    font-weight: normal;
+    font-size: 14px;
+}
+
 .THIS .orderInfoHeaderInComplaints{
     font-size: 18px;
     font-style: italic;
@@ -23,17 +28,31 @@
 
 .THIS .totalOrderPrice{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .THIS .orderSummaryHeader{
     font-style: italic;
     font-size: 25px;
-    color: #1b5297;
+}
+
+.THIS .proceedModalButtons{
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .THIS .productsListDiv{
-    padding-top: 20px;
+    margin-right: 35px;
+    padding-top: 30px;
+}
+
+.THIS .orderSummarySinglePrice{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.THIS .orderSummaryResult{
+    padding-bottom: 10px;
 }
 
 .THIS .summaryDiv{

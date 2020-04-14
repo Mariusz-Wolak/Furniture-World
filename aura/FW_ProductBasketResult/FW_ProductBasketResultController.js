@@ -10,8 +10,7 @@
         }else{
             product.actualPrice = price;
         }
-        let totalPriceForProduct = product.actualPrice * quantity;
-        component.set('v.totalPriceForProduct', totalPriceForProduct.toFixed(2));
+        product.totalPriceForProduct = product.actualPrice * quantity;
         component.set('v.product', product);
     },
 
@@ -20,27 +19,25 @@
     },
 
     decreaseQuantity: function(component, event, helper){
+        let product = component.get('v.product');
         let quantityInputValue = component.get('v.quantity');
-        let productPrice = component.get('v.product.actualPrice');
+        let productPrice = product.actualPrice
         if(quantityInputValue > 0){
-            let totalPriceForProduct = component.get('v.totalPriceForProduct');
-            if(totalPriceForProduct == undefined){
-                    totalPriceForProduct = productPrice;
+            if(product.totalPriceForProduct == undefined){
+                    product.totalPriceForProduct = productPrice;
             }
             let newQuantity = quantityInputValue-1;
-            let newTotalPriceForProduct = newQuantity * productPrice;
+            product.totalPriceForProduct = newQuantity * productPrice;
 
             component.set('v.quantity', newQuantity);
 
             if(newQuantity == 0){
-                component.set('v.showTotalPriceForProduct', true);
-                newTotalPriceForProduct = 0;
-                component.set('v.totalPriceForProduct', newTotalPriceForProduct.toFixed(2));
+                product.totalPriceForProduct = 0;
             }else{
-                newTotalPriceForProduct = newQuantity * productPrice;
-                component.set('v.totalPriceForProduct', newTotalPriceForProduct.toFixed(2));
+                product.totalPriceForProduct = newQuantity * productPrice;
+                component.set('v.product', product);
             }
-
+            component.set('v.product', product);
             let difference = -productPrice;
             component.set('v.priceDifference', difference);
             let sendPriceDifference = component.get('c.sendPriceDifference');
@@ -49,45 +46,41 @@
     },
 
     increaseQuantity: function(component, event, helper){
+        let product = component.get('v.product');
         let productPrice = component.get('v.product.actualPrice');
-        let totalPriceForProduct = component.get('v.totalPriceForProduct');
-        if(totalPriceForProduct == undefined){
-            totalPriceForProduct = productPrice;
+        if(product.totalPriceForProduct == undefined){
+            product.totalPriceForProduct = productPrice;
         }
         let quantityInputValue = component.get('v.quantity');
         let newQuantity = Number(quantityInputValue)+1;
-        let newTotalPriceForProduct = newQuantity * productPrice;
+        product.totalPriceForProduct = newQuantity * productPrice.toFixed(2);
 
         component.set('v.quantity', newQuantity);
-        component.set('v.totalPriceForProduct', newTotalPriceForProduct.toFixed(2));
+        component.set('v.product', product);
         let difference = productPrice;
         component.set('v.priceDifference', difference);
-
-        if(quantityInputValue > 0){
-            component.set('v.showTotalPriceForProduct', true);
-        }else{
-            component.set('v.showTotalPriceForProduct', false);
-        }
 
         let sendPriceDifference = component.get('c.sendPriceDifference');
         $A.enqueueAction(sendPriceDifference);
     },
 
     changeQuantity: function(component, event, helper){
+        let product = component.get('v.product');
         let quantityInputValue = component.get('v.quantity');
         if(quantityInputValue == ''){
             quantityInputValue = 0;
             component.set('v.quantity', quantityInputValue);
         }
         let productPrice = component.get('v.product.actualPrice');
-        let totalPriceForProduct = component.get('v.totalPriceForProduct');
-        if(totalPriceForProduct == undefined){
-            totalPriceForProduct = productPrice;
+        if(product.totalPriceForProduct == undefined){
+            product.totalPriceForProduct = productPrice;
         }
         let newTotalPriceForProduct = quantityInputValue * productPrice;
         component.set('v.totalPriceForProduct', newTotalPriceForProduct.toFixed(2));
-        let difference = newTotalPriceForProduct - totalPriceForProduct;
+        let difference = newTotalPriceForProduct - product.totalPriceForProduct;
         component.set('v.priceDifference', difference);
+        product.totalPriceForProduct = newTotalPriceForProduct;
+        component.set('v.product', product);
 
         let sendPriceDifference = component.get('c.sendPriceDifference');
         $A.enqueueAction(sendPriceDifference);

@@ -59,7 +59,7 @@
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Your_Order_Has_Been_Successfully_Processed"));
                 component.set('v.showProceedBasketModal', false);
-                component.set('v.showOrderSummary', true);
+                this.clearBasket(component, event);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
@@ -72,8 +72,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.showOrderSummary', false);
-                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders', '_top');
+                component.set('v.showOrderSummary', true);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
