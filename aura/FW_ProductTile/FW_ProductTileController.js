@@ -38,6 +38,13 @@
         });
         appEvent.fire();
 
+        let scrollOptions = {
+            left: 0,
+            top: 0,
+            behavior: 'smooth'
+        }
+        window.scrollTo(scrollOptions);
+
         helper.returnSimilarProducts(component);
     },
 

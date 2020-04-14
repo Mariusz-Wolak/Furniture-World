@@ -1,8 +1,13 @@
 <aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
 
     <div class="homeImg" style="{!'background-image:url(' + $Resource.FurnitureWelcomeImg +')'}">
-        <div class="header">Furniture World</div>
-        <div class="phrase">Aliquam vel lorem sollicitudin, congue eros quis, dapibus leo.</div>
+
+
+        <div class="textContainer">
+            <div class="header">Furniture World</div>
+            <div class="phrase">Sed sit amet tellus feugiat, gravida orci vel, suscipit nisl</div>
+            <div class="goShoppingDiv">Go Shopping!</div>
+        </div>
     </div>
 
 

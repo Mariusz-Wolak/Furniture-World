@@ -1,26 +1,44 @@
-
 .THIS.homeImg{
-    height: 1080px;
     width: 1900px;
+    height: 950px;
+}
+
+.THIS .textContainer{
+    padding: 30px;
+    margin: 0;
+    margin-left: 40px;
+    position: absolute;
+    top: 17%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 50%;
+    height: 30%;
+    background-color:rgba(255, 255, 255,0.4);
 }
 
 .THIS .header{
+    padding-top: 5px;
     text-align: center;
-    font-size: 100px;
+    line-height: 0.4;
+    color: black;
+    font-size: 80px;
 }
 
 .THIS .phrase{
+    padding-top: 30px;
     text-align: center;
+    font-size: 25px;
     font-style: italic;
-    font-size: 40px;
+    color: black;
 }
 
-.THIS .chevronDown{
-    padding-top: 50px;
-    padding-left: 950px;
+.THIS .goShoppingDiv{
+    margin: 30px auto;
+    text-align: center;
+    width: 60%;
+    border: 5px solid black;
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
     cursor: pointer;
-}
-
-.THIS .chevronDown svg{
-    fill: black;
 }
