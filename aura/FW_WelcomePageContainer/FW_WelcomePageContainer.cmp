@@ -1,5 +1,5 @@
 <aura:component implements="forceCommunity:themeLayout" access="global">
-    <div class="container">
+    <div>
         <c:FW_WelcomePage/>
             {!v.body}
     </div>

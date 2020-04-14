@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.THIS .productName:hover{
+    color: blue;
+}
+
 .THIS.iterationItems{
     font-size: 16px;
     line-height: 2.5;
