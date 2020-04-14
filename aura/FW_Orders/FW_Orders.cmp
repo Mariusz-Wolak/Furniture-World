@@ -8,7 +8,7 @@
     <div class="resultsHeader">{!$Label.c.Orders_History}</div>
 
     <div class="tableHeader slds-grid slds-align_absolute-center">
-        <div class="slds-col slds-size_3-of-12">{!$Label.c.Id}</div>
+        <div class="slds-col slds-size_3-of-12">{!$Label.c.Order_Number}</div>
         <div class="slds-col slds-size_3-of-12">{!$Label.c.Date}</div>
         <div class="slds-col slds-size_3-of-12">{!$Label.c.Total_Price}</div>
         <div class="slds-col slds-size_1-of-12">{!$Label.c.Details}</div>

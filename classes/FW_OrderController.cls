@@ -77,8 +77,7 @@ public with sharing class FW_OrderController {
     public static List<Order> getOrders() {
         List<Order> orders = [
                 SELECT Id, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
-                        BillingStreet,
-                        Status, TotalAmount, EffectiveDate, (
+                        BillingStreet, Status, TotalAmount, EffectiveDate, OrderNumber, (
                         SELECT Id,
                                 OrderId,
                                 OrderItemNumber,
