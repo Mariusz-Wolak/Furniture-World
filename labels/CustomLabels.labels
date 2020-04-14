@@ -1659,4 +1659,11 @@
         <shortDescription>Order_Number</shortDescription>
         <value>Order Number</value>
     </labels>
+    <labels>
+        <fullName>Ordered_Products_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ordered_Products_Information</shortDescription>
+        <value>Ordered products information</value>
+    </labels>
 </CustomLabels>

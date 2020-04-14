@@ -1,8 +1,15 @@
-
+.THIS .productName{
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .THIS.iterationItems{
     font-size: 16px;
     line-height: 2.5;
+}
+
+.THIS .orderItem{
+    padding: 5px;
 }
 
 .THIS .moreIcon:hover svg{
