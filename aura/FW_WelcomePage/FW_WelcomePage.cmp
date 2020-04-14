@@ -3,9 +3,6 @@
     <div class="homeImg" style="{!'background-image:url(' + $Resource.FurnitureWelcomeImg +')'}">
         <div class="header">Furniture World</div>
         <div class="phrase">Aliquam vel lorem sollicitudin, congue eros quis, dapibus leo.</div>
-
-        <lightning:icon aura:id="chevronDown" class="chevronDown" iconName="utility:chevrondown" size="large"
-                        onclick="{!c.scrollDown}"/>
     </div>
 
 

@@ -5,12 +5,6 @@
         meta.setAttribute("http-equiv", "Content-Security-Policy")
         meta.setAttribute("content", "date=no;img-src 'self' data:");
         document.getElementsByTagName('head')[0].appendChild(meta);
-        let scrollOptions = {
-            left: 0,
-            top: 1100,
-            behavior: 'smooth'
-        }
-        setTimeout(function(){ window.scrollTo(scrollOptions); }, 1000);
         helper.returnObservedProducts(component);
         component.set('v.header', $A.get('$Label.c.Observed_Items'));
         component.set('v.showItems', true);
