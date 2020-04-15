@@ -1,10 +1,5 @@
 ({
-    scrollDown: function(component, event, helper){
-        let scrollOptions = {
-            left: 0,
-            top: 1100,
-            behavior: 'smooth'
-        }
-        window.scrollTo(scrollOptions);
+    goToSearch: function(component, event, helper){
+        window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/Search-Furniture', '_top');
     }
 })
