@@ -5,27 +5,17 @@ public with sharing class FW_OrderController {
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
 
-        Set<String> productsIds = new Set<String>();
-        for (FW_ProductWrapped prod : wrappedProducts) {
-            productsIds.add(prod.id);
-        }
-
-        List<PricebookEntry> pbeList = [
-                SELECT Name, Id, Pricebook2Id, Product2Id
-                FROM PricebookEntry
-                WHERE Product2Id IN
-                        :productsIds
-        ];
-
         String userString = JSON.serialize(currentUser);
         User currUser = (User) JSON.deserialize(userString, User.class);
         Order__c orderFromCustomSettings = Order__c.getInstance('FW_Order');
+        List<Pricebook2> standardPB = [SELECT Id, Name FROM Pricebook2 WHERE Name = 'Standard Price Book'];
+        List<PricebookEntry> standardPBEList = [SELECT Id, Product2Id, Pricebook2Id FROM PricebookEntry WHERE Pricebook2.Name = 'Standard Price Book'];
 
         try {
             String orderId;
             Order newOrder = new Order();
             newOrder.AccountId = orderFromCustomSettings.accountId__c;
-            newOrder.Pricebook2Id = pbeList[0].Pricebook2Id;
+            newOrder.Pricebook2Id = standardPB[0].Id;
             newOrder.BillingStreet = currUser.street;
             newOrder.BillingCity = currUser.city;
             newOrder.BillingState = currUser.state;
@@ -47,7 +37,7 @@ public with sharing class FW_OrderController {
                 item.Quantity = prod.quantity;
                 item.Product2Id = prod.id;
 
-                for (PricebookEntry pbe : pbeList) {
+                for (PricebookEntry pbe : standardPBEList) {
                     if(pbe.Product2Id == prod.id) {
                         item.PricebookEntryId = pbe.Id;
                         break;
