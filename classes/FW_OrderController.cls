@@ -4,7 +4,6 @@ public with sharing class FW_OrderController {
         String productsString = JSON.serialize(productsInBasket);
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
-
         String userString = JSON.serialize(currentUser);
         User currUser = (User) JSON.deserialize(userString, User.class);
         Order__c orderFromCustomSettings = Order__c.getInstance('FW_Order');
@@ -33,7 +32,11 @@ public with sharing class FW_OrderController {
             List<OrderItem> itemsToOrder = new List<OrderItem>();
             for (FW_ProductWrapped prod : wrappedProducts) {
                 OrderItem item = new OrderItem(OrderId = orderId);
-                item.UnitPrice = prod.price;
+                if(prod.discountPrice != null){
+                    item.UnitPrice = prod.discountPrice;
+                }else{
+                    item.UnitPrice = prod.price;
+                }
                 item.Quantity = prod.quantity;
                 item.Product2Id = prod.id;
 
