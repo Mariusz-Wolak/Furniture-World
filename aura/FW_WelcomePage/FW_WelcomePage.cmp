@@ -2,7 +2,6 @@
 
     <div class="homeImg" style="{!'background-image:url(' + $Resource.FurnitureWelcomeImg +')'}">
 
-
         <div class="textContainer">
             <div class="header">Furniture World</div>
             <div class="phrase">Sed sit amet tellus feugiat, gravida orci vel, suscipit nisl</div>

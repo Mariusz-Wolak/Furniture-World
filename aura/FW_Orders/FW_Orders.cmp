@@ -2,8 +2,19 @@
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="results" type="Order" access="global"/>
+    <aura:attribute name="selectedItem" type="Object" access="global"/>
+
+    <aura:attribute name="showProductView" type="Boolean" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="selectedProduct" event="c:FW_ProductSelected" action="{!c.showProduct}"/>
+
+
+    <aura:if isTrue="{!v.showProductView}">
+        <div class="productView">
+            <c:FW_ProductView product="{!v.selectedItem}" hideAddToBasket="false"/>
+        </div>
+    </aura:if>
 
     <div class="resultsHeader">{!$Label.c.Orders_History}</div>
 

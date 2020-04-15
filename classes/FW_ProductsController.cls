@@ -21,8 +21,8 @@ public with sharing class FW_ProductsController {
                     FROM
                             PricebookEntry
                     WHERE
-                            Product2Id IN
-                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
+                    Product2Id IN
+                            :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
@@ -70,6 +70,40 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
+    public static FW_ProductWrapped getProductInfo(String productId) {
+        Product2 prod = [
+                SELECT Id, DisplayUrl, Description, Name, Type__c, Family, (
+                        SELECT Id
+                        FROM
+                                FW_ObservedItems__r
+                        WHERE CreatedById = :userid
+                )
+                FROM Product2
+                WHERE Id = :productId AND Type__c = 'Furniture'
+        ];
+
+        List<PricebookEntry> standardPBEList = [
+                SELECT Id, Product2Id, Pricebook2Id, UnitPrice
+                FROM PricebookEntry
+                WHERE Pricebook2.Name = 'Standard Price Book'
+                AND Product2Id = :prod.Id
+        ];
+
+        FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+        productWrapped.id = prod.Id;
+        productWrapped.displayUrl = prod.DisplayUrl;
+        productWrapped.description = prod.Description;
+        productWrapped.name = prod.Name;
+        productWrapped.type = prod.Type__c;
+        productWrapped.family = prod.Family;
+        productWrapped.observedItems = prod.FW_ObservedItems__r;
+        productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
+        productWrapped.price = standardPBEList[0].UnitPrice;
+
+        return productWrapped;
+    }
+
+    @AuraEnabled
     public static List<Object> getNewestProducts() {
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (SELECT Id FROM ' +
                 'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 WHERE Type__c = ' +
@@ -88,8 +122,8 @@ public with sharing class FW_ProductsController {
                     FROM
                             PricebookEntry
                     WHERE
-                            Product2Id IN
-                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
+                    Product2Id IN
+                            :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
@@ -223,8 +257,8 @@ public with sharing class FW_ProductsController {
                         FROM
                                 PricebookEntry
                         WHERE
-                                Product2Id IN
-                                        :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
+                        Product2Id IN
+                                :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                         GROUP BY Product2Id
                 ];
 
@@ -321,8 +355,8 @@ public with sharing class FW_ProductsController {
                     FROM
                             PricebookEntry
                     WHERE
-                            Product2Id IN
-                                    :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
+                    Product2Id IN
+                            :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
                     GROUP BY Product2Id
             ];
 
@@ -433,27 +467,27 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId){
+    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId) {
         return FW_ProductsDiscountManagerController.getProductsFromPricebook(pricebookId);
     }
 
     @AuraEnabled
-    public static Boolean removePricebook(String pricebookId){
+    public static Boolean removePricebook(String pricebookId) {
         return FW_ProductsDiscountManagerController.removePricebook(pricebookId);
     }
 
     @AuraEnabled
-    public static Pricebook2 updatePricebook(Pricebook2 pricebook){
+    public static Pricebook2 updatePricebook(Pricebook2 pricebook) {
         return FW_ProductsDiscountManagerController.updatePricebook(pricebook);
     }
 
     @AuraEnabled
-    public static void deleteProductFromPricebook(String productId, String pricebookId){
+    public static void deleteProductFromPricebook(String productId, String pricebookId) {
         FW_ProductsDiscountManagerController.deleteProductFromPricebook(productId, pricebookId);
     }
 
     @AuraEnabled
-    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<Object> products){
+    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<Object> products) {
         FW_ProductsDiscountManagerController.removeProductsFromPricebook(pricebook, products);
     }
 }

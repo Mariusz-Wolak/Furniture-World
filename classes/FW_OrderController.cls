@@ -7,6 +7,7 @@ public with sharing class FW_OrderController {
         String userString = JSON.serialize(currentUser);
         User currUser = (User) JSON.deserialize(userString, User.class);
         Order__c orderFromCustomSettings = Order__c.getInstance('FW_Order');
+
         List<Pricebook2> standardPB = [SELECT Id, Name FROM Pricebook2 WHERE Name = 'Standard Price Book'];
         List<PricebookEntry> standardPBEList = [SELECT Id, Product2Id, Pricebook2Id FROM PricebookEntry WHERE Pricebook2.Name = 'Standard Price Book'];
 
