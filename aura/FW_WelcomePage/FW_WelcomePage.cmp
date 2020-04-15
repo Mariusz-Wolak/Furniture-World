@@ -6,7 +6,7 @@
         <div class="textContainer">
             <div class="header">Furniture World</div>
             <div class="phrase">Sed sit amet tellus feugiat, gravida orci vel, suscipit nisl</div>
-            <div class="goShoppingDiv">Go Shopping!</div>
+            <div class="goShoppingDiv" onclick="{!c.goToSearch}">Go Shopping!</div>
         </div>
     </div>
 
