@@ -54,6 +54,7 @@
            "productsInBasket": productsInBasket,
            "totalPrice": totalPrice
         });
+        console.log('insertOrder params: '+JSON.stringify(action.getParams()));
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){

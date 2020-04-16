@@ -1,6 +1,6 @@
 public with sharing class FW_OrderController {
 
-    public static void insertOrder(User currentUser, List<Object> productsInBasket, Decimal totalPrice) {
+    public static void insertOrder(Object currentUser, List<Object> productsInBasket, Decimal totalPrice) {
         String productsString = JSON.serialize(productsInBasket);
         List<FW_ProductWrapped> wrappedProducts = (List<FW_ProductWrapped>) JSON.deserialize(productsString,
                 List<FW_ProductWrapped>.class);
@@ -10,7 +10,6 @@ public with sharing class FW_OrderController {
 
         List<Pricebook2> standardPB = [SELECT Id, Name FROM Pricebook2 WHERE Name = 'Standard Price Book'];
         List<PricebookEntry> standardPBEList = [SELECT Id, Product2Id, Pricebook2Id FROM PricebookEntry WHERE Pricebook2.Name = 'Standard Price Book'];
-
         try {
             String orderId;
             Order newOrder = new Order();
@@ -21,6 +20,8 @@ public with sharing class FW_OrderController {
             newOrder.BillingCity = currUser.city;
             newOrder.BillingState = currUser.state;
             newOrder.BillingCountry = currUser.country;
+            newOrder.BillingPostalCode = currUser.postalCode;
+            newOrder.Buyer__c = currUser.name;
             newOrder.Status = 'Draft';
             newOrder.EndDate = Date.today().addDays(14);
             newOrder.EffectiveDate = Date.today();

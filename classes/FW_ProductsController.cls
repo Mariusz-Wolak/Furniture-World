@@ -424,7 +424,7 @@ public with sharing class FW_ProductsController {
             userWrapped.street = addr.street;
             userWrapped.city = addr.city;
             userWrapped.state = addr.state;
-            userWrapped.code = addr.postalCode;
+            userWrapped.postalCode = addr.postalCode;
             userWrapped.country = addr.country;
             return userWrapped;
 
@@ -434,7 +434,7 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static void insertOrder(User currentUser, List<Object> productsInBasket, Decimal totalPrice) {
+    public static void insertOrder(Object currentUser, List<Object> productsInBasket, Decimal totalPrice) {
         FW_OrderController.insertOrder(currentUser, productsInBasket, totalPrice);
     }
 
