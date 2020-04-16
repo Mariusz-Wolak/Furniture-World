@@ -10,7 +10,7 @@ public with sharing class FW_UserWrapped {
     @AuraEnabled
     public String state;
     @AuraEnabled
-    public String code;
+    public String postalCode;
     @AuraEnabled
     public String country;
 }

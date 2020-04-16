@@ -51,16 +51,18 @@
             <div class="productDescription">{!v.product.description}</div>
 
             <aura:if isTrue="{!not(v.hideAddToBasket)}">
-            <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
-                <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
-                <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
-                                 value="{!v.quantity}" onchange="{!c.changeQuantity}"/>
-                <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
-            </div>
+                <div class="addToBasketContainer">
+                    <div class="quantityDiv">
+                        <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
+                        <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
+                                         value="{!v.quantity}" onchange="{!c.changeQuantity}"/>
+                        <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
+                    </div>
 
-            <div class="basketButtonDiv slds-grid slds-align_absolute-center">
-                <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
-            </div>
+                    <div class="basketButtonDiv">
+                        <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
+                    </div>
+                </div>
             </aura:if>
         </div>
     </div>
@@ -111,7 +113,7 @@
             {!v.header}
     </div>
 
-    <div class="slds-grid slds-wrap">
+    <div class="similarItems slds-grid slds-wrap">
         <aura:iteration items="{!v.results}" var="item">
             <div class="productTile slds-col slds-size_3-of-12">
                 <c:FW_ProductTile item="{!item}"/>

@@ -14,9 +14,8 @@
         <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">{!v.order.Status}</div>
 
         <div class="orderItem slds-col slds-size_3-of-12">
-            <aura:iteration items="{!v.order.OrderItems}" var="product">
-                <div><span class="productName">{!product.PricebookEntry.Product2.Name}</span> &nbsp;
-                    x{!product.Quantity} &nbsp; (€{!product.UnitPrice} each)</div>
+            <aura:iteration items="{!v.order.OrderItems}" var="orderItem">
+                <c:FW_OrderProductResult orderItem="{!orderItem}"/>
             </aura:iteration>
         </div>
 

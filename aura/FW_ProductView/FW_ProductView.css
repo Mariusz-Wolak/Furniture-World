@@ -52,9 +52,6 @@
     cursor: pointer;
 }
 
-.THIS .basketButtonDiv{
-    margin-left: 3px;
-}
 
 .THIS .basketButton{
     padding: 10px;
@@ -137,10 +134,20 @@
   transform:rotate(-5deg);
 }
 
-
+.THIS .addToBasketContainer{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: space-between;
+}
 
 .THIS .quantityDiv{
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -162,4 +169,13 @@
 
 .THIS .plusDiv{
     margin-right: -5px;
+}
+
+.THIS .basketButtonDiv{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.THIS.similarItems{
+    padding-bottom: 10vh;
 }
