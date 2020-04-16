@@ -25,7 +25,7 @@
                     "productId": product.id
                 });
                 appEvent.fire();
-                
+
                 let scrollOptions = {
                     left: 0,
                     top: 0,
