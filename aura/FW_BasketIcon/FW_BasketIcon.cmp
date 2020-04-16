@@ -15,5 +15,5 @@
         </div>
     </aura:if>
 
-    <c:FW_CustomToast/>
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

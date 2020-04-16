@@ -337,6 +337,8 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<Object> getSimilarProducts(String productFamily, String productId) {
+        System.debug('productId: '+productId);
+        System.debug('productFamily: '+productFamily);
         String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (SELECT Id FROM ' +
                 'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 WHERE ' +
                 'Type__c = ' +

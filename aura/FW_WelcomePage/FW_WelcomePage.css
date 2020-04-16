@@ -19,7 +19,7 @@
 .THIS .header{
     padding-top: 5px;
     text-align: center;
-    line-height: 0.4;
+    line-height: 0.2;
     color: black;
     font-size: 80px;
 }
@@ -27,17 +27,18 @@
 .THIS .phrase{
     padding-top: 30px;
     text-align: center;
-    font-size: 25px;
+    font-size: 50px;
+    line-height: 1;
     font-style: italic;
     color: black;
 }
 
 .THIS .goShoppingDiv{
-    margin: 30px auto;
+    margin: 25px auto;
     text-align: center;
-    width: 60%;
+    width: 50%;
     border: 5px solid black;
-    font-size: 50px;
+    font-size: 60px;
     color: black;
     font-weight: bold;
     cursor: pointer;
