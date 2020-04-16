@@ -15,6 +15,7 @@ public with sharing class FW_OrderController {
             String orderId;
             Order newOrder = new Order();
             newOrder.AccountId = orderFromCustomSettings.accountId__c;
+            newOrder.ContractId = orderFromCustomSettings.contractId__c;
             newOrder.Pricebook2Id = standardPB[0].Id;
             newOrder.BillingStreet = currUser.street;
             newOrder.BillingCity = currUser.city;
