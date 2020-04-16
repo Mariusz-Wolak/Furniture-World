@@ -14,8 +14,13 @@
     <aura:handler name="FW_SendPriceDifference" event="c:FW_SendPriceDifference" action="{!c.setTotalPrice}"/>
     <aura:handler name="selectedProduct" event="c:FW_ProductSelected" action="{!c.showProduct}"/>
 
+    <div class="content">
     <aura:if isTrue="{!empty(v.results)}">
-        <div class="resultsHeader">{!$Label.c.The_List_Is_Empty}</div>
+        <div class="emptyBasketDiv">
+
+            <div class="resultsHeader">{!$Label.c.Your_Basket_Is_Empty}</div>
+        </div>
+
 
         <aura:set attribute="else">
             <div class="resultsHeader">{!$Label.c.Your_Basket}</div>
@@ -59,6 +64,7 @@
             <c:FW_ProductView product="{!v.selectedItem}" hideAddToBasket="true"/>
         </div>
     </aura:if>
+    </div>
 
     <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
                       productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}" currentUser="{!v.currentUser}"/>

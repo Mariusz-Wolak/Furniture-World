@@ -12,29 +12,31 @@
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendTotalQuantity" event="c:FW_SendTotalQuantity" action="{!c.setTotalQuantity}"/>
 
-    <aura:if isTrue="{!empty(v.results)}">
-        <div class="resultsHeader">{!$Label.c.The_List_Is_Empty}</div>
+    <div class="content">
+        <aura:if isTrue="{!empty(v.results)}">
+            <div class="resultsHeader">{!$Label.c.The_List_Is_Empty}</div>
 
-        <aura:set attribute="else">
-            <aura:if isTrue="{!v.showItems}">
-                <div class="resultsHeader">{!v.header}</div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.showItems}">
+                    <div class="resultsHeader">{!v.header}</div>
 
-                <div class="slds-grid slds-wrap">
-                    <aura:iteration items="{!v.results}" var="item">
-                        <div class="productTile slds-col slds-size_3-of-12">
-                            <c:FW_ProductTile item="{!item}" observedIds="{!v.observedIds}"/>
-                        </div>
-                    </aura:iteration>
-                </div>
-            </aura:if>
+                    <div class="slds-grid slds-wrap">
+                        <aura:iteration items="{!v.results}" var="item">
+                            <div class="productTile slds-col slds-size_3-of-12">
+                                <c:FW_ProductTile item="{!item}" observedIds="{!v.observedIds}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </aura:if>
 
-            <aura:if isTrue="{!v.showProductView}">
-                <div class="productView">
-                    <c:FW_ProductView product="{!v.selectedItem}"/>
-                </div>
-            </aura:if>
-        </aura:set>
-    </aura:if>
+                <aura:if isTrue="{!v.showProductView}">
+                    <div class="productView">
+                        <c:FW_ProductView product="{!v.selectedItem}"/>
+                    </div>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
 
     <c:FW_BasketIcon totalQuantity="{!v.totalQuantity}"/>
     <c:FW_CustomToast aura:id="customToast"/>

@@ -19,6 +19,11 @@
     font-font-weight: bold;
 }
 
+.THIS .resultsHeader{
+    font-size: 32px;
+    font-font-weight: bold;
+}
+
 .THIS hr {
     display: block;
     height: 1px;
@@ -34,4 +39,8 @@
 
 .THIS .basketResult{
     padding: 5px 0;
+}
+
+.THIS.content{
+    min-height: 37vh;
 }

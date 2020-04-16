@@ -1666,4 +1666,11 @@
         <shortDescription>Ordered_Products_Information</shortDescription>
         <value>Ordered products information</value>
     </labels>
+    <labels>
+        <fullName>Your_Basket_Is_Empty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your_Basket_Is_Empty</shortDescription>
+        <value>Your Basket Is Empty</value>
+    </labels>
 </CustomLabels>
