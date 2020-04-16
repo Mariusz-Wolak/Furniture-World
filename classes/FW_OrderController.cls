@@ -42,6 +42,7 @@ public with sharing class FW_OrderController {
                 }
                 item.Quantity = prod.quantity;
                 item.Product2Id = prod.id;
+                item.DisplayUrl__c = prod.displayUrl;
 
                 for (PricebookEntry pbe : standardPBEList) {
                     if(pbe.Product2Id == prod.id) {
@@ -72,13 +73,15 @@ public with sharing class FW_OrderController {
 
     public static List<Order> getOrders() {
         List<Order> orders = [
-                SELECT Id, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
+                SELECT Id, Buyer__c, CreatedById, CreatedDate, BillingCountry, BillingState, BillingPostalCode, BillingCity, Price__c,
                         BillingStreet, Status, TotalAmount, EffectiveDate, OrderNumber, (
                         SELECT Id,
                                 OrderId,
                                 OrderItemNumber,
                                 PricebookEntry.Product2.Name,
                                 PricebookEntry.Product2.id,
+                                DisplayUrl__c,
+                                TotalPrice,
                                 Quantity,
                                 UnitPrice
                         FROM OrderItems
