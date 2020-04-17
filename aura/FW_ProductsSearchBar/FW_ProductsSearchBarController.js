@@ -4,7 +4,7 @@
 
     search: function(component, event, helper){
         if(event.which == 13){
-            helper.doSearch(component);
+            helper.doSearch(component, event);
         }
     }
 })
