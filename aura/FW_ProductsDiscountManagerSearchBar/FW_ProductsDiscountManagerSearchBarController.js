@@ -11,6 +11,7 @@
 
     setPricebook: function(component, event, helper){
         component.set('v.pricebook', event.getParam('pricebook'));
+        console.log('selected pricebook: '+JSON.stringify(component.get('v.pricebook')));
     },
 
     receiveProductsFromPricebook: function(component, event, helper){
