@@ -78,7 +78,11 @@
         let products = event.getParam('products');
         let results = component.get('v.results');
 
-        let resultsToShow = products.concat(results);
-        component.set('v.results', resultsToShow)
+        if(results != null){
+            let resultsToShow = products.concat(results);
+            component.set('v.results', resultsToShow)
+        }else{
+            component.set('v.results', products);
+        }
     }
 })
