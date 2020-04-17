@@ -11,7 +11,6 @@
                 let results = response.getReturnValue();
                 let pricebook = component.get('v.pricebook');
                 let productsFromPricebook = component.get('v.productsFromPricebook');
-
                 for(let i=0; i<results.length; i++){
                     if(results[i].price == null && pricebook.Name != 'Standard Price Book'){
                         results.splice(i,1);
