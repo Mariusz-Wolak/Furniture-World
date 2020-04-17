@@ -151,7 +151,9 @@ public with sharing class FW_ProductsController {
                     }
                 }
 
-                productsWrappedList.add(productWrapped);
+                if(productWrapped.price != null){
+                    productsWrappedList.add(productWrapped);
+                }
             }
             return productsWrappedList;
         } catch (Exception e) {

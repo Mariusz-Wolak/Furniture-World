@@ -5,27 +5,27 @@
         }
     },
 
-//    refreshResults: function(component, event, helper){
-//        helper.doSearch(component);
-//    },
-
     setPricebook: function(component, event, helper){
         component.set('v.pricebook', event.getParam('pricebook'));
+        component.set('v.results', null);
     },
 
     receiveProductsFromPricebook: function(component, event, helper){
         let productsFromPricebook = event.getParam('products');
+        component.set('v.productsFromPricebook', productsFromPricebook);
+
         let results = component.get('v.results');
-        for(let i=0; i<productsFromPricebook.length; i++){
-            for(let j=0; j<results.length; j++){
-                if(results[j].id == productsFromPricebook[i].id){
-                    results.splice(j,1);
-                    break;
+        if(results != null){
+            for(let i=0; i<productsFromPricebook.length; i++){
+                for(let j=0; j<results.length; j++){
+                    if(results[j].id == productsFromPricebook[i].id){
+                        results.splice(j,1);
+                        break;
+                    }
                 }
             }
+            component.set('v.results', results);
         }
-        component.set('v.productsFromPricebook', productsFromPricebook);
-        component.set('v.results', results);
     },
 
     removeSentProduct: function(component, event, helper){
@@ -43,12 +43,19 @@
     receiveRemovedProductFromPricebook: function(component, event, helper){
         let product = event.getParam('product');
         let results = component.get('v.results');
+        let productsFromPricebook = component.get('v.productsFromPricebook');
         if(results == null){
             results = [];
         }else{
+            results.unshift(product);
         }
-        results.unshift(product);
+        if(productsFromPricebook == null){
+            productsFromPricebook = [];
+        }else{
+            productsFromPricebook.unshift(product);
+        }
         component.set('v.results', results);
+        component.set('v.productsFromPricebook', productsFromPricebook);
     },
 
     receiveDeletedPricebook: function(component, event, helper){

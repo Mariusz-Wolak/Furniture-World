@@ -19,15 +19,15 @@
                 </header>
                 <center>
                     <div class="slds-modal__content slds-p-around--medium">
-                        <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
+                        <div class="inputDiv slds-size--1-of-1">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.Name}</div>
                             <lightning:input value="{!v.name}"/>
                         </div>
-                        <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
+                        <div class="inputDiv slds-size--1-of-1">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.Start_Date}</div>
                             <lightning:input value="{!v.startDate}" type="date"/>
                         </div>
-                        <div class="inputDiv slds-size--1-of-1" style="font-size: 20px;">
+                        <div class="inputDiv slds-size--1-of-1">
                             <div class="inputHeader slds-text-align_left">{!$Label.c.End_Date}</div>
                             <lightning:input value="{!v.endDate}" type="date"/>
                         </div>

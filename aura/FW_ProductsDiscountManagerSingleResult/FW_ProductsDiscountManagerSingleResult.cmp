@@ -57,8 +57,15 @@
                                       disabled="true"/>
                 </div>
                 <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
-                    <div class="priceText">New Discount</div>
-                    <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+                    <aura:if isTrue="{!v.product.price}">
+                        <div class="priceText">New Discount</div>
+                        <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+                        <aura:set attribute="else">
+                            <div class="priceText">
+                                {!$Label.c.Set_Price_In_Standard_Price_Book_First}
+                            </div>
+                        </aura:set>
+                    </aura:if>
                 </div>
                 <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
                     <div class="priceText">Current Discount</div>

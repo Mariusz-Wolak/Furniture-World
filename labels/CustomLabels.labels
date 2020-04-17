@@ -1673,4 +1673,11 @@
         <shortDescription>Your_Basket_Is_Empty</shortDescription>
         <value>Your Basket Is Empty</value>
     </labels>
+    <labels>
+        <fullName>Set_Price_In_Standard_Price_Book_First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set_Price_In_Standard_Price_Book_First</shortDescription>
+        <value>Set price in Standard Price Book in order to set discount</value>
+    </labels>
 </CustomLabels>

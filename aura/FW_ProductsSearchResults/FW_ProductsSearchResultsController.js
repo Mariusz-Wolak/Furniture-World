@@ -22,7 +22,14 @@
             action.setCallback(this, function(response){
                 let state = response.getState();
                 if(state === 'SUCCESS'){
-                    component.set("v.results", response.getReturnValue());
+                    let results = response.getReturnValue();
+                    for(let i=0; i<results.length; i++){
+                        if(results[i].price == null){
+                            results.splice(i, 1);
+                            break;
+                        }
+                    }
+                    component.set("v.results", results);
                     component.set("v.header", $A.get("$Label.c.Showing_Results_For") + ": " + searchItem);
             }else{
                 component.find('customToast').showErrorToast(response.getError());
