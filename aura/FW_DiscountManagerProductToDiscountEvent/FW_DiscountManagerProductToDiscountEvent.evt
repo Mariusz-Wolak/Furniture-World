@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="FW_DiscountManagerProductToDiscountEvent">
-    <aura:attribute name="productToDiscount" type="Object" access="global"/>
-</aura:event>

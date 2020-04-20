@@ -1,0 +1,23 @@
+.THIS .resultsHeader{
+    font-size: 32px;
+    font-font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.THIS .tableHeader{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.THIS .singleResult{
+    margin-top: 15px;
+    background: #F5F5F5;
+}
+
+.THIS .singleResult:hover{
+    background: #E8E8E8;
+}
+
+.THIS.content{
+    min-height: 37vh;
+}

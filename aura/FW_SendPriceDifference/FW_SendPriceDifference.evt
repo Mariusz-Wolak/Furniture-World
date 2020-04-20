@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT">
-    <aura:attribute name="priceDifference" type="Decimal" access="global"/>
-</aura:event>

@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="FW_SendTotalQuantity">
-    <aura:attribute name="totalQuantity" type="Integer" access="global"/>
-</aura:event>

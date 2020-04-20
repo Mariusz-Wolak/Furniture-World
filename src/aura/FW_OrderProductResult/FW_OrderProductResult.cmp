@@ -1,0 +1,14 @@
+<aura:component description="FW_OrderProductResult" controller="FW_ProductsController">
+
+    <aura:attribute name="orderItem" type="Object" access="global"/>
+    <aura:attribute name="product" type="Object" access="global"/>
+
+    <aura:registerEvent name="selectedProduct" type="c:FW_ProductSelected"/>
+    <aura:registerEvent name="FW_ProductIdSendToRecordView" type="c:FW_ProductIdSendToRecordView"/>
+    <aura:registerEvent name="sendSimilarProducts" type="c:FW_SendSimilarProducts"/>
+
+    <div><span class="productName" onclick="{!c.selectItem}">{!v.orderItem.PricebookEntry.Product2.Name}</span> &nbsp;
+        x{!v.orderItem.Quantity} &nbsp; (€{!v.orderItem.UnitPrice} each)</div>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

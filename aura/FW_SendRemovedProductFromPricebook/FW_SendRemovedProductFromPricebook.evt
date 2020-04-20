@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_SendRemovedProductFromPricebook">
-    <aura:attribute name="product" type="Object" access="global"/>
-</aura:event>

@@ -1,0 +1,2 @@
+<aura:event type="APPLICATION" description="FW_GetSelectedPricebook">
+</aura:event>

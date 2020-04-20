@@ -1,0 +1,22 @@
+.THIS .inputDiv{
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.THIS .header{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.THIS .inputHeader{
+    margin-bottom: -20px;
+    font-size: 16px;
+}
+
+.THIS .button{
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: right;
+    font-size: 25px;
+}

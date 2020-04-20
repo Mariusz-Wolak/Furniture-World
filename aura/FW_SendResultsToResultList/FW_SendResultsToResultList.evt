@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_SendResultsToResultList">
-    <aura:attribute name="results" type="Object[]" access="public"/>
-</aura:event>

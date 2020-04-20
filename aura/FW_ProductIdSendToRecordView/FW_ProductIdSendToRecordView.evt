@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_ProductIdSendToRecordView">
-    <aura:attribute name="productId" type="String" access="global"/>
-</aura:event>

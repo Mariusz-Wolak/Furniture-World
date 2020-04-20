@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_SendUpdatedPricebook">
-    <aura:attribute name="pricebook" type="Object" access="global"/>
-</aura:event>

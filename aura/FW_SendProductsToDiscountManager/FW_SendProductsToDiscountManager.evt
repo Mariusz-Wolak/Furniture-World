@@ -1,4 +1,0 @@
-<aura:event type="COMPONENT" description="FW_SendProductsToDiscountManager">
-    <aura:attribute name="results" type="Product2[]" access="public"/>
-    <aura:attribute name="searchItemName" type="String" access="public"/>
-</aura:event>

@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION">
-    <aura:attribute name="record" type="Object" access="public"/>
-</aura:event>

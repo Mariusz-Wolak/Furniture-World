@@ -1,0 +1,23 @@
+.THIS.card{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.THIS.searchBarDiv{
+    font-size: 20px;
+}
+
+.THIS .header{
+    font-size: 20px;
+}
+
+.THIS .scroll{
+    height: 16rem;
+}
+
+.THIS .addAllButton{
+    margin-top: 8px;
+    margin-right: 30px;
+    margin-bottom: 6px;
+    float: right;
+}
