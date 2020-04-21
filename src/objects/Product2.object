@@ -43,6 +43,12 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CreateNewProduct</actionName>
+        <content>FW_ProductManagementWrapper</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -158,6 +164,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>MainPhoto__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE(DisplayUrl, &quot;Main Photo&quot;, 300, 300)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Main Photo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -180,6 +197,17 @@
         <fullName>QuantityUnitOfMeasure</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>StockKeepingUnit</fullName>
@@ -207,6 +235,15 @@
         <fullName>AllProducts</fullName>
         <filterScope>Everything</filterScope>
         <label>All Products</label>
+    </listViews>
+    <listViews>
+        <fullName>FurnitureWorldProducts</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <label>FurnitureWorldProducts</label>
     </listViews>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -251,6 +288,9 @@
         <customTabListAdditionalFields>PRODUCT2.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</customTabListAdditionalFields>
         <customTabListAdditionalFields>PRODUCT2.DESCRIPTION</customTabListAdditionalFields>
+        <excludedStandardButtons>CreateNewProduct</excludedStandardButtons>
+        <excludedStandardButtons>PrintableListView</excludedStandardButtons>
+        <listViewButtons>NewProduct</listViewButtons>
         <lookupDialogsAdditionalFields>PRODUCT2.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupDialogsAdditionalFields>
@@ -265,4 +305,17 @@
         <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>NewProduct</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Product</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR(&quot;/lightning/cmp/c__FW_ProductAdd&quot;, null)}</url>
+    </webLinks>
 </CustomObject>

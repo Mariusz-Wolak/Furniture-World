@@ -306,6 +306,20 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Order__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Origin</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -579,6 +593,15 @@
         <filterScope>Queue</filterScope>
         <label>Tech Support</label>
         <queue>Tech_Support</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>userQueue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>userQueue</label>
+        <queue>userQueue</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
