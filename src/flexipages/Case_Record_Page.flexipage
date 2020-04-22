@@ -172,10 +172,6 @@
                 <value>Case.Id</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>CaseArticles</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
                 <value>NONE</value>
             </componentInstanceProperties>
