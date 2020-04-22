@@ -152,11 +152,11 @@
   </types>
   <types>
     <members>*</members>
-    <name>SiteDotCom</name>
+    <name>StaticResource</name>
   </types>
   <types>
     <members>*</members>
-    <name>StaticResource</name>
+    <name>Workflow</name>
   </types>
   <version>47.0</version>
 </Package>
