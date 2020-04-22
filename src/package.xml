@@ -129,9 +129,7 @@
     <name>RemoteSiteSetting</name>
   </types>
   <types>
-    <members>Survey_Force_Reports</members>
-    <members>Survey_Force_Reports/Survey_with_Questions_and_Responses</members>
-    <members>unfiled$public</members>
+    <members>*</members>
     <name>Report</name>
   </types>
   <types>
