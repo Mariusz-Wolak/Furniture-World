@@ -43,12 +43,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CreateNewProduct</actionName>
-        <content>FW_ProductManagementWrapper</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
