@@ -15,13 +15,13 @@
         <picklistValueName>Open</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <fieldNames></fieldNames>
-        <info></info>
+        <fieldNames>Phone</fieldNames>
+        <info>&lt;p&gt;Offer Lead.&lt;/p&gt;</info>
         <picklistValueName>Offer</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <fieldNames></fieldNames>
-        <info></info>
+        <fieldNames>Phone</fieldNames>
+        <info>&lt;p&gt;Convert Lead.&lt;/p&gt;</info>
         <picklistValueName>Converted</picklistValueName>
     </pathAssistantSteps>
     <recordTypeName>__MASTER__</recordTypeName>
