@@ -21,13 +21,11 @@
                 <value>High</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>120</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -49,13 +47,11 @@
                 <value>Medium,Low</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>360</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -77,13 +73,11 @@
                 <value>High</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>240</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -105,13 +99,11 @@
                 <value>Medium,Low</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>480</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -128,13 +120,11 @@
                 <value>Silver</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>720</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -151,13 +141,11 @@
                 <value>Bronze</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>1440</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -174,13 +162,11 @@
                 <value>Gold,Platinum</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>360</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -197,13 +183,11 @@
                 <value>Silver,Bronze</value>
             </criteriaItems>
             <escalationAction>
-                <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
+                <assignedTo>userQueue</assignedTo>
                 <assignedToTemplate>unfiled$public/SupportEscalatedCaseReassignment</assignedToTemplate>
-                <assignedToType>User</assignedToType>
+                <assignedToType>Queue</assignedToType>
                 <minutesToEscalation>1080</minutesToEscalation>
                 <notifyCaseOwner>false</notifyCaseOwner>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
-                <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
         </ruleEntry>
@@ -222,9 +206,6 @@
             <escalationAction>
                 <minutesToEscalation>30</minutesToEscalation>
                 <notifyCaseOwner>true</notifyCaseOwner>
-                <notifyEmail>mariusz.wolak@yahoo.com</notifyEmail>
-                <notifyEmail>mariusz.wolak@britenet.com.pl</notifyEmail>
-                <notifyTo>mariusz.wolak@yahoo.com</notifyTo>
                 <notifyToTemplate>unfiled$public/SupportEscalatedCaseNotification</notifyToTemplate>
             </escalationAction>
             <escalationStartTime>CaseCreation</escalationStartTime>
