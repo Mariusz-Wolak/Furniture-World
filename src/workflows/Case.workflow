@@ -7,10 +7,6 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <recipients>
-            <recipient>mariusz.wolak@yahoo.com</recipient>
-            <type>user</type>
-        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/X1_hour_warning_milestone</template>
     </alerts>
