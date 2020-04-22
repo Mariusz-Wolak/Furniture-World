@@ -158,5 +158,9 @@
     <members>*</members>
     <name>Workflow</name>
   </types>
+  <types>
+    <members>*</members>
+    <name>ContentAsset</name>
+  </types>
   <version>47.0</version>
 </Package>
