@@ -20,7 +20,6 @@
     <tabs>standard-Order</tabs>
     <tabs>standard-Product2</tabs>
     <tabs>standard-Pricebook2</tabs>
-    <tabs>Divisions_Search1</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>FurnitureWorld_UtilityBar</utilityBar>
 </CustomApplication>
