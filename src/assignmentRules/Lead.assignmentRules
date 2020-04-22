@@ -4,8 +4,8 @@
         <fullName>Standard</fullName>
         <active>true</active>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Lead.Country</field>
                 <operation>equals</operation>
@@ -13,8 +13,8 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Lead.Country</field>
                 <operation>notEqual</operation>

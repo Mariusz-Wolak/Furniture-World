@@ -53,8 +53,8 @@
         <fullName>Standard</fullName>
         <active>false</active>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
                 <operation>equals</operation>
@@ -72,8 +72,8 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
                 <operation>equals</operation>
@@ -91,8 +91,8 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
                 <operation>notEqual</operation>
@@ -110,8 +110,8 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Account.BillingCountry</field>
                 <operation>notEqual</operation>
@@ -129,8 +129,8 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>mariusz.wolak@yahoo.com</assignedTo>
-            <assignedToType>User</assignedToType>
+            <assignedTo>userQueue</assignedTo>
+            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Account.Type</field>
                 <operation>contains</operation>
