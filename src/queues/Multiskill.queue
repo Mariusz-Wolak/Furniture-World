@@ -3,11 +3,6 @@
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <email>mariusz.wolak@britenet.com.pl</email>
     <name>Multiskill</name>
-    <queueMembers>
-        <users>
-            <user>mariusz.wolak@yahoo.com</user>
-        </users>
-    </queueMembers>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>
