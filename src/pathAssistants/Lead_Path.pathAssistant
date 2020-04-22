@@ -14,5 +14,15 @@
         <info>&lt;p&gt;You will need to contact this Lead.&lt;/p&gt;</info>
         <picklistValueName>Open</picklistValueName>
     </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames></fieldNames>
+        <info></info>
+        <picklistValueName>Offer</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames></fieldNames>
+        <info></info>
+        <picklistValueName>Converted</picklistValueName>
+    </pathAssistantSteps>
     <recordTypeName>__MASTER__</recordTypeName>
 </PathAssistant>
