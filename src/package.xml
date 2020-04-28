@@ -58,10 +58,6 @@
   </types>
   <types>
     <members>*</members>
-    <name>EntitlementProcess</name>
-  </types>
-  <types>
-    <members>*</members>
     <name>EntitlementTemplate</name>
   </types>
   <types>
