@@ -110,4 +110,16 @@ public with sharing class FW_BasketHelper {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    public static void deleteBasket() {
+        try {
+            Cache.SessionPartition sessionPartition = Cache.Session.getPartition('local.SOAPCredentials');
+            Map<String, Integer> productsCachedMap = (Map<String, Integer>) sessionPartition.get('productsCachedMap');
+            if (productsCachedMap != null) {
+                sessionPartition.remove('productsCachedMap');
+            }
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

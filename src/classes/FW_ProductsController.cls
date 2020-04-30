@@ -417,7 +417,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static void deleteBasket() {
-        FW_OrderController.deleteBasket();
+        FW_BasketHelper.deleteBasket();
     }
 
     @AuraEnabled
