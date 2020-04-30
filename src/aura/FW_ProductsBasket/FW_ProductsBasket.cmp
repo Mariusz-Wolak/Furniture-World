@@ -17,10 +17,8 @@
     <div class="content">
     <aura:if isTrue="{!empty(v.results)}">
         <div class="emptyBasketDiv">
-
             <div class="resultsHeader">{!$Label.c.Your_Basket_Is_Empty}</div>
         </div>
-
 
         <aura:set attribute="else">
             <div class="resultsHeader">{!$Label.c.Your_Basket}</div>

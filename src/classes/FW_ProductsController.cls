@@ -110,10 +110,12 @@ public with sharing class FW_ProductsController {
                 '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
         try {
             List<Product2> products = Database.query(query);
+            System.debug('products size: '+products.size());
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
             Set<Id> productsIds = new Set<Id>();
 
             for (Product2 prod : products) {
+                System.debug(prod);
                 productsIds.add(prod.Id);
             }
 
@@ -155,6 +157,8 @@ public with sharing class FW_ProductsController {
                     productsWrappedList.add(productWrapped);
                 }
             }
+
+            System.debug('productsWrappedList size: '+productsWrappedList.size());
             return productsWrappedList;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -398,36 +402,12 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<FW_ProductWrapped> insertToBasket(String productId, Integer quantity) {
-        return FW_BasketController.insertToBasket(productId, quantity);
+        return FW_BasketHelper.insertToBasket(productId, quantity);
     }
 
     @AuraEnabled
     public static List<FW_ProductWrapped> removeFromBasket(String productId) {
         return FW_BasketController.removeFromBasket(productId);
-    }
-
-    @AuraEnabled
-    public static FW_UserWrapped getUserInfo() {
-        try {
-            List<User> users = [
-                    SELECT Id, Name, Address
-                    FROM User
-                    WHERE Id = :UserInfo.getUserId()
-            ];
-            FW_UserWrapped userWrapped = new FW_UserWrapped();
-            userWrapped.id = users[0].Id;
-            userWrapped.name = users[0].Name;
-            Address addr = users[0].Address;
-            userWrapped.street = addr.street;
-            userWrapped.city = addr.city;
-            userWrapped.state = addr.state;
-            userWrapped.postalCode = addr.postalCode;
-            userWrapped.country = addr.country;
-            return userWrapped;
-
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
     }
 
     @AuraEnabled
