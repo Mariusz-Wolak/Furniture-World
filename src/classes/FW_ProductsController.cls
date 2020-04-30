@@ -407,7 +407,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<FW_ProductWrapped> removeFromBasket(String productId) {
-        return FW_BasketController.removeFromBasket(productId);
+        return FW_BasketHelper.removeFromBasket(productId);
     }
 
     @AuraEnabled
