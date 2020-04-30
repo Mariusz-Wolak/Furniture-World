@@ -412,7 +412,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static void insertOrder(Object currentUser, List<Object> productsInBasket, Decimal totalPrice) {
-        FW_OrderController.insertOrder(currentUser, productsInBasket, totalPrice);
+        FW_OrderHelper.insertOrder(currentUser, productsInBasket, totalPrice);
     }
 
     @AuraEnabled
