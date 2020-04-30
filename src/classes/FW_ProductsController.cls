@@ -16,98 +16,12 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static FW_ProductWrapped getProductInfo(String productId) {
-        Product2 prod = [
-                SELECT Id, DisplayUrl, Description, Name, Type__c, Family, (
-                        SELECT Id
-                        FROM
-                                FW_ObservedItems__r
-                        WHERE CreatedById = :userid
-                )
-                FROM Product2
-                WHERE Id = :productId AND Type__c = 'Furniture'
-        ];
-
-        List<PricebookEntry> standardPBEList = [
-                SELECT Id, Product2Id, Pricebook2Id, UnitPrice
-                FROM PricebookEntry
-                WHERE Pricebook2.Name = 'Standard Price Book'
-                AND Product2Id = :prod.Id
-        ];
-
-        FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-        productWrapped.id = prod.Id;
-        productWrapped.displayUrl = prod.DisplayUrl;
-        productWrapped.description = prod.Description;
-        productWrapped.name = prod.Name;
-        productWrapped.type = prod.Type__c;
-        productWrapped.family = prod.Family;
-        productWrapped.observedItems = prod.FW_ObservedItems__r;
-        productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
-        productWrapped.price = standardPBEList[0].UnitPrice;
-
-        return productWrapped;
+        return FW_ProductsHelper.getProductInfo(productId);
     }
 
     @AuraEnabled
     public static List<Object> getNewestProducts() {
-        String query = 'SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (SELECT Id FROM ' +
-                'FW_ObservedItems__r WHERE CreatedById = :userid) FROM Product2 WHERE Type__c = ' +
-                '\'Furniture\' ORDER BY CreatedDate DESC LIMIT 12';
-        try {
-            List<Product2> products = Database.query(query);
-            System.debug('products size: '+products.size());
-            List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
-            Set<Id> productsIds = new Set<Id>();
-
-            for (Product2 prod : products) {
-                System.debug(prod);
-                productsIds.add(prod.Id);
-            }
-
-            List<AggregateResult> aggregateResults = [
-                    SELECT Product2Id, MIN(UnitPrice) minPrice, MAX(UnitPrice) maxPrice
-                    FROM
-                            PricebookEntry
-                    WHERE
-                    Product2Id IN
-                            :productsIds AND Pricebook2.StartDate__c <= TODAY AND Pricebook2.EndDate__c >= TODAY
-                    GROUP BY Product2Id
-            ];
-
-            for (Product2 prod : products) {
-                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                productWrapped.id = prod.Id;
-                productWrapped.displayUrl = prod.DisplayUrl;
-                productWrapped.description = prod.Description;
-                productWrapped.name = prod.Name;
-                productWrapped.type = prod.Type__c;
-                productWrapped.family = prod.Family;
-                productWrapped.price = prod.Price__c;
-                productWrapped.observedItems = prod.FW_ObservedItems__r;
-                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
-
-                for (AggregateResult aggrRes : aggregateResults) {
-                    if (prod.Id == (String) aggrRes.get('Product2Id')) {
-                        productWrapped.price = (Decimal) aggrRes.get('maxPrice');
-                        productWrapped.pricebookEntryId = (String) aggrRes.get('Id');
-                        if ((Decimal) aggrRes.get('maxPrice') > (Decimal) aggrRes.get('minPrice')) {
-                            productWrapped.discountPrice = (Decimal) aggrRes.get('minPrice');
-                        } else {
-                            productWrapped.discountPrice = null;
-                        }
-                    }
-                }
-
-                if(productWrapped.price != null){
-                    productsWrappedList.add(productWrapped);
-                }
-            }
-
-            System.debug('productsWrappedList size: '+productsWrappedList.size());
-            return productsWrappedList;
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
+        return FW_ProductsHelper.getNewestProducts();
     }
 
     @AuraEnabled
@@ -128,7 +42,7 @@ public with sharing class FW_ProductsController {
                     SELECT Name, CreatedById
                     FROM FW_ObservedItem__c
                     WHERE Name = :productId
-                    AND CreatedById = :userId
+                    AND CreatedById = :UserInfo.getUserId()
                     LIMIT 1
             ];
             Database.DeleteResult result = Database.delete(observedItems[0].Id);
@@ -145,7 +59,7 @@ public with sharing class FW_ProductsController {
                     SELECT Name, CreatedById
                     FROM FW_ObservedItem__c
                     WHERE Name = :productId
-                    AND CreatedById = :userId
+                    AND CreatedById = :UserInfo.getUserId()
             ];
             if (!observedItems.isEmpty()) {
                 return true;
@@ -164,7 +78,7 @@ public with sharing class FW_ProductsController {
                     SELECT Name, CreatedById
                     FROM FW_ObservedItem__c
                     WHERE Name IN
-                            :productsIds AND CreatedById = :userId
+                            :productsIds AND CreatedById = :UserInfo.getUserId()
             ];
             if (!observedItems.isEmpty()) {
                 List<Id> observedProductsId = new List<Id>();
@@ -183,7 +97,7 @@ public with sharing class FW_ProductsController {
     @AuraEnabled
     public static List<Object> getObservedProducts() {
         try {
-            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE CreatedById = :userId];
+            List<FW_ObservedItem__c> observedItems = [SELECT Name, CreatedById FROM FW_ObservedItem__c WHERE CreatedById = :UserInfo.getUserId()];
             Set<Id> observedProductsIds = new Set<Id>();
 
             if (!observedItems.isEmpty()) {
@@ -192,7 +106,7 @@ public with sharing class FW_ProductsController {
                 }
 
                 List<Product2> products = [
-                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :userid)
+                        SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, (SELECT Id FROM FW_ObservedItems__r WHERE CreatedById = :UserInfo.getUserId())
                         FROM Product2
                         WHERE Id IN :observedProductsIds
                 ];
@@ -252,11 +166,10 @@ public with sharing class FW_ProductsController {
     @AuraEnabled
     public static void insertComment(String productId, String commentText, string rate) {
         try {
-            String userId = UserInfo.getUserId();
             List<FW_Rating__c> ratings = [
                     SELECT Id, Name, CreatedById
                     FROM FW_Rating__c
-                    WHERE CreatedById = :userId AND Name
+                    WHERE CreatedById = :UserInfo.getUserId() AND Name
                             = :productId
             ];
             if (!ratings.isEmpty()) {
