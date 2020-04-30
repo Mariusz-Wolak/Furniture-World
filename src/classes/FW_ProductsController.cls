@@ -422,7 +422,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static List<Order> getOrders() {
-        return FW_OrderController.getOrders();
+        return FW_OrderHelper.getOrders();
     }
 
     @AuraEnabled
