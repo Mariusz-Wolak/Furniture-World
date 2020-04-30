@@ -1,4 +1,4 @@
-<aura:component description="FW_DiscountPricebookClearModal" controller="FW_ProductsController">
+<aura:component description="FW_DiscountPricebookClearModal" controller="FW_DiscountManagerController">
 
     <aura:attribute name="showPricebookClearModal" type="Boolean" access="global"/>
 

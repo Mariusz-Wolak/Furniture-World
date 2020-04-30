@@ -258,10 +258,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountManagerController" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_UserWrapped" />
                             <option name="selected" value="true" />
                           </MetadataEntry>

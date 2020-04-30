@@ -71,15 +71,6 @@
         }
     },
 
-//    selectAll: function(component, event, helper){
-//        let checkboxVal = component.find('selectAllCheckbox').get('v.value');
-//        let selectAllEvent = $A.get('e.c:FW_ProductsDiscountManagerSelectAllEvent');
-//        selectAllEvent.setParams({
-//            "selectAll": checkboxVal
-//        });
-//        selectAllEvent.fire();
-//    },
-
     setDiscount: function(component, event, helper){
         let singleProductCmp = component.find('singleProduct');
         if(singleProductCmp.length == undefined){

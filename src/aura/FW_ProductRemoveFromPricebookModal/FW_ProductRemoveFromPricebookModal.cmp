@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductRemoveFromPricebookModal" controller="FW_ProductsController">
+<aura:component description="FW_ProductRemoveFromPricebookModal" controller="FW_DiscountManagerController">
 
     <aura:attribute name="showDeleteProductModal" type="Boolean" access="global"/>
     <aura:attribute name="product" type="Object" access="global"/>

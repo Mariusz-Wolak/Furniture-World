@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsDiscountManagerResults" controller="FW_ProductsController"
+<aura:component description="FW_ProductsDiscountManagerResults" controller="FW_DiscountManagerController"
                 implements="flexipage:availableForAllPageTypes">
 
     <aura:attribute name="results" type="Object[]" access="global"/>

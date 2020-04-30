@@ -84,39 +84,4 @@ public with sharing class FW_ProductsController {
     public static void insertCase(String subject, String description, String orderId, String productId) {
         FW_ComplaintsHelper.insertCase(subject, description, orderId, productId);
     }
-
-    @AuraEnabled
-    public static List<Pricebook2> getPricebooksList() {
-        return FW_ProductsDiscountManagerController.getPricebooksList();
-    }
-
-    @AuraEnabled
-    public static void insertDiscount(Map<String, Decimal> discountPriceMapped, String pricebookId) {
-        FW_ProductsDiscountManagerController.insertDiscount(discountPriceMapped, pricebookId);
-    }
-
-    @AuraEnabled
-    public static List<FW_ProductWrapped> getProductsFromPricebook(String pricebookId) {
-        return FW_ProductsDiscountManagerController.getProductsFromPricebook(pricebookId);
-    }
-
-    @AuraEnabled
-    public static Boolean removePricebook(String pricebookId) {
-        return FW_ProductsDiscountManagerController.removePricebook(pricebookId);
-    }
-
-    @AuraEnabled
-    public static Pricebook2 updatePricebook(Pricebook2 pricebook) {
-        return FW_ProductsDiscountManagerController.updatePricebook(pricebook);
-    }
-
-    @AuraEnabled
-    public static void deleteProductFromPricebook(String productId, String pricebookId) {
-        FW_ProductsDiscountManagerController.deleteProductFromPricebook(productId, pricebookId);
-    }
-
-    @AuraEnabled
-    public static void removeProductsFromPricebook(Pricebook2 pricebook, List<Object> products) {
-        FW_ProductsDiscountManagerController.removeProductsFromPricebook(pricebook, products);
-    }
 }
