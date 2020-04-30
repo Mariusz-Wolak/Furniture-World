@@ -250,10 +250,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_OrderController" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_ProductManagementController" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -371,6 +367,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_OrderHelper" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_ComplaintsHelper" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>

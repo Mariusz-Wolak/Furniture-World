@@ -1,4 +1,4 @@
-public with sharing class FW_OrderController {
+public with sharing class FW_ComplaintsHelper {
 
     public static void insertCase(String subject, String description, String orderId, String productId) {
         Case newCase = new Case();

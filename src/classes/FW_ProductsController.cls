@@ -427,7 +427,7 @@ public with sharing class FW_ProductsController {
 
     @AuraEnabled
     public static void insertCase(String subject, String description, String orderId, String productId) {
-        FW_OrderController.insertCase(subject, description, orderId, productId);
+        FW_ComplaintsHelper.insertCase(subject, description, orderId, productId);
     }
 
     @AuraEnabled
