@@ -19,6 +19,7 @@ sandbox.prod.password =
 
 ##### VARIABLES #####
 dir.src = src
+dir.lib = lib
 dir.deployments = deployments
 dir.deployments.config = deployments/config
 dir.deployments.mysbx = deployments/mysbx

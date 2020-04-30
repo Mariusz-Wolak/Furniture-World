@@ -2,13 +2,13 @@
     <property file="build.properties"/>
     <taskdef resource="net/sf/antcontrib/antcontrib.properties">
         <classpath>
-            <pathelement location="${dir.src.lib}/ant-contrib-1.0b3.jar"/>
+            <pathelement location="${dir.lib}/ant-contrib-1.0b3.jar"/>
         </classpath>
     </taskdef>
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
-            <pathelement location="${dir.src.lib}/ant-salesforce_38.jar"/>
-            <pathelement location="${dir.src.lib}/ant-deploy-with-xml-report-task-1.3.jar"/>
+            <pathelement location="${dir.lib}/ant-salesforce_38.jar"/>
+            <pathelement location="${dir.lib}/ant-deploy-with-xml-report-task-1.3.jar"/>
         </classpath>
     </taskdef>
 	
