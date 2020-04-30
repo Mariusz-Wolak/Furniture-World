@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsDiscountManagerPricebook" controller="FW_ProductsController"
+<aura:component description="FW_ProductsDiscountManagerPricebook" controller="FW_DiscountManagerController"
                 implements="flexipage:availableForAllPageTypes">
 
     <aura:attribute name="showModal" type="Boolean" access="global"/>

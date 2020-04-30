@@ -86,11 +86,6 @@ public with sharing class FW_ProductsController {
     }
 
     @AuraEnabled
-    public static Object insertPricebook(String name, Date startDate, Date endDate) {
-        return FW_ProductsDiscountManagerController.insertPricebook(name, startDate, endDate);
-    }
-
-    @AuraEnabled
     public static List<Pricebook2> getPricebooksList() {
         return FW_ProductsDiscountManagerController.getPricebooksList();
     }
