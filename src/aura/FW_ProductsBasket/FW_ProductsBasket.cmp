@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsBasket" controller="FW_ProductsController"
+<aura:component description="FW_ProductsBasket" controller="FW_BasketController"
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
 
     <aura:attribute name="results" type="Object[]" access="global"/>

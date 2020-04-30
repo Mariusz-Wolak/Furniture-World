@@ -1,4 +1,4 @@
-<aura:component description="FW_BasketIcon" controller="FW_ProductsController">
+<aura:component description="FW_BasketIcon" controller="FW_BasketController">
 
     <aura:attribute name="totalQuantity" type="Integer" access="global"/>
 
