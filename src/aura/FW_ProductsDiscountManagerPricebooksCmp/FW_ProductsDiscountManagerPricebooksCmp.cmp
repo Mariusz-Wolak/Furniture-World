@@ -30,7 +30,7 @@
         </div>
         </p>
 
-        <c:FW_ProductsDiscountManagerPricebook showModal="{!v.showModal}"/>
+        <c:FW_PricebookAddModal showModal="{!v.showModal}"/>
     </lightning:card>
 
     <c:FW_CustomToast aura:id="customToast"/>
