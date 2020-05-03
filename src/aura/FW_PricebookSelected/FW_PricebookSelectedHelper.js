@@ -33,7 +33,6 @@
             if(state === 'SUCCESS'){
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Prices_Saved_Successfully"));
                 this.receiveProductsFromPricebook(component, event);
-//                component.find('searchBar').search();
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
