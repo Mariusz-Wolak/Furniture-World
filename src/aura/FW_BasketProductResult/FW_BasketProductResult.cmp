@@ -4,7 +4,7 @@
     <aura:attribute name="quantity" type="Integer" access="global"/>
     <aura:attribute name="priceDifference" type="Decimal" access="global"/>
 
-    <aura:registerEvent name="FW_ProductsBasketRefreshedEvent" type="c:FW_ProductsBasketRefreshedEvent"/>
+    <aura:registerEvent name="FW_BasketRefreshEvent" type="c:FW_BasketRefreshEvent"/>
     <aura:registerEvent name="FW_SendPriceDifference" type="c:FW_SendPriceDifference"/>
     <aura:registerEvent name="selectedProduct" type="c:FW_ProductSelected"/>
     <aura:registerEvent name="sendSimilarProducts" type="c:FW_SendSimilarProducts"/>

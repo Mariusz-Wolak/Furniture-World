@@ -11,7 +11,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                let refreshBasketEvent = $A.get("e.c:FW_ProductsBasketRefreshedEvent");
+                let refreshBasketEvent = $A.get("e.c:FW_BasketRefreshEvent");
                 refreshBasketEvent.setParams({
                     "results": response.getReturnValue()
                 });
