@@ -1,7 +1,6 @@
 ({
     onInit: function(component, event, helper){
         helper.receivePricebooksList(component, event);
-        console.log('after receiving pricebooks list 19:17');
     },
 
     receiveSearchResults: function(component, event, helper){
