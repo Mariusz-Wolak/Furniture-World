@@ -793,10 +793,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountManagerPricebooksCmp" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_ProductsPricebookResult" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -882,6 +878,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_PricebookAddModal" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_DiscountManagerPricebooks" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
