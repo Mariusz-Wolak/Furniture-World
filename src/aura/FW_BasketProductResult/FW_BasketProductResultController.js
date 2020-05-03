@@ -22,7 +22,7 @@
         let product = component.get('v.product');
         let quantityInputValue = component.get('v.quantity');
         let productPrice = product.actualPrice
-        if(quantityInputValue > 0){
+        if(quantityInputValue > 1){
             if(product.totalPriceForProduct == undefined){
                     product.totalPriceForProduct = productPrice;
             }
@@ -65,12 +65,13 @@
     },
 
     changeQuantity: function(component, event, helper){
-        let product = component.get('v.product');
         let quantityInputValue = component.get('v.quantity');
-        if(quantityInputValue == ''){
-            quantityInputValue = 0;
+        if(quantityInputValue == '' || quantityInputValue == '0'){
+            quantityInputValue = 1;
             component.set('v.quantity', quantityInputValue);
         }
+
+        let product = component.get('v.product');
         let productPrice = component.get('v.product.actualPrice');
         if(product.totalPriceForProduct == undefined){
             product.totalPriceForProduct = productPrice;
