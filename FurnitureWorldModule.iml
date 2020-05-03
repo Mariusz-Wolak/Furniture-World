@@ -777,10 +777,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsPricebookResult" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_SelectedPricebook" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -874,6 +870,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_PricebookSelectedSingleProduct" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_PricebookSingleResult" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
