@@ -5,7 +5,7 @@
     <aura:attribute name="wrappedPricebooks" type="Object[]" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler event="c:FW_ProductsDiscountManagerNewPricebook" action="{!c.receiveNewPricebook}"/>
+    <aura:handler event="c:FW_SendPricebookEvent" action="{!c.receiveNewPricebook}"/>
     <aura:handler event="c:FW_SendUpdatedPricebook" action="{!c.updatePricebook}"/>
     <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>

@@ -6,7 +6,7 @@
     <aura:attribute name="startDate" type="Date" access="global"/>
     <aura:attribute name="endDate" type="Date" access="global"/>
 
-    <aura:registerEvent name="FW_ProductsDiscountManagerNewPricebook" type="c:FW_ProductsDiscountManagerNewPricebook"/>
+    <aura:registerEvent name="FW_SendPricebookEvent" type="c:FW_SendPricebookEvent"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
