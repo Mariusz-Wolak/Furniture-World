@@ -745,10 +745,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountManagerSingleResult" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_SendMainPhoto" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -878,6 +874,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_DiscountManagerProductsSearchResult" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_PricebookSelectedSingleProduct" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
