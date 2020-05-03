@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsDiscountManagerSearchBar" implements="flexipage:availableForAllPageTypes"
+<aura:component description="FW_DiscountManagerProductsSearch" implements="flexipage:availableForAllPageTypes"
                 controller="FW_ProductsController">
 
     <aura:attribute name="searchItemName" type="String" access="global"/>
