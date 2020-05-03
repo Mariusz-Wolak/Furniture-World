@@ -70,7 +70,7 @@
 
     changeQuantity: function(component, event, helper){
         let quantityInputValue = component.get('v.quantity');
-        if(quantityInputValue == ''){
+        if(quantityInputValue == '' || quantityInputValue == '0'){
             quantityInputValue = 1;
             component.set('v.quantity', quantityInputValue);
         }
