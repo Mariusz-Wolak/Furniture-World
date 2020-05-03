@@ -793,10 +793,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountManagerSearchResult" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_SendProductToPricebook" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -882,6 +878,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_DiscountManagerProductsSearch" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_DiscountManagerProductsSearchResult" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>

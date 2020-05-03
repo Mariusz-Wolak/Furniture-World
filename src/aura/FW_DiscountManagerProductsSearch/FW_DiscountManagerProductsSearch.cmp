@@ -28,7 +28,7 @@
                 <lightning:button label="Add All >" class="addAllButton" onclick="{!c.openAddAllModal}" variant="brand"/>
                 <div class="scroll slds-scrollable_y" style="display: block; clear: both">
                     <aura:iteration items="{!v.results}" var="product">
-                        <c:FW_ProductsDiscountManagerSearchResult product="{!product}"/>
+                        <c:FW_DiscountManagerProductsSearchResult product="{!product}"/>
                     </aura:iteration>
                 </div>
             </aura:if>

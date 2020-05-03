@@ -1,4 +1,4 @@
-<aura:component description="FW_ProductsDiscountManagerSearchResult">
+<aura:component description="FW_DiscountManagerProductsSearchResult">
 
     <aura:attribute name="product" type="Object" access="global"/>
 
