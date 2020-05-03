@@ -29,10 +29,6 @@
         }
     },
 
-    selectAllEvent: function(component, event, helper){
-        component.set('v.checkboxVal', event.getParam('selectAll'));
-    },
-
     passSelectedProducts: function(component, event, helper){
         let product = component.get('v.product');
         let priceAfterDiscount = component.get('v.priceAfterDiscount');

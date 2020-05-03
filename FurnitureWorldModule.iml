@@ -777,10 +777,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountManagerSelectAllEvent" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_DiscountManagerProductToDiscountEvent" />
                             <option name="selected" value="true" />
                           </MetadataEntry>

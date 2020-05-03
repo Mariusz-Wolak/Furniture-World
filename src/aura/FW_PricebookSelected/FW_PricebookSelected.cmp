@@ -16,7 +16,6 @@
     <aura:attribute name="isStandardPB" type="Boolean" access="global"/>
     <aura:attribute name="showPricebookClearModal" type="Boolean" access="global"/>
 
-    <aura:registerEvent name="FW_ProductsDiscountManagerSelectAllEvent" type="c:FW_ProductsDiscountManagerSelectAllEvent"/>
     <aura:registerEvent name="FW_SendProductsFromPricebook" type="c:FW_SendProductsFromPricebook"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>

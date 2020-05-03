@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="FW_ProductsDiscountManagerSelectAllEvent">
-    <aura:attribute name="selectAll" type="Boolean" access="global"/>
-</aura:event>
