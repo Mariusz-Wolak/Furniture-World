@@ -29,7 +29,7 @@
                 <div class="slds-col slds-size_8-of-12">
                     <aura:iteration items="{!v.results}" var="product">
                         <div class="basketResult">
-                            <c:FW_ProductBasketResult product="{!product}" quantity="{!product.quantity}"/>
+                            <c:FW_BasketProductResult product="{!product}" quantity="{!product.quantity}"/>
                         </div>
                     </aura:iteration>
                 </div>
