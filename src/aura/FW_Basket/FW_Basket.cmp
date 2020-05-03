@@ -1,0 +1,70 @@
+<aura:component description="FW_Basket" controller="FW_BasketController"
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" extensible="true">
+
+    <aura:attribute name="results" type="Object[]" access="global"/>
+    <aura:attribute name="totalPrice" Type="Decimal" access="global"/>
+    <aura:attribute name="currentUser" Type="User" access="global"/>
+    <aura:attribute name="selectedItem" type="Object" access="global"/>
+
+    <aura:attribute name="showProceedBasketModal" type="Boolean" access="global"/>
+    <aura:attribute name="showProductView" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:FW_ProductsBasketRefreshedEvent" action="{!c.refreshBasket}"/>
+    <aura:handler name="FW_SendPriceDifference" event="c:FW_SendPriceDifference" action="{!c.setTotalPrice}"/>
+    <aura:handler name="selectedProduct" event="c:FW_ProductSelected" action="{!c.showProduct}"/>
+
+    <div class="content">
+        <aura:if isTrue="{!empty(v.results)}">
+            <div class="emptyBasketDiv">
+                <div class="resultsHeader">{!$Label.c.Your_Basket_Is_Empty}</div>
+            </div>
+
+            <aura:set attribute="else">
+                <div class="resultsHeader">{!$Label.c.Your_Basket}</div>
+                <hr/>
+
+                <div class="slds-grid">
+
+                    <div class="slds-col slds-size_8-of-12">
+                        <aura:iteration items="{!v.results}" var="product">
+                            <div class="basketResult">
+                                <c:FW_BasketProductResult product="{!product}" quantity="{!product.quantity}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-12"/>
+
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="totalPriceHeader">
+                        {!$Label.c.Total_Price}:
+                        </div>
+
+                        <aura:if></aura:if>
+                        <div class="totalPrice">
+                            €{!v.totalPrice}
+                        </div>
+
+                        <div>
+                            <lightning:button class="proceedButton slds-button_stretch slds-button_brand"
+                                              label="{!$Label.c.Order_Now}" onclick="{!c.showProceedModal}"></lightning:button>
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+            </aura:set>
+        </aura:if>
+
+        <aura:if isTrue="{!v.showProductView}">
+            <div class="productView">
+                <c:FW_ProductView product="{!v.selectedItem}" hideAddToBasket="true"/>
+            </div>
+        </aura:if>
+    </div>
+
+    <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
+                      productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}" currentUser="{!v.currentUser}"/>
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

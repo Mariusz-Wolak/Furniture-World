@@ -745,10 +745,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsBasket" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_ProductsBasketRefreshedEvent" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -882,6 +878,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="FW_PricebookRemoveProductModal" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="FW_Basket" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
