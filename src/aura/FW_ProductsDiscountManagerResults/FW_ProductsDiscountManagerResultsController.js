@@ -143,14 +143,6 @@
         component.find('customToast').showSuccessToast('Product has been successfully removed from Price Book');
     },
 
-    sendSelectedPricebook: function(component, event, helper){
-        let sendPricebookEvent = $A.get("e.c:FW_SendSelectedPricebook");
-        sendPricebookEvent.setParams({
-           "pricebook": component.get('v.selectedPricebook')
-        });
-        sendPricebookEvent.fire();
-    },
-
     addSearchResultsToPricebook: function(component, event, helper){
         let resultsFromSearch = event.getParam('results');
         for(let i=0; i<resultsFromSearch.length; i++){

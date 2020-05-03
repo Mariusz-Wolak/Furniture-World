@@ -31,7 +31,6 @@
     <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
     <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.removeProductFromPricebook}"/>
     <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
-    <aura:handler event="c:FW_GetSelectedPricebook" action="{!c.sendSelectedPricebook}"/>
     <aura:handler event="c:FW_SendAllSearchResultsToPricebook" action="{!c.addSearchResultsToPricebook}"/>
     <aura:handler event="c:FW_SendClearedProductsFromPricebook" action="{!c.handleClearedProducts}"/>
 

@@ -1680,4 +1680,11 @@
         <shortDescription>Set_Price_In_Standard_Price_Book_First</shortDescription>
         <value>Set price in Standard Price Book in order to set discount</value>
     </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Cleared_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Cleared_Successfully</shortDescription>
+        <value>Price Book has been cleared successfully</value>
+    </labels>
 </CustomLabels>

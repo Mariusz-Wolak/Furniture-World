@@ -865,10 +865,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_GetSelectedPricebook" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_SendSelectedPricebook" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
