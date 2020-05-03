@@ -11,6 +11,7 @@
             product.actualPrice = price;
         }
         product.totalPriceForProduct = product.actualPrice * quantity;
+        product.totalPriceForProduct = product.totalPriceForProduct.toFixed(2);
         component.set('v.product', product);
     },
 
@@ -28,15 +29,8 @@
             }
             let newQuantity = quantityInputValue-1;
             product.totalPriceForProduct = newQuantity * productPrice;
-
+            product.totalPriceForProduct = product.totalPriceForProduct.toFixed(2);
             component.set('v.quantity', newQuantity);
-
-            if(newQuantity == 0){
-                product.totalPriceForProduct = 0;
-            }else{
-                product.totalPriceForProduct = newQuantity * productPrice;
-                component.set('v.product', product);
-            }
             component.set('v.product', product);
             let difference = -productPrice;
             component.set('v.priceDifference', difference);
@@ -53,8 +47,8 @@
         }
         let quantityInputValue = component.get('v.quantity');
         let newQuantity = Number(quantityInputValue)+1;
-        product.totalPriceForProduct = newQuantity * productPrice.toFixed(2);
-
+        product.totalPriceForProduct = newQuantity * productPrice;
+        product.totalPriceForProduct = product.totalPriceForProduct.toFixed(2);
         component.set('v.quantity', newQuantity);
         component.set('v.product', product);
         let difference = productPrice;
@@ -77,10 +71,9 @@
             product.totalPriceForProduct = productPrice;
         }
         let newTotalPriceForProduct = quantityInputValue * productPrice;
-        component.set('v.totalPriceForProduct', newTotalPriceForProduct.toFixed(2));
         let difference = newTotalPriceForProduct - product.totalPriceForProduct;
         component.set('v.priceDifference', difference);
-        product.totalPriceForProduct = newTotalPriceForProduct;
+        product.totalPriceForProduct = newTotalPriceForProduct.toFixed(2);
         component.set('v.product', product);
 
         let sendPriceDifference = component.get('c.sendPriceDifference');
