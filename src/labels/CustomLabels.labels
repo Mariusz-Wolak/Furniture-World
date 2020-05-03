@@ -1685,6 +1685,13 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Pricebook_Has_Been_Cleared_Successfully</shortDescription>
-        <value>Price Book has been cleared successfully</value>
+        <value>Price book has been cleared successfully</value>
+    </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Updated_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Updated_Successfully</shortDescription>
+        <value>Price book has been updated successfully</value>
     </labels>
 </CustomLabels>
