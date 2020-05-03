@@ -42,7 +42,6 @@
     selectPricebook: function(component, event, helper){
         let selectedPricebook = event.getParam('pricebook');
         let pricebooks = component.get('v.pricebooks');
-        let wrappedPricebooks = [];
 
         pricebooks.forEach(pricebook => {
             if(pricebook.Id === selectedPricebook.Id){

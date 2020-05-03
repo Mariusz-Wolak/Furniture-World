@@ -2,7 +2,6 @@
 
     <aura:attribute name="showModal" type="Boolean" access="global"/>
     <aura:attribute name="pricebooks" type="Object[]" access="global"/>
-    <aura:attribute name="wrappedPricebooks" type="Object[]" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:FW_SendPricebookEvent" action="{!c.receiveNewPricebook}"/>
