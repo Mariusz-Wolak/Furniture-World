@@ -83,6 +83,6 @@
 
 
 
-    <c:FW_ProductRemoveFromPricebookModal showDeleteProductModal="{!v.showDeleteProductModal}" product="{!v.product}" selectedPricebook="{!v.selectedPricebook}"/>
+    <c:FW_PricebookRemoveProductModal showDeleteProductModal="{!v.showDeleteProductModal}" product="{!v.product}" selectedPricebook="{!v.selectedPricebook}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

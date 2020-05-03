@@ -1,9 +1,8 @@
-<aura:component description="FW_ProductRemoveFromPricebookModal" controller="FW_DiscountManagerController">
+<aura:component description="FW_PricebookRemoveProductModal" controller="FW_DiscountManagerController">
 
     <aura:attribute name="showDeleteProductModal" type="Boolean" access="global"/>
     <aura:attribute name="product" type="Object" access="global"/>
     <aura:attribute name="selectedPricebook" type="Object" access="global"/>
-
 
     <aura:registerEvent name="FW_SendRemovedProductFromPricebook" type="c:FW_SendRemovedProductFromPricebook"/>
 
