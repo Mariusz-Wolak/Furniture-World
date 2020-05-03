@@ -797,10 +797,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_ProductsDiscountPricebookDetails" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_PricebookDeleteModal" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
