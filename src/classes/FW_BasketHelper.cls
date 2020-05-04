@@ -52,17 +52,11 @@ public with sharing class FW_BasketHelper {
                 ];
 
                 for (Product2 prod : products) {
-                    FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                    productWrapped.id = prod.Id;
-                    productWrapped.displayUrl = prod.DisplayUrl;
-                    productWrapped.description = prod.Description;
-                    productWrapped.name = prod.Name;
-                    productWrapped.type = prod.Type__c;
-                    productWrapped.family = prod.Family;
-                    productWrapped.observedItems = prod.FW_ObservedItems__r;
+                    FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                            .Family, prod.FW_ObservedItems__r);
+
                     productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
                     productWrapped.quantity = productsCachedMap.get(prod.Id);
-
                     for (AggregateResult aggrRes : aggregateResults) {
                         if (prod.Id == (String) aggrRes.get('Product2Id')) {
                             productWrapped.price = (Decimal) aggrRes.get('maxPrice');

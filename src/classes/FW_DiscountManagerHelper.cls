@@ -102,16 +102,10 @@ public with sharing class FW_DiscountManagerHelper {
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
             for (Product2 prod : products) {
-                FW_ProductWrapped productWrapped = new FW_ProductWrapped();  //konstruktor
-                productWrapped.id = prod.Id;
-                productWrapped.displayUrl = prod.DisplayUrl;
-                productWrapped.description = prod.Description;
-                productWrapped.name = prod.Name;
-                productWrapped.type = prod.Type__c;
-                productWrapped.family = prod.Family;
-                productWrapped.observedItems = prod.FW_ObservedItems__r;
-                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                        .Family, prod.FW_ObservedItems__r);
 
+                productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
                 for (PricebookEntry pbe : pbeList) {
                     if (prod.Id == pbe.Product2Id) {
                         productWrapped.discountPrice = pbe.UnitPrice;

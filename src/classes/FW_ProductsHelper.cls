@@ -33,14 +33,8 @@ public with sharing class FW_ProductsHelper {
                 ];
 
                 for (Product2 prod : products) {
-                    FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                    productWrapped.id = prod.Id;
-                    productWrapped.displayUrl = prod.DisplayUrl;
-                    productWrapped.description = prod.Description;
-                    productWrapped.name = prod.Name;
-                    productWrapped.type = prod.Type__c;
-                    productWrapped.family = prod.Family;
-                    productWrapped.observedItems = prod.FW_ObservedItems__r;
+                    FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                            .Family, prod.FW_ObservedItems__r);
                     productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                     for (AggregateResult aggrRes : aggregateResults) {
@@ -85,14 +79,8 @@ public with sharing class FW_ProductsHelper {
                 AND Product2Id = :prod.Id
         ];
 
-        FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-        productWrapped.id = prod.Id;
-        productWrapped.displayUrl = prod.DisplayUrl;
-        productWrapped.description = prod.Description;
-        productWrapped.name = prod.Name;
-        productWrapped.type = prod.Type__c;
-        productWrapped.family = prod.Family;
-        productWrapped.observedItems = prod.FW_ObservedItems__r;
+        FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                .Family, prod.FW_ObservedItems__r);
         productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
         productWrapped.price = standardPBEList[0].UnitPrice;
 
@@ -100,6 +88,7 @@ public with sharing class FW_ProductsHelper {
     }
 
     public static List<Object> getNewestProducts() {
+        System.debug('get newest products');
         try {
             List<Product2> products = [
                     SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (
@@ -133,15 +122,9 @@ public with sharing class FW_ProductsHelper {
             ];
 
             for (Product2 prod : products) {
-                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                productWrapped.id = prod.Id;
-                productWrapped.displayUrl = prod.DisplayUrl;
-                productWrapped.description = prod.Description;
-                productWrapped.name = prod.Name;
-                productWrapped.type = prod.Type__c;
-                productWrapped.family = prod.Family;
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                        .Family, prod.FW_ObservedItems__r);
                 productWrapped.price = prod.Price__c;
-                productWrapped.observedItems = prod.FW_ObservedItems__r;
                 productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (AggregateResult aggrRes : aggregateResults) {
@@ -199,15 +182,9 @@ public with sharing class FW_ProductsHelper {
             ];
 
             for (Product2 prod : products) {
-                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                productWrapped.id = prod.Id;
-                productWrapped.displayUrl = prod.DisplayUrl;
-                productWrapped.description = prod.Description;
-                productWrapped.name = prod.Name;
-                productWrapped.type = prod.Type__c;
-                productWrapped.family = prod.Family;
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                        .Family, prod.FW_ObservedItems__r);
                 productWrapped.price = prod.Price__c;
-                productWrapped.observedItems = prod.FW_ObservedItems__r;
                 productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                 for (AggregateResult aggrRes : aggregateResults) {
@@ -330,15 +307,9 @@ public with sharing class FW_ProductsHelper {
 
                 List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
                 for (Product2 prod : products) {
-                    FW_ProductWrapped productWrapped = new FW_ProductWrapped();
-                    productWrapped.id = prod.Id;
-                    productWrapped.displayUrl = prod.DisplayUrl;
-                    productWrapped.description = prod.Description;
-                    productWrapped.name = prod.Name;
-                    productWrapped.type = prod.Type__c;
-                    productWrapped.family = prod.Family;
+                    FW_ProductWrapped productWrapped = new FW_ProductWrapped(prod.Id, prod.DisplayUrl, prod.Description, prod.Name, prod.Type__c, prod
+                            .Family, prod.FW_ObservedItems__r);
                     productWrapped.price = prod.Price__c;
-                    productWrapped.observedItems = prod.FW_ObservedItems__r;
                     productWrapped.isObserved = !productWrapped.observedItems.isEmpty();
 
                     for (AggregateResult aggrRes : aggregateResults) {
