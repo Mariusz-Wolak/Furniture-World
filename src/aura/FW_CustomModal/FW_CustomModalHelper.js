@@ -97,7 +97,7 @@
             if(state === 'SUCCESS'){
                 component.set('v.showComplaintsModal', false);
                 component.find('customToast').showSuccessToast($A.get("$Label.c.Your_Complaint_Has_Been_Successfully_Sent"));
-                window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/', '_top');
+                window.open($A.get('$Label.c.FW_Welcome_Page_URL'), '_top');
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

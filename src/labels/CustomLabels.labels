@@ -1729,4 +1729,32 @@
         <shortDescription>Product_Has_Been_Removed_From_Pricebook_Successfully</shortDescription>
         <value>Product has been removed from price book successfully</value>
     </labels>
+    <labels>
+        <fullName>FW_Basket_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Basket_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/basket</value>
+    </labels>
+    <labels>
+        <fullName>FW_Orders_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Orders_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders</value>
+    </labels>
+    <labels>
+        <fullName>FW_Welcome_Page_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Welcome_Page_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/</value>
+    </labels>
+    <labels>
+        <fullName>FW_Search_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Search_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/search</value>
+    </labels>
 </CustomLabels>
