@@ -4,6 +4,8 @@
     <aura:attribute name="divisionId" type="Integer" access="public"/>
     <aura:attribute name="divisionsList" type="Account[]" access="global"/>
 
+    <aura:registerEvent name="sendAccount" type="c:FW_SendAccount"/>
+
     <aura:if isTrue="{!v.deleteDivisionIsOpen}">
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                  aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
@@ -21,4 +23,6 @@
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
     </aura:if>
+
+    <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
