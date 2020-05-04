@@ -64,7 +64,7 @@
         </aura:if>
     </div>
 
-    <c:FW_CustomModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
+    <c:FW_BasketProceedModal aura:id="customModal" showProceedBasketModal="{!v.showProceedBasketModal}"
                       productsInBasket="{!v.results}" totalPrice="{!v.totalPrice}" currentUser="{!v.currentUser}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
