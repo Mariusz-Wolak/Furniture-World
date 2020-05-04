@@ -20,5 +20,18 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    clearBasket: function(component, event){
+        let action = component.get('c.deleteBasket');
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                component.set('v.showOrderSummary', true);
+            }else{
+                component.find('customToast').showErrorToast(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

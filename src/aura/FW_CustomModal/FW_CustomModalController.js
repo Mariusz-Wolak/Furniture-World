@@ -6,10 +6,6 @@
         window.open($A.get('$Label.c.FW_Orders_URL'), '_top');
     },
 
-    closeOrderDetails: function(component, event, helper){
-        component.set('v.showOrderDetails', false);
-    },
-
     closeComplaintModal: function(component, event, helper){
         component.set('v.showComplaintsModal', false);
     },

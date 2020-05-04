@@ -30,5 +30,6 @@
         </div>
     </div>
 
-    <c:FW_CustomModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}" showComplaintsModal="{!v.showComplaintsModal}"/>
+    <c:FW_OrderDetailsModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}"/>
+<!--    <c:FW_OrderDetailsModal showComplaintsModal="{!v.showComplaintsModal}"/>-->
 </aura:component>
