@@ -40,7 +40,7 @@
     </aura:if>
 
 
-    <c:FW_CustomModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
+    <c:FW_DivisionDeleteModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
                       divisionsList="{!v.resultsList}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>
