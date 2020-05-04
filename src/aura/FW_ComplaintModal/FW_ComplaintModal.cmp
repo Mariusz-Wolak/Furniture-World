@@ -1,5 +1,6 @@
 <aura:component description="FW_ComplaintModal" controller="FW_ProductsController">
 
+    <aura:attribute name="order" type="Order" access="global"/>
     <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
     <aura:attribute name="caseSubject" type="String" access="global"/>
     <aura:attribute name="caseDescription" type="String" access="global"/>

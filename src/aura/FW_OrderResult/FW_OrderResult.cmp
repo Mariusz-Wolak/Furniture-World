@@ -31,5 +31,5 @@
     </div>
 
     <c:FW_OrderDetailsModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}"/>
-<!--    <c:FW_OrderDetailsModal showComplaintsModal="{!v.showComplaintsModal}"/>-->
+    <c:FW_ComplaintModal showComplaintsModal="{!v.showComplaintsModal}" order="{!v.order}"/>
 </aura:component>
