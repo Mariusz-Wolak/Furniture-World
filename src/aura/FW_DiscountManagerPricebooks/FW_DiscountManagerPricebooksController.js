@@ -52,9 +52,5 @@
             }});
 
          component.set('v.pricebooks', pricebooks);
-    },
-
-    onChange: function(component, event, helper){
-        let pricebooks = component.get('v.pricebooks');
     }
 })

@@ -8,7 +8,6 @@
     <aura:handler event="c:FW_SendUpdatedPricebook" action="{!c.updatePricebook}"/>
     <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
     <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
-    <aura:handler name="change" value="{!v.pricebooks}" action="{!c.onChange}"/>
 
     <lightning:card title="{!$Label.c.Price_Books}">
         <aura:set attribute="actions">
