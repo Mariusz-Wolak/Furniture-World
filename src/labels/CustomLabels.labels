@@ -1757,4 +1757,18 @@
         <shortDescription>FW_Search_URL</shortDescription>
         <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/search</value>
     </labels>
+    <labels>
+        <fullName>State</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>State</shortDescription>
+        <value>State</value>
+    </labels>
+    <labels>
+        <fullName>Postal_Code</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Postal_Code</shortDescription>
+        <value>Postal Code</value>
+    </labels>
 </CustomLabels>
