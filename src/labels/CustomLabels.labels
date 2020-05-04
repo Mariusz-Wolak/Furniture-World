@@ -1701,4 +1701,18 @@
         <shortDescription>Results_Have_Been_Successfully_Moved_To_The_Pricebook</shortDescription>
         <value>Results have been successfully moved to the price book</value>
     </labels>
+    <labels>
+        <fullName>Please_Fill_In_Given_Inputs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please_Fill_In_Given_Inputs</shortDescription>
+        <value>Please fill in given inputs</value>
+    </labels>
+    <labels>
+        <fullName>This_Name_Is_Already_In_Use</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This_Name_Is_Already_In_Use</shortDescription>
+        <value>This name is already in use</value>
+    </labels>
 </CustomLabels>

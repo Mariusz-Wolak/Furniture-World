@@ -2,15 +2,15 @@ public with sharing class FW_DiscountManagerHelper {
 
     public static Object insertPricebook(String name, Date startDate, Date endDate) {
         if (String.isBlank(name) || startDate == null || endDate == null) {
-            throw new AuraHandledException('Please fill in given inputs.');
+            throw new AuraHandledException(Label.Please_Fill_In_Given_Inputs);
         }
         if (startDate > endDate) {
-            throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
+            throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date);
         }
         List<Pricebook2> pricebooks = [Select Id, Name FROM Pricebook2];
         for (Pricebook2 pb : pricebooks) {
             if (pb.Name == name) {
-                throw new AuraHandledException('This name is already in use');
+                throw new AuraHandledException(Label.This_Name_Is_Already_In_Use);
             }
         }
         try {
@@ -138,10 +138,10 @@ public with sharing class FW_DiscountManagerHelper {
 
     public static Pricebook2 updatePricebook(Pricebook2 pricebook) {
         if (String.isBlank(pricebook.Name) || pricebook.StartDate__c == null || pricebook.EndDate__c == null) {
-            throw new AuraHandledException('Please fill in given inputs.');
+            throw new AuraHandledException(Label.Please_Fill_In_Given_Inputs);
         }
         if (pricebook.StartDate__c > pricebook.EndDate__c) {
-            throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date + '.');
+            throw new AuraHandledException(Label.Start_Date_Cant_Be_Earlier_Than_End_Date);
         }
         try {
             update pricebook;
