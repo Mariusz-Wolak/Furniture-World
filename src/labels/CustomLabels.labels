@@ -1694,4 +1694,11 @@
         <shortDescription>Pricebook_Has_Been_Updated_Successfully</shortDescription>
         <value>Price book has been updated successfully</value>
     </labels>
+    <labels>
+        <fullName>Results_Have_Been_Successfully_Moved_To_The_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results_Have_Been_Successfully_Moved_To_The_Pricebook</shortDescription>
+        <value>Results have been successfully moved to the price book</value>
+    </labels>
 </CustomLabels>
