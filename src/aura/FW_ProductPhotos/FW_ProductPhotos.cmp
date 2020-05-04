@@ -9,7 +9,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="FW_SendMainPhoto" event="c:FW_SendMainPhoto" action="{!c.getPhotoFromEvent}"/>
-    <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.loadPhoto}"/>
+    <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.getPhotos}"/>
 
     <div class="slds-grid">
         <div class="slds-cold slds-size_2-of-12">
