@@ -140,7 +140,7 @@
             }
         }
         component.set('v.resultsFromSelectedPricebook', resultsFromPricebook);
-        component.find('customToast').showSuccessToast('Product has been successfully removed from Price Book');
+        component.find('customToast').showSuccessToast('Product has been successfully removed from Price Book'); //label
     },
 
     addSearchResultsToPricebook: function(component, event, helper){

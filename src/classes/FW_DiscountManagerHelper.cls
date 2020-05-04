@@ -33,8 +33,14 @@ public with sharing class FW_DiscountManagerHelper {
                     SELECT Id, Name, StartDate__c, EndDate__c, isActive
                     FROM Pricebook2
                     WHERE isActive = true
-                    ORDER BY StartDate__c
+                    ORDER BY StartDate__c DESC
             ];
+            for(Integer i=0; i<pricebooks.size(); i++){
+                if(pricebooks[i].Name == 'Standard Price Book'){
+                    Integer index = pricebooks.indexOf(pricebooks[i]);
+                    pricebooks.add(0, pricebooks.remove(index));
+                }
+            }
             return pricebooks;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -96,7 +102,7 @@ public with sharing class FW_DiscountManagerHelper {
             List<FW_ProductWrapped> productsWrappedList = new List<FW_ProductWrapped>();
 
             for (Product2 prod : products) {
-                FW_ProductWrapped productWrapped = new FW_ProductWrapped();
+                FW_ProductWrapped productWrapped = new FW_ProductWrapped();  //konstruktor
                 productWrapped.id = prod.Id;
                 productWrapped.displayUrl = prod.DisplayUrl;
                 productWrapped.description = prod.Description;
