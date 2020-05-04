@@ -1,0 +1,34 @@
+.THIS .productInfo {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.THIS .totalOrderPrice{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.THIS .orderSummaryHeader{
+    font-style: italic;
+    font-size: 25px;
+}
+
+.THIS .proceedModalButtons{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.THIS .productsListDiv{
+    margin-right: 35px;
+    padding-top: 30px;
+}
+
+.THIS .orderSummarySinglePrice{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.THIS .orderSummaryResult{
+    padding-bottom: 10px;
+}
