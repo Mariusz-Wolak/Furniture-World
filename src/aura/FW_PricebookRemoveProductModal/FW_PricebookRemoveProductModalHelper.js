@@ -16,7 +16,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.find('customToast').showSuccessToast('Product has been removed from price book successfully');
+                component.find('customToast').showSuccessToast($A.get("$Label.c.Product_Has_Been_Removed_From_Pricebook_Successfully"));
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }

@@ -1722,4 +1722,11 @@
         <shortDescription>Pricebook_Has_Been_Deleted_Successfully</shortDescription>
         <value>Price book has been deleted successfully</value>
     </labels>
+    <labels>
+        <fullName>Product_Has_Been_Removed_From_Pricebook_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product_Has_Been_Removed_From_Pricebook_Successfully</shortDescription>
+        <value>Product has been removed from price book successfully</value>
+    </labels>
 </CustomLabels>
