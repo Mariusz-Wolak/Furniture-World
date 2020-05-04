@@ -1715,4 +1715,11 @@
         <shortDescription>This_Name_Is_Already_In_Use</shortDescription>
         <value>This name is already in use</value>
     </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Deleted_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Deleted_Successfully</shortDescription>
+        <value>Price book has been deleted successfully</value>
+    </labels>
 </CustomLabels>

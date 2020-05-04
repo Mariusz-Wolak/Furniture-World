@@ -7,7 +7,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.find('customToast').showSuccessToast('Price book has been deleted successfully');
+                component.find('customToast').showSuccessToast($A.get("$Label.c.Pricebook_Has_Been_Deleted_Successfully"));
                 component.set('v.showPricebookDeleteModal', false);
                 let sendDeletedPricebook = $A.get('e.c:FW_SendDeletedPricebook');
                 sendDeletedPricebook.setParams({
