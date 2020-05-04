@@ -1,6 +1,5 @@
 ({
     closeComplaintModal: function(component, event, helper){
-        console.log('close compaint modal');
         component.set('v.showComplaintsModal', false);
     },
 

@@ -665,10 +665,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="FW_CustomModal" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="FW_ProductsResults" />
                             <option name="selected" value="true" />
                           </MetadataEntry>

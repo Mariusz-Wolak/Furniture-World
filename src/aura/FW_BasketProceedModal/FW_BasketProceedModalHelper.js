@@ -27,7 +27,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === 'SUCCESS'){
-                component.set('v.showOrderSummary', true);
+                window.open($A.get('$Label.c.FW_Orders_URL'), '_top');
             }else{
                 component.find('customToast').showErrorToast(response.getError());
             }
