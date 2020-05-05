@@ -20,7 +20,7 @@
                 <c:FW_ProductView product="{!v.selectedItem}" hideAddToBasket="true"/>
             </div>
         </aura:if>
-        
+
         <aura:if isTrue="{!empty(v.results)}">
             <div class="emptyBasketDiv">
                 <div class="resultsHeader">{!$Label.c.Your_Basket_Is_Empty}</div>

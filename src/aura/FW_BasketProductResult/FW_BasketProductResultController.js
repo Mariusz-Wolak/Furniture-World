@@ -104,5 +104,12 @@
         appEvent.fire();
 
         helper.returnSimilarProducts(component);
+
+        let scrollOptions = {
+            left: 0,
+            top: 0,
+            behavior: 'smooth'
+        }
+        window.scrollTo(scrollOptions);
     }
 })
