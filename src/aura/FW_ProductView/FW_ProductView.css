@@ -4,6 +4,9 @@
   display: table;
 }
 
+.THIS.productViewDiv{
+    padding-top: 5vh;
+}
 
 .THIS .productName{
     display: inline-block;
