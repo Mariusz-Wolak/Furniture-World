@@ -11,7 +11,7 @@
         <div role="dialog" class="slds-modal slds-fade-in-open ">
             <div class="slds-modal__container">
                 <header class="slds-modal__header">
-                    <h1 class="slds-text-heading--medium">Confirmation</h1>
+                    <h1 class="slds-text-heading--medium">{!$Label.c.Confirmation}</h1>
                 </header>
 
                 <div class="slds-modal__content slds-p-around--medium">
