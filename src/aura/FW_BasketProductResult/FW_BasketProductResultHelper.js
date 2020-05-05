@@ -1,5 +1,5 @@
 ({
-    doDeleteFromBasket: function(component){
+    deleteFromBasket: function(component){
         let deleteIcon = component.find('deleteIcon');
         let productId = component.get('v.product.id');
 

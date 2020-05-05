@@ -13,6 +13,6 @@
     },
 
     addPricebook: function(component, event, helper){
-        helper.doAddPricebook(component, event);
+        helper.addPricebook(component, event);
     }
 })

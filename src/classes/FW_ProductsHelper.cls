@@ -88,7 +88,6 @@ public with sharing class FW_ProductsHelper {
     }
 
     public static List<Object> getNewestProducts() {
-        System.debug('get newest products');
         try {
             List<Product2> products = [
                     SELECT Id, DisplayUrl, Description, Name, Type__c, Family, Price__c, CreatedDate, (

@@ -4,6 +4,6 @@
     },
 
     order: function(component, event, helper){
-        helper.doOrder(component, event);
+        helper.order(component, event);
     }
 })

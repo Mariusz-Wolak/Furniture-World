@@ -2,7 +2,7 @@
     onInit: function(component, event, helper){
         let product = component.get('v.product');
         let quantity = component.get('v.quantity');
-        let price = product.price
+        let price = product.price;
         let discountPrice = product.discountPrice;
         let actualPrice;
         if(discountPrice < price){
@@ -16,7 +16,7 @@
     },
 
     deleteFromBasket: function(component, event, helper){
-        helper.doDeleteFromBasket(component);
+        helper.deleteFromBasket(component);
     },
 
     decreaseQuantity: function(component, event, helper){

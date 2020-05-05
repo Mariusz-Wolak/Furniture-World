@@ -1771,4 +1771,67 @@
         <shortDescription>Postal_Code</shortDescription>
         <value>Postal Code</value>
     </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Move_All_Results_To_The_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Move_All_Results_To_The_Pricebook</shortDescription>
+        <value>Are you sure you want to move all results to the price book?</value>
+    </labels>
+    <labels>
+        <fullName>Add_All_Right_Angle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_All_Right_Angle</shortDescription>
+        <value>Add All ></value>
+    </labels>
+    <labels>
+        <fullName>Furniture_World</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Furniture_World</shortDescription>
+        <value>Furniture World</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Delete_This_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Delete_This_Item</shortDescription>
+        <value>Are you sure you want to delete this item</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Remove_This_Item_From_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Remove_This_Item_From_Pricebook</shortDescription>
+        <value>Are you sure you want to remove this item from pricebook?</value>
+    </labels>
+    <labels>
+        <fullName>New_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Discount</shortDescription>
+        <value>New Discount</value>
+    </labels>
+    <labels>
+        <fullName>Current_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current_Discount</shortDescription>
+        <value>Current Discount</value>
+    </labels>
+    <labels>
+        <fullName>Add_To_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_To_Basket</shortDescription>
+        <value>Add To Basket</value>
+    </labels>
+    <labels>
+        <fullName>Go_Shopping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go_Shopping</shortDescription>
+        <value>Go Shopping!</value>
+    </labels>
 </CustomLabels>

@@ -10,15 +10,15 @@
     },
 
     toggleObserved: function(component, event, helper){
-        helper.doToggleObserved(component);
+        helper.toggleObserved(component);
     },
 
     addToBasket: function(component, event, helper){
-        helper.doAddToBasket(component);
+        helper.addToBasket(component);
     },
 
     addComment: function(component, event, helper){
-        helper.doAddComment(component);
+        helper.addComment(component);
     },
 
     refreshComments: function(component, event, helper){

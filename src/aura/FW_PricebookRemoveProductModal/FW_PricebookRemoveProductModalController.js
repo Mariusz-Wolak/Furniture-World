@@ -4,6 +4,6 @@
     },
 
     removeProduct: function(component, event, helper){
-        helper.doRemoveProduct(component, event);
+        helper.removeProduct(component, event);
     }
 })

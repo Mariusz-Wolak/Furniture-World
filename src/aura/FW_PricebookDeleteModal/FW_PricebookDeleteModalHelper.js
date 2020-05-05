@@ -1,5 +1,5 @@
 ({
-    doDeletePricebook: function(component, event){
+    deletePricebook: function(component, event){
         let action = component.get("c.removePricebook");
         action.setParams({
            "pricebookId": component.get('v.pricebook.Id')

@@ -1,5 +1,5 @@
 ({
-    doClearPricebook: function(component, event){
+    clearPricebook: function(component, event){
         let products = component.get('v.resultsFromSelectedPricebook')
         let action = component.get("c.removeProductsFromPricebook");
         action.setParams({

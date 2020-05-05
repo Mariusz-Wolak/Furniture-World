@@ -1,5 +1,5 @@
 ({
-    doSearch: function(component){
+    search: function(component){
         let action = component.get("c.getSearchResults");
         let name = component.get("v.searchItemName");
         action.setParams({

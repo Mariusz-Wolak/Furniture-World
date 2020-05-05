@@ -1,6 +1,5 @@
-
 ({
-    doEditPricebook: function(component, event){
+    editPricebook: function(component, event){
         let action = component.get('c.updatePricebook');
         action.setParams({
             "pricebook": component.get('v.pricebook')

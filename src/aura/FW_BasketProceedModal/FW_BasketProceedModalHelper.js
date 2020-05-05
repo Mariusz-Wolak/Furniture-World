@@ -1,5 +1,5 @@
 ({
-    doOrder: function(component, event, helper){
+    order: function(component, event, helper){
         let currentUser = component.get('v.currentUser');
         let productsInBasket = component.get('v.productsInBasket');
         let totalPrice = component.get('v.totalPrice');

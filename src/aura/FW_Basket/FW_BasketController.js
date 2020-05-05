@@ -20,7 +20,7 @@
     },
 
     showProceedModal: function(component, event, helper){
-        helper.doShowProceedModal(component, event);
+        helper.showProceedModal(component, event);
     },
 
     showProduct: function(component, event, helper){

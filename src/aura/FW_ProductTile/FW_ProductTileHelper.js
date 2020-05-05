@@ -1,5 +1,5 @@
 ({
-    doToggleObserved: function(component){
+    toggleObserved: function(component){
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.item.id');

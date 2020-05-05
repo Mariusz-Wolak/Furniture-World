@@ -3,7 +3,7 @@
     <div class="imgDiv" style="{!'background-image:url(' + $Resource.FW_FooterImg +')'}">
         <div class="infoContainer">
             <div class="header">
-                Furniture World
+                {!$Label.c.Furniture_World}
             </div>
             <div class="contactUs">
                 {!$Label.c.Contact_Us}

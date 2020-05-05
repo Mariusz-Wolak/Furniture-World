@@ -63,7 +63,7 @@
         $A.enqueueAction(action);
     },
 
-    doSearch: function(component){
+    search: function(component){
         let allResults = component.get("v.resultsFromSelectedPricebook");
         let searchItemName = component.get("v.searchItemName");
         let searchResults = allResults.filter(item => item.name.toUpperCase().startsWith(searchItemName.toUpperCase()));

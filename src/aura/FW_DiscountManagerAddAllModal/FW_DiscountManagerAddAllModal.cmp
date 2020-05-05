@@ -13,12 +13,12 @@
                 </header>
 
                 <div class="slds-modal__content slds-p-around--medium">
-                    <center><b>Are you sure you want to move all results to the price book?</b></center>
+                    <center><b>{!$Label.c.Are_You_Sure_You_Want_To_Move_All_Results_To_The_Pricebook}</b></center>
                 </div>
 
                 <footer class="slds-modal__footer">
-                    <lightning:button name='No' label='No' onclick='{!c.closeModal}'/>
-                    <lightning:button variant="brand" name='Yes' label='Yes' onclick='{!c.moveAllToPricebook}'/>
+                    <lightning:button label='{!$Label.c.No}' onclick='{!c.closeModal}'/>
+                    <lightning:button variant="brand" label='{!$Label.c.Yes}' onclick='{!c.moveAllToPricebook}'/>
                 </footer>
             </div>
         </div>

@@ -1,5 +1,5 @@
 ({
-    doDeleteDivision: function(component){
+    deleteDivision: function(component){
         let action = component.get("c.deleteSelectedDivision");
         let id = component.get("v.divisionId");
         action.setParams({"id": id});

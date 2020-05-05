@@ -4,6 +4,6 @@
     },
 
     deletePricebook: function(component, event, helper){
-        helper.doDeletePricebook(component, event);
+        helper.deletePricebook(component, event);
     }
 })

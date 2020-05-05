@@ -1,5 +1,5 @@
 ({
-    doGetFamilyOptions: function(component, event){
+    returnFamilyOptions: function(component, event){
         let initAction = component.get("c.getFamilyOptions");
         initAction.setCallback(this,function(response){
             if(response.getState() === "SUCCESS"){
@@ -11,7 +11,7 @@
         $A.enqueueAction(initAction);
     },
 
-    doHandleUploadFinished: function (component, event) {
+    handleUploadFinished: function (component, event) {
         let uploadedFiles = event.getParam("files");
         let filesIds = [];
         uploadedFiles.forEach(function(item){
@@ -21,7 +21,7 @@
         component.find('customToast').showSuccessToast($A.get("$Label.c.Upload_Has_Been_Finished_Successfully"));
     },
 
-    doCreateProduct : function(component, event){
+    createProduct : function(component, event){
         let createAction = component.get("c.addProduct");
         createAction.setParams({
             "name" : component.get("v.name"),
@@ -45,7 +45,7 @@
         $A.enqueueAction(createAction);
     },
 
-    doBackToListView: function(component, event){
+    backToListView: function(component, event){
         let action = component.get('c.getListViewId');
         action.setCallback(this, function(response){
            if(response.getState() === 'SUCCESS'){

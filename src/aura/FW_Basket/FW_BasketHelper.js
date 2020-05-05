@@ -17,7 +17,7 @@
         $A.enqueueAction(action);
     },
 
-    doShowProceedModal: function(component, event){
+    showProceedModal: function(component, event){
         let action = component.get("c.getUserInfo");
         action.setCallback(this, function(response){
             let state = response.getState();

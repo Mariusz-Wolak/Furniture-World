@@ -1,5 +1,5 @@
 ({
-    doSendMainPhoto: function(component, event, helper){
+    sendMainPhoto: function(component, event, helper){
         let myEvent = component.getEvent('FW_SendMainPhoto');
         let photo = component.get('v.photoObject');
         photo.isSelected = true;

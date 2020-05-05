@@ -1,5 +1,5 @@
 ({
-    doAddPricebook: function(component, event){
+    addPricebook: function(component, event){
         let action = component.get('c.insertPricebook');
         action.setParams({
             "name": component.get('v.name'),

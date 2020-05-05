@@ -1,5 +1,5 @@
 ({
-    doToggleObserved: function(component, event, helper){
+    toggleObserved: function(component, event, helper){
         let params = event.getParam('arguments');
         let adding = params.adding;
         let productId = params.productId;

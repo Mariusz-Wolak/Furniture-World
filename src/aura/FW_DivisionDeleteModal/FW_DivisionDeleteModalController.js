@@ -4,6 +4,6 @@
     },
 
     deleteDivision: function(component, event, helper){
-        helper.doDeleteDivision(component);
+        helper.deleteDivision(component);
     }
 })

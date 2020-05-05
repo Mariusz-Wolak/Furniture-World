@@ -60,7 +60,8 @@
                     </div>
 
                     <div class="basketButtonDiv">
-                        <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
+                        <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="{!$Label.c.Add_To_Basket}"
+                                          variant="brand"/>
                     </div>
                 </div>
             </aura:if>

@@ -1,17 +1,17 @@
 ({
     onInit : function(component, event, helper){
-        helper.doGetFamilyOptions(component, event);
+        helper.returnFamilyOptions(component, event);
     },
 
     handleUploadFinished: function (component, event, helper) {
-        helper.doHandleUploadFinished(component, event);
+        helper.handleUploadFinished(component, event);
     },
 
     createProduct : function(component, event, helper){
-        helper.doCreateProduct(component, event);
+        helper.createProduct(component, event);
     },
 
     backToListView: function(component, event, helper){
-        helper.doBackToListView(component, event);
+        helper.backToListView(component, event);
     }
 })

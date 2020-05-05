@@ -1,5 +1,5 @@
 ({
-    doRemoveProduct: function(component, event){
+    removeProduct: function(component, event){
         let product = component.get('v.product');
         let pricebook = component.get('v.selectedPricebook');
 

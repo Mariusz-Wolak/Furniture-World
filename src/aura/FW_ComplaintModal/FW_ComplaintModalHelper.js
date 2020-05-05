@@ -1,5 +1,5 @@
 ({
-    doSendComplaint: function(component, event){
+    sendComplaint: function(component, event){
         let subject = component.get('v.caseSubject');
         let description = component.get('v.caseDescription');
         let orderId = component.get('v.order.Id');

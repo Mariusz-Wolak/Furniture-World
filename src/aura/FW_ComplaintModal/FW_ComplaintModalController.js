@@ -4,6 +4,6 @@
     },
 
     sendComplaint: function(component, event, helper){
-        helper.doSendComplaint(component, event);
+        helper.sendComplaint(component, event);
     }
 })
