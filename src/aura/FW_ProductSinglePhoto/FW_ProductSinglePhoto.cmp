@@ -1,0 +1,16 @@
+<aura:component description="FW_ProductSinglePhoto" controller="FW_ProductManagementController">
+
+    <aura:attribute name="photoObject" type="Object" access="global"/>
+    <aura:attribute name="productId" type="String" access="global"/>
+    <aura:attribute name="mainPhoto" type="String" access="global"/>
+
+    <aura:attribute name="isCommunity" type="Boolean" access="global" default="false"/>
+
+    <aura:registerEvent name="FW_SendMainPhoto" type="c:FW_SendMainPhoto"/>
+
+    <div class="{!concat('photoDiv', if(v.photoObject.isSelected, ' bordered', ''))}" aura:id="photoDiv">
+        <img src="{!v.photoObject.url}" onclick="{!c.sendMainPhoto}"/>
+    </div>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

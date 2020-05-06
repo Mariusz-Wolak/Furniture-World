@@ -1,0 +1,52 @@
+.THIS .productInfo {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.THIS .deleteIcon{
+    background-color: #cc0000;
+}
+
+.THIS .deleteIcon:hover{
+    background-color: darkred;
+    cursor: pointer;
+}
+
+.THIS .quantityDiv{
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.THIS .quantityInput{
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+.THIS .quantityOperation{
+    margin-top: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.THIS .plusDiv{
+    margin-right: -5px;
+}
+
+.THIS .singlePrice{
+    font-weight: normal;
+}
+
+.THIS .productName{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.THIS .productName:hover{
+    color: blue;
+}
+

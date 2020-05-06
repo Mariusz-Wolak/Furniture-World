@@ -1,0 +1,45 @@
+<aura:component description="DivisionsSearchDetails" controller="FW_DivisionsSearchController"
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="record" type="Account" access="public"/>
+    <aura:attribute name="resultsList" type="Account[]" access="public"/>
+    <aura:attribute name="deleteDivisionIsOpen" type="Boolean" access="public"/>
+
+    <aura:handler name="sendAccount" event="c:FW_SendAccount" action="{!c.getRecord}"/>
+    <aura:handler event="c:FW_RecordSelected" action="{!c.onInit}"/>
+    <aura:handler event="c:FW_SendResultsToResultList" action="{!c.setResultsList}"/>
+
+    <aura:if isTrue="{!and(not(empty(v.record)), not(empty(v.resultsList)))}">
+        <lightning:card title="{!$Label.c.Details}">
+            <lightning:recordViewForm recordId="{!v.record.Id}" objectApiName="Account">
+                <center>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size--1-of-2">
+                            <lightning:outputField fieldName="Name"/>
+                            <lightning:outputField fieldName="ShippingCountry"/>
+                            <lightning:outputField fieldName="Website"/>
+                        </div>
+
+                        <div class="slds-col slds-size--1-of-2">
+                            <lightning:outputField fieldName="ShippingCity"/>
+                            <lightning:outputField fieldName="ShippingStreet"/>
+                            <lightning:outputField fieldName="ShippingPostalCode"/>
+                        </div>
+                    </div>
+                </center>
+            </lightning:recordViewForm>
+
+            <center>
+                <div class="buttons">
+                    <lightning:button label="{!$Label.c.Edit}" onclick="{!c.editRecord}"/>
+                    <lightning:button label="{!$Label.c.Delete}" onclick="{!c.openDeleteModal}"/>
+                </div>
+            </center>
+        </lightning:card>
+    </aura:if>
+
+
+    <c:FW_DivisionDeleteModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
+                      divisionsList="{!v.resultsList}"/>
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

@@ -1,0 +1,29 @@
+# Specify the login credentials for the desired Salesforce organization
+#general properties - endpoints
+general.url.sandbox = https://test.salesforce.com
+general.url.prod = https://login.salesforce.com
+general.release = 2.8
+
+# SBX
+sandbox.sbx.username =
+sandbox.sbx.password =
+# INT
+sandbox.int.username =
+sandbox.int.password =
+# UAT
+sandbox.uat.username =
+sandbox.uat.password =
+# PROD
+sandbox.prod.username =
+sandbox.prod.password =
+
+##### VARIABLES #####
+dir.src = src
+dir.lib = lib
+dir.deployments = deployments
+dir.deployments.config = deployments/config
+dir.deployments.mysbx = deployments/mysbx
+dir.deployments.dev = deployments/dev
+dir.deployments.qa = deployments/qa
+dir.retrieve = retrieve
+dir.destructiveChanges = destructiveChanges

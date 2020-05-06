@@ -1,0 +1,12 @@
+.THIS.productView{
+    padding-top: 40px;
+}
+
+.THIS .resultsHeader{
+    font-size: 32px;
+    font-font-weight: bold;
+}
+
+.THIS.content{
+    min-height: 42vh;
+}

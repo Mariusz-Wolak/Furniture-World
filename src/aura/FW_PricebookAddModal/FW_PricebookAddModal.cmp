@@ -1,0 +1,48 @@
+<aura:component description="FW_PricebookAddModal" controller="FW_DiscountManagerController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="showModal" type="Boolean" access="global"/>
+    <aura:attribute name="name" type="String" access="global"/>
+    <aura:attribute name="startDate" type="Date" access="global"/>
+    <aura:attribute name="endDate" type="Date" access="global"/>
+
+    <aura:registerEvent name="FW_SendPricebookEvent" type="c:FW_SendPricebookEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:if isTrue="{!v.showModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h1 class="slds-text-heading--medium">{!$Label.c.New_Price_Book}</h1>
+                </header>
+                <center>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <div class="inputDiv slds-size--1-of-1">
+                            <div class="inputHeader slds-text-align_left">{!$Label.c.Name}</div>
+                            <lightning:input value="{!v.name}"/>
+                        </div>
+                        <div class="inputDiv slds-size--1-of-1">
+                            <div class="inputHeader slds-text-align_left">{!$Label.c.Start_Date}</div>
+                            <lightning:input value="{!v.startDate}" type="date"/>
+                        </div>
+                        <div class="inputDiv slds-size--1-of-1">
+                            <div class="inputHeader slds-text-align_left">{!$Label.c.End_Date}</div>
+                            <lightning:input value="{!v.endDate}" type="date"/>
+                        </div>
+                    </div>
+                </center>
+                <footer class="slds-modal__footer">
+                    <lightning:button label="{!$Label.c.Cancel}"
+                                      onclick="{!c.closeModal}">{!$Label.c.Cancel}</lightning:button>
+                    <lightning:button label="{!$Label.c.Add}"
+                                      onclick="{!c.addPricebook}" variant="brand">{!$Label.c.Add}</lightning:button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

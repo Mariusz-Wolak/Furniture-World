@@ -1,0 +1,74 @@
+<aura:component description="FW_ProductAdd" implements="flexipage:availableForAllPageTypes, lightning:isUrlAddressable"
+                controller="FW_ProductManagementController">
+
+    <aura:attribute name="filesId" type="String[]" access="global"/>
+    <aura:attribute name="description" type="String" access="global"/>
+    <aura:attribute name="name" type="String" access="global"/>
+    <aura:attribute name="family" type="String" access="global"/>
+    <aura:attribute name="families" type="String[]" access="global"/>
+
+    <aura:registerEvent name="FW_ProductIdSendToRecordView" type="c:FW_ProductIdSendToRecordView"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container addContainer">
+            <lightning:card class="addContainer">
+                <center>
+                    <div class="slds-grid slds-wrap slds-align_absolute-center">
+                        <div class="slds-col slds-size_2-of-12"/>
+
+                        <div class="slds-col slds-size_8-of-12">
+                            <h1 class="header">{!$Label.c.Add_Item}</h1>
+                            <div class="singleField slds-size--1-of-1">
+                                <lightning:input value="{!v.name}" label="{!$Label.c.Name}"/>
+                            </div>
+                            <div class="singleField slds-size--1-of-1">
+                                <lightning:textarea value="{!v.description}" label="{!$Label.c.Description}"/>
+                            </div>
+                            <aura:if isTrue="{!not(empty(v.families))}">
+                                <div class="singleField slds-size--1-of-1">
+                                    <lightning:select aura:id="selectFamily" label="{!$Label.c.Family}">
+                                        <aura:iteration items="{!v.families}" var="familyVar">
+                                            <option text="{!familyVar}" value="{!v.family}"></option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </aura:if>
+                            <div class="singleField slds-size--1-of-1">
+                                <lightning:fileUpload name="fileUploader"
+                                                      multiple="true"
+                                                      accept=".pdf, .png, .jpg, .webp"
+                                                      recordId="0055J000000IzhoQAC"
+                                                      onuploadfinished="{!c.handleUploadFinished}"/>
+                            </div>
+                            <div class="singleField">
+                                <lightning:button label="{!$Label.c.Back}"
+                                                  onclick="{!c.backToListView}">{!$Label.c.Back}</lightning:button>
+                                <lightning:button label="{!$Label.c.Add_Item}" variant="brand"
+                                                  onclick="{!c.createProduct}">{!$Label.c.Add_Item}</lightning:button>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_2-of-12"/>
+                    </div>
+                </center>
+            </lightning:card>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open">
+    </div>
+
+    <lightning:listView aura:id="listViewProducts"
+                        objectApiName="Product2"
+                        listName="FurnitureWorldProducts"
+                        rows="30"
+                        showSearchBar="true"
+                        showActionBar="true"
+                        enableInlineEdit="true"
+                        showRowLevelActions="true"
+    />
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

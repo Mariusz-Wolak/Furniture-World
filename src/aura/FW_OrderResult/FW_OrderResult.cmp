@@ -1,0 +1,35 @@
+<aura:component description="FW_OrderResult">
+
+    <aura:attribute name="order" type="Order" access="global"/>
+    <aura:attribute name="showOrderDetails" type="Boolean" access="global"/>
+    <aura:attribute name="showComplaintsModal" type="Boolean" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div class="iterationItems slds-grid">
+        <div class="slds-col slds-size_1-of-12 slds-grid slds-align_absolute-center">{!v.order.OrderNumber}</div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center"><ui:outputDate value="{!v.order.EffectiveDate}"/></div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">{!v.order.Status}</div>
+
+        <div class="orderItem slds-col slds-size_3-of-12">
+            <aura:iteration items="{!v.order.OrderItems}" var="orderItem">
+                <c:FW_OrderProductResult orderItem="{!orderItem}"/>
+            </aura:iteration>
+        </div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">€{!v.order.Price__c}</div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon aura:id="moreIcon" class="moreIcon" iconName="utility:info" size="small" onclick="{!c.showDetails}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon aura:id="complaintIcon" class="complaintIcon" iconName="action:new_note" size="xx-small" onclick="{!c.showComplaintsModal}"/>
+        </div>
+    </div>
+
+    <c:FW_OrderDetailsModal showOrderDetails="{!v.showOrderDetails}" order="{!v.order}"/>
+    <c:FW_ComplaintModal showComplaintsModal="{!v.showComplaintsModal}" order="{!v.order}"/>
+</aura:component>

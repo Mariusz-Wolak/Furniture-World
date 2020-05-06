@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+
+    <div class="imgDiv" style="{!'background-image:url(' + $Resource.FW_FooterImg +')'}">
+        <div class="infoContainer">
+            <div class="header">
+                {!$Label.c.Furniture_World}
+            </div>
+            <div class="contactUs">
+                {!$Label.c.Contact_Us}
+            </div>
+            <div class="tel">
+                123-456-789
+            </div>
+        </div>
+    </div>
+</aura:component>

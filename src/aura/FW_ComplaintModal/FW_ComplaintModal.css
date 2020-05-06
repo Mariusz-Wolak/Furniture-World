@@ -1,0 +1,17 @@
+.THIS .orderInfoHeaderInComplaints{
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.THIS .orderInfoInComplaints{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.THIS .orderSummaryHeader{
+    font-style: italic;
+    font-size: 25px;
+}

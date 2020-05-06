@@ -1,0 +1,31 @@
+.THIS .productName{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.THIS .productName:hover{
+    color: blue;
+}
+
+.THIS.iterationItems{
+    font-size: 16px;
+    line-height: 2.5;
+}
+
+.THIS .orderItem{
+    padding: 5px;
+}
+
+.THIS .moreIcon:hover svg{
+    fill: blue;
+    cursor: pointer;
+}
+
+.THIS .moreIcon svg{
+    fill: #009EDB;
+}
+
+.THIS .complaintIcon:hover{
+    background-color: orangered;
+    cursor: pointer;
+}

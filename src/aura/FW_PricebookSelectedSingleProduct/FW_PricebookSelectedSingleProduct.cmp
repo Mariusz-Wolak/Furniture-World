@@ -1,0 +1,84 @@
+<aura:component description="FW_PricebookSelectedSingleProduct" controller="FW_ProductsController">
+
+    <aura:method name="passDiscountValues" action="{!c.getDiscountValues}" access="global">
+        <aura:attribute name="discountType" type="String" access="global"/>
+        <aura:attribute name="discountValue" type="String" access="global"/>
+    </aura:method>
+
+    <aura:method name="passSelectedProducts" action="{!c.passSelectedProducts}" access="global"/>
+
+    <aura:attribute name="product" type="Object" access="global"/>
+    <aura:attribute name="priceAfterDiscount" type="String" access="global"/>
+    <aura:attribute name="discountType" type="String" access="global"/>
+    <aura:attribute name="discountValue" type="String" access="global"/>
+    <aura:attribute name="standardPriceInputDisabled" type="Boolean" access="global"/>
+    <aura:attribute name="selectedPricebook" type="Object" access="global"/>
+
+    <aura:attribute name="showDeleteProductModal" type="Boolean" access="global"/>
+    <aura:attribute name="isStandardPB" type="Boolean" access="global"/>
+    <aura:attribute name="checkboxVal" type="Boolean" access="global"/>
+
+    <aura:registerEvent name="FW_DiscountManagerProductToDiscountEvent" type="c:FW_DiscountManagerProductToDiscountEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:if isTrue="{!v.isStandardPB}">
+        <div class="result slds-grid">
+            <div class="imgDiv slds-col slds-size_1-of-12 slds-align_absolute-center">
+                <img src="{!v.product.displayUrl}" alt=""/>
+            </div>
+            <div class="productName slds-col slds-size_2-of-12 slds-align_absolute-center">
+                    {!v.product.name}
+            </div>
+            <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+                <div class="priceText">{!$Label.c.Standard_Price}</div>
+                <ui:inputCurrency aura:id="standardPriceInput" format=".00" value="{!v.product.price}"
+                                  disabled="true"/>
+            </div>
+            <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+                <div class="priceText">{!$Label.c.Change_Price}</div>
+                <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+            </div>
+        </div>
+
+        <aura:set attribute="else">
+            <div class="result slds-grid">
+                <div class="imgDiv slds-col slds-size_1-of-12 slds-align_absolute-center">
+                    <img src="{!v.product.displayUrl}" alt=""/>
+                </div>
+                <div class="productName slds-col slds-size_2-of-12 slds-align_absolute-center">
+                        {!v.product.name}
+                </div>
+                <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+                    <div class="priceText">{!$Label.c.Standard_Price}</div>
+                    <ui:inputCurrency aura:id="standardPriceInput" format=".00" value="{!v.product.price}"
+                                      disabled="true"/>
+                </div>
+                <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+                    <aura:if isTrue="{!v.product.price}">
+                        <div class="priceText">{!$Label.c.New_Discount}</div>
+                        <ui:inputCurrency format=".00" value="{!v.priceAfterDiscount}"/>
+                        <aura:set attribute="else">
+                            <div class="priceText">
+                                    {!$Label.c.Set_Price_In_Standard_Price_Book_First}
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div class="resultInfo slds-col slds-size_2-of-12 slds-align_absolute-center">
+                    <div class="priceText">{!$Label.c.Current_Discount}</div>
+                    <ui:inputCurrency format=".00" value="{!v.product.discountPrice}"
+                                      disabled="true"/>
+                </div>
+
+                <div class="resultInfo slds-col slds-size_1-of-12 slds-align_absolute-center">
+                    <lightning:icon aura:id="removeIcon" class="removeIcon" iconName="action:remove" alternativeText="{!$Label.c.Remove}" title="{!$Label.c.Remove}"
+                                    size="xx-small" onclick="{!c.showDeleteProductModal}"/>
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+
+    <c:FW_PricebookRemoveProductModal showDeleteProductModal="{!v.showDeleteProductModal}" product="{!v.product}" selectedPricebook="{!v.selectedPricebook}"/>
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

@@ -1,0 +1,43 @@
+<aura:component controller="FW_ProductsController">
+
+    <aura:attribute name="product" type="Object" access="global"/>
+    <aura:attribute name="quantity" type="Integer" access="global"/>
+    <aura:attribute name="priceDifference" type="Decimal" access="global"/>
+
+    <aura:registerEvent name="FW_BasketRefreshEvent" type="c:FW_BasketRefreshEvent"/>
+    <aura:registerEvent name="FW_SendPriceDifference" type="c:FW_SendPriceDifference"/>
+    <aura:registerEvent name="selectedProduct" type="c:FW_ProductSelected"/>
+    <aura:registerEvent name="sendSimilarProducts" type="c:FW_SendSimilarProducts"/>
+    <aura:registerEvent name="FW_ProductIdSendToRecordView" type="c:FW_ProductIdSendToRecordView"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div class="singleProduct slds-grid">
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <img src="{!v.product.displayUrl}"/>
+        </div>
+
+        <div class="productInfo productName slds-col slds-size_3-of-12 slds-align_absolute-center" onclick="{!c.selectItem}">
+                {!v.product.name}
+        </div>
+
+        <div class="quantityDiv slds-col slds-size_2-of-12 slds-align_absolute-center">
+            <div class="minusDiv quantityOperation" onclick="{!c.decreaseQuantity}">-</div>
+            <lightning:input aura:id="quantityInput" class="quantityInput" type="number" step="1"
+                             value="{!v.quantity}" onchange="{!c.changeQuantity}"/>
+            <div class="plusDiv quantityOperation" onclick="{!c.increaseQuantity}">+</div>
+        </div>
+
+        <div class="productInfo slds-col slds-size_4-of-12 slds-align_absolute-center">
+            €{!v.product.totalPriceForProduct} &nbsp; <div class="singlePrice">(€{!v.product.actualPrice} each)</div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon aura:id="deleteIcon" class="deleteIcon" iconName="action:delete"
+                            size="xx-small"
+                            onclick="{!c.deleteFromBasket}"/>
+        </div>
+    </div>
+
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

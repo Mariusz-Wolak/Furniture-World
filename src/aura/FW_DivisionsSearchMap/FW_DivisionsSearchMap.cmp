@@ -1,0 +1,13 @@
+<aura:component description="DivisionsSearchMap" implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="resultsList" type="Account[]" access="public"/>
+    <aura:attribute name="mapMarkers" type="List" access="private"/>
+    <aura:attribute name="zoomLevel" type="Integer"/>
+
+    <aura:handler event="c:FW_SendResultsToResultList" action="{!c.onInit}"/>
+    <aura:handler event="c.FW_RecordSelected" action="{!c.zoomMap}"/>
+
+    <lightning:card title="{!$Label.c.Map}" iconName="action:map">
+        <lightning:map mapMarkers="{!v.mapMarkers}" zoomLevel="{!v.zoomLevel}" class="map"/>
+    </lightning:card>
+</aura:component>

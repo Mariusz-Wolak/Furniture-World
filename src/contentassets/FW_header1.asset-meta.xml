@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>FW_header1</masterLabel>
+    <originNetwork>Furniture World Community</originNetwork>
+    <relationships>
+        <network>
+            <access>VIEWER</access>
+            <name>Furniture World Community</name>
+        </network>
+        <workspace>
+            <access>INFERRED</access>
+            <isManagingWorkspace>true</isManagingWorkspace>
+            <name>sfdc_asset_company_assets</name>
+        </workspace>
+    </relationships>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>FW_header.jpg</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>
