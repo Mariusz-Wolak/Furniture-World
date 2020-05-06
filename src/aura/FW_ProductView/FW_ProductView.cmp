@@ -106,7 +106,7 @@
         <div class="slds-col slds-size_1-of-6"/>
     </div>
 
-    <div class="buttonSendComment slds-align_absolute-center">
+    <div class="slds-align_absolute-center">
         <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}" class="buttonClass"/>
     </div>
 
