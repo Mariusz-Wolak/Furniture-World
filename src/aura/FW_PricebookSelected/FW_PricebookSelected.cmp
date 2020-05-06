@@ -1,0 +1,119 @@
+<aura:component description="FW_PricebookSelected" controller="FW_DiscountManagerController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="results" type="Object[]" access="global"/>
+    <aura:attribute name="resultsFromSelectedPricebook" type="Object[]" access="global"/>
+    <aura:attribute name="discountType" type="String" access="global"/>
+    <aura:attribute name="discountValue" type="String" access="global"/>
+    <aura:attribute name="pricebooksList" type="Object[]" access="global"/>
+    <aura:attribute name="pricebookStartDate" type="String" access="global"/>
+    <aura:attribute name="pricebookEndDate" type="String" access="global"/>
+    <aura:attribute name="productsToDiscountList" type="Object[]" access="global"/>
+    <aura:attribute name="standardPricebookId" type="String" access="global"/>
+    <aura:attribute name="selectedPricebook" type="Object" access="global"/>
+    <aura:attribute name="searchItemName" type="String" access="global"/>
+
+    <aura:attribute name="isStandardPB" type="Boolean" access="global"/>
+    <aura:attribute name="showPricebookClearModal" type="Boolean" access="global"/>
+
+    <aura:registerEvent name="FW_SendProductsFromPricebook" type="c:FW_SendProductsFromPricebook"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="FW_SendProductsToDiscountManager" event="c:FW_SendProductsToDiscountManager"
+                  action="{!c.receiveSearchResults}"/>
+    <aura:handler event="c:FW_SendPricebookEvent" action="{!c.receiveNewPricebook}"/>
+    <aura:handler event="c:FW_SendUpdatedPricebook" action="{!c.updatePricebook}"/>
+    <aura:handler name="FW_DiscountManagerProductToDiscountEvent" event="c:FW_DiscountManagerProductToDiscountEvent"
+                  action="{!c.receiveProductToDiscount}"/>
+    <aura:handler event="c:FW_SelectedPricebook" action="{!c.selectPricebook}"/>
+    <aura:handler event="c:FW_SendProductToPricebook" action="{!c.addProductToPricebookList}"/>
+    <aura:handler event="c:FW_SendRemovedProductFromPricebook" action="{!c.removeProductFromPricebook}"/>
+    <aura:handler event="c:FW_SendDeletedPricebook" action="{!c.receiveDeletedPricebook}"/>
+    <aura:handler event="c:FW_SendAllSearchResultsToPricebook" action="{!c.addSearchResultsToPricebook}"/>
+    <aura:handler event="c:FW_SendClearedProductsFromPricebook" action="{!c.handleClearedProducts}"/>
+
+
+    <aura:if isTrue="{!v.selectedPricebook}">
+        <lightning:card>
+            <h1 class="selectedPricebookHeader">{!v.selectedPricebook.Name} &nbsp;
+
+                <aura:if isTrue="{!not(v.isStandardPB)}">(
+                    <ui:outputDate value="{!v.selectedPricebook.StartDate__c}"/>
+                    &nbsp; - &nbsp;
+                    <ui:outputDate
+                            value="{!v.selectedPricebook.EndDate__c}"/>
+                    )
+                </aura:if>
+            </h1>
+
+            <aura:if isTrue="{!not(empty(v.resultsFromSelectedPricebook))}">
+                <div class="optionsDiv">
+                    <aura:if isTrue="{!not(v.isStandardPB)}">
+                        <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
+                            <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+                        </div>
+
+                        <div class="inlineDiv discountOptionDiv">
+                            <lightning:input value="{!v.discountValue}" placeholder="{!$Label.c.Discount_Value}" onchange="{!c.compute}"
+                                             label="{!$Label.c.Discount_Value}"/>
+                        </div>
+
+                        <div class="inlineDiv discountOptionDiv">
+                            <lightning:select aura:id="discountType" onchange="{!c.compute}" label="{!$Label.c.Discount_Type}">
+                                <option value="%">%</option>
+                                <option value="{!$Label.c.Raw}">{!$Label.c.Raw}</option>
+                            </lightning:select>
+                        </div>
+
+                        <div class="inlineDiv buttonSetPrices">
+                            <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                        </div>
+
+                        <aura:set attribute="else">
+                            <div class="optionsDiv">
+                                <div class="inlineDiv searchBarDiv" onkeypress="{!c.search}">
+                                    <lightning:input name="searchBar" value="{!v.searchItemName}" type="search" placeholder="{!$Label.c.Search}"/>
+                                </div>
+                            </div>
+
+                            <div class="saveRightButton">
+                                <lightning:button label="{!$Label.c.Save}" onclick="{!c.setDiscount}"/>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+
+                    <aura:if isTrue="{!not(v.isStandardPB)}">
+                        <div class="rightButton">
+                            <lightning:button label="Clear Price Book" onclick="{!c.clearPricebook}" variant="destructive"/>
+                        </div>
+                    </aura:if>
+                </div>
+
+                <div class="scroll slds-scrollable_y" style="display: block; clear: both;">
+                    <aura:iteration items="{!v.resultsFromSelectedPricebook}" var="product">
+                        <c:FW_PricebookSelectedSingleProduct aura:id="singleProduct" product="{!product}" selectedPricebook="{!v.selectedPricebook}"/>
+                    </aura:iteration>
+                </div>
+                <aura:set attribute="else">
+                    <div class="noResultsInfo slds-align_absolute-center">
+                    {!$Label.c.No_Product_Associated_With_This_Pricebook_Have_Been_Found}.
+                    </div>
+                </aura:set>
+            </aura:if>
+
+
+        </lightning:card>
+
+
+        <aura:set attribute="else">
+            <lightning:card>
+                <div class="header slds-align_absolute-center">{!$Label.c.Select_Price_Book_From_The_List}</div>
+            </lightning:card>
+        </aura:set>
+
+    </aura:if>
+
+    <c:FW_DiscountPricebookClearModal resultsFromSelectedPricebook="{!v.resultsFromSelectedPricebook}" pricebook="{!v.selectedPricebook}"
+                                      showPricebookClearModal="{!v.showPricebookClearModal}"/>
+    <c:FW_CustomToast aura:id="customToast"/>
+</aura:component>

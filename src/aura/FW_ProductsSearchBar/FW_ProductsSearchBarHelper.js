@@ -1,8 +1,8 @@
 ({
-    doSearch: function(component, event){
+    search: function(component, event){
         let searchItem = component.get('v.searchItemName');
         let searchItemToSend = searchItem.replace(' ', '+');
-        let productsUrl = 'https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/search?searchItem='+searchItemToSend;
+        let productsUrl = $A.get('$Label.c.FW_Search_URL')+'?searchItem='+searchItemToSend;
         window.open(productsUrl, '_top');
     }
 })

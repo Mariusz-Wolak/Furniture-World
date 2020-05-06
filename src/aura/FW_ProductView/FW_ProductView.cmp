@@ -23,7 +23,7 @@
     <aura:handler event="c:FW_SendSimilarProducts" action="{!c.setSimilarProducts}"/>
     <aura:handler event="c:FW_ProductIdSendToRecordView" action="{!c.checkIfIsObserved}"/>
 
-    <div class="slds-grid">
+    <div class="productViewDiv slds-grid">
         <div class="slds-col slds-size_7-of-12">
             <c:FW_ProductPhotos recordId="{!v.product.id}" isCommunity="{!v.isCommunity}"/>
         </div>
@@ -60,7 +60,8 @@
                     </div>
 
                     <div class="basketButtonDiv">
-                        <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="Add To Basket" variant="brand"/>
+                        <lightning:button aura:id="basketButton" class="basketButton" onclick="{!c.addToBasket}" label="{!$Label.c.Add_To_Basket}"
+                                          variant="brand"/>
                     </div>
                 </div>
             </aura:if>
@@ -105,7 +106,7 @@
         <div class="slds-col slds-size_1-of-6"/>
     </div>
 
-    <div class="buttonSendComment slds-align_absolute-center">
+    <div class="slds-align_absolute-center">
         <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!c.addComment}" class="buttonClass"/>
     </div>
 
@@ -113,9 +114,9 @@
             {!v.header}
     </div>
 
-    <div class="similarItems slds-grid slds-wrap">
+    <div class="slds-grid slds-wrap">
         <aura:iteration items="{!v.results}" var="item">
-            <div class="productTile slds-col slds-size_3-of-12">
+            <div class="slds-col slds-size_3-of-12">
                 <c:FW_ProductTile item="{!item}"/>
             </div>
         </aura:iteration>

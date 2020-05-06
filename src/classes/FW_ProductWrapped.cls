@@ -1,4 +1,18 @@
 public with sharing class FW_ProductWrapped {
+
+    public FW_ProductWrapped(){}
+
+    public FW_ProductWrapped(String id, String displayUrl, String description, String name, String type, String family, List<FW_ObservedItem__c>
+            observedItems){
+        this.id = id;
+        this.displayUrl = displayUrl;
+        this.description = description;
+        this.name = name;
+        this.type = type;
+        this.family = family;
+        this.observedItems = observedItems;
+    }
+
     @AuraEnabled
     public String id;
     @AuraEnabled
@@ -26,9 +40,7 @@ public with sharing class FW_ProductWrapped {
     @AuraEnabled
     public String pricebookId;
     @AuraEnabled
-    public String buyer;
-    @AuraEnabled
-    public FW_ObservedItem__c[] observedItems;
+    public List<FW_ObservedItem__c> observedItems;
     @AuraEnabled
     public Boolean isObserved;
 

@@ -10,7 +10,8 @@
         helper.deselectPhotos(component, mainPhoto);
     },
 
-    loadPhoto: function(component, event, helper){
+    getPhotos: function(component, event, helper){
+        let productId = event.getParam('productId');
         component.set('v.productId', event.getParam('productId'));
         helper.loadMainPhoto(component, event);
     }

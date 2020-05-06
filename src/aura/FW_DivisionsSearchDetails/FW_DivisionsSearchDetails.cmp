@@ -6,7 +6,6 @@
     <aura:attribute name="deleteDivisionIsOpen" type="Boolean" access="public"/>
 
     <aura:handler name="sendAccount" event="c:FW_SendAccount" action="{!c.getRecord}"/>
-
     <aura:handler event="c:FW_RecordSelected" action="{!c.onInit}"/>
     <aura:handler event="c:FW_SendResultsToResultList" action="{!c.setResultsList}"/>
 
@@ -40,7 +39,7 @@
     </aura:if>
 
 
-    <c:FW_CustomModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
+    <c:FW_DivisionDeleteModal aura:id="customModal" deleteDivisionIsOpen="{!v.deleteDivisionIsOpen}" divisionId="{!v.record.Id}"
                       divisionsList="{!v.resultsList}"/>
     <c:FW_CustomToast aura:id="customToast"/>
 </aura:component>

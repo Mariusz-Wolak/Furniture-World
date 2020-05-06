@@ -49,7 +49,7 @@
     },
 
     toggleObserved: function(component, event, helper){
-        helper.doToggleObserved(component);
+        helper.toggleObserved(component);
     },
 
     toggleObserveIcon: function(component, event, helper){

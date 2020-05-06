@@ -4,6 +4,9 @@
   display: table;
 }
 
+.THIS.productViewDiv{
+    padding-top: 3vh;
+}
 
 .THIS .productName{
     display: inline-block;
@@ -37,7 +40,7 @@
 }
 
 .THIS.rateProductText{
-    padding-top: 75px;
+    padding-top: 60px;
     font-size: 24px;
     font-weight: bold
 }
@@ -51,7 +54,6 @@
 .THIS .observeIcon{
     cursor: pointer;
 }
-
 
 .THIS .basketButton{
     padding: 10px;
@@ -100,9 +102,6 @@
 
 .THIS .textAreaDiv{
     font-size: 20px;
-}
-
-.THIS.buttonSendComment{
 }
 
 .THIS .buttonClass{
@@ -174,8 +173,4 @@
 .THIS .basketButtonDiv{
     margin-top: 10px;
     margin-left: 30px;
-}
-
-.THIS.similarItems{
-    padding-bottom: 10vh;
 }

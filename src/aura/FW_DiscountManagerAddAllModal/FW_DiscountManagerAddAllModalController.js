@@ -11,6 +11,6 @@
         });
         sendSearchResultsEvent.fire();
         component.set('v.showAddAllModal', false);
-        component.find('customToast').showSuccessToast('Results have been successfully moved to the price book');
+        component.find('customToast').showSuccessToast($A.get('$Label.c.Results_Have_Been_Successfully_Moved_To_The_Pricebook'));
     }
 })

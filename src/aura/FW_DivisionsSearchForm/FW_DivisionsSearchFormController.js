@@ -1,6 +1,6 @@
 ({
     search:function(component,event,helper){
-        helper.doSearch(component);
+        helper.search(component);
     },
 
     clear: function(component, event, helper){

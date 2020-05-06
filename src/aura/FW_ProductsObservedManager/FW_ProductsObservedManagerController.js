@@ -1,5 +1,5 @@
 ({
     toggleObserved: function(component, event, helper){
-        helper.doToggleObserved(component, event);
+        helper.toggleObserved(component, event);
     }
 })

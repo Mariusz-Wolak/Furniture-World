@@ -1680,4 +1680,158 @@
         <shortDescription>Set_Price_In_Standard_Price_Book_First</shortDescription>
         <value>Set price in Standard Price Book in order to set discount</value>
     </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Cleared_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Cleared_Successfully</shortDescription>
+        <value>Price book has been cleared successfully</value>
+    </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Updated_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Updated_Successfully</shortDescription>
+        <value>Price book has been updated successfully</value>
+    </labels>
+    <labels>
+        <fullName>Results_Have_Been_Successfully_Moved_To_The_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results_Have_Been_Successfully_Moved_To_The_Pricebook</shortDescription>
+        <value>Results have been successfully moved to the price book</value>
+    </labels>
+    <labels>
+        <fullName>Please_Fill_In_Given_Inputs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please_Fill_In_Given_Inputs</shortDescription>
+        <value>Please fill in given inputs</value>
+    </labels>
+    <labels>
+        <fullName>This_Name_Is_Already_In_Use</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This_Name_Is_Already_In_Use</shortDescription>
+        <value>This name is already in use</value>
+    </labels>
+    <labels>
+        <fullName>Pricebook_Has_Been_Deleted_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricebook_Has_Been_Deleted_Successfully</shortDescription>
+        <value>Price book has been deleted successfully</value>
+    </labels>
+    <labels>
+        <fullName>Product_Has_Been_Removed_From_Pricebook_Successfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product_Has_Been_Removed_From_Pricebook_Successfully</shortDescription>
+        <value>Product has been removed from price book successfully</value>
+    </labels>
+    <labels>
+        <fullName>FW_Basket_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Basket_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/basket</value>
+    </labels>
+    <labels>
+        <fullName>FW_Orders_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Orders_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/orders</value>
+    </labels>
+    <labels>
+        <fullName>FW_Welcome_Page_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Welcome_Page_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/</value>
+    </labels>
+    <labels>
+        <fullName>FW_Search_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW_Search_URL</shortDescription>
+        <value>https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/search</value>
+    </labels>
+    <labels>
+        <fullName>State</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>State</shortDescription>
+        <value>State</value>
+    </labels>
+    <labels>
+        <fullName>Postal_Code</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Postal_Code</shortDescription>
+        <value>Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Move_All_Results_To_The_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Move_All_Results_To_The_Pricebook</shortDescription>
+        <value>Are you sure you want to move all results to the price book?</value>
+    </labels>
+    <labels>
+        <fullName>Add_All_Right_Angle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_All_Right_Angle</shortDescription>
+        <value>Add All ></value>
+    </labels>
+    <labels>
+        <fullName>Furniture_World</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Furniture_World</shortDescription>
+        <value>Furniture World</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Delete_This_Item</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Delete_This_Item</shortDescription>
+        <value>Are you sure you want to delete this item?</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure_You_Want_To_Remove_This_Item_From_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are_You_Sure_You_Want_To_Remove_This_Item_From_Pricebook</shortDescription>
+        <value>Are you sure you want to remove this item from pricebook?</value>
+    </labels>
+    <labels>
+        <fullName>New_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Discount</shortDescription>
+        <value>New Discount</value>
+    </labels>
+    <labels>
+        <fullName>Current_Discount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current_Discount</shortDescription>
+        <value>Current Discount</value>
+    </labels>
+    <labels>
+        <fullName>Add_To_Basket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add_To_Basket</shortDescription>
+        <value>Add To Basket</value>
+    </labels>
+    <labels>
+        <fullName>Go_Shopping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go_Shopping</shortDescription>
+        <value>Go Shopping!</value>
+    </labels>
 </CustomLabels>

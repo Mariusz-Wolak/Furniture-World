@@ -23,7 +23,7 @@
         $A.enqueueAction(action);
     },
 
-    doToggleObserved: function(component, event){
+    toggleObserved: function(component, event){
         let observedProductsManager = component.find('observedProductsManager');
         let observeIcon = component.find('observeIcon');
         let productId = component.get('v.product.id');
@@ -37,7 +37,7 @@
         observedProductsManager.toggle(isAddingToObserved, productId);
     },
 
-    doAddToBasket: function(component, event){
+    addToBasket: function(component, event){
         let basketButton = component.find('basketButton');
         let productId = component.get('v.product.id');
         let quantity = component.get('v.quantity');
@@ -61,7 +61,7 @@
         $A.enqueueAction(action);
     },
 
-    doAddComment: function(component, event){
+    addComment: function(component, event){
         let rate = component.get('v.rating');
         let commentText = component.get('v.commentText');
         if(rate == undefined){

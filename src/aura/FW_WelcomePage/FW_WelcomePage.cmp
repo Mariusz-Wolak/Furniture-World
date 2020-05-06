@@ -3,11 +3,9 @@
     <div class="homeImg" style="{!'background-image:url(' + $Resource.FurnitureWelcomeImg +')'}">
 
         <div class="textContainer">
-            <div class="header">Furniture World</div>
+            <div class="header">{!$Label.c.Furniture_World}</div>
             <div class="phrase">Sed sit amet tellus feugiat</div>
-            <div class="goShoppingDiv" onclick="{!c.goToSearch}">Go Shopping!</div>
+            <div class="goShoppingDiv" onclick="{!c.goToSearch}">{!$Label.c.Go_Shopping}</div>
         </div>
     </div>
-
-
 </aura:component>

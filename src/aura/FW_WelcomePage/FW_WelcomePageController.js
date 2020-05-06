@@ -1,5 +1,5 @@
 ({
     goToSearch: function(component, event, helper){
-        window.open('https://fw-community-developer-edition.eu32.force.com/furnitureworldcommunity/s/search', '_top');
+        window.open($A.get('$Label.c.FW_Search_URL'), '_top');
     }
 })
